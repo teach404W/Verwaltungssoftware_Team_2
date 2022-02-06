@@ -1,0 +1,9 @@
+@startuml
+start
+:Anmelden;
+:Menü: Fach anlegen;
+:Frage welches Fach;
+:Frage welches Jahr;
+:Ausgabe Bestätigung;
+stop
+@enduml
