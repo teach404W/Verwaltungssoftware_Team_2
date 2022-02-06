@@ -1,7 +1,7 @@
 # 03 Projekt Verwaltungsanwendung
 An dieser Stelle können Sie eine Beschreibung Ihrer Anwendung, Struktur etc. einfügen.
 # Inhalt
-In diesem Projekt soll ihr die folgende Java-Kenntnisse erlangen: 
+In diesem Projekt sollt ihr die folgende Java-Kenntnisse erlangen: 
 
 - OOP Modellierung
   - Objektmodellierung
