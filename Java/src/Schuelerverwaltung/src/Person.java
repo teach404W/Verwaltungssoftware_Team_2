@@ -8,7 +8,11 @@ public class Person {
 
     public Person(String pVorname, String pNachname, int pAlter){
         setAlter(pAlter);
+
+
         setNachname(pNachname);
+
+        
         setVorname(pVorname);
     }
 
