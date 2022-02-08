@@ -198,15 +198,9 @@ javax.swing.JButton eRandomButton = new JButton();
             frame.add(panel1);
             frame.setVisible(true);
 
-
-            l.setVisible(false);
-
-            texarea.setVisible(true);
-            confirmButton.setVisible(true);
-            randomButton.setVisible(true);
             
 Thread.sleep(1000);
-//loading();
+loading();
     }
 
    static public void loading() throws InterruptedException{
