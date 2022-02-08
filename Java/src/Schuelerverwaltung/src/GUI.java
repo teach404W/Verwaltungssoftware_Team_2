@@ -62,8 +62,8 @@ public class GUI {
             l = new JLabel();
             l.setForeground(Color.white);
             l.setFont(new Font("Times new Roman", Font.PLAIN, 30));
-            l.setBounds(540, 30, 400, 0);
-            l.setSize(500, 500);
+            l.setBounds(420, 0, 400, 0);
+            l.setSize(600, 500);
             l.setBackground(Color.black);
             l.setVisible(true);
             l.setFocusable(false);
@@ -84,25 +84,25 @@ loading();
    static public void loading() throws InterruptedException{
         for (int i = 1; i<61;i++){
             Thread.sleep(0);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(400, 300, Image.SCALE_AREA_AVERAGING)));
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
 
         }
 
         for (int i = 1; i<61;i++){
             Thread.sleep(0);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(400, 300, Image.SCALE_AREA_AVERAGING)));
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
 
         }
 
         for (int i = 1; i<61;i++){
             Thread.sleep(0);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(400, 300, Image.SCALE_AREA_AVERAGING)));
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
 
         }
 
         for (int i = 1; i<61;i++){
             Thread.sleep(0);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(400, 300, Image.SCALE_AREA_AVERAGING)));
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
 
         }
     }
