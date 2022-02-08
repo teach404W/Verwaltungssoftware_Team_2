@@ -31,6 +31,9 @@ public class GUI implements ActionListener {
     static JPanel panel1;
     static JTextField texarea;
     static JButton confirmButton;
+    static JPanel randomButton;
+    static JButton eRandomButton;
+    static JLabel iRandomButton;
 
 
 
@@ -114,16 +117,55 @@ confirmButton.setActionCommand("ConfirmName");
 confirmButton.setBorder(new LineBorder(Color.white));
 
 
+randomButton = new JPanel();
+randomButton.setForeground(new Color(255, 255, 255));
+randomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+randomButton.setBounds(450, 400, 60, 60);
+randomButton.setBackground(Color.black);
+randomButton.setVisible(false);
+randomButton.setFocusable(false);
+randomButton.setOpaque(false);
+//confirmButton.addActionListener(this);
+//randomButton.setActionCommand("ConfirmName");
+randomButton.setBorder(new LineBorder(Color.white));
+
+
+ eRandomButton = new JButton();
+ eRandomButton.setForeground(new Color(255, 255, 255));
+ eRandomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+ eRandomButton.setBounds(0, 0, 0, 0);
+ eRandomButton.setBackground(null);
+        eRandomButton.setVisible(true);
+        eRandomButton.setFocusable(false);
+        eRandomButton.setOpaque(false);
+       // erandomButton.addActionListener(this);
+        eRandomButton.setActionCommand("eAchievements");
+        eRandomButton.setBorder(new LineBorder(Color.black));
+
+
+        iRandomButton = new JLabel();
+        iRandomButton.setForeground(Color.white);
+        iRandomButton.setFont(new Font("Times new Roman", Font.PLAIN, 50));
+        iRandomButton.setSize(80, 80);
+        iRandomButton.setVisible(true);
+        iRandomButton.setFocusable(false);
+        iRandomButton.setOpaque(false);
+        iRandomButton.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Others\\Würfel.png").getImage().getScaledInstance(50, 45,
+                Image.SCALE_AREA_AVERAGING)));
+                iRandomButton.setBorder(new LineBorder(Color.black));
+
             frame.add(l2);
             frame.add(texarea);
             frame.add(confirmButton);
+            frame.add(randomButton);
+            randomButton.add(eRandomButton);
+            eRandomButton.add(iRandomButton);
+            frame.add(randomButton);
 
             frame.add(loading_);
             frame.add(l);
             frame.add(panel1);
             frame.setVisible(true);
-
-
 
 Thread.sleep(1000);
 loading();
@@ -190,6 +232,7 @@ loading();
 
 texarea.setVisible(true);
 confirmButton.setVisible(true);
+randomButton.setVisible(true);
 
     }
 
