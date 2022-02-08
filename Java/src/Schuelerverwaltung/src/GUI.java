@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.text.html.HTMLDocument.BlockElement;
 
 
-public class GUI implements ActionListener {
+public class GUI{
 
     static JFrame frame;
     static double v;
@@ -96,11 +96,11 @@ public class GUI implements ActionListener {
 
 
             texarea = new JTextField(10);
-texarea.setBounds(520,400,200,60);
+texarea.setBounds(520,400,300,60);
 texarea.setVisible(false);
 texarea.setBackground(Color.BLACK);
 texarea.setForeground(Color.WHITE);
-texarea.setFont(new Font("Arial",Font.BOLD,20));
+texarea.setFont(new Font("Arial",Font.BOLD,18));
 texarea.setBorder(new LineBorder(Color.white));
 
 
@@ -108,7 +108,7 @@ texarea.setBorder(new LineBorder(Color.white));
 confirmButton = new JButton("/");
 confirmButton.setForeground(new Color(255, 255, 255));
 confirmButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
-confirmButton.setBounds(740, 400, 60, 60);
+confirmButton.setBounds(830, 400, 60, 60);
 confirmButton.setBackground(Color.black);
 confirmButton.setVisible(false);
 confirmButton.setFocusable(false);
@@ -130,7 +130,7 @@ randomButton.setOpaque(false);
 randomButton.setBorder(new LineBorder(Color.white));
 
 
- eRandomButton = new JButton();
+javax.swing.JButton eRandomButton = new JButton();
  eRandomButton.setForeground(new Color(255, 255, 255));
  eRandomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
  eRandomButton.setBounds(0, 0, 0, 0);
@@ -138,8 +138,39 @@ randomButton.setBorder(new LineBorder(Color.white));
         eRandomButton.setVisible(true);
         eRandomButton.setFocusable(false);
         eRandomButton.setOpaque(false);
-       // erandomButton.addActionListener(this);
-        eRandomButton.setActionCommand("eAchievements");
+        eRandomButton.addActionListener(new ActionListener(){
+
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("RandomName")){
+                    int x = (int) (Math.random() * 100);
+                    if (x > 50){
+                         x = (int) (Math.random() * 100);
+                        texarea.setText("");
+                        for (int a = 1;a<4;a++){
+                            texarea.setText(texarea.getText() + texts.randomNames[x]);
+                             x = (int) (Math.random() * 100);
+
+                        }
+                        return;
+                    }
+
+                    if (x < 50){
+                        x = (int) (Math.random() * 100);
+                       texarea.setText("");
+                       for (int a = 1;a<3;a++){
+                           texarea.setText(texarea.getText() + texts.randomNames[x]);
+                            x = (int) (Math.random() * 100);
+
+                       }
+                       return;
+                   }
+
+                };
+                if (e.getActionCommand().equals("RandomNumber")) texarea.setText("Random: " + (int) ( Math.random() * 100));
+            }
+
+        });
+        eRandomButton.setActionCommand("RandomName");
         eRandomButton.setBorder(new LineBorder(Color.black));
 
 
@@ -167,11 +198,16 @@ randomButton.setBorder(new LineBorder(Color.white));
             frame.add(panel1);
             frame.setVisible(true);
 
+
+            l.setVisible(false);
+
+            texarea.setVisible(true);
+            confirmButton.setVisible(true);
+            randomButton.setVisible(true);
+            
 Thread.sleep(1000);
-loading();
+//loading();
     }
-
-
 
    static public void loading() throws InterruptedException{
     int t1 = 12;
@@ -205,22 +241,22 @@ loading();
         Thread.sleep(2000);
 
         for (int c = 60; c<99;c++){
-            Thread.sleep(2);
+            Thread.sleep(0);
             l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
 
            
             }
 
 
-            for (int t = 0; t <3;t++){
-                for (int i = 1; i<61;i++){
-                    Thread.sleep(2);
+            for (int t = 0; t <5;t++){
+                for (int i = 1; i<61;i+=3){
+                    Thread.sleep(0);
                     l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
                    
                 }
             
-                for (int c = 60; c<99;c++){
-                    Thread.sleep(2);
+                for (int c = 60; c<99;c+=3){
+                    Thread.sleep(0);
                     l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
         
                    
@@ -235,15 +271,6 @@ confirmButton.setVisible(true);
 randomButton.setVisible(true);
 
     }
-
-
-@Override
-public void actionPerformed(ActionEvent e) {
-    // TODO Auto-generated method stub
-    
-}
-
-
 
 
     
