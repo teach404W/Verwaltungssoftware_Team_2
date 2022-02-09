@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.text.html.HTMLDocument.BlockElement;
 
 
-public class GUI{
+public class GUI implements ActionListener{
 
     static JFrame frame;
     static double v;
@@ -34,11 +34,11 @@ public class GUI{
     static JPanel randomButton;
     static JButton eRandomButton;
     static JLabel iRandomButton;
+    Texts texts = new Texts();
 
 
 
-    public static void main(String[] args) throws Exception {
-        Texts texts = new Texts();
+    public GUI() throws Exception {
 
 
                 frame = new JFrame();
@@ -57,13 +57,6 @@ public class GUI{
             startname.setForeground(Color.WHITE);
             startname.setVisible(true);
 
-
-            JLabel loading_ = new JLabel();
-            loading_.setBackground(Color.BLACK);
-            loading_.setSize(200, 200);
-            loading_.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-            loading_.setForeground(Color.WHITE);
-            loading_.setVisible(true);
 
 
 
@@ -138,40 +131,13 @@ javax.swing.JButton eRandomButton = new JButton();
         eRandomButton.setVisible(true);
         eRandomButton.setFocusable(false);
         eRandomButton.setOpaque(false);
-        eRandomButton.addActionListener(new ActionListener(){
-
-            public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("RandomName")){
-                    int x = (int) (Math.random() * 100);
-                    if (x > 50){
-                         x = (int) (Math.random() * 100);
-                        texarea.setText("");
-                        for (int a = 1;a<4;a++){
-                            texarea.setText(texarea.getText() + texts.randomNames[x]);
-                             x = (int) (Math.random() * 100);
-
-                        }
-                        return;
-                    }
-
-                    if (x < 50){
-                        x = (int) (Math.random() * 100);
-                       texarea.setText("");
-                       for (int a = 1;a<3;a++){
-                           texarea.setText(texarea.getText() + texts.randomNames[x]);
-                            x = (int) (Math.random() * 100);
-
-                       }
-                       return;
-                   }
-
-                };
-                if (e.getActionCommand().equals("RandomNumber")) texarea.setText("Random: " + (int) ( Math.random() * 100));
-            }
-
-        });
         eRandomButton.setActionCommand("RandomName");
         eRandomButton.setBorder(new LineBorder(Color.black));
+        eRandomButton.addActionListener(this);
+
+           
+
+
 
 
         iRandomButton = new JLabel();
@@ -193,7 +159,6 @@ javax.swing.JButton eRandomButton = new JButton();
             eRandomButton.add(iRandomButton);
             frame.add(randomButton);
 
-            frame.add(loading_);
             frame.add(l);
             frame.add(panel1);
             frame.setVisible(true);
@@ -268,7 +233,39 @@ randomButton.setVisible(true);
 
 
     
+    public void actionPerformed(java.awt.event.ActionEvent e) {
 
+        if (e.getActionCommand().equals("RandomName")){
+            int x = (int) (Math.random() * 100);
+            if (x > 50){
+                 x = (int) (Math.random() * 100);
+                texarea.setText("");
+                for (int a = 1;a<4;a++){
+                    texarea.setText(texarea.getText() + texts.randomNames[x]);
+                     x = (int) (Math.random() * 100);
+
+                }
+                return;
+            }
+
+            if (x < 50){
+                x = (int) (Math.random() * 100);
+               texarea.setText("");
+               for (int a = 1;a<3;a++){
+                   texarea.setText(texarea.getText() + texts.randomNames[x]);
+                    x = (int) (Math.random() * 100);
+
+               }
+
+
+               
+               x = (int) (Math.random() * 100); //  x Wird neu generiert (0-100)
+               if (x < 60) texarea.setText(texarea.getText() + x); //  60%, dass der Name eine Zufällige Zahl am Ende bekommt
+               return;
+           }
+
+        };
+    }
     
     
 }
