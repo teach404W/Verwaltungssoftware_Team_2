@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.html.HTMLDocument.BlockElement;
 
 
@@ -35,8 +36,13 @@ public class GUI implements ActionListener{
     static JPanel randomButton;
     static JButton eRandomButton;
     static JLabel iRandomButton;
+    static JPanel search_Box;
+    static JButton searchB1;
+    static JButton searchB2;
+    static JButton searchB3;
+    static JButton searchB4;
     Texts texts = new Texts();
-
+ArraysList arraysList = new ArraysList();
 
 
     public GUI() throws Exception {
@@ -64,6 +70,67 @@ public class GUI implements ActionListener{
             panel1 = new JPanel();
             panel1.setBounds(800, 200, 350, 100);
             panel1.setBackground(Color.black);
+
+
+search_Box = new JPanel();
+search_Box.setForeground(new Color(255, 255, 255));
+search_Box.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+search_Box.setBounds(800, 300, 250, 320);
+search_Box.setBackground(Color.black);
+search_Box.setVisible(false);
+search_Box.setFocusable(false);
+search_Box.setBorder(new LineBorder(Color.white));
+
+
+searchB1 = new JButton("           ");
+searchB1.setForeground(new Color(255, 255, 255));
+searchB1.setFont(new Font("Times new Roman", Font.PLAIN, 45));
+searchB1.setBounds(0, 0, 0, 0);
+searchB1.setBackground(new Color(39,43,49));
+searchB1.setVisible(false);
+searchB1.setFocusable(false);
+searchB1.setActionCommand("SearchB1");
+searchB1.setBorder(new LineBorder(Color.white));
+searchB1.addActionListener(this);
+
+
+searchB2 = new JButton("           ");
+searchB2.setForeground(new Color(255, 255, 255));
+searchB2.setFont(new Font("Times new Roman", Font.PLAIN, 45));
+searchB2.setBounds(0, 0, 0, 0);
+searchB2.setBackground(new Color(39,43,49));
+searchB2.setVisible(false);
+searchB2.setFocusable(false);
+searchB2.setActionCommand("SearchB2");
+searchB2.setBorder(new LineBorder(Color.white));
+searchB2.addActionListener(this);
+
+searchB3 = new JButton("           ");
+searchB3.setForeground(new Color(255, 255, 255));
+searchB3.setFont(new Font("Times new Roman", Font.PLAIN, 45));
+searchB3.setBounds(0, 0, 0, 0);
+searchB3.setBackground(new Color(39,43,49));
+searchB3.setVisible(false);
+searchB3.setFocusable(false);
+searchB3.setActionCommand("searchB3");
+searchB3.setBorder(new LineBorder(Color.white));
+searchB3.addActionListener(this);
+
+searchB4 = new JButton("           ");
+searchB4.setForeground(new Color(255, 255, 255));
+searchB4.setFont(new Font("Times new Roman", Font.PLAIN, 45));
+searchB4.setBounds(0, 0, 0, 0);
+searchB4.setBackground(new Color(39,43,49));
+searchB4.setVisible(false);
+searchB4.setFocusable(false);
+searchB4.setActionCommand("searchB4");
+searchB4.setBorder(new LineBorder(Color.white));
+searchB4.addActionListener(this);
+
+search_Box.add(searchB1);
+search_Box.add(searchB2);
+search_Box.add(searchB3);
+search_Box.add(searchB4);
 
             l = new JLabel();
             l.setForeground(Color.white);
@@ -135,16 +202,16 @@ randomButton.setBorder(new LineBorder(Color.white));
 
 
 javax.swing.JButton eRandomButton = new JButton();
- eRandomButton.setForeground(new Color(255, 255, 255));
- eRandomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
- eRandomButton.setBounds(0, 0, 0, 0);
- eRandomButton.setBackground(null);
-        eRandomButton.setVisible(true);
-        eRandomButton.setFocusable(false);
-        eRandomButton.setOpaque(false);
-        eRandomButton.setActionCommand("RandomName");
-        eRandomButton.setBorder(new LineBorder(Color.black));
-        eRandomButton.addActionListener(this);
+eRandomButton.setForeground(new Color(255, 255, 255));
+eRandomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+eRandomButton.setBounds(0, 0, 0, 0);
+eRandomButton.setBackground(null);
+eRandomButton.setVisible(true);
+eRandomButton.setFocusable(false);
+eRandomButton.setOpaque(false);
+eRandomButton.setActionCommand("RandomName");
+eRandomButton.setBorder(new LineBorder(Color.black));
+eRandomButton.addActionListener(this);
 
            
 
@@ -162,6 +229,9 @@ javax.swing.JButton eRandomButton = new JButton();
                 Image.SCALE_AREA_AVERAGING)));
                 iRandomButton.setBorder(new LineBorder(Color.black));
 
+
+
+
             frame.add(l2);
             frame.add(texarea);
             frame.add(confirmButton);
@@ -170,14 +240,153 @@ javax.swing.JButton eRandomButton = new JButton();
             eRandomButton.add(iRandomButton);
             frame.add(randomButton);
             frame.add(infoText);
+            frame.add(search_Box);
 
             frame.add(l);
             frame.add(panel1);
             frame.setVisible(true);
 
+
             
+            l.setVisible(false);
+
+texarea.setVisible(true);
+confirmButton.setVisible(true);
+randomButton.setVisible(true);
+infoText.setVisible(true);
+
 Thread.sleep(1000);
-loading();
+//loading();
+
+
+while (texarea.isVisible() == true){
+    if (texarea.getText().length() >= 1){
+        int d = 0;
+        int d2 = 0;
+        if (searchB1.getText() == null) {
+            searchB1.setVisible(false);
+            searchB2.setVisible(false);
+            searchB3.setVisible(false);
+            searchB4.setVisible(false);
+        }
+
+    search_Box.setVisible(true);
+    for (int a = 0; a< arraysList.testArray.length;a++){
+
+
+        if (texarea.getText().toString().equals(arraysList.testArray[a])){
+            searchB1.setVisible(true);
+            searchB1.setText(arraysList.testArray[a]);
+            search_Box.setBounds(800, 300, 250, 320);
+         //   searchB3.setVisible(false);
+            searchB4.setVisible(false);
+
+            if (searchB2.getText().toString() != searchB1.getText().toString()) searchB2.setVisible(true); 
+            if (searchB2.getText().toString() == searchB1.getText().toString()){
+                searchB2.setVisible(true);
+                search_Box.setBounds(800, 300, 250, 320);
+                d = 0;
+                for (int z = 0; z< arraysList.testArray.length;z++){
+                if (!searchB1.getText().toString().equals(arraysList.testArray[z])){   
+                    d++;
+                  if (texarea.getText().length() > 1)
+                    if (texarea.getText().toString().charAt(0) == arraysList.testArray[z].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.testArray[z].charAt(1) && !searchB1.getText().toString().equals(arraysList.testArray[z])){   
+                        if (!texarea.getText().toString().equals(arraysList.testArray[z]))            
+                        searchB2.setVisible(true);
+                        searchB2.setText(arraysList.testArray[z]);
+                        search_Box.setBounds(800, 300, 250, 320);
+                        break;
+                    }
+                
+                }
+                }
+            }  
+
+
+            break;
+        }
+
+        if (texarea.getText().toString().charAt(0) == arraysList.testArray[a].charAt(0)){
+        if (!texarea.getText().toString().equals(arraysList.testArray[a])){           
+                searchB1.setVisible(true);
+                searchB1.setText(arraysList.testArray[a]);
+                search_Box.setBounds(800, 300, 250, 320);
+            }
+            
+        }
+
+        try {
+            if (Integer.parseInt(texarea.getText().toString()) == a && Integer.parseInt(texarea.getText().toString()) <8){
+                searchB1.setVisible(true);
+                searchB1.setText(arraysList.testArray[a]);
+                search_Box.setBounds(800, 300, 250, 320);
+                searchB2.setVisible(false);
+                searchB3.setVisible(false);
+                searchB4.setVisible(false);
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        
+
+
+                if (!searchB1.getText().toString().equals(arraysList.testArray[a])){   
+                    d++;
+
+                    if (texarea.getText().length() < 1){
+                        searchB3.setVisible(false);
+                    }
+                  if (texarea.getText().length() > 1)
+                    if (texarea.getText().toString().charAt(0) == arraysList.testArray[d].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.testArray[d].charAt(1) && !searchB1.getText().toString().equals(arraysList.testArray[d])){   
+                        if (!texarea.getText().toString().equals(arraysList.testArray[a]))            
+                        searchB2.setVisible(true);
+                        searchB2.setText(arraysList.testArray[d]);
+                        search_Box.setBounds(800, 300, 250, 320);
+                    }
+                
+                    
+                }
+
+
+                if (!searchB1.getText().toString().equals(arraysList.testArray[a]) && !searchB2.getText().toString().equals(arraysList.testArray[a])){   
+                    d2++;
+
+                    if (texarea.getText().length() < 2){
+                        searchB3.setVisible(false);
+                    }
+                    for (int z = 0; z< arraysList.testArray.length;z++){
+                  if (texarea.getText().length() > 2)
+                    if (texarea.getText().toString().charAt(0) == arraysList.testArray[z].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.testArray[z].charAt(1) && texarea.getText().toString().charAt(2) == arraysList.testArray[z].charAt(2)  && !searchB1.getText().toString().equals(arraysList.testArray[z]) && !searchB2.getText().toString().equals(arraysList.testArray[z])){   
+                        if (!texarea.getText().toString().equals(arraysList.testArray[z]))       
+                             
+                        searchB3.setVisible(true);
+                        searchB3.setText(arraysList.testArray[z]);
+                        search_Box.setBounds(800, 300, 250, 320);
+                        System.out.println(arraysList.testArray[z]);
+                        break;
+                    }
+                
+                    
+                    
+                }
+            }
+
+        }
+
+
+
+    }
+
+
+
+    else{
+        search_Box.setVisible(false);
+
+    }
+    Thread.sleep(1000);
+
+    
+}
     }
 
    static public void loading() throws InterruptedException{
@@ -247,6 +456,7 @@ confirmButton.setVisible(true);
 randomButton.setVisible(true);
 infoText.setVisible(true);
 
+
     }
 
 
@@ -284,6 +494,8 @@ infoText.setVisible(true);
 
         };
     }
+
+
     
     
 }
