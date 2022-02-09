@@ -28,6 +28,7 @@ public class GUI implements ActionListener{
     static double r;
     static JLabel l;
     static JLabel l2;
+    static JLabel infoText;
     static JPanel panel1;
     static JTextField texarea;
     static JButton confirmButton;
@@ -84,12 +85,22 @@ public class GUI implements ActionListener{
             l2.setBounds(420, 300, 400, 0);
             l2.setSize(400, 500);
             l2.setBackground(Color.black);
-            l2.setVisible(true);
+            l2.setVisible(false);
             l2.setFocusable(false);
 
 
+
+            infoText = new JLabel("Name eingeben (0-20 Character)");
+            infoText.setForeground(new Color(80,80,80));
+            infoText.setFont(new Font("Times new Roman", Font.PLAIN, 18));
+            infoText.setBounds(420, 324, 400, 0);
+            infoText.setSize(400, 100);
+            infoText.setOpaque(false);
+            infoText.setVisible(false);
+            infoText.setFocusable(false);
+
             texarea = new JTextField(10);
-texarea.setBounds(520,400,300,60);
+texarea.setBounds(420,300,300,60);
 texarea.setVisible(false);
 texarea.setBackground(Color.BLACK);
 texarea.setForeground(Color.WHITE);
@@ -101,7 +112,7 @@ texarea.setBorder(new LineBorder(Color.white));
 confirmButton = new JButton("/");
 confirmButton.setForeground(new Color(255, 255, 255));
 confirmButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
-confirmButton.setBounds(830, 400, 60, 60);
+confirmButton.setBounds(730, 300, 60, 60);
 confirmButton.setBackground(Color.black);
 confirmButton.setVisible(false);
 confirmButton.setFocusable(false);
@@ -113,7 +124,7 @@ confirmButton.setBorder(new LineBorder(Color.white));
 randomButton = new JPanel();
 randomButton.setForeground(new Color(255, 255, 255));
 randomButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
-randomButton.setBounds(450, 400, 60, 60);
+randomButton.setBounds(350, 300, 60, 60);
 randomButton.setBackground(Color.black);
 randomButton.setVisible(false);
 randomButton.setFocusable(false);
@@ -158,6 +169,7 @@ javax.swing.JButton eRandomButton = new JButton();
             randomButton.add(eRandomButton);
             eRandomButton.add(iRandomButton);
             frame.add(randomButton);
+            frame.add(infoText);
 
             frame.add(l);
             frame.add(panel1);
@@ -173,7 +185,7 @@ loading();
     Texts texts = new Texts();
         for (int i = 1; i<61;i++){
             Thread.sleep(t1);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
 
 
             if (i == 15){
@@ -197,12 +209,17 @@ loading();
             
         }
 
+        int t2 = 0;
         Thread.sleep(2000);
 
-        for (int c = 60; c<99;c++){
-            Thread.sleep(0);
-            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
+        for (int c = 60; c<99;c+=2){
+            Thread.sleep(t2);
+            l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
 
+            if (c > 85){
+
+                t2 = 22;
+            }
            
             }
 
@@ -210,13 +227,13 @@ loading();
             for (int t = 0; t <5;t++){
                 for (int i = 1; i<61;i+=3){
                     Thread.sleep(0);
-                    l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
+                    l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
                    
                 }
             
                 for (int c = 60; c<99;c+=3){
                     Thread.sleep(0);
-                    l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(450, 300, Image.SCALE_AREA_AVERAGING)));
+                    l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
         
                    
                     }
@@ -228,6 +245,7 @@ loading();
 texarea.setVisible(true);
 confirmButton.setVisible(true);
 randomButton.setVisible(true);
+infoText.setVisible(true);
 
     }
 
