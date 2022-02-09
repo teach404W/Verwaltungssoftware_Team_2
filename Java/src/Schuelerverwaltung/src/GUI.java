@@ -248,15 +248,9 @@ eRandomButton.addActionListener(this);
 
 
             
-            l.setVisible(false);
-
-texarea.setVisible(true);
-confirmButton.setVisible(true);
-randomButton.setVisible(true);
-infoText.setVisible(true);
 
 Thread.sleep(1000);
-//loading();
+loading();
 
 
 while (texarea.isVisible() == true){
