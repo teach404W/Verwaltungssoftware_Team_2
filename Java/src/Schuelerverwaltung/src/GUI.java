@@ -246,16 +246,10 @@ eRandomButton.addActionListener(this);
             frame.add(panel1);
             frame.setVisible(true);
 
-
-            l.setVisible(false);
-
-            texarea.setVisible(true);
-            confirmButton.setVisible(true);
-            randomButton.setVisible(true);
-            infoText.setVisible(true);  
+ 
 
 Thread.sleep(1000);
-//loading();
+loading();
 
 
 while (texarea.isVisible() == true){
@@ -392,6 +386,10 @@ if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z)){
 
     else{
         search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
+        searchB3.setVisible(false);
+        searchB4.setVisible(false);
 
     }
     Thread.sleep(1000);
