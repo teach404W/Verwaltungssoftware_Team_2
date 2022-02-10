@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.html.HTMLDocument.BlockElement;
 
 
-public class GUI implements ActionListener{
+public class GUI2 implements ActionListener{
 
     static JFrame frame;
     static double v;
@@ -45,7 +45,7 @@ public class GUI implements ActionListener{
 ArraysList arraysList = new ArraysList();
 
 
-    public GUI() throws Exception {
+    public GUI2() throws Exception {
 
 
                 frame = new JFrame();
@@ -85,7 +85,7 @@ search_Box.setBorder(new LineBorder(Color.white));
 searchB1 = new JButton("           ");
 searchB1.setForeground(new Color(255, 255, 255));
 searchB1.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-searchB1.setBounds(825, 325, 200, 50);
+searchB1.setBounds(0, 0, 0, 0);
 searchB1.setBackground(new Color(39,43,49));
 searchB1.setVisible(false);
 searchB1.setFocusable(false);
@@ -97,7 +97,7 @@ searchB1.addActionListener(this);
 searchB2 = new JButton("           ");
 searchB2.setForeground(new Color(255, 255, 255));
 searchB2.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-searchB2.setBounds(825, 400, 200, 50);
+searchB2.setBounds(0, 0, 0, 0);
 searchB2.setBackground(new Color(39,43,49));
 searchB2.setVisible(false);
 searchB2.setFocusable(false);
@@ -108,7 +108,7 @@ searchB2.addActionListener(this);
 searchB3 = new JButton("           ");
 searchB3.setForeground(new Color(255, 255, 255));
 searchB3.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-searchB3.setBounds(825, 475, 200, 50);
+searchB3.setBounds(0, 0, 0, 0);
 searchB3.setBackground(new Color(39,43,49));
 searchB3.setVisible(false);
 searchB3.setFocusable(false);
@@ -119,7 +119,7 @@ searchB3.addActionListener(this);
 searchB4 = new JButton("           ");
 searchB4.setForeground(new Color(255, 255, 255));
 searchB4.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-searchB4.setBounds(825, 550, 200, 50);
+searchB4.setBounds(0, 0, 0, 0);
 searchB4.setBackground(new Color(39,43,49));
 searchB4.setVisible(false);
 searchB4.setFocusable(false);
@@ -127,10 +127,10 @@ searchB4.setActionCommand("searchB4");
 searchB4.setBorder(new LineBorder(Color.white));
 searchB4.addActionListener(this);
 
-frame.add(searchB1);
-frame.add(searchB2);
-frame.add(searchB3);
-frame.add(searchB4);
+search_Box.add(searchB1);
+search_Box.add(searchB2);
+search_Box.add(searchB3);
+search_Box.add(searchB4);
 
             l = new JLabel();
             l.setForeground(Color.white);
@@ -247,23 +247,16 @@ eRandomButton.addActionListener(this);
             frame.setVisible(true);
 
 
-            l.setVisible(false);
-
-            texarea.setVisible(true);
-            confirmButton.setVisible(true);
-            randomButton.setVisible(true);
-            infoText.setVisible(true);  
+            
 
 Thread.sleep(1000);
-//loading();
+loading();
 
 
 while (texarea.isVisible() == true){
     if (texarea.getText().length() >= 1){
         int d = 0;
         int d2 = 0;
-        int v = 0;
-
         if (searchB1.getText() == null) {
             searchB1.setVisible(false);
             searchB2.setVisible(false);
@@ -275,61 +268,12 @@ while (texarea.isVisible() == true){
     for (int a = 0; a< arraysList.testArray.length;a++){
 
 
-
-        for (int z = 0; z<arraysList.testArray[a].length(); z++){
-            if (texarea.getText().length() > 0){
-                try {
-if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z)){
-    searchB1.setVisible(true);
-            searchB1.setText(arraysList.testArray[a]);
-            v++;
-
-            if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z +1)){
-    searchB1.setVisible(true);
-            searchB1.setText(arraysList.testArray[a]);
-            v++;
-            }
-
-            if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z +2)){
-                searchB1.setVisible(true);
-                        searchB1.setText(arraysList.testArray[a]);
-                        v++;
-
-                        }
-                        
-                        if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z +3)){
-                            searchB1.setVisible(true);
-                                    searchB1.setText(arraysList.testArray[a]);
-                                    v++;
-                                    }
-
-                                    if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z +4)){
-                                        searchB1.setVisible(true);
-                                                searchB1.setText(arraysList.testArray[a]);
-                                                v++;
-                                                }
-
-            break;
-}
-
-
-} catch (Exception e) {
-    //TODO: handle exception
-}
-            }
-
-            
-        }
-
-
-        try {
-
         if (texarea.getText().toString().equals(arraysList.testArray[a])){
             searchB1.setVisible(true);
             searchB1.setText(arraysList.testArray[a]);
             search_Box.setBounds(800, 300, 250, 320);
          //   searchB3.setVisible(false);
-          //  searchB4.setVisible(false);
+            searchB4.setVisible(false);
 
             if (searchB2.getText().toString() != searchB1.getText().toString()) searchB2.setVisible(true); 
             if (searchB2.getText().toString() == searchB1.getText().toString()){
@@ -354,12 +298,17 @@ if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z)){
 
 
             break;
+        }
+
+        if (texarea.getText().toString().charAt(0) == arraysList.testArray[a].charAt(0)){
+        if (!texarea.getText().toString().equals(arraysList.testArray[a])){           
+                searchB1.setVisible(true);
+                searchB1.setText(arraysList.testArray[a]);
+                search_Box.setBounds(800, 300, 250, 320);
+            }
             
         }
 
-    } catch (Exception e) {
-        //TODO: handle exception
-    }
         try {
             if (Integer.parseInt(texarea.getText().toString()) == a && Integer.parseInt(texarea.getText().toString()) <8){
                 searchB1.setVisible(true);
@@ -375,12 +324,46 @@ if (texarea.getText().charAt(v) == arraysList.testArray[a].charAt(z)){
         
 
 
+                if (!searchB1.getText().toString().equals(arraysList.testArray[a])){   
+                    d++;
+
+                    if (texarea.getText().length() < 1){
+                        searchB3.setVisible(false);
+                    }
+                  if (texarea.getText().length() > 1)
+                    if (texarea.getText().toString().charAt(0) == arraysList.testArray[d].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.testArray[d].charAt(1) && !searchB1.getText().toString().equals(arraysList.testArray[d])){   
+                        if (!texarea.getText().toString().equals(arraysList.testArray[a]))            
+                        searchB2.setVisible(true);
+                        searchB2.setText(arraysList.testArray[d]);
+                        search_Box.setBounds(800, 300, 250, 320);
+                    }
                 
+                    
+                }
+
+
+                if (!searchB1.getText().toString().equals(arraysList.testArray[a]) && !searchB2.getText().toString().equals(arraysList.testArray[a])){   
+                    d2++;
+
+                    if (texarea.getText().length() < 2){
+                        searchB3.setVisible(false);
+                    }
+                    for (int z = 0; z< arraysList.testArray.length;z++){
+                  if (texarea.getText().length() > 2)
+                    if (texarea.getText().toString().charAt(0) == arraysList.testArray[z].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.testArray[z].charAt(1) && texarea.getText().toString().charAt(2) == arraysList.testArray[z].charAt(2)  && !searchB1.getText().toString().equals(arraysList.testArray[z]) && !searchB2.getText().toString().equals(arraysList.testArray[z])){   
+                        if (!texarea.getText().toString().equals(arraysList.testArray[z]))       
+                             
+                        searchB3.setVisible(true);
+                        searchB3.setText(arraysList.testArray[z]);
+                        search_Box.setBounds(800, 300, 250, 320);
+                        System.out.println(arraysList.testArray[z]);
+                        break;
+                    }
                 
                     
                     
-                
-            
+                }
+            }
 
         }
 

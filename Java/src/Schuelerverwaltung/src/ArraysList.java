@@ -13,7 +13,10 @@ public class ArraysList {
 "Extra",
 "Extras",
 "Extro",
-"Ger",
+"Gereras",
+"Garas",
+"Niklas K",
+"Niklas S",
 
     };
 
