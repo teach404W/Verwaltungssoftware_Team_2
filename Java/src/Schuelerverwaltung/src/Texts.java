@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Texts {
-    ArrayList<String> loadingTex3 = new ArrayList<>(
-            Arrays.asList("System lädt", "Funktionen laden", "Methoden werden vorbereitet"));
+
 
     String loadingtex[] = {
             "System lädt",
@@ -36,36 +33,36 @@ public class Texts {
             "Services laden",
             "Services laden",
             "Services laden",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
+            "Services laden",
+            "Services laden",
+            "Services laden",
             "Textbox lädt",
             "Textbox lädt",
             "Textbox lädt",
             "Textbox lädt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
-            "Informationen werden gesammelt",
+            "Menü lädt",
+            "Menü lädt",
+            "Menü lädt",
+            "Menü lädt",
+            "Menü lädt[1]",
+            "Menü lädt[1]",
+            "Menü lädt[2]",
+            "Menü lädt[2]",
+            "Menü lädt[3]",
+            "Menü lädt[3]",
+            "Menü lädt[4]",
+            "Menü lädt[4]",
+            "Menü lädt[5]",
+            "Menü lädt[5]",
+            "Menü lädt[6]",
+            "Menü lädt[6]",
             "Lädt",
+            "Lädt",
+            "Lädt",
+            "Lädt",
+            "Lädt",
+            "Lädt",
+            "",
 
     };
 
@@ -189,6 +186,9 @@ public class Texts {
 
     };
 
-    public void texts() {
+
+    public String setTex(String[] a, int i){
+
+        return a[i];
     }
 }
