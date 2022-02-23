@@ -1,16 +1,38 @@
 @startuml
 
-objekt Karte 
+Object Karte{
+
 Name : String
 Klasse : String
 Seltenheit : String
 Karten ID : String (Ints)
+}
 
-objekt Stats : String
+object Stats{
+
 Damage : String (Ints)
 HP : String (Ints)
 Agilität : String (Ints)
 Element : String
+}
+
+object anmeldung{
+    Name : String
+    Passwort : Int
+    angemeldet : Boolean
+    r1 : random
+    r2 : Int
+    d : Int
+
+}
+
+object Loading{
+    t1 = 12 : Int
+    t2 = 0 : Int
+
+} 
+
+object 
 
 Karte <|-- Stats
 
