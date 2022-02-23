@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class DataStore implements Serializable {
     String name;
@@ -9,7 +8,7 @@ public class DataStore implements Serializable {
 
 
     String temp_KarteName;
-    String temp_KarteRarity;
+    String temp_KarteSeltenheit;
     String temp_KarteDamage;
     String temp_KarteHP;
     String temp_KarteAgility;
@@ -18,17 +17,134 @@ public class DataStore implements Serializable {
     String temp_KarteAbility;    
 
 
-    ArrayList<String> karte_Name = new ArrayList<>(); 
+    String re_KarteName;
+    String re_KarteSeltenheit;
+    String re_KarteDamage;
+    String re_KarteHP;
+    String re_KarteAgility;
+    String re_KarteElement;
+    String re_KarteID;
+    String re_KarteAbility;
 
-    ArrayList<String> karte_Seltenheit = new ArrayList<>(); 
 
-    ArrayList<String> karte_Damage = new ArrayList<>(); 
-
-    ArrayList<String> karte_HP = new ArrayList<>(); 
-
-    ArrayList<String> karte_Agility = new ArrayList<>(); 
-
-    ArrayList<String> karte_Element = new ArrayList<>(); 
-
-    ArrayList<String> karte_ID = new ArrayList<>(); 
+    String[] karte_Name = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_Seltenheiten = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_Damage = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_HP = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_Agility = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_Element = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    String[] karte_Ability = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
+    
+    
+    String[] karte_ID = {
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+    
+    
+    };
 }
