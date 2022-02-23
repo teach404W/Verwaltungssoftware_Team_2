@@ -1,5 +1,17 @@
 @startuml
 
+objekt Karte 
+Name : String
+Klasse : String
+Seltenheit : String
+Karten ID : String (Ints)
 
+objekt Stats : String
+Damage : String (Ints)
+HP : String (Ints)
+Agilität : String (Ints)
+Element : String
+
+Karte <|-- Stats
 
 @enduml
