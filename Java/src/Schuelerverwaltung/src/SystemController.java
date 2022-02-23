@@ -24,6 +24,17 @@ private    Random r1;
 private int r2;
 private int d;
 
+Karte karte1 = null;
+Karte karte2 = null;
+Karte karte3 = null;
+Karte karte4 = null;
+Karte karte5 = null;
+Karte karte6 = null;
+Karte karte7 = null;
+Karte karte8 = null;
+Karte karte9 = null;
+Karte karte10 = null;
+
 
 String[] karte_Name = {
     "1",
@@ -180,7 +191,6 @@ searchB4.addActionListener(this);
 confirmButton.addActionListener(this);
 eRandomButton.addActionListener(this);
 eSaveButton.addActionListener(this);
-
 Thread.sleep(1000);
 loading();
 sync();
