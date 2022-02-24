@@ -14,6 +14,9 @@ Element : String
 
 Object User{
 
+Name : String
+Passwort : Int
+Angemeldet : boolean
 
 }
 
