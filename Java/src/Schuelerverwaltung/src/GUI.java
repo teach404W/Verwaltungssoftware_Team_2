@@ -80,6 +80,7 @@ public class GUI{
 ArraysList arraysList = new ArraysList();
 DataStore dataStore = new DataStore();
 Input input = new Input();
+User user = new User();
 
     public GUI() throws Exception {
 
