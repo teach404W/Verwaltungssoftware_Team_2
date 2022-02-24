@@ -1,0 +1,20 @@
+@startuml
+
+Object Karte{
+
+Name : String
+Klasse : String
+Seltenheit : String
+Karten ID : String (Ints)
+Damage : String (Ints)
+HP : String (Ints)
+Agilität : String (Ints)
+Element : String
+}
+
+Object User{
+
+
+}
+
+@enduml
