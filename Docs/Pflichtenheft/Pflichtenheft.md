@@ -68,7 +68,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
   - die gelöschte Karte bleibt in DataStore und der Nutzer kann sie jederzeit wiederherstellen   
   - wenn der Nutzer eine Karte löscht, während in DataStore eine gelöschte Karte gespeichert ist, bekommt der Nutzer eine Warnung und muss zwischen "Ja" und "Nein" wählen. Wenn der Nutzer "Ja" auswählt, dann wird die gespeicherte Karte aus der DataStore entfernt. Wählt der Nutzer "Nein" aus, dann bleibt die gespeicherte Karte in DataStore und die Karte, die der Nutzer löschen wollte, bleibt.
 
-- Zufällige Karte machen   
+- Zufällige Karte ziehen   
   - der zufällige Generator generiert eine ganze Karte mit zufälligen Eigenschaftswerten (zufälliger Name, zufällige Seltenheit, ...)
 
 - Abmelden   
