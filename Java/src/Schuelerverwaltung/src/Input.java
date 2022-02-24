@@ -40,12 +40,12 @@ public void option1_1(){
             case '1': System.out.println("1"); option1_1();break;
         }
     }
-    public void keyReleased(java.awt.event.KeyEvent f2){
+    public void keyReleased(java.awt.event.KeyEvent k){
 
     }
 
-    public void keyTyped(java.awt.event.KeyEvent f2){
-        System.out.println(f2.getKeyChar());
+    public void keyTyped(java.awt.event.KeyEvent k){
+        System.out.println(k.getKeyChar());
     }
 
 

@@ -17,9 +17,7 @@ import java.awt.event.KeyListener;
 
 public class SystemController extends GUI implements ActionListener, KeyListener {
 
-    String name;
-    int password;
-    boolean angemeldet = true;
+    
 private    Random r1;
 private int r2;
 private int d;
@@ -197,7 +195,7 @@ sync();
 
 
 
-        while (angemeldet == true){
+        while (user.angemeldet == true){
             if (confirmButton.getActionCommand() == "ConfirmCardRarity"){
                 if (texarea.getText().length() < 1){
                     sec_Image.setVisible(false);
@@ -225,40 +223,40 @@ sync();
                 }
         
             search_Box.setVisible(true);
-            for (int a = 0; a< arraysList.karten.length;a++){
+            for (int a = 0; a< arraysList.search_Results.length;a++){
         
         
         
-                for (int z = 0; z<arraysList.karten[a].length(); z++){
+                for (int z = 0; z<arraysList.search_Results[a].length(); z++){
                     if (texarea.getText().length() > 0){
                         try {
-        if (texarea.getText().charAt(v) == arraysList.karten[a].charAt(z)){
+        if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z)){
             searchB1.setVisible(true);
-                    searchB1.setText(arraysList.karten[a]);
+                    searchB1.setText(arraysList.search_Results[a]);
                     v++;
         
-                    if (texarea.getText().charAt(v) == arraysList.karten[a].charAt(z +1)){
+                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z +1)){
             searchB1.setVisible(true);
-                    searchB1.setText(arraysList.karten[a]);
+                    searchB1.setText(arraysList.search_Results[a]);
                     v++;
                     }
         
-                    if (texarea.getText().charAt(v) == arraysList.karten[a].charAt(z +2)){
+                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z +2)){
                         searchB1.setVisible(true);
-                                searchB1.setText(arraysList.karten[a]);
+                                searchB1.setText(arraysList.search_Results[a]);
                                 v++;
         
                                 }
                                 
-                                if (texarea.getText().charAt(v) == arraysList.karten[a].charAt(z +3)){
+                                if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z +3)){
                                     searchB1.setVisible(true);
-                                            searchB1.setText(arraysList.karten[a]);
+                                            searchB1.setText(arraysList.search_Results[a]);
                                             v++;
                                             }
         
-                                            if (texarea.getText().charAt(v) == arraysList.karten[a].charAt(z +4)){
+                                            if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z +4)){
                                                 searchB1.setVisible(true);
-                                                        searchB1.setText(arraysList.karten[a]);
+                                                        searchB1.setText(arraysList.search_Results[a]);
                                                         v++;
                                                         }
         
@@ -277,9 +275,9 @@ sync();
         
                 try {
         
-                if (texarea.getText().toString().equals(arraysList.karten[a])){
+                if (texarea.getText().toString().equals(arraysList.search_Results[a])){
                     searchB1.setVisible(true);
-                    searchB1.setText(arraysList.karten[a]);
+                    searchB1.setText(arraysList.search_Results[a]);
                     search_Box.setBounds(800, 300, 250, 320);
                  //   searchB3.setVisible(false);
                   //  searchB4.setVisible(false);
@@ -289,14 +287,14 @@ sync();
                         searchB2.setVisible(true);
                         search_Box.setBounds(800, 300, 250, 320);
                         d = 0;
-                        for (int z = 0; z< arraysList.karten.length;z++){
-                        if (!searchB1.getText().toString().equals(arraysList.karten[z])){   
+                        for (int z = 0; z< arraysList.search_Results.length;z++){
+                        if (!searchB1.getText().toString().equals(arraysList.search_Results[z])){   
                             d++;
                           if (texarea.getText().length() > 1)
-                            if (texarea.getText().toString().charAt(0) == arraysList.karten[z].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.karten[z].charAt(1) && !searchB1.getText().toString().equals(arraysList.karten[z])){   
-                                if (!texarea.getText().toString().equals(arraysList.karten[z]))            
+                            if (texarea.getText().toString().charAt(0) == arraysList.search_Results[z].charAt(0) && texarea.getText().toString().charAt(1) == arraysList.search_Results[z].charAt(1) && !searchB1.getText().toString().equals(arraysList.search_Results[z])){   
+                                if (!texarea.getText().toString().equals(arraysList.search_Results[z]))            
                                 searchB2.setVisible(true);
-                                searchB2.setText(arraysList.karten[z]);
+                                searchB2.setText(arraysList.search_Results[z]);
                                 search_Box.setBounds(800, 300, 250, 320);
                                 break;
                             }
@@ -316,7 +314,7 @@ sync();
                 try {
                     if (Integer.parseInt(texarea.getText().toString()) == a && Integer.parseInt(texarea.getText().toString()) <8){
                         searchB1.setVisible(true);
-                        searchB1.setText(arraysList.karten[a]);
+                        searchB1.setText(arraysList.search_Results[a]);
                         search_Box.setBounds(800, 300, 250, 320);
                         searchB2.setVisible(false);
                         searchB3.setVisible(false);
@@ -469,15 +467,15 @@ sync();
                     private void anmelden(){
                         if (texarea.getText().length() > 4 && texarea.getText().length() <16){
                 
-                            if (texarea.getText().charAt(0) == '0' && password < 1){
+                            if (texarea.getText().charAt(0) == '0' && user.password < 1){
                                 infoText.setText("0 kann nicht als Anfangszahl sein");
                                 return;
                             }
                             try{
-                                if (password < 10000){
+                                if (user.password < 10000){
                                 if (Integer.parseInt(texarea.getText().toString()) > 10000){
                                     dataStore.password = Integer.parseInt(texarea.getText().toString());
-                                    password = Integer.parseInt(texarea.getText().toString());
+                                    user.password = Integer.parseInt(texarea.getText().toString());
                                     infoText.setText("Erfolgreich angemeldet");
                                     confirmButton.setActionCommand("ConfirmPassword");
                                     randomButton.setVisible(false);
@@ -486,7 +484,7 @@ sync();
                                     search_Box.setVisible(false);
                                     infoText.setVisible(false);
                                     dataStore.angemeldet = true;
-                                    angemeldet = true;
+                                    user.angemeldet = true;
                                     option_1.setVisible(true);
                                     option_1_Image.setVisible(true);
                                     option_2.setVisible(true);
@@ -503,8 +501,8 @@ sync();
                             }
             
             
-                            if (password > 10000){
-                               if(password == Integer.parseInt(texarea.getText().toString())){
+                            if (user.password > 10000){
+                               if(user.password == Integer.parseInt(texarea.getText().toString())){
                                 infoText.setText("Erfolgreich angemeldet");
                                 confirmButton.setActionCommand("ConfirmPassword");
                                 randomButton.setVisible(false);
@@ -513,7 +511,7 @@ sync();
                                 search_Box.setVisible(false);
                                 infoText.setVisible(false);
                                 dataStore.angemeldet = true;
-                                angemeldet = true;
+                                user.angemeldet = true;
                                 option_1.setVisible(true);
                                 option_1_Image.setVisible(true);
                                 option_2.setVisible(true);
@@ -528,7 +526,7 @@ sync();
                                 option_6_Image.setVisible(true);
                                 }
             
-                                if(password != Integer.parseInt(texarea.getText().toString())){
+                                if(user.password != Integer.parseInt(texarea.getText().toString())){
                                     infoText.setText("Password: Falsch");
                                     }
             
@@ -572,19 +570,19 @@ sync();
 
 
                 private void confirmName(){
-                    if (name != null){
+                    if (user.name != null){
                 
                                     
-                        if (!texarea.getText().toString().equals(name)){
+                        if (!texarea.getText().toString().equals(user.name)){
                             infoText.setText("Name: Falsch");
                             }
         
-                        if (texarea.getText().toString().equals(name)){
+                        if (texarea.getText().toString().equals(user.name)){
                         infoText.setText("Anmeldung: Passwort eingeben (5-10 Charakter)");
                         confirmButton.setActionCommand("ConfirmPassword");
                         eRandomButton.setActionCommand("GenerateNumber");
                         texarea.setText(null);
-                        if (password < 10000){
+                        if (user.password < 10000){
                             randomButton.setVisible(true);
                         }
                     }
@@ -592,14 +590,14 @@ sync();
                     }
         
                     if (texarea.getText().length() > 3 && texarea.getText().length() <21){
-                        if (name == null){
+                        if (user.name == null){
                         dataStore.name = texarea.getText().toString();
-                        name = texarea.getText().toString();
+                        user.name = texarea.getText().toString();
                         infoText.setText("Anmeldung: Passwort eingeben (5-10 Charakter)");
                         confirmButton.setActionCommand("ConfirmPassword");
                         eRandomButton.setActionCommand("GenerateNumber");
                         texarea.setText(null);
-                        if (password < 10000){
+                        if (user.password < 10000){
                             randomButton.setVisible(true);
                         }
                     }
@@ -869,9 +867,9 @@ sync();
                                     BufferedOutputStream b = new BufferedOutputStream(f);
                                     ObjectOutputStream o = new ObjectOutputStream(b);
                 
-                                    dataStore.name = name;
-                                    dataStore.password = password;
-                                    dataStore.angemeldet = angemeldet;
+                                    dataStore.name = user.name;
+                                    dataStore.password = user.password;
+                                    dataStore.angemeldet = user.angemeldet;
                                     dataStore.ver = true;
                                     dataStore.karte_Name = karte_Name;
                 
@@ -896,17 +894,17 @@ sync();
                                     DataStore dataStore =  (DataStore)obj2.readObject();
                 
                 
-                                    name = dataStore.name;
-                                    password = dataStore.password;
-                                    angemeldet = dataStore.angemeldet;
+                                    user.name = dataStore.name;
+                                    user.password = dataStore.password;
+                                    user.angemeldet = dataStore.angemeldet;
                                     dataStore.ver = true;
                                     karte_Name = dataStore.karte_Name;
                 
                                     obj2.close();
                 
-                                    System.out.println(name);
-                                    System.out.println(angemeldet);
-                                    System.out.println(password);
+                                    System.out.println(user.name);
+                                    System.out.println(user.password);
+                                    System.out.println(user.angemeldet);
                                     System.out.println(karte_Name);
                                     System.out.println(karte_Name[0]);
                 
