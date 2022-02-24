@@ -1,6 +1,6 @@
 public class ArraysList {
 
-    String karten[] = {
+    String search_Results[] = {
 "   ",
 "",
 "",
