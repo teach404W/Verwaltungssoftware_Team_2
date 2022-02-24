@@ -1,13 +1,19 @@
-# Kapitelübersicht
-
 # Einleitung
 
 ## Kapitelübersicht
-
+- 1. Beschreibung der Anwendung
+  - 1.1 Grobbeschreibung
+  - 1.2 Menüführung
+- 2. Beschreibung des Funktionsabluafs 
+  - 2.1 Beschreibung der Funktion
+  - 2.2 Besonderheiten
+- 3. Diagramm Dokumentaion
+  - 3.1 Klassendiagramm
 ## 1. Beschreibung der Anwendung
 
 ### **1.1 Grobbeschreibung** 
 
+In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Seltenheit, Fähigkeiten, Stats und bekommen eine eigene ID.
 
 ### **1.2 Menüführung**
 
@@ -37,6 +43,8 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
     - Der Nutzer wird abgemeldet
 
 ## 2. Beschreibung des Funktionsablaufs
+
+### **2.1 Beschreibung der Funktionen**
 - Karte anlegen 
  
   - Für alle Eigenschaften hat der Nutzer auch einen Zufälligen Generator. Dieser Generator gibt der Eigenschaft einen zufälligen Wert, zum Beispiel: man kann einen Zufälligen Damage Wert mit dem Generator generieren.  
@@ -80,7 +88,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 
 
 
-### **2.1 Besonderheiten**
+### **2.2 Besonderheiten**
 
 Unser Programm hat ein paar Besonderheiten, einmal das jede Karte, die erstellt wird, automatisch eine ID zugewiesen wird. Außerdem, dass man nach dem Karten erstellen, mit dem hinzugefügten Kartenpool, eine Art Pack Opening durchführen kann. Die gezogene Karte, wird dann dem Inventar zugefügt (Anzahl der Exemplare einer Karte). 
 Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestaltet wurde. Zuletzt noch, dass die Karten beim beenden des Programmes gespeichert werden.
