@@ -107,15 +107,15 @@ User user = new User();
             panel1.setBackground(Color.black);
 
 
-sync_Box = new JPanel();
-sync_Box.setForeground(new Color(255, 255, 255));
-sync_Box.setFont(new Font("Times new Roman", Font.PLAIN, 60));
-sync_Box.setBounds(900, 500, 250, 145);
-sync_Box.setBackground(Color.black);
-sync_Box.setVisible(false);
+sync_Box = new JPanel(); // setten von sync_Box
+sync_Box.setForeground(new Color(255, 255, 255)); // 
+sync_Box.setFont(new Font("Times new Roman", Font.PLAIN, 60)); //
+sync_Box.setBounds(900, 500, 250, 145); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe)
+//sync_Box.setBackground(Color.black); // Hintergrundsfarbe setten
+sync_Box.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
 sync_Box.setFocusable(false);
-sync_Box.setOpaque(false);
-sync_Box.setBorder(new LineBorder(Color.white));
+sync_Box.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
+sync_Box.setBorder(new LineBorder(Color.white)); // Outline und die Farbe
 
 sync_1 = new JButton("Ja");
 sync_1.setForeground(new Color(0, 255, 25));
