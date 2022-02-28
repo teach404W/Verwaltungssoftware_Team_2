@@ -609,6 +609,7 @@ sync();
                 }
 
 
+
                 public void confirmCardName(){
                     if (texarea.getText().length() > 3 && texarea.getText().length() <21){
                         dataStore.temp_KarteName = texarea.getText();

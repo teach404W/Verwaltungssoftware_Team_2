@@ -118,9 +118,6 @@ class Karte{
 }
 
 class SystemController{
-+name : String
-+password : int
-+angemeldet : boolean
 -r1 : Random
 -r2 : int
 -d : int
@@ -144,6 +141,11 @@ class SystemController{
  -confirmName() : void
  +confirmCardName() : void
  +confirmCardRarity() : void
+ +confirmCardDamage() : void
+ +confirmCardHP() : void
+ +confirmCardAgility() : void
+ +confirmCardElement() : void
+ +confirmCardAbility() : void
  +option1_1() : void
  +option1_2() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
@@ -156,51 +158,12 @@ class Texts{
 +setTex(a : String[], i : int) : String
 }
 
-
-
-class Fach{
- -name : String
- +Fach(pName : String)
- +gebeAlleNotenAus() : String
- +noteHinzufuegen(pNote : Note) : void
- +getName(): String
- +setName(pName : String) : void
- +toString() : String
-}
-
-class Note{
- -note: int
- -jahr : int
- +Note(pNote : int, pJahr : int)
- +getNote(): String
- +setNote(pNote : int) : void
- +getJahr(): String
- +setJahr(pNote : int) : void
- +toString() String
+class User{
+ -name: String
+ -password: int
+ -angemeldet: boolean
 }
 
 
-
-
-class Schueler{
-  -passwort : String
-
-  +Schueler(pVorname : String, pNachname : String, pAlter : int, pPassword : String)
-  
-  +changePassword(pPassword : String) : void
-  +ueberpruefePassword(pPassword : String): boolean
-  +gebeNotenAus() : void
-  + fachAnlegen(pFach : Fach) : void
-  +alleFaecherAusgeben() : void
-  +alleFachNamenMitNummernAusgeben() : void
-  +noteFuerFachAnlegen(pFachID : int, pNote : Note) : void
-  -setPassword(pPassword : String) : void
-}
-
-
-Fach "1" *-- "0..10" Note
-Schuelerverwaltung  *-- "1" MenueFuehrung
-Schueler "1" *-- "0..10" Fach
-Person <|-- Schueler
 
 @enduml
