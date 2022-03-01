@@ -74,6 +74,8 @@ public class GUI{
     static JButton sync_3;
     static JTextArea sync_Text;
 
+    static JPanel box2;
+
 
 
     Texts texts = new Texts();
@@ -514,6 +516,17 @@ iSaveButton.setOpaque(false);
 iSaveButton.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Others\\Save.png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
 iSaveButton.setBorder(new LineBorder(Color.black));
     
+box2 = new JPanel();
+box2.setForeground(new Color(60, 60, 60));
+box2.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+box2.setBounds(200, 550, 700, 100);
+box2.setSize(850, 240);
+box2.setOpaque(false);
+box2.setVisible(false);
+box2.setFocusable(false);
+box2.setBorder(new LineBorder(Color.darkGray));
+
+
 
 frame.add(saveButton);
 saveButton.add(eSaveButton);
@@ -528,6 +541,8 @@ eSaveButton.add(iSaveButton);
             frame.add(randomButton);
             frame.add(infoText);
             frame.add(search_Box);
+
+            frame.add(box2);
 
             frame.add(l);
             frame.add(panel1);
@@ -549,6 +564,7 @@ Thread.sleep(1000);
 //while (texarea.isVisible() == true && dataStore.angemeldet == true){
     }
 
+    
 
 
     
