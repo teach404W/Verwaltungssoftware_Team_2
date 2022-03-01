@@ -1,6 +1,5 @@
 
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -15,10 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
-import java.awt.event.KeyListener;
 
 
-public class SystemController extends GUI implements ActionListener, KeyListener {
+public class SystemController extends GUI implements ActionListener {
 
     
 private    Random r1;
@@ -589,7 +587,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         if (texarea.getText().equals(arraysList.rar[rd2])){
                             if (rd2 > 9){
                                 rd2--;
-                            }else{
+                            } else{
                                 rd2++;
                             }
                         }
@@ -700,6 +698,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         sec_Image.setVisible(false);
                                         dataStore.temp_KarteSeltenheit = texarea.getText();
                                         texarea.setText(null);
+                                        texarea.setEditable(true);
                                         randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateDamage");
                                         confirmButton.setActionCommand("");
@@ -909,14 +908,6 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                 
                             }
 
-
-                            for (String v : arraysList.rar) {
-                                if (e.getActionCommand().equals(v)) {
-                                    texarea.setText(v);
-                                    sec_Image.setVisible(true);
-                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText().toString() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));                                                
-                                }
-                            }
                 
                             if (e.getActionCommand().equals("SaveData")){
                                 try{
@@ -1039,6 +1030,14 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                 }
                             }
 
+                            for (String v : arraysList.rar) {
+                                if (e.getActionCommand().equals(v)) {
+                                    texarea.setText(v);
+                                    sec_Image.setVisible(true);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText().toString() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));                                                
+                                }
+                            }
+
 
                            
                         }
@@ -1097,34 +1096,9 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         }
                     }
                 
-                    @Override
-                    public void keyTyped(KeyEvent k) {
-                        System.out.println(k.getKeyChar());
-                        switch(k.getKeyChar()){
-                            case 10: ret();break;
-                        }
-                        
-                    }
-                
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        System.out.println(e.getKeyChar());
-                        
-                        switch(e.getKeyChar()){
-                            case 10: ret();break;
-                        }
-                        
-                    }
-                
-                    @Override
-                    public void keyReleased(KeyEvent e) {
-                        System.out.println(e.getKeyChar());
-                        switch(e.getKeyChar()){
-                            case 10: ret();break;
-                        }
-                        
+                   
                     
                 
-                    }
+                    
     
 }
