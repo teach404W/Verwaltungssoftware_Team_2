@@ -11,6 +11,9 @@ import java.io.ObjectOutputStream;
 import java.util.Random;
 import java.awt.*;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
 
 import java.awt.event.KeyListener;
 
@@ -427,6 +430,48 @@ sync();
             
                 }
 
+                public void clearBox(){
+                    box2.removeAll();
+                }
+
+                public void addToBox(int i){
+                    if (i == 1){
+                        JLabel ei;
+
+
+for (int e = 0; e < arraysList.rar.length; e++) {
+
+    javax.swing.JButton elemB = new JButton();
+    elemB.setForeground(new Color(80, 0, 255));
+    elemB.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+    elemB.setBounds(0, 0, 0, 0);
+    elemB.setBackground(Color.black);
+    elemB.setVisible(true);
+    elemB.setFocusable(false);
+    elemB.addActionListener(this);
+    elemB.setActionCommand(arraysList.rar[e]);
+    elemB.setBorder(new LineBorder(Color.white));
+
+
+    ei = new JLabel();
+    ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+    ei.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + arraysList.rar[e] + ".png")
+            .getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
+    ei.setSize(600, 600);
+    ei.setBackground(Color.white);
+    ei.setVisible(true);
+    ei.setFocusable(false);
+    ei.setBorder(new LineBorder(Color.white));
+
+
+    box2.add(elemB);
+    elemB.add(ei);
+
+
+            }
+        }
+    }
+
 
                 private void ret(){
                     if (confirmButton.getActionCommand().equals("ConfirmName")){
@@ -468,7 +513,7 @@ sync();
                         if (texarea.getText().length() > 4 && texarea.getText().length() <16){
                 
                             if (texarea.getText().charAt(0) == '0' && user.password < 1){
-                                infoText.setText("0 kann nicht als Anfangszahl sein");
+                                infoText.setText("0 darf nicht am Anfang stehen");
                                 return;
                             }
                             try{
@@ -477,7 +522,6 @@ sync();
                                     dataStore.password = Integer.parseInt(texarea.getText().toString());
                                     user.password = Integer.parseInt(texarea.getText().toString());
                                     infoText.setText("Erfolgreich angemeldet");
-                                    confirmButton.setActionCommand("ConfirmPassword");
                                     randomButton.setVisible(false);
                                     texarea.setVisible(false);
                                     confirmButton.setVisible(false);
@@ -504,7 +548,6 @@ sync();
                             if (user.password > 10000){
                                if(user.password == Integer.parseInt(texarea.getText().toString())){
                                 infoText.setText("Erfolgreich angemeldet");
-                                confirmButton.setActionCommand("ConfirmPassword");
                                 randomButton.setVisible(false);
                                 texarea.setVisible(false);
                                 confirmButton.setVisible(false);
@@ -630,9 +673,12 @@ sync();
                         option_6.setVisible(false);
                         option_6_Image.setVisible(false);
                         infoText.setVisible(true);
-                        infoText.setText("Seltenheit eingeben (3-15 Charakter)");
+                        infoText.setText("Seltenheit Auswählen");
                         backB.setVisible(true);
-                        backB.setActionCommand("option_1");               
+                        backB.setActionCommand("option_1");
+                        addToBox(1);  
+                        box2.setVisible(true);
+                        texarea.setEditable(false);
         
                     }
     
@@ -679,6 +725,7 @@ sync();
                     public void option1_1(){
                         texarea.setText(null);
                         texarea.setVisible(true);
+                        texarea.setEditable(true);
                         confirmButton.setVisible(true);
                         randomButton.setVisible(true);
                         eRandomButton.setActionCommand("RandomName");
@@ -701,6 +748,8 @@ sync();
                         backB.setVisible(true);
                         backB.setActionCommand("backB_0");
                         texarea.setText(dataStore.temp_KarteName);
+                        box2.setVisible(false);
+                        clearBox();
                     
                     
                         dataStore.temp_KarteName = null;
@@ -718,6 +767,7 @@ sync();
                     public void option1_2(){
                         texarea.setText(null);
                         texarea.setVisible(true);
+                        texarea.setEditable(false);
                         confirmButton.setVisible(true);
                         randomButton.setVisible(true);
                         eRandomButton.setActionCommand("GenerateRarity");
@@ -736,7 +786,7 @@ sync();
                         option_6.setVisible(false);
                         option_6_Image.setVisible(false);
                         infoText.setVisible(true);
-                        infoText.setText("Seltenheit eingeben (3-15 Charakter)");
+                        infoText.setText("Seltenheit Auswählen");
                         backB.setVisible(true);
                         backB.setActionCommand("option_1");
                         texarea.setText(dataStore.temp_KarteSeltenheit);
@@ -857,6 +907,15 @@ sync();
                                 dataStore.temp_KarteID = null;
                                 dataStore.temp_KarteAbility = null;
                 
+                            }
+
+
+                            for (String v : arraysList.rar) {
+                                if (e.getActionCommand().equals(v)) {
+                                    texarea.setText(v);
+                                    sec_Image.setVisible(true);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText().toString() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));                                                
+                                }
                             }
                 
                             if (e.getActionCommand().equals("SaveData")){
@@ -979,8 +1038,11 @@ sync();
                                     d.printStackTrace();
                                 }
                             }
-                
-                    }
+
+
+                           
+                        }
+                        
                 
                 
                 
