@@ -1,6 +1,9 @@
 # Einleitung
 
+Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschreiben wir unsere Anwendung, ihren Ablauf und die Funktionen.
+
 ## Kapitelübersicht
+
 - 1. Beschreibung der Anwendung
   - 1.1 Grobbeschreibung
   - 1.2 Menüführung
@@ -45,6 +48,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 ## 2. Beschreibung des Funktionsablaufs
 
 ### **2.1 Beschreibung der Funktionen**
+
 - Karte anlegen 
  
   - Für alle Eigenschaften hat der Nutzer auch einen Zufälligen Generator. Dieser Generator gibt der Eigenschaft einen zufälligen Wert, zum Beispiel: man kann einen Zufälligen Damage Wert mit dem Generator generieren.  
