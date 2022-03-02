@@ -15,6 +15,8 @@
 
 In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Seltenheit, Fähigkeiten, Stats und bekommen eine eigene ID.
 
+TODO Ausführlicher -> Welche Fähigkeiten und Seltenheitsstufen gibt es z. B. Welche Stats gibt es und welche Auswirkung haben diese
+
 ### **1.2 Menüführung**
 
 Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes muss man einen Namen und ein Passwort eingeben. Man erstellt also entweder neue Daten(Konto), oder man kann die gespeicherten Daten in DataStore laden(dafür braucht man den gespeicherten Namen und das gespeicherte Password). Danach kann der Nutzer von den 6 Möglichkeiten eine auswählen:
@@ -97,4 +99,12 @@ Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestalt
 
 ### **3.1 Klassendiagramm**
 
-![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramm_Test.iuml)
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramme.iuml)
+
+
+TODO Diagramme fehlen: Sequenz, Objekt, Klassendiagramm.
+TODO Aktualsieren und soweit abschließend wie möglich
+
+### 3.2 Objektdiagramm
+
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Objektdiagramm.iuml)
