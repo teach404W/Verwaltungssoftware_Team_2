@@ -13,6 +13,7 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 import java.awt.event.KeyListener;
@@ -510,6 +511,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                     }
                     
                     private void anmelden(){
+                        option_6.setActionCommand("Abmelden");
                         if (texarea.getText().length() > 4 && texarea.getText().length() <16){
                 
                             if (texarea.getText().charAt(0) == '0' && user.password < 1){
@@ -855,11 +857,18 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                             if (e.getActionCommand().equals("ConfirmCardDamage")){
                                 confirmCardRarity();
                             }
+
+
                 
                         }
                 
 
-                
+                        if (e.getActionCommand().equals("Abmelden")){
+                            System.out.println("Abmelden");
+                            System.out.println("Tschüs, Bis zum nächsten Mal ;)");
+                            System.exit(0);
+                            frame.setVisible(false);
+                        }
                 
                         if (e.getSource() == backB || e.getSource() == option_1){
                             
