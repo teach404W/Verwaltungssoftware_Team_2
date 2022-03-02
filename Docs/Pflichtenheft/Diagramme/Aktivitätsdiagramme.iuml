@@ -7,9 +7,15 @@ start
 :Damage eingeben(0-1000);
 :HP eingeben(0-1000);
 :Agilität eingeben(0-100);
-:Element auswählen[6];
+:Element auswählen[9];
 :ID wird generiert;
 #LightGrey:(optional)Fähigkeit eingeben;
+:Bestätigen;
+end
+
+start
+:Anmelden;
+:Menü: Meine Karten;
 :Bestätigen;
 end
 
@@ -27,27 +33,29 @@ start
 :Name oder Index der Karte eingeben;
 :Bestätigen;
 :Kartekontrolle(wird kontrolliert, ob die Karte vorhanden ist oder nicht);
-if (Kartekontrolle) then
+if (Warnung) then
   -[#black]->
-  :foo2;
-  -[#green,dashed]-> The text can
-  also be on several lines
-  and **very** long...;
-  :foo3;
+  :Ja;
+  -[#green,dashed]-> gibt es in DataStore
+  eine **gespeicherte** Karte?;
+   
+  :Warnung;
 else
 
   -[#black,dotted]->
-  :foo4;
+  :Nein;
+
+  -[#black,dotted]->
+
+  :Karte wird gelöscht und in DataStore gespeichert;
+  -[#black,dotted]->
+
 endif
--[#gray,bold]->
-:foo5;
-detach
+-[#gray,dotted]->
+
+
 end
 
-start
-:Anmelden;
-:Menü: Meine Karten;
-:Bestätigen;
-end
+
 
 @enduml
