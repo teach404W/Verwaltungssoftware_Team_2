@@ -1,4 +1,6 @@
-public class Karte {
+import java.io.Serializable;
+
+public class Karte implements Serializable {
     
     String karte_Name;
     String karte_Seltenheit;

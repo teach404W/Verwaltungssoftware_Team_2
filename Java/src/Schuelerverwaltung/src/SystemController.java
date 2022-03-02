@@ -23,16 +23,16 @@ private    Random r1;
 private int r2;
 private int d;
 
-Karte karte1 = null;
-Karte karte2 = null;
-Karte karte3 = null;
-Karte karte4 = null;
-Karte karte5 = null;
-Karte karte6 = null;
-Karte karte7 = null;
-Karte karte8 = null;
-Karte karte9 = null;
-Karte karte10 = null;
+Karte karte1;
+Karte karte2;
+Karte karte3;
+Karte karte4;
+Karte karte5;
+Karte karte6;
+Karte karte7;
+Karte karte8;
+Karte karte9;
+Karte karte10;
 
 
 String[] karte_Name = {
@@ -191,7 +191,7 @@ confirmButton.addActionListener(this);
 eRandomButton.addActionListener(this);
 eSaveButton.addActionListener(this);
 Thread.sleep(1000);
-loading();
+//loading();
 sync();
 
 
@@ -717,6 +717,8 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                         infoText.setText("Damage eingeben (0-1000)");
                                         backB.setVisible(true);
                                         backB.setActionCommand("option_2");
+                                        box2.setVisible(false);
+                                        clearBox();
                                         
                                         }
                 }
@@ -918,12 +920,26 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                     BufferedOutputStream b = new BufferedOutputStream(f);
                                     ObjectOutputStream o = new ObjectOutputStream(b);
                 
+                                    karte1 = new Karte();
                                     dataStore.name = user.name;
                                     dataStore.password = user.password;
                                     dataStore.angemeldet = user.angemeldet;
                                     dataStore.ver = true;
                                     dataStore.karte_Name = karte_Name;
-                
+
+                                    
+
+                                    dataStore.karte1.karte_Name = karte1.karte_Name;
+                                    dataStore.karte1.karte_Ability = karte1.karte_Ability;
+                                    dataStore.karte1.karte_Agility = user.name;
+                                    dataStore.karte1.karte_Damage = user.name;
+                                    dataStore.karte1.karte_Element = user.name;
+                                    dataStore.karte1.karte_HP = user.name;
+                                    dataStore.karte1.karte_ID = user.name;
+                                    dataStore.karte1.karte_Seltenheit = user.name;
+
+                                    System.out.println(dataStore.karte1.karte_Name);
+
                                     o.writeObject(dataStore);
                                     o.close();
                 
@@ -944,20 +960,20 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                 
                                     DataStore dataStore =  (DataStore)obj2.readObject();
                 
-                
+                                    karte1 = new Karte();
+
                                     user.name = dataStore.name;
                                     user.password = dataStore.password;
                                     user.angemeldet = dataStore.angemeldet;
                                     dataStore.ver = true;
                                     karte_Name = dataStore.karte_Name;
+
+                                    karte1.karte_Name = dataStore.karte1.karte_Name.toString();
+                                    dataStore.karte1.karte_Name = karte1.karte_Name.toString();
+
                 
                                     obj2.close();
                 
-                                    System.out.println(user.name);
-                                    System.out.println(user.password);
-                                    System.out.println(user.angemeldet);
-                                    System.out.println(karte_Name);
-                                    System.out.println(karte_Name[0]);
                 
                                     sync_Box.setVisible(false);
                                     sync_1.setVisible(false);
