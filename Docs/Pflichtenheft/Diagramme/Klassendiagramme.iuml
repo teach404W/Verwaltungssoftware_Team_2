@@ -35,18 +35,10 @@ class ArraysList{
  +re_KarteElement : String
  +re_KarteID : String
  +re_KarteAbility : String
- -karte1 : Karte
- -karte2 : Karte
- -karte3 : Karte
- -karte4 : Karte
- -karte5 : Karte
- -karte6 : Karte
- -karte7 : Karte
- -karte8 : Karte
- -karte9 : Karte
- -karte10 : Karte
-
+ +karten[] : Karte[9]
 }
+
+
 
 
 
@@ -73,18 +65,8 @@ class GUI{
  +searchB3: JButton
  +searchB4: JButton
  +backB: JButton
- +option_1 : JButton
- +option_2 : JButton
- +option_3 : JButton
- +option_4 : JButton
- +option_5 : JButton
- +option_6 : JButton
- +option_1_Image : JLabel
- +option_2_Image : JLabel
- +option_3_Image : JLabel
- +option_4_Image : JLabel
- +option_5_Image : JLabel
- +option_6_Image : JLabel
+ +option[] : JButton[6]
+ +optionI[] : JLabel[6]
  +sync_Box : JPanel
  +sync_1 : JButton
  +sync_2 : JButton
@@ -121,23 +103,14 @@ class SystemController{
 -r1 : Random
 -r2 : int
 -d : int
- -karte1 : Karte
- -karte2 : Karte
- -karte3 : Karte
- -karte4 : Karte
- -karte5 : Karte
- -karte6 : Karte
- -karte7 : Karte
- -karte8 : Karte
- -karte9 : Karte
- -karte10 : Karte
+ +karten[] : Karte[9]
  +loading() : void
  +sync() : void
  -ret() : void
  +randomName() : void
  -anmelden() : void
  +generateRarity() : void
- +generateNumber() : void
+ +generateNumber() : int
  -confirmName() : void
  +confirmCardName() : void
  +confirmCardRarity() : void

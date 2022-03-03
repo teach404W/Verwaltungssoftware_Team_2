@@ -399,7 +399,7 @@ elemB.add(ei);
                     }
                         }
                     
-                    public void randomName(){
+                    public String randomName(){
                             int x = (int) (Math.random() * 100);
                             if (x > 50){
                                  x = (int) (Math.random() * 100);
@@ -409,8 +409,7 @@ elemB.add(ei);
                                      x = (int) (Math.random() * 100);
                     
                                 }
-                                String jf = texarea.getText();
-                                return; 
+                                return texarea.getText(); 
                             }
                     
                             if (x < 50){
@@ -426,8 +425,9 @@ elemB.add(ei);
                                
                                x = (int) (Math.random() * 100); //  x Wird neu generiert (0-100)
                                if (x < 60) texarea.setText(texarea.getText() + x); //  60%, dass der Name eine Zufällige Zahl am Ende bekommt
-                               return;
+                               return texarea.getText();
                             }
+                            return null;
                     }
                     
                     private void anmelden(){
@@ -835,7 +835,7 @@ elemB.add(ei);
                         if (e.getSource() == eRandomButton){
 
                             if (e.getActionCommand().equals("RandomName")){
-                                randomName();                           
+                               texarea.setText(randomName());                           
                             };
                             
                             if (e.getActionCommand().equals("GenerateNumber")){

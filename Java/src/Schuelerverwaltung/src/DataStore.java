@@ -26,16 +26,7 @@ public class DataStore implements Serializable {
     String re_KarteID;
     String re_KarteAbility;
 
-    Karte karte1 = null;
-    Karte karte2 = null;
-    Karte karte3 = null;
-    Karte karte4 = null;
-    Karte karte5 = null;
-    Karte karte6 = null;
-    Karte karte7 = null;
-    Karte karte8 = null;
-    Karte karte9 = null;
-    Karte karte10 = null;
+    Karte[] karten = new Karte[9]; 
 
 
     String[] karte_Name = {
