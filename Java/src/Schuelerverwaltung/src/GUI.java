@@ -53,19 +53,9 @@ public class GUI{
     static JButton searchB4;
     static JButton backB;
 
-    static JButton option_1;
-    static JButton option_2;
-    static JButton option_3;
-    static JButton option_4;
-    static JButton option_5;
-    static JButton option_6;
 
-    static JLabel option_1_Image;
-    static JLabel option_2_Image;
-    static JLabel option_3_Image;
-    static JLabel option_4_Image;
-    static JLabel option_5_Image;
-    static JLabel option_6_Image;
+    static JButton[] option = new JButton[6];
+    static JLabel[] optionI = new JLabel[6];
 
 
     static JPanel sync_Box;
@@ -199,152 +189,155 @@ searchB1.setFocusable(false);
 searchB1.setActionCommand("SearchB1");
 searchB1.setBorder(new LineBorder(Color.white));
 
-option_1 = new JButton("       Karte anlegen  ");
-option_1.setForeground(new Color(255, 255, 255));
-option_1.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_1.setBounds(400, 125, 350, 50);
-option_1.setBackground(new Color(39,43,49));
-option_1.setVisible(false);
-option_1.setFocusable(false);
-option_1.setOpaque(false);
-option_1.setActionCommand("option_1");
-option_1.setBorder(new LineBorder(Color.white));
-
-option_1_Image = new JLabel();
-option_1_Image.setForeground(new Color(255, 255, 255));
-option_1_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_1_Image.setBounds(400, 125, 50, 50);
-option_1_Image.setBackground(new Color(39,43,49));
-option_1_Image.setVisible(false);
-option_1_Image.setFocusable(false);
-
-option_1_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Add.png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+option[0] = new JButton("       Karte anlegen  ");
+option[0].setForeground(new Color(255, 255, 255));
+option[0].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+option[0].setBounds(400, 125, 350, 50);
+option[0].setBackground(new Color(39,43,49));
+option[0].setVisible(false);
+option[0].setFocusable(false);
+option[0].setOpaque(false);
+option[0].setActionCommand("option[0]");
+option[0].setBorder(new LineBorder(Color.white));
 
 
-option_2 = new JButton("      Meine Karten  ");
-option_2.setForeground(new Color(255, 255, 255));
-option_2.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_2.setBounds(400, 200, 350, 50);
-option_2.setBackground(new Color(39,43,49));
-option_2.setVisible(false);
-option_2.setFocusable(false);
-option_2.setOpaque(false);
-option_2.setActionCommand("Meine Karten");
-option_2.setBorder(new LineBorder(Color.white));
+optionI[0] = new JLabel();
+optionI[0].setForeground(new Color(255, 255, 255));
+optionI[0].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[0].setBounds(400, 125, 50, 50);
+optionI[0].setBackground(new Color(39,43,49));
+optionI[0].setVisible(false);
+optionI[0].setFocusable(false);
+optionI[0].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Add.png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+
+frame.add(optionI[0]);
+
+option[1] = new JButton("      Meine Karten  ");
+option[1].setForeground(new Color(255, 255, 255));
+option[1].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+option[1].setBounds(400, 200, 350, 50);
+option[1].setBackground(new Color(39,43,49));
+option[1].setVisible(false);
+option[1].setFocusable(false);
+option[1].setOpaque(false);
+option[1].setActionCommand("Meine Karten");
+option[1].setBorder(new LineBorder(Color.white));
 
 
-option_2_Image = new JLabel();
-option_2_Image.setForeground(new Color(255, 255, 255));
-option_2_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_2_Image.setBounds(403, 200, 50, 50);
-option_2_Image.setBackground(new Color(39,43,49));
-option_2_Image.setVisible(false);
-option_2_Image.setFocusable(false);
-option_2_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karten.png").getImage().getScaledInstance(50, 38,
+
+
+optionI[1] = new JLabel();
+optionI[1].setForeground(new Color(255, 255, 255));
+optionI[1].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[1].setBounds(403, 200, 50, 50);
+optionI[1].setBackground(new Color(39,43,49));
+optionI[1].setVisible(false);
+optionI[1].setFocusable(false);
+optionI[1].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karten.png").getImage().getScaledInstance(50, 38,
 Image.SCALE_AREA_AVERAGING)));
 
-option_3 = new JButton("      Karte bearbeiten  ");
-option_3.setForeground(new Color(255, 255, 255));
-option_3.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_3.setBounds(400, 275, 350, 50);
-option_3.setBackground(new Color(39,43,49));
-option_3.setVisible(false);
-option_3.setFocusable(false);
-option_3.setOpaque(false);
-option_3.setActionCommand("Karte bearbeiten");
-option_3.setBorder(new LineBorder(Color.white));
+option[2] = new JButton("      Karte bearbeiten  ");
+option[2].setForeground(new Color(255, 255, 255));
+option[2].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+option[2].setBounds(400, 275, 350, 50);
+option[2].setBackground(new Color(39,43,49));
+option[2].setVisible(false);
+option[2].setFocusable(false);
+option[2].setOpaque(false);
+option[2].setActionCommand("Karte bearbeiten");
+option[2].setBorder(new LineBorder(Color.white));
 
-option_3_Image = new JLabel();
-option_3_Image.setForeground(new Color(255, 255, 255));
-option_3_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_3_Image.setBounds(403, 275, 50, 50);
-option_3_Image.setBackground(new Color(39,43,49));
-option_3_Image.setVisible(false);
-option_3_Image.setFocusable(false);
-option_3_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karte bearbeiten.png").getImage().getScaledInstance(45, 40,
-Image.SCALE_AREA_AVERAGING)));
-
-
-option_4 = new JButton("    Karte Löschen  ");
-option_4.setForeground(new Color(255, 255, 255));
-option_4.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_4.setBounds(400, 350, 350, 50);
-option_4.setBackground(new Color(39,43,49));
-option_4.setForeground(new Color(255,165,35));
-option_4.setVisible(false);
-option_4.setFocusable(false);
-option_4.setOpaque(false);
-option_4.setActionCommand("Karte Löschen");
-option_4.setBorder(new LineBorder(Color.white));
-
-option_4_Image = new JLabel();
-option_4_Image.setForeground(new Color(255, 255, 255));
-option_4_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_4_Image.setBounds(410, 350, 50, 50);
-option_4_Image.setBackground(new Color(39,43,49));
-option_4_Image.setVisible(false);
-option_4_Image.setFocusable(false);
-option_4_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Remove.png").getImage().getScaledInstance(36, 40,
+optionI[2] = new JLabel();
+optionI[2].setForeground(new Color(255, 255, 255));
+optionI[2].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[2].setBounds(403, 275, 50, 50);
+optionI[2].setBackground(new Color(39,43,49));
+optionI[2].setVisible(false);
+optionI[2].setFocusable(false);
+optionI[2].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karte bearbeiten.png").getImage().getScaledInstance(45, 40,
 Image.SCALE_AREA_AVERAGING)));
 
 
-option_5 = new JButton("      Zufällige Karte machen  ");
-option_5.setForeground(new Color(255, 255, 255));
-option_5.setFont(new Font("Times new Roman", Font.PLAIN, 28));
-option_5.setBounds(400, 425, 350, 50);
-option_5.setBackground(new Color(39,43,49));
-option_5.setForeground(new Color(255,0,100));
-option_5.setVisible(false);
-option_5.setFocusable(false);
-option_5.setOpaque(false);
-option_5.setActionCommand("Zufällige Karte machen");
-option_5.setBorder(new LineBorder(Color.white));
+option[3] = new JButton("    Karte Löschen  ");
+option[3].setForeground(new Color(255, 255, 255));
+option[3].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+option[3].setBounds(400, 350, 350, 50);
+option[3].setBackground(new Color(39,43,49));
+option[3].setForeground(new Color(255,165,35));
+option[3].setVisible(false);
+option[3].setFocusable(false);
+option[3].setOpaque(false);
+option[3].setActionCommand("Karte Löschen");
+option[3].setBorder(new LineBorder(Color.white));
 
-option_5_Image = new JLabel();
-option_5_Image.setForeground(new Color(255, 255, 255));
-option_5_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_5_Image.setBounds(410, 425, 50, 50);
-option_5_Image.setBackground(new Color(39,43,49));
-option_5_Image.setVisible(false);
-option_5_Image.setFocusable(false);
-option_5_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Würfel2.png").getImage().getScaledInstance(36, 40,
+optionI[3] = new JLabel();
+optionI[3].setForeground(new Color(255, 255, 255));
+optionI[3].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[3].setBounds(410, 350, 50, 50);
+optionI[3].setBackground(new Color(39,43,49));
+optionI[3].setVisible(false);
+optionI[3].setFocusable(false);
+optionI[3].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Remove.png").getImage().getScaledInstance(36, 40,
 Image.SCALE_AREA_AVERAGING)));
 
-option_6 = new JButton("    Abmelden  ");
-option_6.setForeground(new Color(255, 255, 255));
-option_6.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_6.setBounds(400, 500, 350, 50);
-option_6.setBackground(new Color(39,43,49));
-option_6.setForeground(new Color(255,0,25));
-option_6.setVisible(false);
-option_6.setFocusable(false);
-option_6.setOpaque(false);
-option_6.setActionCommand("Abmelden");
-option_6.setBorder(new LineBorder(Color.white));
 
-option_6_Image = new JLabel();
-option_6_Image.setForeground(new Color(255, 255, 255));
-option_6_Image.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-option_6_Image.setBounds(410, 500, 50, 50);
-option_6_Image.setBackground(new Color(39,43,49));
-option_6_Image.setVisible(false);
-option_6_Image.setFocusable(false);
-option_6_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Abmelden.png").getImage().getScaledInstance(36, 40,
+option[4] = new JButton("      Zufällige Karte machen  ");
+option[4].setForeground(new Color(255, 255, 255));
+option[4].setFont(new Font("Times new Roman", Font.PLAIN, 28));
+option[4].setBounds(400, 425, 350, 50);
+option[4].setBackground(new Color(39,43,49));
+option[4].setForeground(new Color(255,0,100));
+option[4].setVisible(false);
+option[4].setFocusable(false);
+option[4].setOpaque(false);
+option[4].setActionCommand("Zufällige Karte machen");
+option[4].setBorder(new LineBorder(Color.white));
+
+optionI[4] = new JLabel();
+optionI[4].setForeground(new Color(255, 255, 255));
+optionI[4].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[4].setBounds(410, 425, 50, 50);
+optionI[4].setBackground(new Color(39,43,49));
+optionI[4].setVisible(false);
+optionI[4].setFocusable(false);
+optionI[4].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Würfel2.png").getImage().getScaledInstance(36, 40,
 Image.SCALE_AREA_AVERAGING)));
 
-frame.add(option_1_Image);
-frame.add(option_2_Image);
-frame.add(option_3_Image);
-frame.add(option_4_Image);
-frame.add(option_5_Image);
-frame.add(option_6_Image);
+option[5] = new JButton("    Abmelden  ");
+option[5].setForeground(new Color(255, 255, 255));
+option[5].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+option[5].setBounds(400, 500, 350, 50);
+option[5].setBackground(new Color(39,43,49));
+option[5].setForeground(new Color(255,0,25));
+option[5].setVisible(false);
+option[5].setFocusable(false);
+option[5].setOpaque(false);
+option[5].setActionCommand("Abmelden");
+option[5].setBorder(new LineBorder(Color.white));
 
-frame.add(option_1);
-frame.add(option_2);
-frame.add(option_3);
-frame.add(option_4);
-frame.add(option_5);
-frame.add(option_6);
+optionI[5] = new JLabel();
+optionI[5].setForeground(new Color(255, 255, 255));
+optionI[5].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+optionI[5].setBounds(410, 500, 50, 50);
+optionI[5].setBackground(new Color(39,43,49));
+optionI[5].setVisible(false);
+optionI[5].setFocusable(false);
+optionI[5].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Abmelden.png").getImage().getScaledInstance(36, 40,
+Image.SCALE_AREA_AVERAGING)));
+
+//frame.add(option[0]_Image);
+frame.add(optionI[1]);
+frame.add(optionI[2]);
+frame.add(optionI[3]);
+frame.add(optionI[4]);
+frame.add(optionI[5]);
+
+frame.add(option[0]);
+frame.add(option[1]);
+frame.add(option[2]);
+frame.add(option[3]);
+frame.add(option[4]);
+frame.add(option[5]);
 searchB2 = new JButton("           ");
 searchB2.setForeground(new Color(255, 255, 255));
 searchB2.setFont(new Font("Times new Roman", Font.PLAIN, 45));
