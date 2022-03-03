@@ -865,7 +865,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
 
                         if (e.getActionCommand().equals("Abmelden")){
                             System.out.println("Abmelden");
-                            System.out.println("Tschüs, Bis zum nächsten Mal ;)");
+                            // System.out.println("Tschüs, Bis zum nächsten Mal ;)");
                             System.exit(0);
                             frame.setVisible(false);
                         }
