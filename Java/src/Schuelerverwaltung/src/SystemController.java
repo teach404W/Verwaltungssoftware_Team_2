@@ -13,11 +13,7 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-
-import org.w3c.dom.Text;
-
 import java.awt.event.KeyListener;
 
 
@@ -31,26 +27,6 @@ private int d;
 
 
 Karte[] karten = new Karte[9]; 
-
-
-
-
-
-
-
-   // ArrayList<String> karte_Name = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Seltenheit = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Damage = new ArrayList<>(); 
-
-   // ArrayList<String> karte_HP = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Agility = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Element = new ArrayList<>(); 
-
-   // ArrayList<String> karte_ID = new ArrayList<>(); 
 
     SystemController() throws Exception{
         System.out.println(super.l.isVisible());
@@ -75,7 +51,6 @@ eSaveButton.addActionListener(this);
 Thread.sleep(1000);
 loading();
 sync();
-
 
 
         while (user.angemeldet == true){
@@ -205,26 +180,12 @@ sync();
                     }
                 } catch (Exception e) {
                     //TODO: handle exception
-                }
-                
+                }            
         
-        
-                        
-                        
-                            
-                            
-                        
-                    
-        
-                }
-        
-        
-        
+                } 
                 
             }
-        
-        
-        
+
             else{
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
@@ -300,15 +261,10 @@ sync();
                         l.setVisible(false);
                         l2.setVisible(false);
 
-                        
-            
             texarea.setVisible(true);
             confirmButton.setVisible(true);
-            //randomButton.setVisible(false);
             infoText.setVisible(true);
-            
-            
-                }
+        }
 
                 public void clearBox(){
                     box2.removeAll();
@@ -1060,10 +1016,7 @@ elemB.add(ei);
 
                            
                         }
-                        
-                
-                
-                
+       
                     public void sync() throws Exception{
                         try{
                 
