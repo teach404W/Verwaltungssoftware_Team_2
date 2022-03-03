@@ -16,7 +16,9 @@ Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschrei
 
 ### **1.1 Grobbeschreibung** 
 
-In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Seltenheit, Fähigkeiten, Stats und bekommen eine eigene ID.
+In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Fähigkeiten, Stats(Name, Seltenheit, Damage, HP, Agility, Element) und bekommen eine eigene ID.
+
+TODO Ausführlicher -> Welche Fähigkeiten und Seltenheitsstufen gibt es z. B. Welche Stats gibt es und welche Auswirkung haben diese
 
 ### **1.2 Menüführung**
 
@@ -53,17 +55,17 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
  
   - Für alle Eigenschaften hat der Nutzer auch einen Zufälligen Generator. Dieser Generator gibt der Eigenschaft einen zufälligen Wert, zum Beispiel: man kann einen Zufälligen Damage Wert mit dem Generator generieren.  
  
-  - Name, Seltenheit, Damage, HP, Agilität,  Element und ID (optional: Fähigkeiten)
+  - Name, Seltenheit, Damage, HP, Agilität, Element und ID (optional: Fähigkeiten) muss die Karte beinhalten.
   
-  - Erst einen Namen anlegen. Der Name muss aus 4-20 Charakteren bestehen
+  - Erst einen Namen anlegen. Der Name muss aus 4-20 Charakteren bestehen.
    
-  - Danach muss man eine Seltenheit der Karte geben. Es gibt 11 bereitgestellten Seltenheiten, man nimmt eine davon, oder erstellt eigene Seltenheit mit 3-15 Charakteren 
+  - Danach muss man eine Seltenheit der Karte geben. Es gibt 11 bereitgestellten Seltenheiten (Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch,     Insane, Legendär, Heroic, Secret) und man muss eine davon auswählen.
   
   - Dann kommt der Damage, den die Karte haben soll, mindestens 0 und Maximum (1000). 
   
   - Danach die Gesundheit der Karte (HP), die Karte darf eine Gesundheit zwischen 0 und 1000 haben.
    
-  - Die Karte muss auch ein Element haben, das Element muss der Nutzer erstellen und muss aus 4 bis 25 Charakteren bestehen. 
+  - Die Karte muss auch ein Element haben, das Element muss der Nutzer auswählen. Es gibt 9 Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) 
   
   - Am Ende erstellt das System eine ID für die Karte automatisch, die ID besteht aus Zahlen (Sie beinhaltet keine Buchstaben).
    
@@ -78,7 +80,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 - Karte löschen    
   - der Nutzer wählt eine verfügbare Karte aus und kann sie löschen   
   - die gelöschte Karte bleibt in DataStore und der Nutzer kann sie jederzeit wiederherstellen   
-  - wenn der Nutzer eine Karte löscht, während in DataStore eine gelöschte Karte gespeichert ist, bekommt der Nutzer eine Warnung und muss zwischen "Ja" und "Nein" wählen. Wenn der Nutzer "Ja" auswählt, dann wird die gespeicherte Karte aus der DataStore entfernt. Wählt der Nutzer "Nein" aus, dann bleibt die gespeicherte Karte in DataStore und die Karte, die der Nutzer löschen wollte, bleibt.
+  - wenn der Nutzer eine Karte löscht, während in DataStore eine gelöschte Karte gespeichert ist, bekommt der Nutzer eine Warnung und muss zwischen "Ja" und "Nein" wählen. Wenn der Nutzer "Ja" auswählt, dann wird die gespeicherte Karte aus der DataStore entfernt. Wählt der Nutzer "Nein" aus, dann bleibt die gespeicherte Karte in DataStore und die Karte, die der Nutzer löschen wollte, bleibt im Konto.
 
 - Zufällige Karte ziehen   
   - der zufällige Generator generiert eine ganze Karte mit zufälligen Eigenschaftswerten (zufälliger Name, zufällige Seltenheit, ...)
@@ -101,4 +103,12 @@ Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestalt
 
 ### **3.1 Klassendiagramm**
 
-![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramm_Test.iuml)
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramme.iuml)
+
+
+TODO Diagramme fehlen: Sequenz, Objekt, Klassendiagramm.
+TODO Aktualsieren und soweit abschließend wie möglich
+
+### 3.2 Objektdiagramm
+
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Objektdiagramm.iuml)
