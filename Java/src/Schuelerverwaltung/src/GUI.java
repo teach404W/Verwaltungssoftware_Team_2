@@ -168,10 +168,10 @@ search_Box.setBorder(new LineBorder(Color.white));
 
 
 
-backB = new JButton("<");
+backB = new JButton("x");
 backB.setForeground(new Color(255, 0, 25));
 backB.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-backB.setBounds(50, 80, 140, 50);
+backB.setBounds(50, 80, 70, 50);
 backB.setBackground(Color.BLACK);
 backB.setVisible(false);
 backB.setFocusable(false);
