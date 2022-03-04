@@ -59,9 +59,8 @@ public class GUI{
 
 
     static JPanel sync_Box;
-    static JButton sync_1;
-    static JButton sync_2;
-    static JButton sync_3;
+
+    static JButton[] sync = new JButton[3];
     static JTextArea sync_Text;
 
     static JPanel box2;
@@ -102,36 +101,36 @@ sync_Box.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; tru
 sync_Box.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
 sync_Box.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben
 
-sync_1 = new JButton("Ja");  // definieren von sync_1 | der Text in den Klammern "Ja" ist der Anfangstext von sync_1 und kann später geändert werden
-sync_1.setForeground(new Color(0, 255, 25)); // mit rgb(rot, grün, blau) die Hintergrundsfarbe setten
-sync_1.setFont(new Font("Times new Roman", Font.PLAIN, 30)); // Die Schriftart von sync_1 eingeben | Die Schriftart ist "Times new Roman" und die Schriftgröße ist 30
-sync_1.setBounds(920, 550, 100, 30); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein 
-sync_1.setBackground(Color.BLACK); // Hintergrundsfarbe setten
-sync_1.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
-sync_1.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
-sync_1.setActionCommand("LoadData"); // Actioncommand wird beim Klicken genommen und kann Funktionen starten. SystemController L. 787
-sync_1.setBorder(new LineBorder(new Color(0,255,25))); // Outline und die Farbe eingeben
+sync[0] = new JButton("Ja");  // definieren von sync[0] | der Text in den Klammern "Ja" ist der Anfangstext von sync[0] und kann später geändert werden
+sync[0].setForeground(new Color(0, 255, 25)); // mit rgb(rot, grün, blau) die Hintergrundsfarbe setten
+sync[0].setFont(new Font("Times new Roman", Font.PLAIN, 30)); // Die Schriftart von sync[0] eingeben | Die Schriftart ist "Times new Roman" und die Schriftgröße ist 30
+sync[0].setBounds(920, 550, 100, 30); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein 
+sync[0].setBackground(Color.BLACK); // Hintergrundsfarbe setten
+sync[0].setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
+sync[0].setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
+sync[0].setActionCommand("LoadData"); // Actioncommand wird beim Klicken genommen und kann Funktionen starten. SystemController L. 787
+sync[0].setBorder(new LineBorder(new Color(0,255,25))); // Outline und die Farbe eingeben
 
 
-sync_2 = new JButton("Nein");
-sync_2.setForeground(new Color(255,0,25));
-sync_2.setFont(new Font("Times new Roman", Font.PLAIN, 30));
-sync_2.setBounds(1032, 550, 100, 30);
-sync_2.setBackground(Color.BLACK);
-sync_2.setVisible(false);
-sync_2.setFocusable(false);
-sync_2.setActionCommand("NoData");
-sync_2.setBorder(new LineBorder(new Color(255,0,25)));
+sync[1] = new JButton("Nein");
+sync[1].setForeground(new Color(255,0,25));
+sync[1].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+sync[1].setBounds(1032, 550, 100, 30);
+sync[1].setBackground(Color.BLACK);
+sync[1].setVisible(false);
+sync[1].setFocusable(false);
+sync[1].setActionCommand("NoData");
+sync[1].setBorder(new LineBorder(new Color(255,0,25)));
 
-sync_3 = new JButton("Daten löschen");
-sync_3.setForeground(new Color(255,0,120));
-sync_3.setFont(new Font("Times new Roman", Font.PLAIN, 30));
-sync_3.setBounds(1020, 1210, 212, 30);
-sync_3.setBackground(Color.BLACK);
-sync_3.setVisible(true);
-sync_3.setFocusable(false);
-sync_3.setActionCommand("DeleteData");
-sync_3.setBorder(new LineBorder(new Color(255,0,120)));
+sync[2] = new JButton("Daten löschen");
+sync[2].setForeground(new Color(255,0,120));
+sync[2].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+sync[2].setBounds(1020, 1210, 212, 30);
+sync[2].setBackground(Color.BLACK);
+sync[2].setVisible(true);
+sync[2].setFocusable(false);
+sync[2].setActionCommand("DeleteData");
+sync[2].setBorder(new LineBorder(new Color(255,0,120)));
 
 
 sync_Text = new JTextArea("           Willst du die \n gespeicherten Daten laden?"); // Text von sync_Text setten. \n ist nextline
@@ -145,9 +144,9 @@ sync_Text.setFocusable(false);
 sync_Text.setLineWrap(true);
 
 frame.add(sync_Box); //
-frame.add(sync_1);
-frame.add(sync_2);
-frame.add(sync_3);
+frame.add(sync[0]);
+frame.add(sync[1]);
+frame.add(sync[2]);
 frame.add(sync_Text);
 
 search_Box = new JPanel();

@@ -68,9 +68,7 @@ class GUI{
  +option[] : JButton[6]
  +optionI[] : JLabel[6]
  +sync_Box : JPanel
- +sync_1 : JButton
- +sync_2 : JButton
- +sync_3 : JButton
+ +sync[] : JButton[3]
  sync_Text : JTextArea
  -texts : Texts
  -arraysList : ArraysList
@@ -105,11 +103,13 @@ class SystemController{
 -d : int
  +karten[] : Karte[9]
  +loading() : void
- +sync() : void
+ +clearBox() : void
+ +addToBox(i : int) : void
  -ret() : void
- +randomName() : void
+ +randomName() : String
  -anmelden() : void
- +generateRarity() : void
+ +sync() : void
+ +generateRarity() : String
  +generateNumber() : int
  -confirmName() : void
  +confirmCardName() : void
@@ -120,7 +120,7 @@ class SystemController{
  +confirmCardElement() : void
  +confirmCardAbility() : void
  +option1_1() : void
- +option1_2() : void
+ +viewMenu() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
 }
 

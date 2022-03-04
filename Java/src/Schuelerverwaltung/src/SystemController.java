@@ -31,9 +31,9 @@ Karte[] karten = new Karte[9];
     SystemController() throws Exception{
         System.out.println(super.l.isVisible());
         frame.addKeyListener(input);
-        sync_1.addActionListener(this);
-        sync_2.addActionListener(this);
-        sync_3.addActionListener(this);
+        sync[0].addActionListener(this);
+        sync[1].addActionListener(this);
+        sync[2].addActionListener(this);
         backB.addActionListener(this);
         searchB1.addActionListener(this);
         option[0].addActionListener(this);
@@ -460,7 +460,7 @@ elemB.add(ei);
                         }
                     }
 
-                    public void generateRarity(){
+                    public String generateRarity(){
                         Random rd = new Random();
                         int rd2;
                         rd2 = rd.nextInt(10);
@@ -472,7 +472,6 @@ elemB.add(ei);
                             }
                         }
                         
-                            texarea.setText(arraysList.rar[rd2]);
                             try {
                                 sec_Image.setVisible(true);
                                 sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
@@ -480,6 +479,7 @@ elemB.add(ei);
                             } catch(Exception x){
                                 System.out.println(x.getStackTrace());
                             }
+                            return arraysList.rar[rd2];
                     }
                     
                     public int generateNumber(int i, int v){
@@ -802,7 +802,7 @@ elemB.add(ei);
                             }
 
                             if (e.getActionCommand().equals("GenerateRarity")){        
-                                generateRarity();                        
+                               texarea.setText(generateRarity());                        
                             }
 
                             if (e.getActionCommand().equals("GenerateDamage")){        
@@ -945,9 +945,9 @@ elemB.add(ei);
                                     System.out.println(user.angemeldet);
                 
                                     sync_Box.setVisible(false);
-                                    sync_1.setVisible(false);
-                                    sync_2.setVisible(false);
-                                    sync_3.setVisible(false);
+                                    sync[0].setVisible(false);
+                                    sync[1].setVisible(false);
+                                    sync[2].setVisible(false);
                                     sync_Text.setVisible(false);
                 
                                     saveButton.setVisible(true);
@@ -973,9 +973,9 @@ elemB.add(ei);
                                     obj2.close();
                 
                                     sync_Box.setVisible(false);
-                                    sync_1.setVisible(false);
-                                    sync_2.setVisible(false);
-                                    sync_3.setVisible(false);
+                                    sync[0].setVisible(false);
+                                    sync[1].setVisible(false);
+                                    sync[2].setVisible(false);
                                     sync_Text.setVisible(false);
                                     saveButton.setVisible(true);
                                     randomButton.setVisible(true);
@@ -1001,9 +1001,9 @@ elemB.add(ei);
                                     o.close();
                 
                                     sync_Box.setVisible(false);
-                                    sync_1.setVisible(false);
-                                    sync_2.setVisible(false);
-                                    sync_3.setVisible(false);
+                                    sync[0].setVisible(false);
+                                    sync[1].setVisible(false);
+                                    sync[2].setVisible(false);
                                     sync_Text.setVisible(false);
                                     saveButton.setVisible(true);
                                     randomButton.setVisible(true);
@@ -1033,29 +1033,29 @@ elemB.add(ei);
                             if (dataStore.ver == true){
                                 System.out.println("Do you want to restore the data?");
                                 sync_Box.setBounds(1000, 1100, 250, 145);
-                                sync_1.setBounds(1020, 1170, 100, 30);
-                                sync_2.setBounds(1132, 1170, 100, 30);
-                                sync_3.setBounds(1020, 1210, 212, 30);
+                                sync[0].setBounds(1020, 1170, 100, 30);
+                                sync[1].setBounds(1132, 1170, 100, 30);
+                                sync[2].setBounds(1020, 1210, 212, 30);
                                 sync_Text.setBounds(1000, 1105, 250, 100);
                                 
                                 Thread.sleep(80);
                                 
                                 sync_Box.setVisible(true);
-                                sync_1.setVisible(true);
-                                sync_2.setVisible(true);
+                                sync[0].setVisible(true);
+                                sync[1].setVisible(true);
                                 sync_Text.setVisible(true);
                                 
                                 for (int v = 0; v< 460; v++){
                                 Thread.sleep(1);
                                 sync_Box.setBounds(1000, 1100-v, 250, 145);
-                                sync_1.setBounds(1020, 1170-v, 100, 30);
-                                sync_2.setBounds(1132, 1170-v, 100, 30);
-                                sync_3.setBounds(1020, 1210-v, 212, 30);
+                                sync[0].setBounds(1020, 1170-v, 100, 30);
+                                sync[1].setBounds(1132, 1170-v, 100, 30);
+                                sync[2].setBounds(1020, 1210-v, 212, 30);
                                 sync_Text.setBounds(1000, 1105-v, 250, 100);                
                                 }
                                 sync_Box.setVisible(true);
-                                sync_1.setVisible(true);
-                                sync_2.setVisible(true);
+                                sync[0].setVisible(true);
+                                sync[1].setVisible(true);
                                 sync_Text.setVisible(true);
                             }
                 
