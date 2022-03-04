@@ -16,13 +16,18 @@ Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschrei
 
 ### **1.1 Grobbeschreibung** 
 
-In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Fähigkeiten, Stats(Name, Seltenheit, Damage, HP, Agility, Element) und bekommen eine eigene ID.
+In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Name und Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) Fähigkeiten(Premium, ..), Stats(Damage, HP und Agilität) und bekommen eine eigene ID. Die ID generieren wir mit der Funktion generateNumber() in der Klasse SystemController. L. 450 findet man die Funktion und auf der L. 633 wird die ID generiert.
+
+Die Stats haben eine wichtige Auswirkung für die Karte.
+unter "Java\\src\\Schuelerverwaltung\\Images\\Karten" findet man 3 Arten von Karten. "Silver", "Gold" und "Elite". Wenn die Stats der Karte mehr als 800 sind, dann bekommt die Karte die "Gold" Stufe. Das heißt, wenn die Stats(Damage, HP und Agilität) zusammen gerechnet mehr als 800 sind, dann wird die Karte "Gold" als Theme haben wird. Wenn die Stats mehr als 1500 sind, dann bekommt die Karte die "Elite" Stufe und das zeigt, dass die Karte wertvöllig ist.
 
 TODO Ausführlicher -> Welche Fähigkeiten und Seltenheitsstufen gibt es z. B. Welche Stats gibt es und welche Auswirkung haben diese
 
+Fähigkeiten
+ -Premium: Stats(Damage, HP und Agilität) sind 2x besser
 ### **1.2 Menüführung**
 
-Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes muss man einen Namen und ein Passwort eingeben. Man erstellt also entweder neue Daten(Konto), oder man kann die gespeicherten Daten in DataStore laden(dafür braucht man den gespeicherten Namen und das gespeicherte Password). Danach kann der Nutzer von den 6 Möglichkeiten eine auswählen:
+Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes muss man einen Namen und ein Passwort eingeben. Man erstellt also entweder neue Daten(Konto), oder man kann die gespeicherten Daten in DataStore laden(dafür braucht man den gespeicherten Namen und das gespeicherte Passwort). Danach kann der Nutzer von den 6 Möglichkeiten eine auswählen:
 
 - Karte anlegen 
     - neue Karten erstellen
@@ -69,7 +74,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
   
   - Am Ende erstellt das System eine ID für die Karte automatisch, die ID besteht aus Zahlen (Sie beinhaltet keine Buchstaben).
    
-  - Als Zusatz kann der Nutzer eine Fähigkeit für die Karte festlegen, die Fähigkeit muss aus 3 bis 20 Charakteren bestehen. 
+  - Als Zusatz kann der Nutzer eine Fähigkeit für die Karte mit einer Auswahl festlegen(optional). Die Auswahl besteht aus .. Fähigkeiten und der Nutzer darf nur eine Fähigkeit auswählen. 
 
 - Meine Karten   
   - der Nutzer erhält eine Tabelle mit allen Karten, die im Konto erstellt sind und kann dann nach Karten Filtern
@@ -88,15 +93,17 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 - Abmelden   
   - bei der Abmeldung wird Der Nutzer aus dem Konto abgemeldet und die Daten des Nutzers bleiben in DataStore 
   - Wenn der Nutzer das Projekt wieder startet, dann bekommt der Nutzer eine Auswahl mit 3 Möglichkeiten
-  - Die erste Möglichkeit benötigt das gespeicherte Passwort und den gespeicherten Namen, dafür werden alle Kontodaten geladen(Karten, Eigenschaften, ...)
-  - Die zweite Möglichkeit lädt die Daten nicht, so kann der Nutzer entweder ein neues Konto erstellen, oder das Projekt wieder starten, damit der Nutzer diese Auswahl wieder bekommt
-  - Die dritte Möglichkeit löscht die gespeicherten Kontodaten, so muss der Nutzer ein neues Konto mit neuen Karten erstellen
+    - Die erste Möglichkeit benötigt das gespeicherte Passwort und den gespeicherten Namen, dafür werden alle Kontodaten geladen(Karten, Eigenschaften, ...)
+  
+    - Die zweite Möglichkeit lädt die Daten nicht, so kann der Nutzer entweder ein neues Konto erstellen, oder das Projekt wieder starten, damit der Nutzer diese Auswahl wieder bekommt
+  
+    - Die dritte Möglichkeit löscht die gespeicherten Kontodaten, so muss der Nutzer ein neues Konto mit neuen Karten erstellen
 
 
 
 ### **2.2 Besonderheiten**
 
-Unser Programm hat ein paar Besonderheiten, einmal das jede Karte, die erstellt wird, automatisch eine ID zugewiesen wird. Außerdem, dass man nach dem Karten erstellen, mit dem hinzugefügten Kartenpool, eine Art Pack Opening durchführen kann. Die gezogene Karte, wird dann dem Inventar zugefügt (Anzahl der Exemplare einer Karte). 
+Unser Programm hat ein paar Besonderheiten, einmal das jede Karte, die erstellt wird, automatisch eine ID zugewiesen wird. Außerdem, dass man nach dem Karten erstellen, mit dem hinzugefügten Kartenpool, eine Art Pack Opening durchführen kann. Die gezogene Karte wird beim annehmen dem Inventar zugefügt (Anzahl der Exemplare einer Karte) und beim ablehnen gelöscht. 
 Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestaltet wurde. Zuletzt noch, dass die Karten beim beenden des Programmes gespeichert werden.
 
 ## 3. Diagramm Dokumentation
