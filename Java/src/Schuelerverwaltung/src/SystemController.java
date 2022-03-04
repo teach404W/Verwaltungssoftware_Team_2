@@ -28,6 +28,7 @@ private int d;
 
 Karte[] karten = new Karte[9]; 
 
+
     SystemController() throws Exception{
         System.out.println(super.l.isVisible());
         frame.addKeyListener(input);
@@ -52,7 +53,7 @@ Thread.sleep(1000);
 loading();
 sync();
 
-
+karten[0] = new Karte();
         while (user.angemeldet == true){
             if (confirmButton.getActionCommand() == "ConfirmCardRarity"){
                 if (texarea.getText().length() < 1){
@@ -687,7 +688,7 @@ elemB.add(ei);
                                         texarea.setText(null);
                                         randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateElement");
-                                        confirmButton.setActionCommand("ConfirmCardElement");
+                                        confirmButton.setActionCommand("ConfirmCardAbility");
                                         option[0].setVisible(false);
                                         optionI[0].setVisible(false);
                                         option[1].setVisible(false);
@@ -706,6 +707,73 @@ elemB.add(ei);
                                         box2.setVisible(false);
                                         texarea.setEditable(true);
                 }
+
+                public void confirmCardAbility(){
+                    sec_Image.setVisible(false);
+                                    dataStore.temp_KarteAbility = texarea.getText();
+                                    texarea.setText(null);
+                                    randomButton.setVisible(true);
+                                    eRandomButton.setActionCommand("RandomName");
+                                    confirmButton.setActionCommand("option[0]");
+                                    option[0].setVisible(true);
+                                    optionI[0].setVisible(true);
+                                    option[1].setVisible(true);
+                                    optionI[1].setVisible(true);
+                                    option[2].setVisible(true);
+                                    optionI[2].setVisible(true);
+                                    option[3].setVisible(true);
+                                    optionI[3].setVisible(true);
+                                    option[4].setVisible(true);
+                                    optionI[4].setVisible(true);
+                                    option[5].setVisible(true);
+                                    optionI[5].setVisible(true);
+                                    infoText.setText("");
+                                    backB.setVisible(false);
+                                    texarea.setVisible(false);
+                                    confirmButton.setVisible(false);
+                                    randomButton.setVisible(false);
+                                    l2.setVisible(false);
+                                    clearBox();
+                                    box2.setVisible(false);
+
+                                    checkCards();
+
+            }
+
+
+            public void checkCards(){
+                if (karten[0].karte_Name.equals("null")){
+                    createCard(0);
+                }
+            }
+
+
+            public void createCard(int i){
+
+                karten[i].karte_Name = dataStore.temp_KarteName;
+                karten[i].karte_Seltenheit = dataStore.temp_KarteSeltenheit;
+                karten[i].karte_Damage = dataStore.temp_KarteDamage;
+                karten[i].karte_HP = dataStore.temp_KarteHP;
+                karten[i].karte_Agility = dataStore.temp_KarteAgility;
+                karten[i].karte_Element = dataStore.temp_KarteElement;
+                karten[i].karte_Ability = dataStore.temp_KarteAbility;
+                karten[i].karte_ID = dataStore.temp_KarteID;
+                karten[i].karte_ID = "" + generateNumber(10000, 1000000);
+
+                dataStore.temp_KarteName = null;
+                dataStore.temp_KarteSeltenheit = null;
+                dataStore.temp_KarteDamage = null;
+                dataStore.temp_KarteHP = null;
+                dataStore.temp_KarteAgility = null;
+                dataStore.temp_KarteElement = null;
+                dataStore.temp_KarteID = null;
+                dataStore.temp_KarteAbility = null;
+
+                System.out.println(karten[i].karte_ID);
+                System.out.println(karten[i].karte_Seltenheit);
+            }
+
+
 
                     public void option1_1(){
                         texarea.setText(null);
@@ -852,6 +920,10 @@ elemB.add(ei);
 
                             if (e.getActionCommand().equals("ConfirmCardElement")){
                                 confirmCardElement();
+                            }
+
+                            if (e.getActionCommand().equals("ConfirmCardAbility")){
+                                confirmCardAbility();
                             }
                 
                         }

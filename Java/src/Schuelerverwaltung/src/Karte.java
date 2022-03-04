@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 public class Karte implements Serializable{
     
-    String karte_Name;
+    String karte_Name = "null";
     String karte_Seltenheit;
     String karte_Damage;
     String karte_HP;
