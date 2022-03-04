@@ -20,4 +20,38 @@ Angemeldet : boolean
 
 }
 
+object DataStore{
+
+    name : String
+    password : Int
+    angemeldet : Boolean
+    ver : Boolean
+
+
+    temp_KarteName : String
+    temp_KarteSeltenheit : String
+    temp_KarteDamage : String
+    temp_KarteHP : String
+    temp_KarteAgility : String
+    temp_KarteElement : String
+    temp_KarteID : String
+    temp_KarteAbility : String    
+
+
+    re_KarteName : String
+    re_KarteSeltenheit : String
+    re_KarteDamage : String
+    re_KarteHP : String
+    re_KarteAgility : String
+    re_KarteElement : String
+    re_KarteID : String
+    re_KarteAbility : String
+}
+
+object Systemcontroller{
+
+    r2 : Int
+    d : Int
+}
+
 @enduml
