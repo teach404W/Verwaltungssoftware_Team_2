@@ -594,6 +594,7 @@ elemB.add(ei);
                                         infoText.setText("Damage eingeben (0-1000)");
                                         backB.setVisible(true);
                                         texarea.setEditable(true);
+                                        l2.setVisible(false);
                                         box2.setVisible(false);
                                         clearBox();
                                         }

@@ -76,48 +76,41 @@ User user = new User();
 
     public GUI() throws Exception {
 
-                frame = new JFrame();
+                frame = new JFrame(); // Öffnet ein Fenster beim Starten
     
-            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH); // das Fenster(frame) wird beim starten auf full screen gesettet
             frame.setUndecorated(false);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
-            frame.setBackground(Color.black);
-
-            JPanel startname = new JPanel();
-            startname.setBackground(Color.BLACK);
-            startname.setSize(400, 400);
-            startname.setFont(new Font("Times new Roman", Font.PLAIN, 35));
-            startname.setForeground(Color.WHITE);
-            startname.setVisible(true);
-
-
-
 
             panel1 = new JPanel();
             panel1.setBounds(800, 200, 350, 100);
             panel1.setBackground(Color.black);
 
+            // JFrame: JFrame ist das Fenster
+            // JLabel: JLabel kann entweder ein Text oder ein Bild sein. Kann nur einen Satz haben.
+            // JButton: JButton kann der Nutzer Klicken, um Funktionen zu starten. Sie kann auch einen Text haben.
+            // JTextArea: JTextArea ist ein großes Textfeld. Kann auch mehrere Sätze haben
 
 sync_Box = new JPanel(); // setten von sync_Box
 sync_Box.setForeground(new Color(255, 255, 255)); // 
-sync_Box.setFont(new Font("Times new Roman", Font.PLAIN, 60)); //
-sync_Box.setBounds(900, 500, 250, 145); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe)
+sync_Box.setFont(new Font("Times new Roman", Font.PLAIN, 60)); // Die Schriftart von sync_Box eingeben | "Times New Roman" ist die Schriftart und 60 ist die Schriftgröße
+sync_Box.setBounds(900, 500, 250, 145); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein
 //sync_Box.setBackground(Color.black); // Hintergrundsfarbe setten
 sync_Box.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
-sync_Box.setFocusable(false);
+sync_Box.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
 sync_Box.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
-sync_Box.setBorder(new LineBorder(Color.white)); // Outline und die Farbe
+sync_Box.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben
 
-sync_1 = new JButton("Ja");
-sync_1.setForeground(new Color(0, 255, 25));
-sync_1.setFont(new Font("Times new Roman", Font.PLAIN, 30));
-sync_1.setBounds(920, 550, 100, 30);
-sync_1.setBackground(Color.BLACK);
-sync_1.setVisible(false);
-sync_1.setFocusable(false);
-sync_1.setActionCommand("LoadData");
-sync_1.setBorder(new LineBorder(new Color(0,255,25)));
+sync_1 = new JButton("Ja");  // definieren von sync_1 | der Text in den Klammern "Ja" ist der Anfangstext von sync_1 und kann später geändert werden
+sync_1.setForeground(new Color(0, 255, 25)); // mit rgb(rot, grün, blau) die Hintergrundsfarbe setten
+sync_1.setFont(new Font("Times new Roman", Font.PLAIN, 30)); // Die Schriftart von sync_1 eingeben | Die Schriftart ist "Times new Roman" und die Schriftgröße ist 30
+sync_1.setBounds(920, 550, 100, 30); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein 
+sync_1.setBackground(Color.BLACK); // Hintergrundsfarbe setten
+sync_1.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
+sync_1.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
+sync_1.setActionCommand("LoadData"); // Actioncommand wird beim Klicken genommen und kann Funktionen starten. SystemController L. 787
+sync_1.setBorder(new LineBorder(new Color(0,255,25))); // Outline und die Farbe eingeben
 
 
 sync_2 = new JButton("Nein");
@@ -141,9 +134,9 @@ sync_3.setActionCommand("DeleteData");
 sync_3.setBorder(new LineBorder(new Color(255,0,120)));
 
 
-sync_Text = new JTextArea("           Willst du die \n gespeicherten Daten laden?");
-sync_Text.setForeground(new Color(255, 255, 255));
-sync_Text.setFont(new Font("Times new Roman", Font.PLAIN, 22));
+sync_Text = new JTextArea("           Willst du die \n gespeicherten Daten laden?"); // Text von sync_Text setten. \n ist nextline
+sync_Text.setForeground(new Color(255, 255, 255)); // Textfarbe mit rgb(rot, grün, blau) setten
+sync_Text.setFont(new Font("Times new Roman", Font.PLAIN, 22)); // Schriftart eingebn | "Times New Roman" ist die Schriftart und 22 ist die Schriftgröße
 sync_Text.setBounds(900, 505, 250, 100);
 sync_Text.setBackground(new Color(39,43,49));
 sync_Text.setOpaque(false);
@@ -151,7 +144,7 @@ sync_Text.setVisible(false);
 sync_Text.setFocusable(false);
 sync_Text.setLineWrap(true);
 
-frame.add(sync_Box);
+frame.add(sync_Box); //
 frame.add(sync_1);
 frame.add(sync_2);
 frame.add(sync_3);
