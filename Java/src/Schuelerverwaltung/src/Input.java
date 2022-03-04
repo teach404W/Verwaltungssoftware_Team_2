@@ -7,7 +7,7 @@ public Input() throws Exception{
 
 public void option1_1(){
 
-    if (GUI.option_1.isVisible() == true){
+    if (GUI.option[0].isVisible() == true){
         GUI.texarea.setText(null);
         GUI.texarea.setVisible(true);
         GUI.confirmButton.setVisible(true);
@@ -15,18 +15,18 @@ public void option1_1(){
         GUI.eRandomButton.setActionCommand("RandomName");
         GUI.confirmButton.setActionCommand("ConfirmCardName");
         GUI.sec_Image.setVisible(false);
-        GUI.option_1.setVisible(false);
-        GUI.option_1_Image.setVisible(false);
-        GUI.option_2.setVisible(false);
-        GUI.option_2_Image.setVisible(false);
-        GUI.option_3.setVisible(false);
-        GUI.option_3_Image.setVisible(false);
-        GUI.option_4.setVisible(false);
-        GUI.option_4_Image.setVisible(false);
-        GUI.option_5.setVisible(false);
-        GUI.option_5_Image.setVisible(false);
-        GUI.option_6.setVisible(false);
-        GUI.option_6_Image.setVisible(false);
+        GUI.option[0].setVisible(false);
+        GUI.optionI[0].setVisible(false);
+        GUI.option[1].setVisible(false);
+        GUI.optionI[1].setVisible(false);
+        GUI.option[2].setVisible(false);
+        GUI.optionI[2].setVisible(false);
+        GUI.option[3].setVisible(false);
+        GUI.optionI[3].setVisible(false);
+        GUI.option[4].setVisible(false);
+        GUI.optionI[4].setVisible(false);
+        GUI.option[5].setVisible(false);
+        GUI.optionI[5].setVisible(false);
         GUI.infoText.setVisible(true);
         GUI.infoText.setText("Name eingeben (4-20 Charakter)");
         GUI.backB.setVisible(true);

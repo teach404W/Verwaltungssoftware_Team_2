@@ -13,9 +13,7 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-
 import java.awt.event.KeyListener;
 
 
@@ -26,152 +24,9 @@ private    Random r1;
 private int r2;
 private int d;
 
-Karte karte1 = null;
-Karte karte2 = null;
-Karte karte3 = null;
-Karte karte4 = null;
-Karte karte5 = null;
-Karte karte6 = null;
-Karte karte7 = null;
-Karte karte8 = null;
-Karte karte9 = null;
-Karte karte10 = null;
 
 
-String[] karte_Name = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_Seltenheiten = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_Damage = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_HP = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_Agility = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_Element = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-String[] karte_Ability = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-
-String[] karte_ID = {
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-    "1",
-
-
-};
-
-   // ArrayList<String> karte_Name = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Seltenheit = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Damage = new ArrayList<>(); 
-
-   // ArrayList<String> karte_HP = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Agility = new ArrayList<>(); 
-
-   // ArrayList<String> karte_Element = new ArrayList<>(); 
-
-   // ArrayList<String> karte_ID = new ArrayList<>(); 
+Karte[] karten = new Karte[9]; 
 
     SystemController() throws Exception{
         System.out.println(super.l.isVisible());
@@ -181,12 +36,12 @@ String[] karte_ID = {
         sync_3.addActionListener(this);
         backB.addActionListener(this);
         searchB1.addActionListener(this);
-        option_1.addActionListener(this);
-        option_2.addActionListener(this);
-option_3.addActionListener(this);
-option_4.addActionListener(this);
-option_5.addActionListener(this);
-option_6.addActionListener(this);
+        option[0].addActionListener(this);
+        option[1].addActionListener(this);
+option[2].addActionListener(this);
+option[3].addActionListener(this);
+option[4].addActionListener(this);
+option[5].addActionListener(this);
 searchB2.addActionListener(this);
 searchB3.addActionListener(this);
 searchB4.addActionListener(this);
@@ -196,7 +51,6 @@ eSaveButton.addActionListener(this);
 Thread.sleep(1000);
 loading();
 sync();
-
 
 
         while (user.angemeldet == true){
@@ -326,26 +180,12 @@ sync();
                     }
                 } catch (Exception e) {
                     //TODO: handle exception
-                }
-                
+                }            
         
-        
-                        
-                        
-                            
-                            
-                        
-                    
-        
-                }
-        
-        
-        
+                } 
                 
             }
-        
-        
-        
+
             else{
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
@@ -421,15 +261,10 @@ sync();
                         l.setVisible(false);
                         l2.setVisible(false);
 
-                        
-            
             texarea.setVisible(true);
             confirmButton.setVisible(true);
-            //randomButton.setVisible(false);
             infoText.setVisible(true);
-            
-            
-                }
+        }
 
                 public void clearBox(){
                     box2.removeAll();
@@ -471,6 +306,46 @@ for (int e = 0; e < arraysList.rar.length; e++) {
 
             }
         }
+
+
+
+
+        if (i == 2){
+            JLabel ei;
+
+
+for (int e = 0; e < arraysList.elemente.length; e++) {
+
+javax.swing.JButton elemB = new JButton();
+elemB.setForeground(new Color(80, 0, 255));
+elemB.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+elemB.setBounds(0, 0, 0, 0);
+elemB.setBackground(Color.black);
+elemB.setVisible(true);
+elemB.setFocusable(false);
+elemB.addActionListener(this);
+elemB.setActionCommand(arraysList.elemente[e]);
+elemB.setBorder(new LineBorder(Color.white));
+
+
+ei = new JLabel();
+ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+ei.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + arraysList.elemente[e] + ".png")
+.getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
+ei.setSize(600, 600);
+ei.setBackground(Color.white);
+ei.setVisible(true);
+ei.setFocusable(false);
+ei.setBorder(new LineBorder(Color.white));
+
+
+box2.add(elemB);
+elemB.add(ei);
+
+
+}
+}
+
     }
 
 
@@ -480,7 +355,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                     }
                         }
                     
-                    public void randomName(){
+                    public String randomName(){
                             int x = (int) (Math.random() * 100);
                             if (x > 50){
                                  x = (int) (Math.random() * 100);
@@ -490,7 +365,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                      x = (int) (Math.random() * 100);
                     
                                 }
-                                return;
+                                return texarea.getText(); 
                             }
                     
                             if (x < 50){
@@ -506,12 +381,13 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                
                                x = (int) (Math.random() * 100); //  x Wird neu generiert (0-100)
                                if (x < 60) texarea.setText(texarea.getText() + x); //  60%, dass der Name eine Zufällige Zahl am Ende bekommt
-                               return;
+                               return texarea.getText();
                             }
+                            return null;
                     }
                     
                     private void anmelden(){
-                        option_6.setActionCommand("Abmelden");
+                        option[5].setActionCommand("Abmelden");
                         if (texarea.getText().length() > 4 && texarea.getText().length() <16){
                 
                             if (texarea.getText().charAt(0) == '0' && user.password < 1){
@@ -531,18 +407,18 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                     infoText.setVisible(false);
                                     dataStore.angemeldet = true;
                                     user.angemeldet = true;
-                                    option_1.setVisible(true);
-                                    option_1_Image.setVisible(true);
-                                    option_2.setVisible(true);
-                                    option_2_Image.setVisible(true);
-                                    option_3.setVisible(true);
-                                    option_3_Image.setVisible(true);
-                                    option_4.setVisible(true);
-                                    option_4_Image.setVisible(true);
-                                    option_5.setVisible(true);
-                                    option_5_Image.setVisible(true);
-                                    option_6.setVisible(true);
-                                    option_6_Image.setVisible(true);
+                                    option[0].setVisible(true);
+                                    optionI[0].setVisible(true);
+                                    option[1].setVisible(true);
+                                    optionI[1].setVisible(true);
+                                    option[2].setVisible(true);
+                                    optionI[2].setVisible(true);
+                                    option[3].setVisible(true);
+                                    optionI[3].setVisible(true);
+                                    option[4].setVisible(true);
+                                    optionI[4].setVisible(true);
+                                    option[5].setVisible(true);
+                                    optionI[5].setVisible(true);
                                 }
                             }
             
@@ -557,18 +433,18 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                 infoText.setVisible(false);
                                 dataStore.angemeldet = true;
                                 user.angemeldet = true;
-                                option_1.setVisible(true);
-                                option_1_Image.setVisible(true);
-                                option_2.setVisible(true);
-                                option_2_Image.setVisible(true);
-                                option_3.setVisible(true);
-                                option_3_Image.setVisible(true);
-                                option_4.setVisible(true);
-                                option_4_Image.setVisible(true);
-                                option_5.setVisible(true);
-                                option_5_Image.setVisible(true);
-                                option_6.setVisible(true);
-                                option_6_Image.setVisible(true);
+                                option[0].setVisible(true);
+                                optionI[0].setVisible(true);
+                                option[1].setVisible(true);
+                                optionI[1].setVisible(true);
+                                option[2].setVisible(true);
+                                optionI[2].setVisible(true);
+                                option[3].setVisible(true);
+                                optionI[3].setVisible(true);
+                                option[4].setVisible(true);
+                                optionI[4].setVisible(true);
+                                option[5].setVisible(true);
+                                optionI[5].setVisible(true);
                                 }
             
                                 if(user.password != Integer.parseInt(texarea.getText().toString())){
@@ -606,11 +482,10 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                             }
                     }
                     
-                    public void generateNumber(int i, int v){
+                    public int generateNumber(int i, int v){
                         int x = i + (int) (Math.random() * (v));
-                        texarea.setText("");
-                            texarea.setText("" + x);
-        
+                        
+        return x;
                     }
 
 
@@ -662,22 +537,21 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         randomButton.setVisible(true);
                         eRandomButton.setActionCommand("GenerateRarity");
                         confirmButton.setActionCommand("ConfirmCardRarity");
-                        option_1.setVisible(false);
-                        option_1_Image.setVisible(false);
-                        option_2.setVisible(false);
-                        option_2_Image.setVisible(false);
-                        option_3.setVisible(false);
-                        option_3_Image.setVisible(false);
-                        option_4.setVisible(false);
-                        option_4_Image.setVisible(false);
-                        option_5.setVisible(false);
-                        option_5_Image.setVisible(false);
-                        option_6.setVisible(false);
-                        option_6_Image.setVisible(false);
+                        option[0].setVisible(false);
+                        optionI[0].setVisible(false);
+                        option[1].setVisible(false);
+                        optionI[1].setVisible(false);
+                        option[2].setVisible(false);
+                        optionI[2].setVisible(false);
+                        option[3].setVisible(false);
+                        optionI[3].setVisible(false);
+                        option[4].setVisible(false);
+                        optionI[4].setVisible(false);
+                        option[5].setVisible(false);
+                        optionI[5].setVisible(false);
                         infoText.setVisible(true);
                         infoText.setText("Seltenheit Auswählen");
                         backB.setVisible(true);
-                        backB.setActionCommand("option_1");
                         addToBox(1);  
                         box2.setVisible(true);
                         texarea.setEditable(false);
@@ -704,24 +578,132 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                         texarea.setText(null);
                                         randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateDamage");
-                                        confirmButton.setActionCommand("");
-                                        option_1.setVisible(false);
-                                        option_1_Image.setVisible(false);
-                                        option_2.setVisible(false);
-                                        option_2_Image.setVisible(false);
-                                        option_3.setVisible(false);
-                                        option_3_Image.setVisible(false);
-                                        option_4.setVisible(false);
-                                        option_4_Image.setVisible(false);
-                                        option_5.setVisible(false);
-                                        option_5_Image.setVisible(false);
-                                        option_6.setVisible(false);
-                                        option_6_Image.setVisible(false);
+                                        confirmButton.setActionCommand("ConfirmCardDamage");
+                                        option[0].setVisible(false);
+                                        optionI[0].setVisible(false);
+                                        option[1].setVisible(false);
+                                        optionI[1].setVisible(false);
+                                        option[2].setVisible(false);
+                                        optionI[2].setVisible(false);
+                                        option[3].setVisible(false);
+                                        optionI[3].setVisible(false);
+                                        option[4].setVisible(false);
+                                        optionI[4].setVisible(false);
+                                        option[5].setVisible(false);
+                                        optionI[5].setVisible(false);
                                         infoText.setText("Damage eingeben (0-1000)");
                                         backB.setVisible(true);
-                                        backB.setActionCommand("option_2");
-                                        
+                                        texarea.setEditable(true);
+                                        box2.setVisible(false);
+                                        clearBox();
                                         }
+                }
+
+                public void confirmCardDamage(){
+                    if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001){
+                        sec_Image.setVisible(false);
+                                        dataStore.temp_KarteDamage = texarea.getText();
+                                        texarea.setText(null);
+                                        randomButton.setVisible(true);
+                                        eRandomButton.setActionCommand("GenerateDamage");
+                                        confirmButton.setActionCommand("ConfirmCardHP");
+                                        option[0].setVisible(false);
+                                        optionI[0].setVisible(false);
+                                        option[1].setVisible(false);
+                                        optionI[1].setVisible(false);
+                                        option[2].setVisible(false);
+                                        optionI[2].setVisible(false);
+                                        option[3].setVisible(false);
+                                        optionI[3].setVisible(false);
+                                        option[4].setVisible(false);
+                                        optionI[4].setVisible(false);
+                                        option[5].setVisible(false);
+                                        optionI[5].setVisible(false);
+                                        infoText.setText("HP eingeben (0-1000)");
+                                        backB.setVisible(true);
+                                        texarea.setEditable(true);
+                                        }
+                }
+
+                public void confirmCardHP(){
+                    if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001){
+                        sec_Image.setVisible(false);
+                                        dataStore.temp_KarteHP = texarea.getText();
+                                        texarea.setText(null);
+                                        randomButton.setVisible(true);
+                                        eRandomButton.setActionCommand("GenerateAgility");
+                                        confirmButton.setActionCommand("ConfirmCardAgility");
+                                        option[0].setVisible(false);
+                                        optionI[0].setVisible(false);
+                                        option[1].setVisible(false);
+                                        optionI[1].setVisible(false);
+                                        option[2].setVisible(false);
+                                        optionI[2].setVisible(false);
+                                        option[3].setVisible(false);
+                                        optionI[3].setVisible(false);
+                                        option[4].setVisible(false);
+                                        optionI[4].setVisible(false);
+                                        option[5].setVisible(false);
+                                        optionI[5].setVisible(false);
+                                        infoText.setText("Agilität eingeben (0-100)");
+                                        backB.setVisible(true);
+                                        texarea.setEditable(true);
+                                        }
+                }
+
+                public void confirmCardAgility(){
+                    if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 101){
+                        sec_Image.setVisible(false);
+                                        dataStore.temp_KarteAgility = texarea.getText();
+                                        texarea.setText(null);
+                                        randomButton.setVisible(true);
+                                        eRandomButton.setActionCommand("GenerateElement");
+                                        confirmButton.setActionCommand("ConfirmCardElement");
+                                        option[0].setVisible(false);
+                                        optionI[0].setVisible(false);
+                                        option[1].setVisible(false);
+                                        optionI[1].setVisible(false);
+                                        option[2].setVisible(false);
+                                        optionI[2].setVisible(false);
+                                        option[3].setVisible(false);
+                                        optionI[3].setVisible(false);
+                                        option[4].setVisible(false);
+                                        optionI[4].setVisible(false);
+                                        option[5].setVisible(false);
+                                        optionI[5].setVisible(false);
+                                        infoText.setText("Element auswählen");
+                                        backB.setVisible(true);
+                                        addToBox(2);
+                                        box2.setVisible(true);
+                                        texarea.setEditable(false);
+                                    }
+                }
+
+
+                public void confirmCardElement(){
+                        sec_Image.setVisible(false);
+                                        dataStore.temp_KarteElement = texarea.getText();
+                                        texarea.setText(null);
+                                        randomButton.setVisible(true);
+                                        eRandomButton.setActionCommand("GenerateElement");
+                                        confirmButton.setActionCommand("ConfirmCardElement");
+                                        option[0].setVisible(false);
+                                        optionI[0].setVisible(false);
+                                        option[1].setVisible(false);
+                                        optionI[1].setVisible(false);
+                                        option[2].setVisible(false);
+                                        optionI[2].setVisible(false);
+                                        option[3].setVisible(false);
+                                        optionI[3].setVisible(false);
+                                        option[4].setVisible(false);
+                                        optionI[4].setVisible(false);
+                                        option[5].setVisible(false);
+                                        optionI[5].setVisible(false);
+                                        infoText.setText("(optional) Ability auswählen");
+                                        backB.setVisible(true);
+                                        clearBox();
+                                        box2.setVisible(false);
+                                        texarea.setEditable(true);
                 }
 
                     public void option1_1(){
@@ -733,22 +715,21 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         eRandomButton.setActionCommand("RandomName");
                         confirmButton.setActionCommand("ConfirmCardName");
                         sec_Image.setVisible(false);
-                        option_1.setVisible(false);
-                        option_1_Image.setVisible(false);
-                        option_2.setVisible(false);
-                        option_2_Image.setVisible(false);
-                        option_3.setVisible(false);
-                        option_3_Image.setVisible(false);
-                        option_4.setVisible(false);
-                        option_4_Image.setVisible(false);
-                        option_5.setVisible(false);
-                        option_5_Image.setVisible(false);
-                        option_6.setVisible(false);
-                        option_6_Image.setVisible(false);
+                        option[0].setVisible(false);
+                        optionI[0].setVisible(false);
+                        option[1].setVisible(false);
+                        optionI[1].setVisible(false);
+                        option[2].setVisible(false);
+                        optionI[2].setVisible(false);
+                        option[3].setVisible(false);
+                        optionI[3].setVisible(false);
+                        option[4].setVisible(false);
+                        optionI[4].setVisible(false);
+                        option[5].setVisible(false);
+                        optionI[5].setVisible(false);
                         infoText.setVisible(true);
                         infoText.setText("Name eingeben (4-20 Charakter)");
                         backB.setVisible(true);
-                        backB.setActionCommand("backB_0");
                         texarea.setText(dataStore.temp_KarteName);
                         box2.setVisible(false);
                         clearBox();
@@ -764,47 +745,42 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         dataStore.temp_KarteAbility = null;
                         
                     }
-                    
-                    
-                    public void option1_2(){
+
+
+                    public void viewMenu(){
                         texarea.setText(null);
-                        texarea.setVisible(true);
-                        texarea.setEditable(false);
-                        confirmButton.setVisible(true);
-                        randomButton.setVisible(true);
-                        eRandomButton.setActionCommand("GenerateRarity");
-                        confirmButton.setActionCommand("ConfirmCardRarity");
-                        sec_Image.setVisible(false);
-                        option_1.setVisible(false);
-                        option_1_Image.setVisible(false);
-                        option_2.setVisible(false);
-                        option_2_Image.setVisible(false);
-                        option_3.setVisible(false);
-                        option_3_Image.setVisible(false);
-                        option_4.setVisible(false);
-                        option_4_Image.setVisible(false);
-                        option_5.setVisible(false);
-                        option_5_Image.setVisible(false);
-                        option_6.setVisible(false);
-                        option_6_Image.setVisible(false);
-                        infoText.setVisible(true);
-                        infoText.setText("Seltenheit Auswählen");
-                        backB.setVisible(true);
-                        backB.setActionCommand("option_1");
-                        texarea.setText(dataStore.temp_KarteSeltenheit);
-                        sec_Image.setVisible(true);
-                    
-                    
-                        //dataStore.temp_KarteName = null;
-                        dataStore.temp_KarteSeltenheit = null;
-                        dataStore.temp_KarteDamage = null;
-                        dataStore.temp_KarteHP = null;
-                        dataStore.temp_KarteAgility = null;
-                        dataStore.temp_KarteElement = null;
-                        dataStore.temp_KarteID = null;
-                        dataStore.temp_KarteAbility = null;
-                        
+                                texarea.setVisible(false);
+                                confirmButton.setVisible(false);
+                                randomButton.setVisible(false);
+                                option[0].setVisible(true);
+                                optionI[0].setVisible(true);
+                                option[1].setVisible(true);
+                                optionI[1].setVisible(true);
+                                option[2].setVisible(true);
+                                optionI[2].setVisible(true);
+                                option[3].setVisible(true);
+                                optionI[3].setVisible(true);
+                                option[4].setVisible(true);
+                                optionI[4].setVisible(true);
+                                option[5].setVisible(true);
+                                optionI[5].setVisible(true);
+                                infoText.setText("Erfolgreich angemeldet");
+                                confirmButton.setActionCommand("");
+                                eRandomButton.setActionCommand("");
+                                backB.setVisible(false);
+                                box2.setVisible(false);
+                                clearBox();
+                
+                                dataStore.temp_KarteName = null;
+                                dataStore.temp_KarteSeltenheit = null;
+                                dataStore.temp_KarteDamage = null;
+                                dataStore.temp_KarteHP = null;
+                                dataStore.temp_KarteAgility = null;
+                                dataStore.temp_KarteElement = null;
+                                dataStore.temp_KarteID = null;
+                                dataStore.temp_KarteAbility = null;
                     }
+                    
                     
 
                     public void actionPerformed(java.awt.event.ActionEvent e){
@@ -815,13 +791,13 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                         if (e.getSource() == eRandomButton){
 
                             if (e.getActionCommand().equals("RandomName")){
-                                randomName();                           
+                               texarea.setText(randomName());                           
                             };
                             
                             if (e.getActionCommand().equals("GenerateNumber")){
                                 r1 = new Random();
                                 r2 = r1.nextInt(1000000);
-                                generateNumber(10000, r2);
+                               texarea.setText("" + generateNumber(10000, r2));
                             }
 
                             if (e.getActionCommand().equals("GenerateRarity")){        
@@ -831,7 +807,13 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                             if (e.getActionCommand().equals("GenerateDamage")){        
                                 r1 = new Random();
                                 r2 = r1.nextInt(1000);
-                                generateNumber(r2,1);                        
+                               texarea.setText("" + generateNumber(r2,1));                
+                            }
+
+                            if (e.getActionCommand().equals("GenerateAgility")){        
+                                r1 = new Random();
+                                r2 = r1.nextInt(100);
+                               texarea.setText("" + generateNumber(r2,1));                
                             }
 
                         }
@@ -855,10 +837,21 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                             }
 
                             if (e.getActionCommand().equals("ConfirmCardDamage")){
-                                confirmCardRarity();
+                                confirmCardDamage();
+                            }
+
+                            if (e.getActionCommand().equals("ConfirmCardHP")){
+                                confirmCardHP();
                             }
 
 
+                            if (e.getActionCommand().equals("ConfirmCardAgility")){
+                                confirmCardAgility();
+                            }
+
+                            if (e.getActionCommand().equals("ConfirmCardElement")){
+                                confirmCardElement();
+                            }
                 
                         }
                 
@@ -870,52 +863,19 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                             frame.setVisible(false);
                         }
                 
-                        if (e.getSource() == backB || e.getSource() == option_1){
+                        if (e.getSource() == backB || e.getSource() == option[0]){
                             
-                                if (e.getActionCommand().equals("option_1")){
+                                if (e.getActionCommand().equals("option[0]")){
                                     option1_1();               
                                 }
                 
-                                if (e.getActionCommand().equals("option_2")){
-                                        option1_2();
-                
-                                }
                 
                         }
                             
                 
                 
                             if (e.getActionCommand().equals("backB_0")){
-                                texarea.setText(null);
-                                texarea.setVisible(false);
-                                confirmButton.setVisible(false);
-                                randomButton.setVisible(false);
-                                option_1.setVisible(true);
-                                option_1_Image.setVisible(true);
-                                option_2.setVisible(true);
-                                option_2_Image.setVisible(true);
-                                option_3.setVisible(true);
-                                option_3_Image.setVisible(true);
-                                option_4.setVisible(true);
-                                option_4_Image.setVisible(true);
-                                option_5.setVisible(true);
-                                option_5_Image.setVisible(true);
-                                option_6.setVisible(true);
-                                option_6_Image.setVisible(true);
-                                infoText.setText("Erfolgreich angemeldet");
-                                confirmButton.setActionCommand("");
-                                eRandomButton.setActionCommand("");
-                                backB.setVisible(false);
-                
-                                dataStore.temp_KarteName = null;
-                                dataStore.temp_KarteSeltenheit = null;
-                                dataStore.temp_KarteDamage = null;
-                                dataStore.temp_KarteHP = null;
-                                dataStore.temp_KarteAgility = null;
-                                dataStore.temp_KarteElement = null;
-                                dataStore.temp_KarteID = null;
-                                dataStore.temp_KarteAbility = null;
-                
+                                viewMenu();
                             }
 
 
@@ -923,7 +883,17 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                 if (e.getActionCommand().equals(v)) {
                                     texarea.setText(v);
                                     sec_Image.setVisible(true);
-                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText().toString() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));                                                
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + v + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                                    break;
+                                }
+                            }
+
+                            for (String v : arraysList.elemente) {
+                                if (e.getActionCommand().equals(v)) {
+                                    texarea.setText(v);
+                                    sec_Image.setVisible(true);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + v + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                                    break;                                           
                                 }
                             }
                 
@@ -940,7 +910,6 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                     dataStore.password = user.password;
                                     dataStore.angemeldet = user.angemeldet;
                                     dataStore.ver = true;
-                                    dataStore.karte_Name = karte_Name;
                 
                                     o.writeObject(dataStore);
                                     o.close();
@@ -967,15 +936,12 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                     user.password = dataStore.password;
                                     user.angemeldet = dataStore.angemeldet;
                                     dataStore.ver = true;
-                                    karte_Name = dataStore.karte_Name;
                 
                                     obj2.close();
                 
                                     System.out.println(user.name);
                                     System.out.println(user.password);
                                     System.out.println(user.angemeldet);
-                                    System.out.println(karte_Name);
-                                    System.out.println(karte_Name[0]);
                 
                                     sync_Box.setVisible(false);
                                     sync_1.setVisible(false);
@@ -1029,7 +995,6 @@ for (int e = 0; e < arraysList.rar.length; e++) {
                                     dataStore.password = 0;
                                     dataStore.angemeldet = false;
                                     dataStore.ver = false;
-                                    dataStore.karte_Name = karte_Name;
                 
                                     o.writeObject(dataStore);
                                     o.close();
@@ -1051,10 +1016,7 @@ for (int e = 0; e < arraysList.rar.length; e++) {
 
                            
                         }
-                        
-                
-                
-                
+       
                     public void sync() throws Exception{
                         try{
                 

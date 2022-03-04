@@ -33,9 +33,13 @@ public class ArraysList {
         String elemente[] = {
             "Blitz",
             "Cosmic",
+            "Erde",
             "Feuer",
             "Glitch",
             "Gravitation",
+            "Magic",
+            "Wasser",
+            "Wind",
             };
 
 
