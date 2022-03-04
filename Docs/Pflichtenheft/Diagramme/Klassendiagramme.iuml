@@ -101,6 +101,8 @@ class SystemController{
 -r1 : Random
 -r2 : int
 -d : int
++ei : JLabel
++wahlOption : JButton
  +karten[] : Karte[9]
  +loading() : void
  +clearBox() : void
@@ -119,7 +121,11 @@ class SystemController{
  +confirmCardAgility() : void
  +confirmCardElement() : void
  +confirmCardAbility() : void
+ +checkCards() : void
+ +createCard(i : int) : void
  +option1_1() : void
+ +clearSavedTempCard() : void
+ +showOptions(b : boolean) : void
  +viewMenu() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
 }

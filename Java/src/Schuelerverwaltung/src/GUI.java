@@ -25,6 +25,7 @@ import java.awt.event.KeyListener;
 
 
 
+
 public class GUI{
 
 
@@ -85,6 +86,8 @@ User user = new User();
             panel1 = new JPanel();
             panel1.setBounds(800, 200, 350, 100);
             panel1.setBackground(Color.black);
+
+            
 
             // JFrame: JFrame ist das Fenster
             // JLabel: JLabel kann entweder ein Text oder ein Bild sein. Kann nur einen Satz haben.
