@@ -12,6 +12,10 @@ class App{
 class ArraysList{
 +search_Results : String[]
 +rar : String[]
++elemente : String[]
++skills : String[]
++skills_Beschreibung : String[]
+
  }
  
  class DataStore{
@@ -127,6 +131,7 @@ class SystemController{
  +clearSavedTempCard() : void
  +showOptions(b : boolean) : void
  +viewMenu() : void
+ +saveCards() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
 }
 

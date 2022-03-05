@@ -26,8 +26,20 @@ public class DataStore implements Serializable {
     String re_KarteID;
     String re_KarteAbility;
 
-    Karte[] karten = new Karte[9]; 
+    Karte[] karten = new Karte[10]; 
 
+    public DataStore(){
+        karten[0] = new Karte();
+        karten[1] = new Karte();
+        karten[2] = new Karte();
+        karten[3] = new Karte();
+        karten[4] = new Karte();
+        karten[5] = new Karte();
+        karten[6] = new Karte();
+        karten[7] = new Karte();
+        karten[8] = new Karte();
+        karten[9] = new Karte();
 
+    }
     
 }

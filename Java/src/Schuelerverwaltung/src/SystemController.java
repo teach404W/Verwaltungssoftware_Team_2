@@ -48,7 +48,6 @@ Thread.sleep(1000);
 loading();
 sync();
 
-karten[0] = new Karte();
 
         while (user.angemeldet == true){
             if (confirmButton.getActionCommand() == "ConfirmCardRarity"){
@@ -338,6 +337,43 @@ wahlOption.add(ei);
 }
 }
 
+
+if (i == 3){
+    JLabel ei;
+
+
+for (int e = 0; e < arraysList.skills.length; e++) {
+
+javax.swing.JButton wahlOption = new JButton();
+wahlOption.setForeground(new Color(80, 0, 255));
+wahlOption.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+wahlOption.setBounds(0, 0, 0, 0);
+wahlOption.setBackground(Color.black);
+wahlOption.setVisible(true);
+wahlOption.setFocusable(false);
+wahlOption.addActionListener(this);
+wahlOption.setActionCommand(arraysList.skills[e]);
+wahlOption.setBorder(new LineBorder(Color.white));
+
+
+ei = new JLabel();
+ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+ei.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[e] + ".png")
+.getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
+ei.setSize(600, 600);
+ei.setBackground(Color.white);
+ei.setVisible(true);
+ei.setFocusable(false);
+ei.setBorder(new LineBorder(Color.white));
+
+
+box2.add(wahlOption);
+wahlOption.add(ei);
+
+
+}
+}
+
     }
 
                 private void ret(){
@@ -437,13 +473,7 @@ wahlOption.add(ei);
                             }
                         }
                         
-                            try {
-                                sec_Image.setVisible(true);
-                                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
-                        
-                            } catch(Exception x){
-                                System.out.println(x.getStackTrace());
-                            }
+                          
                             return arraysList.rar[rd2];
                     }
                     
@@ -588,7 +618,8 @@ wahlOption.add(ei);
                                         backB.setVisible(true);
                                         clearBox();
                                         box2.setVisible(false);
-                                        texarea.setEditable(true);
+                                        addToBox(3);
+                                        box2.setVisible(true);
                 }
 
                 public void confirmCardAbility(){
@@ -613,11 +644,76 @@ wahlOption.add(ei);
             }
 
 
+            public void instanceCard(){
+                for (int v = 0; v<9; v++){
+                    if (v == 0){
+                        if (karten[0] == null){
+                            karten[0] = new Karte();
+                            return;
+                        }
+                    }
+
+                    if (v > 0 && karten[v] == null && karten[v-1] != null){
+                        karten[v] = new Karte();
+                        return;
+                    }
+                }
+
+            }
+
+
             public void checkCards(){
+                instanceCard();
                 if (karten[0].karte_Name.equals("null")){
                     createCard(0);
+                    return;
+                }
+                if (karten[1].karte_Name.equals("null")){
+                    createCard(1);
+                    return;
+                }
+
+                if (karten[2].karte_Name.equals("null")){
+                    createCard(2);
+                    return;
+                }
+
+                if (karten[3].karte_Name.equals("null")){
+                    createCard(3);
+                    return;
+                }
+
+                if (karten[4].karte_Name.equals("null")){
+                    createCard(4);
+                    return;
+                }
+
+                if (karten[5].karte_Name.equals("null")){
+                    createCard(5);
+                    return;
+                }
+
+                if (karten[6].karte_Name.equals("null")){
+                    createCard(6);
+                    return;
+                }
+
+                if (karten[7].karte_Name.equals("null")){
+                    createCard(7);
+                    return;
+                }
+
+                if (karten[8].karte_Name.equals("null")){
+                    createCard(8);
+                    return;
+                }
+
+                if (karten[9].karte_Name.equals("null")){
+                    createCard(9);
+                    return;
                 }
             }
+
 
 
             public void createCard(int i){
@@ -701,7 +797,24 @@ wahlOption.add(ei);
                                 clearSavedTempCard();
                     }
                     
-                    
+
+                    public void saveCards(){
+                        for (int i = 0 ; i<9 ; i++){
+                        if (karten[i] != null){
+                            dataStore.karten[i] = new Karte();
+                            dataStore.karten[i].karte_Name = karten[i].karte_Name;
+                            dataStore.karten[i].karte_Seltenheit = karten[i].karte_Seltenheit;
+                            dataStore.karten[i].karte_Damage = karten[i].karte_Damage;
+                            dataStore.karten[i].karte_HP = karten[i].karte_HP;
+                            dataStore.karten[i].karte_Agility = karten[i].karte_Agility;
+                            dataStore.karten[i].karte_Element = karten[i].karte_Element;
+                            dataStore.karten[i].karte_Ability = karten[i].karte_Ability;
+                            dataStore.karten[i].karte_ID = karten[i].karte_ID;
+                            System.out.println(dataStore.karten[i].karte_Ability);
+                        }
+                    }
+                    }
+
 
                     public void actionPerformed(java.awt.event.ActionEvent e){
 
@@ -718,7 +831,14 @@ wahlOption.add(ei);
                             }
 
                             if (e.getActionCommand().equals("GenerateRarity")){        
-                               texarea.setText(generateRarity());                        
+                               texarea.setText(generateRarity());      
+                               try {
+                                sec_Image.setVisible(true);
+                                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                        
+                            } catch(Exception x){
+                                System.out.println(x.getStackTrace());
+                            }                  
                             }
 
                             if (e.getActionCommand().equals("GenerateDamage")){        
@@ -816,6 +936,15 @@ wahlOption.add(ei);
                                     break;                                           
                                 }
                             }
+
+                            for (String v : arraysList.skills) {
+                                if (e.getActionCommand().equals(v)) {
+                                    texarea.setText(v);
+                                    sec_Image.setVisible(true);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + v + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                                    break;                                           
+                                }
+                            }
                 
                             if (e.getActionCommand().equals("SaveData")){
                                 try{
@@ -830,6 +959,8 @@ wahlOption.add(ei);
                                     dataStore.password = user.password;
                                     dataStore.angemeldet = user.angemeldet;
                                     dataStore.ver = true;
+
+                                    saveCards();
                 
                                     o.writeObject(dataStore);
                                     o.close();
@@ -856,7 +987,17 @@ wahlOption.add(ei);
                                     user.password = dataStore.password;
                                     user.angemeldet = dataStore.angemeldet;
                                     dataStore.ver = true;
-                
+
+                                    System.out.println("Name:" + dataStore.karten[0].karte_Name);
+                                    System.out.println("Seltenheit:" + dataStore.karten[0].karte_Seltenheit);
+                                    System.out.println("Damage:" + dataStore.karten[0].karte_Damage);
+                                    System.out.println("HP:" + dataStore.karten[0].karte_HP);
+                                    System.out.println("Agility:" + dataStore.karten[0].karte_Agility);
+                                    System.out.println("Element:" + dataStore.karten[0].karte_Element);
+                                    System.out.println("Ability:" + dataStore.karten[0].karte_Ability);
+                                    System.out.println("ID:" + dataStore.karten[0].karte_ID);
+
+
                                     obj2.close();
                 
                                     System.out.println(user.name);
