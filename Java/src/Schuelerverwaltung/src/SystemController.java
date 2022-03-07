@@ -728,7 +728,7 @@ wahlOption.add(ei);
                 karten[i].karte_ID = dataStore.temp_KarteID;
                 karten[i].karte_ID = "" + generateNumber(10000, 1000000);
 
-                clearSavedTempCard();
+               dataStore.clearSavedTempCard();
             }
 
 
@@ -749,21 +749,13 @@ wahlOption.add(ei);
                         texarea.setText(dataStore.temp_KarteName);
                         box2.setVisible(false);
                         clearBox();
-                        clearSavedTempCard();
+
+                        dataStore.clearSavedTempCard();
                         
                     }
 
 
-                    public void clearSavedTempCard(){
-                        dataStore.temp_KarteName = null;
-                        dataStore.temp_KarteSeltenheit = null;
-                        dataStore.temp_KarteDamage = null;
-                        dataStore.temp_KarteHP = null;
-                        dataStore.temp_KarteAgility = null;
-                        dataStore.temp_KarteElement = null;
-                        dataStore.temp_KarteID = null;
-                        dataStore.temp_KarteAbility = null;
-                    }
+                   
 
 
                     public void showOptions(boolean b){
@@ -794,7 +786,7 @@ wahlOption.add(ei);
                                 backB.setVisible(false);
                                 box2.setVisible(false);
                                 clearBox();
-                                clearSavedTempCard();
+                               dataStore.clearSavedTempCard();
                     }
                     
 

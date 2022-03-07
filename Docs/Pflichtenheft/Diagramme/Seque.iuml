@@ -1,12 +1,22 @@
 @startuml 
 ' You can also declare:
-user:User -> "SystemController" : option1_1()
-user:User -> "SystemController" : confirmCardName()
-user:User -> "SystemController" : confirmCardRarity()
-user:User -> "SystemController" : confirmCardDamage()
-user:User -> "SystemController" : confirmCardHP()
-user:User -> "SystemController" : confirmCardAgility()
-user:User -> "SystemController" : confirmCardElement()
-user:User -> "SystemController" : confirmCardAbility()
-SystemController -> "DataStore" : clearSavedTempCard
+group Karte anlegen [Karte anlegen]
+    user -> "SystemController" : option1_1()
+    SystemController -> "GUI" : (Hier wird der Gui gesagt, dass asufüllbare Textfeld anzuzeigen)
+    GUI -> "SystemController" : 
+    user -> "SystemController" : confirmCardName()
+    SystemController -> "SystemController2" : showOptions(false) + addToBox(1)
+    SystemController -> DataStore : (Hier wird temp_KarteName geändert)
+    SystemController -> GUI : (Hier werden ActionCommands geändert(confirmButton,randomButton))
+    DataStore -> SystemController
+    GUI -> SystemController
+    SystemController2 -> "SystemController" : 
+    user -> "SystemController" : confirmCardRarity()
+        SystemController -> DataStore : (Hier wird temp_KarteSeltenheit geändert)
+    user -> "SystemController" : confirmCardDamage()
+    user -> "SystemController" : confirmCardHP()
+    user -> "SystemController" : confirmCardAgility()
+    user -> "SystemController" : confirmCardElement()
+    user -> "SystemController" : confirmCardAbility()
+    SystemController -> "DataStore" : clearSavedTempCard()
 @enduml
