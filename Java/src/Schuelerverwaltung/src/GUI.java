@@ -457,7 +457,7 @@ iRandomButton.setSize(80, 80);
 iRandomButton.setVisible(true);
 iRandomButton.setFocusable(false);
 iRandomButton.setOpaque(false);
-iRandomButton.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Menü\\Würfel.png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+iRandomButton.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Others\\Würfel.png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
 iRandomButton.setBorder(new LineBorder(Color.black));
 
 
