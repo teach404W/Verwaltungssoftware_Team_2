@@ -1,0 +1,12 @@
+@startuml 
+' You can also declare:
+user:User -> "SystemController" : option1_1()
+user:User -> "SystemController" : confirmCardName()
+user:User -> "SystemController" : confirmCardRarity()
+user:User -> "SystemController" : confirmCardDamage()
+user:User -> "SystemController" : confirmCardHP()
+user:User -> "SystemController" : confirmCardAgility()
+user:User -> "SystemController" : confirmCardElement()
+user:User -> "SystemController" : confirmCardAbility()
+SystemController -> "DataStore" : clearSavedTempCard
+@enduml
