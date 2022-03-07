@@ -1,6 +1,5 @@
 
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -14,7 +13,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
-import java.awt.event.KeyListener;
 
 
 public class SystemController extends GUI implements ActionListener {
@@ -525,13 +523,10 @@ wahlOption.add(ei);
                     if (texarea.getText().length() > 3 && texarea.getText().length() <21){
                         dataStore.temp_KarteName = texarea.getText();
                         texarea.setText(null);
-                        randomButton.setVisible(true);
                         eRandomButton.setActionCommand("GenerateRarity");
                         confirmButton.setActionCommand("ConfirmCardRarity");
                         showOptions(false);
-                        infoText.setVisible(true);
                         infoText.setText("Seltenheit Auswählen");
-                        backB.setVisible(true);
                         addToBox(1);  
                         box2.setVisible(true);
                         texarea.setEditable(false);
@@ -542,15 +537,11 @@ wahlOption.add(ei);
 
                 public void confirmCardRarity(){
                     if (texarea.getText().length() > 2 && texarea.getText().length() <16){
-                        sec_Image.setVisible(false);
                                         dataStore.temp_KarteSeltenheit = texarea.getText();
                                         texarea.setText(null);
-                                        randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateDamage");
                                         confirmButton.setActionCommand("ConfirmCardDamage");
-                                        showOptions(false);
                                         infoText.setText("Damage eingeben (0-1000)");
-                                        backB.setVisible(true);
                                         texarea.setEditable(true);
                                         l2.setVisible(false);
                                         box2.setVisible(false);
@@ -560,45 +551,31 @@ wahlOption.add(ei);
 
                 public void confirmCardDamage(){
                     if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001){
-                        sec_Image.setVisible(false);
                                         dataStore.temp_KarteDamage = texarea.getText();
                                         texarea.setText(null);
-                                        randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateDamage");
                                         confirmButton.setActionCommand("ConfirmCardHP");
-                                        showOptions(false);
                                         infoText.setText("HP eingeben (0-1000)");
-                                        backB.setVisible(true);
-                                        texarea.setEditable(true);
                                 }
                 }
 
                 public void confirmCardHP(){
                     if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001){
-                        sec_Image.setVisible(false);
                                         dataStore.temp_KarteHP = texarea.getText();
                                         texarea.setText(null);
-                                        randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateAgility");
                                         confirmButton.setActionCommand("ConfirmCardAgility");
-                                        showOptions(false);
                                         infoText.setText("Agilität eingeben (0-100)");
-                                        backB.setVisible(true);
-                                        texarea.setEditable(true);
                                 }
                 }
 
                 public void confirmCardAgility(){
                     if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 101){
-                        sec_Image.setVisible(false);
                                         dataStore.temp_KarteAgility = texarea.getText();
                                         texarea.setText(null);
-                                        randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateElement");
                                         confirmButton.setActionCommand("ConfirmCardElement");
-                                        showOptions(false);
                                         infoText.setText("Element auswählen");
-                                        backB.setVisible(true);
                                         addToBox(2);
                                         box2.setVisible(true);
                                         texarea.setEditable(false);
@@ -607,15 +584,11 @@ wahlOption.add(ei);
 
 
                 public void confirmCardElement(){
-                        sec_Image.setVisible(false);
                                         dataStore.temp_KarteElement = texarea.getText();
                                         texarea.setText(null);
-                                        randomButton.setVisible(true);
                                         eRandomButton.setActionCommand("GenerateElement");
                                         confirmButton.setActionCommand("ConfirmCardAbility");
-                                        showOptions(false);
                                         infoText.setText("(optional) Ability auswählen");
-                                        backB.setVisible(true);
                                         clearBox();
                                         box2.setVisible(false);
                                         addToBox(3);
@@ -623,14 +596,12 @@ wahlOption.add(ei);
                 }
 
                 public void confirmCardAbility(){
-                    sec_Image.setVisible(false);
                                     dataStore.temp_KarteAbility = texarea.getText();
                                     texarea.setText(null);
-                                    randomButton.setVisible(true);
                                     eRandomButton.setActionCommand("RandomName");
                                     confirmButton.setActionCommand("option[0]");
                                     showOptions(true);
-                                    infoText.setText("");
+                                    infoText.setVisible(false);
                                     backB.setVisible(false);
                                     texarea.setVisible(false);
                                     confirmButton.setVisible(false);

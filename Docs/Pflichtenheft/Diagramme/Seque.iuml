@@ -1,22 +1,78 @@
 @startuml 
 ' You can also declare:
 group Karte anlegen [Karte anlegen]
-    user -> "SystemController" : option1_1()
-    SystemController -> "GUI" : (Hier wird der Gui gesagt, dass asufüllbare Textfeld anzuzeigen)
-    GUI -> "SystemController" : 
-    user -> "SystemController" : confirmCardName()
-    SystemController -> "SystemController2" : showOptions(false) + addToBox(1)
-    SystemController -> DataStore : (Hier wird temp_KarteName geändert)
-    SystemController -> GUI : (Hier werden ActionCommands geändert(confirmButton,randomButton))
-    DataStore -> SystemController
-    GUI -> SystemController
-    SystemController2 -> "SystemController" : 
-    user -> "SystemController" : confirmCardRarity()
-        SystemController -> DataStore : (Hier wird temp_KarteSeltenheit geändert)
-    user -> "SystemController" : confirmCardDamage()
-    user -> "SystemController" : confirmCardHP()
-    user -> "SystemController" : confirmCardAgility()
-    user -> "SystemController" : confirmCardElement()
-    user -> "SystemController" : confirmCardAbility()
-    SystemController -> "DataStore" : clearSavedTempCard()
+    user.User -> "systemController.SystemController" : option1_1()
+    systemController.SystemController -> "GUI" : (Hier wird der Gui gesagt, dass asufüllbare Textfeld anzuzeigen)
+    systemController.SystemController -> "systemController.SystemController " : showOptions(false) + clearBox()
+    systemController.SystemController -> "dataStore.DataStore" : clearSavedTempCard()
+    systemController.SystemController  -> "systemController.SystemController" : return showOptions(null) ; clearBox(null)
+    dataStore.DataStore -> "systemController.SystemController" : return clearSavedTempCard(null)
+
+    GUI -> "systemController.SystemController" : 
+    user.User -> "systemController.SystemController" : confirmCardName()
+        systemController.SystemController -> "systemController.SystemController " : showOptions(false) + addToBox(1) -> erste Auswahl(Seltenheit)
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteName geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert. Textbox wird deaktiviert; Wahlbox wird sichtbar)
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+        systemController.SystemController  -> "systemController.SystemController" : return addbox(null) ; showOptions(null)
+
+    user.User -> "systemController.SystemController" : confirmCardRarity()
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteSeltenheit geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert. Textbox wird aktiviert; Wahlbox wird unsichtbar)
+        systemController.SystemController -> "systemController.SystemController " : clearBox()
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+        systemController.SystemController  -> "systemController.SystemController" : return clearBox(null)
+
+    user.User -> "systemController.SystemController" : confirmCardDamage()
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteDamage geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert)
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+
+    user.User -> "systemController.SystemController" : confirmCardHP()
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteHP geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert)
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+
+    user.User -> "systemController.SystemController" : confirmCardAgility()
+
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteAgility geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert. Textbox wird deaktiviert; Wahlbox wird sichtbar)
+        systemController.SystemController -> "systemController.SystemController " : addToBox(2) -> zweite Auswahl(Element)
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+        systemController.SystemController  -> "systemController.SystemController" : return addToBox(null)
+
+    user.User -> "systemController.SystemController" : confirmCardElement()
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteElement geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert)
+        systemController.SystemController -> "systemController.SystemController " : clearBox() + addToBox(3) -> dritte Auswahl(Fähigkeit)
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+        systemController.SystemController  -> "systemController.SystemController" : return clearBox(null) ; addToBox(null)
+
+    user.User -> "systemController.SystemController" : confirmCardAbility()
+
+        systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteAbility geändert)
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert, Textbox unsichtbar und das Menu wird sichtbar)
+        systemController.SystemController -> "systemController.SystemController " : showOptions(true) + clearBox() + checkCards() -> Karte wird instanziiert
+        dataStore.DataStore -> systemController.SystemController
+        GUI -> systemController.SystemController
+        systemController.SystemController  -> "systemController.SystemController" : return showOptions(null) ; clearBox(null) ; checkCards(null)
+
+        systemController.SystemController -> "systemController.SystemController " : checkCards()
+        systemController.SystemController -> "systemController.SystemController " : instanceCard()
+        systemController.SystemController -> "systemController.SystemController " : createCard(Kartenummer)
+        systemController.SystemController -> "systemController.SystemController " : ID wird generiert -> generateNumber(10000, 1000000);
+        systemController.SystemController  -> "systemController.SystemController" : return generateNumber(int)
+        systemController.SystemController  -> "systemController.SystemController" : return checkCards(null)
+        systemController.SystemController -> "dataStore.DataStore" : clearSavedTempCard()
+        dataStore.DataStore -> "systemController.SystemController" : return clearSavedTempCard(null)
+        systemController.SystemController  -> "systemController.SystemController" : return instanceCard(null)
+        systemController.SystemController  -> "systemController.SystemController" : return createCards(null)
+
+
 @enduml
