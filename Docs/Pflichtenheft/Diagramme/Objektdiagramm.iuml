@@ -1,7 +1,16 @@
 @startuml
 
-Object Karte1{
+Object karte1{
 
+<<<<<<< HEAD
+name = "Ice Dargon"
+seltenheit = "Legendär"
+karten ID = "1"
+damage = "800"
+hP = "900"
+agilität = "75"
+element = "Wasser"
+=======
 Name = "Ice Dargon"
 Seltenheit = "Legendär"
 Karten ID = "189678"
@@ -9,11 +18,21 @@ Damage = "800"
 HP = "900"
 Agilität = "75"
 Element = "Wasser"
+>>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
 
 }
 
-object Karte2{
+object karte2{
 
+<<<<<<< HEAD
+    name = "Fire Dragon"
+    seltenheit = "Legendär"
+    karten ID = "4"
+    damage = "850"
+    hP = "950"
+    agilität = "80"
+    element = "Feuer"
+=======
     Name = "Fire Dragon"
     Seltenheit = "Legendär"
     Karten ID = "45785"
@@ -21,17 +40,18 @@ object Karte2{
     HP = "950"
     Agilität = "80"
     Element = "Feuer"
+>>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
 }
 
-Object User{
+Object user{
 
-Name = "Lukas"
-Passwort = "12345"
-Angemeldet = true
+name = "Lukas"
+passwort = "12345"
+angemeldet = true
 
 }
 
-object "d1 : DataStore" ß{
+object "d1 : DataStore" {
 
     name = "Msallam"
     password = "23456"
@@ -61,7 +81,7 @@ object "d1 : DataStore" ß{
 
 }
 
-object Systemcontroller{
+object systemcontroller{
 
     r1 = 10
     r2 = "0"
