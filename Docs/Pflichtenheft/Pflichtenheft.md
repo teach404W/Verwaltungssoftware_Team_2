@@ -99,7 +99,7 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 
 
 
-- Zufällige Karte ziehen   
+- Zufällige Karte machen  
   - der zufällige Generator generiert eine ganze Karte mit zufälligen Eigenschaftswerten (zufälliger Name, zufällige Seltenheit, ...)
 
 
