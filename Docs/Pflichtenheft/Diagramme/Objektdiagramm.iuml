@@ -4,7 +4,7 @@ Object Karte1{
 
 Name = "Ice Dargon"
 Seltenheit = "Legendär"
-Karten ID = "1"
+Karten ID = "189678"
 Damage = "800"
 HP = "900"
 Agilität = "75"
@@ -16,7 +16,7 @@ object Karte2{
 
     Name = "Fire Dragon"
     Seltenheit = "Legendär"
-    Karten ID = "4"
+    Karten ID = "45785"
     Damage = "850"
     HP = "950"
     Agilität = "80"
@@ -45,7 +45,7 @@ object "d1 : DataStore" ß{
     temp_KarteHP = "700"
     temp_KarteAgility = "50"
     temp_KarteElement = "Feuer"
-    temp_KarteID = "2"
+    temp_KarteID = "298456"
     temp_KarteAbility = "Premium"    
 
 
@@ -55,7 +55,7 @@ object "d1 : DataStore" ß{
     re_KarteHP = "750"
     re_KarteAgility = "55"
     re_KarteElement = "Wasser"
-    re_KarteID = "3"
+    re_KarteID = "343609"
     re_KarteAbility = "Premium"
     karten[] = [Karte1; Karte2]
 
@@ -66,7 +66,7 @@ object Systemcontroller{
     r1 = 10
     r2 = "0"
     d : Int
-    karten[] = [Karte1; Karte2]
+    karten[] = [Karte0; Karte1 ; Karte2 ; Karte3 ; Karte4 ; Karte5 ; Karte6 ; Karte7 ; Karte8 ; Karte9]
 
 
 }

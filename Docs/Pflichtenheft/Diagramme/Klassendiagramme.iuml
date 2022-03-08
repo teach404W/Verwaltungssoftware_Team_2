@@ -132,6 +132,8 @@ class SystemController{
  +showOptions(b : boolean) : void
  +viewMenu() : void
  +saveCards() : void
+ +editCard() : void
+ +showEditPanel() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
 }
 

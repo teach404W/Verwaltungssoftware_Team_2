@@ -74,5 +74,45 @@ group Karte anlegen [Karte anlegen]
         systemController.SystemController  -> "systemController.SystemController" : return instanceCard(null)
         systemController.SystemController  -> "systemController.SystemController" : return createCards(null)
 
+@enduml
+
+@startuml 
+' You can also declare:
+group Meine Karten [Meine Karten]
+       user.User -> "systemController.SystemController" : option2_1()
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein Menü mit Karten wird sichtbar gemacht)
+        GUI -> systemController.SystemController : 
+        systemController.SystemController -> systemController.SystemController : (Beim Klicken auf eine Karte -> showCardInformation(int) return String[])
+        systemController.SystemController -> GUI :  (Menü wird sichtbar gemacht und sie bekommt die zurück gegebenen\nInformationen aus ShowCardInformation())
+        GUI -> systemController.SystemController :  
+
+@enduml
+
+@startuml 
+' You can also declare:
+group Karte bearbeiten [Karte bearbeiten]
+       user.User -> "systemController.SystemController" : option3_1()
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)
+        GUI -> systemController.SystemController : 
+        systemController.SystemController -> dataStore.DataStore : (Beim bestätigen wird kontrolliert, ob die Karte existiert oder nicht)
+        dataStore.DataStore -> systemController.SystemController : 
+        systemController.SystemController -> systemController.SystemController :  ja -> showEditPanel() ; nein -> return(null)
+        GUI -> systemController.SystemController : 
+
+@enduml
+
+
+
+@startuml 
+' You can also declare:
+group Karte löschen [Karte löschen]
+       user.User -> "systemController.SystemController" : option4_1()
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)
+        GUI -> systemController.SystemController : 
+        systemController.SystemController -> dataStore.DataStore : (Beim bestätigen wird kontrolliert, ob die Karte existiert oder nicht)
+        systemController.SystemController -> dataStore.DataStore :  ja -> wird kontrolliert, ob in DataStore eine gespeicherte Karte gibt \nnein -> Karte wird gelöscht und in DataStore gepseichert
+        dataStore.DataStore -> systemController.SystemController : 
+        GUI -> systemController.SystemController : 
+        dataStore.DataStore -> systemController.SystemController : wenn eine Karte existiert, dann bekommt der Nutzer eine Warnung\nWenn nicht, dann wird die Karte gelöscht und gespeichert
 
 @enduml
