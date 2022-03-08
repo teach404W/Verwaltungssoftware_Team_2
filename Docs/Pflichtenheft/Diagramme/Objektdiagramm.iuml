@@ -31,7 +31,7 @@ Angemeldet = true
 
 }
 
-object "d1 : DataStore" ß{
+object "d1 : DataStore" {
 
     name = "Msallam"
     password = "23456"
