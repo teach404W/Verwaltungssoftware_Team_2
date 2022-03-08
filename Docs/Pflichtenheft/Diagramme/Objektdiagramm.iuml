@@ -1,57 +1,74 @@
 @startuml
 
-Object Karte{
+Object Karte1{
 
-Name : String
-Klasse : String
-Seltenheit : String
-Karten ID : String (Ints)
-Damage : String (Ints)
-HP : String (Ints)
-Agilität : String (Ints)
-Element : String
+Name = "Ice Dargon"
+Seltenheit = "Legendär"
+Karten ID = "1"
+Damage = "800"
+HP = "900"
+Agilität = "75"
+Element = "Wasser"
+
+}
+
+object Karte2{
+
+    Name = "Fire Dragon"
+    Seltenheit = "Legendär"
+    Karten ID = "4"
+    Damage = "850"
+    HP = "950"
+    Agilität = "80"
+    Element = "Feuer"
 }
 
 Object User{
 
-Name : String
-Passwort : Int
-Angemeldet : boolean
+Name = "Lukas"
+Passwort = "12345"
+Angemeldet = true
 
 }
 
-object DataStore{
+object "d1 : DataStore" ß{
 
-    name : String
-    password : Int
-    angemeldet : Boolean
-    ver : Boolean
-
-
-    temp_KarteName : String
-    temp_KarteSeltenheit : String
-    temp_KarteDamage : String
-    temp_KarteHP : String
-    temp_KarteAgility : String
-    temp_KarteElement : String
-    temp_KarteID : String
-    temp_KarteAbility : String    
+    name = "Msallam"
+    password = "23456"
+    angemeldet = true
+    ver = false
 
 
-    re_KarteName : String
-    re_KarteSeltenheit : String
-    re_KarteDamage : String
-    re_KarteHP : String
-    re_KarteAgility : String
-    re_KarteElement : String
-    re_KarteID : String
-    re_KarteAbility : String
+    temp_KarteName = "Fire Golem"
+    temp_KarteSeltenheit = "Epic"
+    temp_KarteDamage = "600"
+    temp_KarteHP = "700"
+    temp_KarteAgility = "50"
+    temp_KarteElement = "Feuer"
+    temp_KarteID = "2"
+    temp_KarteAbility = "Premium"    
+
+
+    re_KarteName = "Water Golem"
+    re_KarteSeltenheit = "Epic"
+    re_KarteDamage = "650"
+    re_KarteHP = "750"
+    re_KarteAgility = "55"
+    re_KarteElement = "Wasser"
+    re_KarteID = "3"
+    re_KarteAbility = "Premium"
+    karten[] = [Karte1; Karte2]
+
 }
 
 object Systemcontroller{
 
-    r2 : Int
+    r1 = 10
+    r2 = "0"
     d : Int
+    karten[] = [Karte1; Karte2]
+
+
 }
 
 @enduml
