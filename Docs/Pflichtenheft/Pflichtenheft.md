@@ -12,6 +12,9 @@ Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschrei
   - 2.2 Besonderheiten
 - 3. Diagramm Dokumentaion
   - 3.1 Klassendiagramm
+  - 3.2 Objektdiagramm
+  - 3.3 Aktivitätsdiagramm
+  - 3.4 Sequenzdiagrammm
 ## 1. Beschreibung der Anwendung
 
 ### **1.1 Grobbeschreibung** 
@@ -46,8 +49,8 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
     - eine Karte löschen, die im Data Store (Papierkorb) noch gespieichert wird
         (siehe Beschr. Funk.Abl. Karte löschen)
   
-- Zufällige Karte ziehen
-    - eine angelegte Karte ziehen
+- Zufällige Karte machen
+    - eine zufällige Karte generieren (Pack opening)
         (siehe Beschr. Funk.Abl. Zufällige Karte ziehen)
   
 - Abmelden
@@ -77,19 +80,29 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
    
   - Als Zusatz kann der Nutzer eine Fähigkeit für die Karte mit einer Auswahl festlegen(optional). Die Auswahl besteht aus .. Fähigkeiten und der Nutzer darf nur eine Fähigkeit auswählen. 
 
+
+
 - Meine Karten   
   - der Nutzer erhält eine Tabelle mit allen Karten, die im Konto erstellt sind und kann dann nach Karten Filtern
   
+
+
 - Karte bearbeiten   
   - der Nutzer wählt eine Karte aus und bearbeitet ihre Eigenschaften(Name, Seltenheit, Damage, HP, Agilität, Element und Fähigkeit (ID der Karte wird nicht geändert))
+
+
 
 - Karte löschen    
   - der Nutzer wählt eine verfügbare Karte aus und kann sie löschen   
   - die gelöschte Karte bleibt in DataStore und der Nutzer kann sie jederzeit wiederherstellen   
   - wenn der Nutzer eine Karte löscht, während in DataStore eine gelöschte Karte gespeichert ist, bekommt der Nutzer eine Warnung und muss zwischen "Ja" und "Nein" wählen. Wenn der Nutzer "Ja" auswählt, dann wird die gespeicherte Karte aus der DataStore entfernt. Wählt der Nutzer "Nein" aus, dann bleibt die gespeicherte Karte in DataStore und die Karte, die der Nutzer löschen wollte, bleibt im Konto.
 
+
+
 - Zufällige Karte ziehen   
   - der zufällige Generator generiert eine ganze Karte mit zufälligen Eigenschaftswerten (zufälliger Name, zufällige Seltenheit, ...)
+
+
 
 - Abmelden   
   - bei der Abmeldung wird Der Nutzer aus dem Konto abgemeldet und die Daten des Nutzers bleiben in DataStore 
