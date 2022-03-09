@@ -536,13 +536,13 @@ eSaveButton.add(iSaveButton);
             frame.add(panel1);
             frame.setVisible(true);
 
-         /*   l.setVisible(false);
+            l.setVisible(false);
 
             texarea.setVisible(true);
             confirmButton.setVisible(true);
             randomButton.setVisible(false);
             infoText.setVisible(true);
-            */
+            
 
 
 Thread.sleep(1000);

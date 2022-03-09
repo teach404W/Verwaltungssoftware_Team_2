@@ -43,7 +43,7 @@ confirmButton.addActionListener(this);
 eRandomButton.addActionListener(this);
 eSaveButton.addActionListener(this);
 Thread.sleep(1000);
-loading();
+//loading();
 sync();
 
 
@@ -64,7 +64,7 @@ sync();
             }
         
             if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "C"){
-                int v = 0;
+                int v = 1;
                 
         
                 if (searchB1.getText() == null) {
@@ -178,11 +178,13 @@ sync();
             }
 
             else{
+                /*
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
                 searchB2.setVisible(false);
                 searchB3.setVisible(false);
                 searchB4.setVisible(false);
+                */
         
             }
             Thread.sleep(1000);
@@ -725,6 +727,23 @@ wahlOption.add(ei);
                         
                     }
 
+                    public void karteBearbeiten (){
+
+                        texarea.setVisible(true);
+                        texarea.setText(null);
+                        texarea.setEditable(true);
+
+                        confirmButton.setVisible(true);
+                        showOptions(false);
+                        search_Box.setVisible(true);
+                        searchB1.setVisible(true);
+
+                        
+
+
+                        confirmButton.setActionCommand("show edit panel");
+                    }
+
 
                    
 
@@ -759,6 +778,13 @@ wahlOption.add(ei);
                                 clearBox();
                                dataStore.clearSavedTempCard();
                     }
+
+
+                    public void showEditPanel(){
+                        System.out.println(dataStore.karten[0].karte_Name);
+
+                    }
+                    
                     
 
                     public void saveCards(){
@@ -1035,6 +1061,14 @@ wahlOption.add(ei);
                                 } catch(IOException d) {
                                     d.printStackTrace();
                                 }
+                            }
+
+                            if (e.getActionCommand().equals("Karte bearbeiten")){
+                                karteBearbeiten();
+                            }
+
+                            if (e.getActionCommand().equals("show edit panel")){
+                                showEditPanel();
                             }
 
 
