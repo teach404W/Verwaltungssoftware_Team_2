@@ -43,7 +43,7 @@ confirmButton.addActionListener(this);
 eRandomButton.addActionListener(this);
 eSaveButton.addActionListener(this);
 Thread.sleep(1000);
-//loading();
+loading();
 sync();
 
 
@@ -64,7 +64,7 @@ sync();
             }
         
             if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "C"){
-                int v = 1;
+                int v = 0;
                 
         
                 if (searchB1.getText() == null) {
@@ -178,13 +178,11 @@ sync();
             }
 
             else{
-                /*
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
                 searchB2.setVisible(false);
                 searchB3.setVisible(false);
                 searchB4.setVisible(false);
-                */
         
             }
             Thread.sleep(1000);
@@ -727,23 +725,6 @@ wahlOption.add(ei);
                         
                     }
 
-                    public void karteBearbeiten (){
-
-                        texarea.setVisible(true);
-                        texarea.setText(null);
-                        texarea.setEditable(true);
-
-                        confirmButton.setVisible(true);
-                        showOptions(false);
-                        search_Box.setVisible(true);
-                        searchB1.setVisible(true);
-
-                        
-
-
-                        confirmButton.setActionCommand("show edit panel");
-                    }
-
 
                    
 
@@ -778,13 +759,6 @@ wahlOption.add(ei);
                                 clearBox();
                                dataStore.clearSavedTempCard();
                     }
-
-
-                    public void showEditPanel(){
-                        System.out.println(dataStore.karten[0].karte_Name);
-
-                    }
-                    
                     
 
                     public void saveCards(){
@@ -804,6 +778,29 @@ wahlOption.add(ei);
                     }
                     }
 
+                    public void showcards(){
+                        showcardsButtons[0] = new JButton(dataStore.karten[0].karte_Name);
+                        showcardsButtons[1] = new JButton(dataStore.karten[1].karte_Name);
+                        showcardsButtons[2] = new JButton(dataStore.karten[2].karte_Name);
+                        showcardsButtons[3] = new JButton(dataStore.karten[3].karte_Name);
+                        showcardsButtons[4] = new JButton(dataStore.karten[4].karte_Name);
+                        showcardsButtons[5] = new JButton(dataStore.karten[5].karte_Name);
+                        showcardsButtons[6] = new JButton(dataStore.karten[6].karte_Name);
+                        showcardsButtons[7] = new JButton(dataStore.karten[7].karte_Name);
+                        showcardsButtons[8] = new JButton(dataStore.karten[8].karte_Name);
+                        showcardsButtons[9] = new JButton(dataStore.karten[9].karte_Name);
+                        cardsMenü.add(showcardsButtons[0]);
+                        cardsMenü.add(showcardsButtons[1]);
+                        cardsMenü.add(showcardsButtons[2]);
+                        cardsMenü.add(showcardsButtons[3]);
+                        cardsMenü.add(showcardsButtons[4]);
+                        cardsMenü.add(showcardsButtons[5]);
+                        cardsMenü.add(showcardsButtons[6]);
+                        cardsMenü.add(showcardsButtons[7]);
+                        cardsMenü.add(showcardsButtons[8]);
+                        cardsMenü.add(showcardsButtons[9]);
+                        cardsMenü.setVisible(true);
+                    }
 
                     public void actionPerformed(java.awt.event.ActionEvent e){
 
@@ -884,15 +881,19 @@ wahlOption.add(ei);
                             }
                 
                         }
+
+                        if (e.getActionCommand().equals("Meine Karten")){
+                            showcards();
+                        }
                 
 
                         if (e.getActionCommand().equals("Abmelden")){
-                            System.out.println("Abmelden");
+                            // System.out.println("Abmelden");
                             // System.out.println("Tschüs, Bis zum nächsten Mal ;)");
                             System.exit(0);
                             frame.setVisible(false);
                         }
-                
+
                         if (e.getSource() == backB || e.getSource() == option[0]){
                             
                                 if (e.getActionCommand().equals("option[0]")){
@@ -1061,14 +1062,6 @@ wahlOption.add(ei);
                                 } catch(IOException d) {
                                     d.printStackTrace();
                                 }
-                            }
-
-                            if (e.getActionCommand().equals("Karte bearbeiten")){
-                                karteBearbeiten();
-                            }
-
-                            if (e.getActionCommand().equals("show edit panel")){
-                                showEditPanel();
                             }
 
 

@@ -172,16 +172,7 @@ cardsMenü.setBackground(Color.black);
 cardsMenü.setVisible(false);
 cardsMenü.setFocusable(false);
 cardsMenü.setBorder(new LineBorder(Color.white));
-cardsMenü.add(showcardsButtons[0]);
-cardsMenü.add(showcardsButtons[1]);
-cardsMenü.add(showcardsButtons[2]);
-cardsMenü.add(showcardsButtons[3]);
-cardsMenü.add(showcardsButtons[4]);
-cardsMenü.add(showcardsButtons[5]);
-cardsMenü.add(showcardsButtons[6]);
-cardsMenü.add(showcardsButtons[7]);
-cardsMenü.add(showcardsButtons[8]);
-cardsMenü.add(showcardsButtons[9]);
+
 
 backB = new JButton("x");
 backB.setForeground(new Color(255, 0, 25));
