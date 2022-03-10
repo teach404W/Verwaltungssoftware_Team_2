@@ -43,11 +43,12 @@ confirmButton.addActionListener(this);
 eRandomButton.addActionListener(this);
 eSaveButton.addActionListener(this);
 Thread.sleep(1000);
-loading();
+//loading();
 sync();
 
 
         while (user.angemeldet == true){
+            /*
             if (confirmButton.getActionCommand() == "ConfirmCardRarity"){
                 if (texarea.getText().length() < 1){
                     sec_Image.setVisible(false);
@@ -63,8 +64,9 @@ sync();
                 }
             }
         
-            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "C"){
-                int v = 0;
+            */
+            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand().equals("showEditPanel")){
+                int v = 1;
                 
         
                 if (searchB1.getText() == null) {
@@ -75,6 +77,7 @@ sync();
                 }
         
             search_Box.setVisible(true);
+            searchB1.setVisible(true);
             for (int a = 0; a< arraysList.search_Results.length;a++){
         
         
@@ -178,11 +181,13 @@ sync();
             }
 
             else{
+            
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
                 searchB2.setVisible(false);
                 searchB3.setVisible(false);
                 searchB4.setVisible(false);
+                
         
             }
             Thread.sleep(1000);
@@ -530,6 +535,8 @@ wahlOption.add(ei);
                         addToBox(1);  
                         box2.setVisible(true);
                         texarea.setEditable(false);
+                        sec_Image.setVisible(true);
+
         
                     }                  
                 }
@@ -545,7 +552,10 @@ wahlOption.add(ei);
                                         texarea.setEditable(true);
                                         l2.setVisible(false);
                                         box2.setVisible(false);
+                                        sec_Image.setVisible(false);
+                                        sec_Image.setIcon(null);
                                         clearBox();
+                                        
                                 }
                 }
 
@@ -579,6 +589,9 @@ wahlOption.add(ei);
                                         addToBox(2);
                                         box2.setVisible(true);
                                         texarea.setEditable(false);
+                                        sec_Image.setVisible(true);
+                                        sec_Image.setIcon(null);
+
                                 }
                 }
 
@@ -593,6 +606,8 @@ wahlOption.add(ei);
                                         box2.setVisible(false);
                                         addToBox(3);
                                         box2.setVisible(true);
+                                        sec_Image.setIcon(null);
+
                 }
 
                 public void confirmCardAbility(){
@@ -607,6 +622,7 @@ wahlOption.add(ei);
                                     confirmButton.setVisible(false);
                                     randomButton.setVisible(false);
                                     l2.setVisible(false);
+                                    sec_Image.setVisible(true);
                                     clearBox();
                                     box2.setVisible(false);
 
@@ -698,6 +714,7 @@ wahlOption.add(ei);
                 karten[i].karte_Ability = dataStore.temp_KarteAbility;
                 karten[i].karte_ID = dataStore.temp_KarteID;
                 karten[i].karte_ID = "" + generateNumber(10000, 1000000);
+                arraysList.search_Results[i] = dataStore.temp_KarteName;
 
                dataStore.clearSavedTempCard();
             }
@@ -713,6 +730,7 @@ wahlOption.add(ei);
                         eRandomButton.setActionCommand("RandomName");
                         confirmButton.setActionCommand("ConfirmCardName");
                         sec_Image.setVisible(false);
+                        sec_Image.setIcon(null);
                         showOptions(false);
                         infoText.setVisible(true);
                         infoText.setText("Name eingeben (4-20 Charakter)");
@@ -723,6 +741,40 @@ wahlOption.add(ei);
 
                         dataStore.clearSavedTempCard();
                         
+                    }
+
+
+                    public void karteBearbeiten (){
+
+                        backB.setVisible(true);
+                        texarea.setVisible(true);
+                        texarea.setText(null);
+                        texarea.setEditable(true);
+
+                        confirmButton.setVisible(true);
+                        showOptions(false);
+                        search_Box.setVisible(true);
+                        searchB1.setVisible(true);
+
+                        
+
+
+                        confirmButton.setActionCommand("showEditPanel");
+                    }
+
+
+
+
+                    public void showEditPanel(){
+                        System.out.println(dataStore.karten[0].karte_Name);
+                        System.out.println(dataStore.karten[0].karte_Seltenheit);
+                        System.out.println(dataStore.karten[0].karte_Damage);
+                        System.out.println(dataStore.karten[0].karte_HP);
+                        System.out.println(dataStore.karten[0].karte_Agility);
+                        System.out.println(dataStore.karten[0].karte_Element);
+                        System.out.println(dataStore.karten[0].karte_Ability);
+                        System.out.println(dataStore.karten[0].karte_ID);
+
                     }
 
 
@@ -776,6 +828,34 @@ wahlOption.add(ei);
                             System.out.println(dataStore.karten[i].karte_Ability);
                         }
                     }
+                    }
+
+
+                    public void saveData(){
+                        try{
+                            saveButton.setVisible(true);
+        
+        
+                            FileOutputStream f = new FileOutputStream("ver.dat");
+                            BufferedOutputStream b = new BufferedOutputStream(f);
+                            ObjectOutputStream o = new ObjectOutputStream(b);
+        
+                            dataStore.name = user.name;
+                            dataStore.password = user.password;
+                            dataStore.angemeldet = user.angemeldet;
+                            dataStore.ver = true;
+
+                            saveCards();
+        
+                            o.writeObject(dataStore);
+                            o.close();
+        
+        
+                            System.out.println(dataStore.name);
+                            System.out.println(dataStore.password);
+                        } catch(IOException d) {
+                            d.printStackTrace();
+                        }
                     }
 
 
@@ -910,30 +990,7 @@ wahlOption.add(ei);
                             }
                 
                             if (e.getActionCommand().equals("SaveData")){
-                                try{
-                                    saveButton.setVisible(true);
-                
-                
-                                    FileOutputStream f = new FileOutputStream("ver.dat");
-                                    BufferedOutputStream b = new BufferedOutputStream(f);
-                                    ObjectOutputStream o = new ObjectOutputStream(b);
-                
-                                    dataStore.name = user.name;
-                                    dataStore.password = user.password;
-                                    dataStore.angemeldet = user.angemeldet;
-                                    dataStore.ver = true;
-
-                                    saveCards();
-                
-                                    o.writeObject(dataStore);
-                                    o.close();
-                
-                
-                                    System.out.println(dataStore.name);
-                                    System.out.println(dataStore.password);
-                                } catch(IOException d) {
-                                    d.printStackTrace();
-                                }
+                               saveData();
                             }
                 
                             if (e.getActionCommand().equals("LoadData")){
@@ -1037,6 +1094,15 @@ wahlOption.add(ei);
                                 }
                             }
 
+
+
+                            if (e.getActionCommand().equals("Karte bearbeiten")){
+                                karteBearbeiten();
+                            }
+
+                            if (e.getActionCommand().equals("showEditPanel")){
+                                showEditPanel();
+                            }
 
                            
                         }
