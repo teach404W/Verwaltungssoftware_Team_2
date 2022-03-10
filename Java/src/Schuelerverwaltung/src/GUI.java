@@ -29,49 +29,49 @@ import java.awt.event.KeyListener;
 public class GUI{
 
 
-    static JFrame frame;
-    static double v;
-    static double r;
-    static JLabel l;
-    static JLabel l2;
-    static JLabel infoText;
-    static JPanel panel1;
-    static JTextField texarea;
-    static JButton confirmButton;
-    static JPanel randomButton;
-    static JButton eRandomButton;
-    static JLabel iRandomButton;
-    static JLabel sec_Image;
+     JFrame frame;
+     double v;
+     double r;
+     JLabel l;
+     JLabel l2;
+     JLabel infoText;
+     JPanel panel1;
+     JTextField texarea;
+     JButton confirmButton;
+     JPanel randomButton;
+     JButton eRandomButton;
+     JLabel iRandomButton;
+     JLabel sec_Image;
 
-    static JPanel saveButton;
-    static JButton eSaveButton;
-    static JLabel iSaveButton;
+     JPanel saveButton;
+     JButton eSaveButton;
+     JLabel iSaveButton;
 
-    static JPanel search_Box;
-    static JButton searchB1;
-    static JButton searchB2;
-    static JButton searchB3;
-    static JButton searchB4;
-    static JButton backB;
-
-
-    static JButton[] option = new JButton[6];
-    static JLabel[] optionI = new JLabel[6];
+     JPanel search_Box;
+     JButton searchB1;
+     JButton searchB2;
+     JButton searchB3;
+     JButton searchB4;
+     JButton backB;
 
 
-    static JPanel sync_Box;
+     JButton[] option = new JButton[6];
+     JLabel[] optionI = new JLabel[6];
+     JLabel[] randomcard = new JLabel[5];
 
-    static JButton[] sync = new JButton[3];
-    static JTextArea sync_Text;
+     JPanel sync_Box;
 
-    static JPanel box2;
+     JButton[] sync = new JButton[3];
+     JTextArea sync_Text;
+
+     JPanel box2;
 
 
 
     Texts texts = new Texts();
 ArraysList arraysList = new ArraysList();
 DataStore dataStore = new DataStore();
-Input input = new Input();
+Input input = new Input(this);
 User user = new User();
 
     public GUI() throws Exception {

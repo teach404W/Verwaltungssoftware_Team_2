@@ -16,6 +16,7 @@ import javax.swing.border.LineBorder;
 
 
 public class SystemController extends GUI implements ActionListener {
+
 private Random r1;
 private int r2;
 private int d;
@@ -193,12 +194,12 @@ sync();
         }
             }
         
-            static public void loading() throws InterruptedException{
+             public void loading() throws InterruptedException{
                 int t1 = 12;
                 Texts texts = new Texts();
                     for (int i = 1; i<61;i++){
                         Thread.sleep(t1);
-                        l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
+                        super.l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
 
             
                         if (i == 15){
@@ -1061,6 +1062,7 @@ wahlOption.add(ei);
                                 } catch(IOException d) {
                                     d.printStackTrace();
                                 }
+                            
                             }
 
                             if (e.getActionCommand().equals("Karte bearbeiten")){
