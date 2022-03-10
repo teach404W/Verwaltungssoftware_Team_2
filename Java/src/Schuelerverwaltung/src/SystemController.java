@@ -16,6 +16,7 @@ import javax.swing.border.LineBorder;
 
 
 public class SystemController extends GUI implements ActionListener {
+
 private Random r1;
 private int r2;
 private int d;
@@ -48,7 +49,6 @@ sync();
 
 
         while (user.angemeldet == true){
-            /*
             if (confirmButton.getActionCommand() == "ConfirmCardRarity"){
                 if (texarea.getText().length() < 1){
                     sec_Image.setVisible(false);
@@ -64,8 +64,7 @@ sync();
                 }
             }
         
-            */
-            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand().equals("showEditPanel")){
+            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "C"){
                 int v = 1;
                 
         
@@ -77,7 +76,6 @@ sync();
                 }
         
             search_Box.setVisible(true);
-            searchB1.setVisible(true);
             for (int a = 0; a< arraysList.search_Results.length;a++){
         
         
@@ -181,13 +179,13 @@ sync();
             }
 
             else{
-            
+                /*
                 search_Box.setVisible(false);
                 searchB1.setVisible(false);
                 searchB2.setVisible(false);
                 searchB3.setVisible(false);
                 searchB4.setVisible(false);
-                
+                */
         
             }
             Thread.sleep(1000);
@@ -196,12 +194,12 @@ sync();
         }
             }
         
-            static public void loading() throws InterruptedException{
+             public void loading() throws InterruptedException{
                 int t1 = 12;
                 Texts texts = new Texts();
                     for (int i = 1; i<61;i++){
                         Thread.sleep(t1);
-                        l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
+                        super.l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png").getImage().getScaledInstance(500, 300, Image.SCALE_AREA_AVERAGING)));
 
             
                         if (i == 15){
@@ -535,8 +533,6 @@ wahlOption.add(ei);
                         addToBox(1);  
                         box2.setVisible(true);
                         texarea.setEditable(false);
-                        sec_Image.setVisible(true);
-
         
                     }                  
                 }
@@ -552,10 +548,7 @@ wahlOption.add(ei);
                                         texarea.setEditable(true);
                                         l2.setVisible(false);
                                         box2.setVisible(false);
-                                        sec_Image.setVisible(false);
-                                        sec_Image.setIcon(null);
                                         clearBox();
-                                        
                                 }
                 }
 
@@ -589,9 +582,6 @@ wahlOption.add(ei);
                                         addToBox(2);
                                         box2.setVisible(true);
                                         texarea.setEditable(false);
-                                        sec_Image.setVisible(true);
-                                        sec_Image.setIcon(null);
-
                                 }
                 }
 
@@ -606,8 +596,6 @@ wahlOption.add(ei);
                                         box2.setVisible(false);
                                         addToBox(3);
                                         box2.setVisible(true);
-                                        sec_Image.setIcon(null);
-
                 }
 
                 public void confirmCardAbility(){
@@ -622,7 +610,6 @@ wahlOption.add(ei);
                                     confirmButton.setVisible(false);
                                     randomButton.setVisible(false);
                                     l2.setVisible(false);
-                                    sec_Image.setVisible(true);
                                     clearBox();
                                     box2.setVisible(false);
 
@@ -714,7 +701,6 @@ wahlOption.add(ei);
                 karten[i].karte_Ability = dataStore.temp_KarteAbility;
                 karten[i].karte_ID = dataStore.temp_KarteID;
                 karten[i].karte_ID = "" + generateNumber(10000, 1000000);
-                arraysList.search_Results[i] = dataStore.temp_KarteName;
 
                dataStore.clearSavedTempCard();
             }
@@ -730,7 +716,6 @@ wahlOption.add(ei);
                         eRandomButton.setActionCommand("RandomName");
                         confirmButton.setActionCommand("ConfirmCardName");
                         sec_Image.setVisible(false);
-                        sec_Image.setIcon(null);
                         showOptions(false);
                         infoText.setVisible(true);
                         infoText.setText("Name eingeben (4-20 Charakter)");
@@ -743,10 +728,8 @@ wahlOption.add(ei);
                         
                     }
 
-
                     public void karteBearbeiten (){
 
-                        backB.setVisible(true);
                         texarea.setVisible(true);
                         texarea.setText(null);
                         texarea.setEditable(true);
@@ -759,22 +742,7 @@ wahlOption.add(ei);
                         
 
 
-                        confirmButton.setActionCommand("showEditPanel");
-                    }
-
-
-
-
-                    public void showEditPanel(){
-                        System.out.println(dataStore.karten[0].karte_Name);
-                        System.out.println(dataStore.karten[0].karte_Seltenheit);
-                        System.out.println(dataStore.karten[0].karte_Damage);
-                        System.out.println(dataStore.karten[0].karte_HP);
-                        System.out.println(dataStore.karten[0].karte_Agility);
-                        System.out.println(dataStore.karten[0].karte_Element);
-                        System.out.println(dataStore.karten[0].karte_Ability);
-                        System.out.println(dataStore.karten[0].karte_ID);
-
+                        confirmButton.setActionCommand("show edit panel");
                     }
 
 
@@ -811,6 +779,13 @@ wahlOption.add(ei);
                                 clearBox();
                                dataStore.clearSavedTempCard();
                     }
+
+
+                    public void showEditPanel(){
+                        System.out.println(dataStore.karten[0].karte_Name);
+
+                    }
+                    
                     
 
                     public void saveCards(){
@@ -990,7 +965,7 @@ wahlOption.add(ei);
                             }
                 
                             if (e.getActionCommand().equals("SaveData")){
-                               saveData();
+                                saveData();
                             }
                 
                             if (e.getActionCommand().equals("LoadData")){
@@ -1092,17 +1067,17 @@ wahlOption.add(ei);
                                 } catch(IOException d) {
                                     d.printStackTrace();
                                 }
+                            
                             }
-
-
 
                             if (e.getActionCommand().equals("Karte bearbeiten")){
                                 karteBearbeiten();
                             }
 
-                            if (e.getActionCommand().equals("showEditPanel")){
+                            if (e.getActionCommand().equals("show edit panel")){
                                 showEditPanel();
                             }
+
 
                            
                         }
