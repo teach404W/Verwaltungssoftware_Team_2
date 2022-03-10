@@ -1,0 +1,94 @@
+@startuml
+
+Object karte1{
+
+<<<<<<< HEAD
+name = "Ice Dargon"
+seltenheit = "Legendär"
+karten ID = "1"
+damage = "800"
+hP = "900"
+agilität = "75"
+element = "Wasser"
+=======
+Name = "Ice Dargon"
+Seltenheit = "Legendär"
+Karten ID = "189678"
+Damage = "800"
+HP = "900"
+Agilität = "75"
+Element = "Wasser"
+>>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
+
+}
+
+object karte2{
+
+<<<<<<< HEAD
+    name = "Fire Dragon"
+    seltenheit = "Legendär"
+    karten ID = "4"
+    damage = "850"
+    hP = "950"
+    agilität = "80"
+    element = "Feuer"
+=======
+    Name = "Fire Dragon"
+    Seltenheit = "Legendär"
+    Karten ID = "45785"
+    Damage = "850"
+    HP = "950"
+    Agilität = "80"
+    Element = "Feuer"
+>>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
+}
+
+Object user{
+
+name = "Lukas"
+passwort = "12345"
+angemeldet = true
+
+}
+
+object "d1 : DataStore" {
+
+    name = "Msallam"
+    password = "23456"
+    angemeldet = true
+    ver = false
+
+
+    temp_KarteName = "Fire Golem"
+    temp_KarteSeltenheit = "Epic"
+    temp_KarteDamage = "600"
+    temp_KarteHP = "700"
+    temp_KarteAgility = "50"
+    temp_KarteElement = "Feuer"
+    temp_KarteID = "298456"
+    temp_KarteAbility = "Premium"    
+
+
+    re_KarteName = "Water Golem"
+    re_KarteSeltenheit = "Epic"
+    re_KarteDamage = "650"
+    re_KarteHP = "750"
+    re_KarteAgility = "55"
+    re_KarteElement = "Wasser"
+    re_KarteID = "343609"
+    re_KarteAbility = "Premium"
+    karten[] = [Karte1; Karte2]
+
+}
+
+object systemcontroller{
+
+    r1 = 10
+    r2 = "0"
+    d : Int
+    karten[] = [Karte0; Karte1 ; Karte2 ; Karte3 ; Karte4 ; Karte5 ; Karte6 ; Karte7 ; Karte8 ; Karte9]
+
+
+}
+
+@enduml

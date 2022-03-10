@@ -1,94 +1,155 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Schuelerverwaltung{
- -schueler : Schueler
- -angemeldet : boolean
- + Schuelerverwaltung ()
- + anmeldung() : void
- - anmeldung(pPassword : String) : void
- + abmeldung() : void
- + zeigeMenue() : void
- + getAngemeldet() : boolean
- + getSchueler() : Schueler
+class App{
+ -s : SystemController
+ -input : Input
+ -a : ArraysList
 }
 
 
 
-class MenueFuehrung{
- - sc : Scanner(System.in)
+class ArraysList{
++search_Results : String[]
++rar : String[]
++elemente : String[]
++skills : String[]
++skills_Beschreibung : String[]
 
- +MenueFuehrung()
- +erstelleUser() : Schueler
- + anmeldung() : String
- + abmeldung() : void
- + zeigeFaecher(pSchueler : Schueler) : void
- + fachAnlegen() : Fach
- - start() : int
- + noteAnlegen(pSchueler : Schueler) : void
- + noteAbfragen() : pNote
- + zeigeMenue(pSchuelerverwaltung : Schuelerverwaltung) : void
- - breakLine() : void
  }
-
-class Person{
- -vorname: String
- -nachname: String
- -alter : int
- + Person(pVorname : String, pNachname : String, pAlter : int)
- +setVorname(pName : String) : void
- +setNachname(pName : String) : void
- +getVorname() : String
- +getNachname() : String
- +setAlter(pAlter : int) : void
- +getAlter() : int
-}
-
-
-
-class Fach{
- -name : String
- +Fach(pName : String)
- +gebeAlleNotenAus() : String
- +noteHinzufuegen(pNote : Note) : void
- +getName(): String
- +setName(pName : String) : void
- +toString() : String
-}
-
-class Note{
- -note: int
- -jahr : int
- +Note(pNote : int, pJahr : int)
- +getNote(): String
- +setNote(pNote : int) : void
- +getJahr(): String
- +setJahr(pNote : int) : void
- +toString() String
+ 
+ class DataStore{
+ +name: String
+ +password: int
+ +angemeldet: boolean
+ +ver : Boolean
+ +temp_KarteName : String
+ +temp_KarteSeltenheit : String
+ +temp_KarteDamage : String
+ +temp_KarteHP : String
+ +temp_KarteAgility : String
+ +temp_KarteElement : String
+ +temp_KarteID : String
+ +temp_KarteAbility : String    
+ +re_KarteName : String
+ +re_KarteSeltenheit : String
+ +re_KarteDamage : String
+ +re_KarteHP : String
+ +re_KarteAgility : String
+ +re_KarteElement : String
+ +re_KarteID : String
+ +re_KarteAbility : String
+ +karten[] : Karte[9]
 }
 
 
 
 
-class Schueler{
-  -passwort : String
 
-  +Schueler(pVorname : String, pNachname : String, pAlter : int, pPassword : String)
-  
-  +changePassword(pPassword : String) : void
-  +ueberpruefePassword(pPassword : String): boolean
-  +gebeNotenAus() : void
-  + fachAnlegen(pFach : Fach) : void
-  +alleFaecherAusgeben() : void
-  +alleFachNamenMitNummernAusgeben() : void
-  +noteFuerFachAnlegen(pFachID : int, pNote : Note) : void
-  -setPassword(pPassword : String) : void
+class GUI{
+ +frame: JFrame
+ +v: double
+ +r: double
+ +l: JLabel
+ +l2: JLabel
+ +infoText : JLabel
+ +panel1 : JPanel
+ +texarea: JTextField
+ +confirmButton: JButton
+ +randomButton : JPanel
+ +eRandomButton : JButton
+ +iRandomButton : JLabel
+ +sec_Image : JLabel
+ +saveButton: JPanel
+ +eSaveButton: JButton
+ +iSaveButton: JLabel
+ +search_Box: JPanel
+ +searchB1: JButton
+ +searchB2: JButton
+ +searchB3: JButton
+ +searchB4: JButton
+ +backB: JButton
+ +option[] : JButton[6]
+ +optionI[] : JLabel[6]
+ +sync_Box : JPanel
+ +sync[] : JButton[3]
+ sync_Text : JTextArea
+ -texts : Texts
+ -arraysList : ArraysList
+ -dataStore : DataStore
+ -input : Input
+
 }
 
 
-Fach "1" *-- "0..10" Note
-Schuelerverwaltung  *-- "1" MenueFuehrung
-Schueler "1" *-- "0..10" Fach
-Person <|-- Schueler
+class Input{
+ +option_1(): void
+ +keyPressed(java.awt.event.KeyEvent k) : void
+ +keyReleased(java.awt.event.KeyEvent k) : void
+ +keyTyped(java.awt.event.KeyEvent k) : void
+}
+
+class Karte{
+ -Karte_Name: String
+ -Karte_Seltenheit: String
+ -Karte_Damage: String
+ -Karte_HP: String
+ -Karte_Agility: String
+ -Karte_Element: String
+ -Karte_ID: String
+ -Karte_Ability: String
+
+}
+
+class SystemController{
+-r1 : Random
+-r2 : int
+-d : int
++ei : JLabel
++wahlOption : JButton
+ +karten[] : Karte[9]
+ +loading() : void
+ +clearBox() : void
+ +addToBox(i : int) : void
+ -ret() : void
+ +randomName() : String
+ -anmelden() : void
+ +sync() : void
+ +generateRarity() : String
+ +generateNumber() : int
+ -confirmName() : void
+ +confirmCardName() : void
+ +confirmCardRarity() : void
+ +confirmCardDamage() : void
+ +confirmCardHP() : void
+ +confirmCardAgility() : void
+ +confirmCardElement() : void
+ +confirmCardAbility() : void
+ +checkCards() : void
+ +createCard(i : int) : void
+ +option1_1() : void
+ +clearSavedTempCard() : void
+ +showOptions(b : boolean) : void
+ +viewMenu() : void
+ +saveCards() : void
+ +editCard() : void
+ +showEditPanel() : void
+ +actionPerformed(java.awt.event.ActionEvent e) : void
+}
+
+
+class Texts{
++loadingTex: String[]
++randomNames: String[]
++setTex(a : String[], i : int) : String
+}
+
+class User{
+ -name: String
+ -password: int
+ -angemeldet: boolean
+}
+
+
 
 @enduml

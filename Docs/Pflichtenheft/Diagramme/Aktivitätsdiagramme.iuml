@@ -1,0 +1,61 @@
+@startuml
+start
+:Anmelden;
+:Menü: Karte anlegen;
+:Name eingeben(0-20C);
+:Seltenheit auswählen[11];
+:Damage eingeben(0-1000);
+:HP eingeben(0-1000);
+:Agilität eingeben(0-100);
+:Element auswählen[9];
+:ID wird generiert;
+#LightGrey:(optional)Fähigkeit eingeben;
+:Bestätigen;
+end
+
+start
+:Anmelden;
+:Menü: Meine Karten;
+:Bestätigen;
+end
+
+start
+:Anmelden;
+:Menü: Karte bearbeiten;
+:Name oder Index der Karte eingeben;
+:Bestätigen;
+:Kartekontrolle(wird kontrolliert, ob die Karte vorhanden ist oder nicht);
+end
+
+start
+:Anmelden;
+:Menü: Karte löschen;
+:Name oder Index der Karte eingeben;
+:Bestätigen;
+:Kartekontrolle(wird kontrolliert, ob die Karte vorhanden ist oder nicht);
+if (Warnung) then
+  -[#black]->
+  :Ja;
+  -[#green,dashed]-> gibt es in DataStore
+  eine **gespeicherte** Karte?;
+   
+  :Warnung;
+else
+
+  -[#black,dotted]->
+  :Nein;
+
+  -[#black,dotted]->
+
+  :Karte wird gelöscht und in DataStore gespeichert;
+  -[#black,dotted]->
+
+endif
+-[#gray,dotted]->
+
+
+end
+
+
+
+@enduml

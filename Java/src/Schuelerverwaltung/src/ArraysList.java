@@ -1,18 +1,17 @@
-import java.util.ArrayList;
-
 public class ArraysList {
-    ArrayList<String> tabelle1 = new ArrayList<>();
 
-    String testArray[] = {
+    String search_Results[] = {
 "   ",
-"Fire",
-"Fire2",
-"Fire3",
-"Fire4",
-"Extra",
-"Extras",
-"Extro",
-"Ger",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
 
     };
 
@@ -31,23 +30,28 @@ public class ArraysList {
         
         };
 
-
-    ArrayList<String> karte_Name = new ArrayList<>(); 
-
-    ArrayList<String> karte_Seltenheit = new ArrayList<>(); 
-
-    ArrayList<String> karte_Damage = new ArrayList<>(); 
-
-    ArrayList<String> karte_HP = new ArrayList<>(); 
-
-    ArrayList<String> karte_Agility = new ArrayList<>(); 
-
-    ArrayList<String> karte_Element = new ArrayList<>(); 
-
-    ArrayList<String> karte_ID = new ArrayList<>(); 
+        String elemente[] = {
+            "Blitz",
+            "Cosmic",
+            "Erde",
+            "Feuer",
+            "Glitch",
+            "Gravitation",
+            "Magic",
+            "Wasser",
+            "Wind",
+            };
 
 
+            String skills[] = {
+                "Premium",
+                "Ghost",
+                };
 
+                String skills_Beschreibung[] = {
+                    "Stats(Damage, HP und Agilität) sind 2x besser",
+                    "Die Karte kann weniger als 0 HP haben(0 bis -1000)",
+                    };
  
 
     public ArraysList(){

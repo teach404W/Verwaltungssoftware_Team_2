@@ -1,12 +1,12 @@
 # Definition of Fun
-Konzentriert sich jeder auf die Aufgaben?
+- Konzentriert sich jeder auf die Aufgaben?
 
-Ist eine gute Arbeitsmotivation vorhanden?
+- Ist eine gute Arbeitsmotivation vorhanden?
 
-Ist die Teamarbeit ausreichend genug?
+- Ist die Teamarbeit ausreichend genug?
 
-Werden alle von jedem unterstützt und wird sich gegenseitig geholfen?
+- Werden alle von jedem unterstützt und wird sich gegenseitig geholfen?
 
-Haben alle Spaß beim Arbeiten?
+- Haben alle Spaß beim Arbeiten?
 
-Wird die Definition of Fun regelmäßig überprüft?
+- Wird die Definition of Fun regelmäßig überprüft?

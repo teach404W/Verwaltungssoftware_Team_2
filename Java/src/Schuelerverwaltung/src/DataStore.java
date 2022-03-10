@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class DataStore implements Serializable {
     String name;
@@ -9,7 +8,7 @@ public class DataStore implements Serializable {
 
 
     String temp_KarteName;
-    String temp_KarteRarity;
+    String temp_KarteSeltenheit;
     String temp_KarteDamage;
     String temp_KarteHP;
     String temp_KarteAgility;
@@ -18,17 +17,41 @@ public class DataStore implements Serializable {
     String temp_KarteAbility;    
 
 
-    ArrayList<String> karte_Name = new ArrayList<>(); 
+    String re_KarteName;
+    String re_KarteSeltenheit;
+    String re_KarteDamage;
+    String re_KarteHP;
+    String re_KarteAgility;
+    String re_KarteElement;
+    String re_KarteID;
+    String re_KarteAbility;
 
-    ArrayList<String> karte_Seltenheit = new ArrayList<>(); 
+    Karte[] karten = new Karte[10]; 
 
-    ArrayList<String> karte_Damage = new ArrayList<>(); 
+    public DataStore(){
+        karten[0] = new Karte();
+        karten[1] = new Karte();
+        karten[2] = new Karte();
+        karten[3] = new Karte();
+        karten[4] = new Karte();
+        karten[5] = new Karte();
+        karten[6] = new Karte();
+        karten[7] = new Karte();
+        karten[8] = new Karte();
+        karten[9] = new Karte();
 
-    ArrayList<String> karte_HP = new ArrayList<>(); 
+    }
 
-    ArrayList<String> karte_Agility = new ArrayList<>(); 
 
-    ArrayList<String> karte_Element = new ArrayList<>(); 
-
-    ArrayList<String> karte_ID = new ArrayList<>(); 
+    public void clearSavedTempCard(){
+        temp_KarteName = null;
+        temp_KarteSeltenheit = null;
+        temp_KarteDamage = null;
+        temp_KarteHP = null;
+        temp_KarteAgility = null;
+        temp_KarteElement = null;
+        temp_KarteID = null;
+        temp_KarteAbility = null;
+    }
+    
 }
