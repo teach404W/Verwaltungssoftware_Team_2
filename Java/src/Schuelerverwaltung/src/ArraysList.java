@@ -2,8 +2,8 @@ public class ArraysList {
 
     String search_Results[] = {
 "   ",
-"",
-"",
+"MeineKarte",
+"Karte1",
 "",
 "",
 "",

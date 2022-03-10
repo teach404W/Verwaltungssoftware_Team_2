@@ -54,6 +54,7 @@ public class GUI{
     static JButton searchB4;
     static JButton backB;
 
+    static JLabel[] randomText = new JLabel[5];
 
     static JButton[] option = new JButton[6];
     static JLabel[] optionI = new JLabel[6];
@@ -536,13 +537,13 @@ eSaveButton.add(iSaveButton);
             frame.add(panel1);
             frame.setVisible(true);
 
-         /*   l.setVisible(false);
+            l.setVisible(false);
 
             texarea.setVisible(true);
             confirmButton.setVisible(true);
             randomButton.setVisible(false);
             infoText.setVisible(true);
-            */
+            
 
 
 Thread.sleep(1000);
