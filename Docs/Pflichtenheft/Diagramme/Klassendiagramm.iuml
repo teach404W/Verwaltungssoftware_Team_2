@@ -40,6 +40,7 @@ class ArraysList{
  +re_KarteID : String
  +re_KarteAbility : String
  +karten[] : Karte[9]
+ +clearSavedTempCard() : void
 }
 
 
@@ -71,6 +72,7 @@ class GUI{
  +backB: JButton
  +option[] : JButton[6]
  +optionI[] : JLabel[6]
+ +randomCard[] : JButton[6]
  +sync_Box : JPanel
  +sync[] : JButton[3]
  sync_Text : JTextArea
@@ -115,7 +117,7 @@ class SystemController{
  +randomName() : String
  -anmelden() : void
  +sync() : void
- +generateRarity() : String
+ +generateObject(String [] a) : String
  +generateNumber() : int
  -confirmName() : void
  +confirmCardName() : void
@@ -128,7 +130,6 @@ class SystemController{
  +checkCards() : void
  +createCard(i : int) : void
  +option1_1() : void
- +clearSavedTempCard() : void
  +showOptions(b : boolean) : void
  +viewMenu() : void
  +saveCards() : void

@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.util.Random;
 import java.awt.*;
 import javax.swing.ImageIcon;
@@ -462,20 +463,21 @@ wahlOption.add(ei);
                         }
                     }
 
-                    public String generateRarity(){
+                    public String generateObject(String[] a){
                         Random rd = new Random();
                         int rd2;
-                        rd2 = rd.nextInt(10);
-                        if (texarea.getText().equals(arraysList.rar[rd2])){
-                            if (rd2 > 9){
-                                rd2--;
-                            }else{
-                                rd2++;
+                        rd2 = rd.nextInt(a.length);
+                        if (texarea.getText().equals(a[rd2])){
+                           for(int i = 0; i <5 ; i++){
+                            rd2 = rd.nextInt(a.length);
+                            if (!texarea.getText().equals(a[rd2])){
+                                break;
                             }
+                           }
                         }
                         
                           
-                            return arraysList.rar[rd2];
+                            return a[rd2];
                     }
                     
                     public int generateNumber(int i, int v){
@@ -548,6 +550,8 @@ wahlOption.add(ei);
                                         texarea.setEditable(true);
                                         l2.setVisible(false);
                                         box2.setVisible(false);
+                                        sec_Image.setVisible(false);
+                                        sec_Image.setIcon(null);
                                         clearBox();
                                 }
                 }
@@ -582,6 +586,7 @@ wahlOption.add(ei);
                                         addToBox(2);
                                         box2.setVisible(true);
                                         texarea.setEditable(false);
+                                        sec_Image.setVisible(true);
                                 }
                 }
 
@@ -589,13 +594,16 @@ wahlOption.add(ei);
                 public void confirmCardElement(){
                                         dataStore.temp_KarteElement = texarea.getText();
                                         texarea.setText(null);
-                                        eRandomButton.setActionCommand("GenerateElement");
+                                        eRandomButton.setActionCommand("GenerateAbility");
                                         confirmButton.setActionCommand("ConfirmCardAbility");
                                         infoText.setText("(optional) Ability auswählen");
                                         clearBox();
                                         box2.setVisible(false);
                                         addToBox(3);
                                         box2.setVisible(true);
+                                        sec_Image.setIcon(null);
+
+                                        
                 }
 
                 public void confirmCardAbility(){
@@ -612,6 +620,9 @@ wahlOption.add(ei);
                                     l2.setVisible(false);
                                     clearBox();
                                     box2.setVisible(false);
+                                    sec_Image.setVisible(false);
+                                    sec_Image.setIcon(null);
+
 
                                     checkCards();
 
@@ -849,7 +860,7 @@ wahlOption.add(ei);
                             }
 
                             if (e.getActionCommand().equals("GenerateRarity")){        
-                               texarea.setText(generateRarity());      
+                               texarea.setText(generateObject(arraysList.rar));      
                                try {
                                 sec_Image.setVisible(true);
                                 sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
@@ -857,7 +868,7 @@ wahlOption.add(ei);
                             } catch(Exception x){
                                 System.out.println(x.getStackTrace());
                             }                  
-                            }
+                        }
 
                             if (e.getActionCommand().equals("GenerateDamage")){        
                                 r1 = new Random();
@@ -870,6 +881,30 @@ wahlOption.add(ei);
                                 r2 = r1.nextInt(100);
                                texarea.setText("" + generateNumber(r2,1));                
                             }
+
+
+                            if (e.getActionCommand().equals("GenerateElement")){        
+                                texarea.setText(generateObject(arraysList.elemente));      
+                                try {
+                                 sec_Image.setVisible(true);
+                                 sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                         
+                             } catch(Exception x){
+                                 System.out.println(x.getStackTrace());
+                             }                  
+                         }
+
+
+                         if (e.getActionCommand().equals("GenerateAbility")){        
+                            texarea.setText(generateObject(arraysList.skills));      
+                            try {
+                             sec_Image.setVisible(true);
+                             sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                     
+                         } catch(Exception x){
+                             System.out.println(x.getStackTrace());
+                         }                  
+                     }
 
                         }
 

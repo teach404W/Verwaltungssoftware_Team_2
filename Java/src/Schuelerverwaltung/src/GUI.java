@@ -43,7 +43,7 @@ public class GUI{
 
      JButton[] option = new JButton[6];
      JLabel[] optionI = new JLabel[6];
-     JLabel[] randomcard = new JLabel[5];
+     JLabel[] randomCard = new JLabel[6];
 
      JPanel sync_Box;
 

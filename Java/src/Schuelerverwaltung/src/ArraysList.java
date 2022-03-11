@@ -40,13 +40,13 @@ public class ArraysList {
             "Magic",
             "Wasser",
             "Wind",
-            };
+        };
 
 
             String skills[] = {
                 "Premium",
                 "Ghost",
-                };
+            };
 
                 String skills_Beschreibung[] = {
                     "Stats(Damage, HP und Agilität) sind 2x besser",
