@@ -97,7 +97,7 @@ sync[0].setBounds(920, 550, 100, 30); // Die Position von sync_Box setten (x Pos
 sync[0].setBackground(Color.BLACK); // Hintergrundsfarbe setten
 sync[0].setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
 sync[0].setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
-sync[0].setActionCommand("LoadData"); // Actioncommand wird beim Klicken genommen und kann Funktionen starten. SystemController L. 787
+sync[0].setActionCommand("LoadData"); // Actioncommand wird beim Klicken genommen und kann Funktionen starten. SystemController L. 848
 sync[0].setBorder(new LineBorder(new Color(0,255,25))); // Outline und die Farbe eingeben
 
 
