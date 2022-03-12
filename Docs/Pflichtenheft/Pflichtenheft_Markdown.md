@@ -124,7 +124,7 @@ Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestalt
 
 ### **3.1 Klassendiagramm**
 
-![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramme.iuml)
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramm.iuml)
 
 
 ### 3.2 Objektdiagramm
