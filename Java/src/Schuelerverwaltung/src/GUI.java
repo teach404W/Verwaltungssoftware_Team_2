@@ -51,6 +51,7 @@ public class GUI{
      JTextArea sync_Text;
 
      JPanel box2;
+     JTextArea descriptionBox;
 
 
 
@@ -500,6 +501,14 @@ box2.setVisible(false);
 box2.setFocusable(false);
 box2.setBorder(new LineBorder(Color.darkGray));
 
+descriptionBox = new JTextArea();
+descriptionBox.setForeground(new Color(60, 60, 60));
+descriptionBox.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+descriptionBox.setBounds(200, 500, 700, 20);
+descriptionBox.setSize(850, 240);
+descriptionBox.setOpaque(false);
+descriptionBox.setVisible(true);
+descriptionBox.setFocusable(false);
 
 
 frame.add(saveButton);
@@ -517,6 +526,7 @@ eSaveButton.add(iSaveButton);
             frame.add(search_Box);
 
             frame.add(box2);
+            frame.add(descriptionBox);
 
             frame.add(l);
             frame.add(panel1);

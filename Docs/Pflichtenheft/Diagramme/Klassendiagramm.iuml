@@ -75,7 +75,9 @@ class GUI{
  +randomCard[] : JButton[6]
  +sync_Box : JPanel
  +sync[] : JButton[3]
- sync_Text : JTextArea
+ +sync_Text : JTextArea
+ +box2 : JPanel
+ +descriptionBox : JTextArea
  -texts : Texts
  -arraysList : ArraysList
  -dataStore : DataStore

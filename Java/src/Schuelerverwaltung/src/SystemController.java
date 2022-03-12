@@ -468,7 +468,7 @@ wahlOption.add(ei);
                         int rd2;
                         rd2 = rd.nextInt(a.length);
                         if (texarea.getText().equals(a[rd2])){
-                           for(int i = 0; i <5 ; i++){
+                           for(int i = 0; i <15 ; i++){
                             rd2 = rd.nextInt(a.length);
                             if (!texarea.getText().equals(a[rd2])){
                                 break;
@@ -733,6 +733,8 @@ wahlOption.add(ei);
                         backB.setVisible(true);
                         texarea.setText(dataStore.temp_KarteName);
                         box2.setVisible(false);
+                        sec_Image.setVisible(false);
+                        sec_Image.setIcon(null);
                         clearBox();
 
                         dataStore.clearSavedTempCard();
@@ -896,7 +898,7 @@ wahlOption.add(ei);
 
 
                          if (e.getActionCommand().equals("GenerateAbility")){        
-                            texarea.setText(generateObject(arraysList.skills));      
+                            texarea.setText(generateObject(arraysList.skills));
                             try {
                              sec_Image.setVisible(true);
                              sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
@@ -990,11 +992,12 @@ wahlOption.add(ei);
                                 }
                             }
 
-                            for (String v : arraysList.skills) {
-                                if (e.getActionCommand().equals(v)) {
-                                    texarea.setText(v);
+                            for (int v = 0; v<arraysList.skills.length; v++) {
+                                if (e.getActionCommand().equals(arraysList.skills[v])) {
+                                    texarea.setText(arraysList.skills[v]);
                                     sec_Image.setVisible(true);
-                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + v + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png").getImage().getScaledInstance(50, 45,Image.SCALE_AREA_AVERAGING)));
+                                    descriptionBox.setText(arraysList.skills_Beschreibung[v]);
                                     break;                                           
                                 }
                             }

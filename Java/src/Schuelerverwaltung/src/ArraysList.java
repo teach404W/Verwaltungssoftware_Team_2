@@ -50,7 +50,7 @@ public class ArraysList {
 
                 String skills_Beschreibung[] = {
                     "Stats(Damage, HP und Agilität) sind 2x besser",
-                    "Die Karte kann weniger als 0 HP haben(0 bis -1000)",
+                    "Die Karte kann weniger als 0 HP haben(1000 bis -1000)",
                     };
  
 
