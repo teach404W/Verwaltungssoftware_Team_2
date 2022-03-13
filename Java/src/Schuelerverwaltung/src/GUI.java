@@ -53,7 +53,6 @@ public class GUI {
     ArraysList arraysList = new ArraysList();
     DataStore dataStore = new DataStore();
     Input input = new Input(this);
-    User user = new User();
 
     public GUI() throws Exception {
 

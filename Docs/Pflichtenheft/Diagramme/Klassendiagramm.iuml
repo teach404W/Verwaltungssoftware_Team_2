@@ -108,15 +108,16 @@ class Karte{
 class SystemController{
 -r1 : Random
 -r2 : int
--d : int
++d : int
 -rd2 : int
++user : User
 +ei : JLabel
 +wahlOption : JButton
  +karten[] : Karte[9]
  +loading() : void
  +clearBox() : void
  +addToBox(i : int) : void
- -ret() : void
+ +ret() : void
  +randomName() : String
  -anmelden() : void
  +sync() : void
@@ -154,7 +155,15 @@ class User{
  -angemeldet: boolean
 }
 
-User "1" *-- "0..10" GUI
-Texts <|-- SystemController
-
+GUI <|-- SystemController
+SystemController -- DataStore
+SystemController "1" *-- "0..10" User
+GUI <|-- Input
+App "1" *-- "0..10" SystemController
+App "1" *-- "0..10" GUI
+GUI <|-- Texts
+GUI <|-- ArraysList
+DataStore -- Karte
+SystemController -- Karte
+Karte o-- User
 @enduml

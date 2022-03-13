@@ -18,8 +18,11 @@ public class SystemController extends GUI implements ActionListener {
 
     private Random r1;
     private int r2;
-    private int d;
+    public  int d;
     private int rd2;
+
+    User user = new User();
+
 
     Karte[] karten = new Karte[9];
 
@@ -368,7 +371,7 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    private void ret() {
+    public void ret() {
         if (confirmButton.getActionCommand().equals("ConfirmName")) {
             randomName();
         }
