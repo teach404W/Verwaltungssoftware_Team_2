@@ -1,7 +1,6 @@
 
 public class Texts {
 
-
     String loadingtex[] = {
             "System lädt",
             "System lädt.",
@@ -186,8 +185,7 @@ public class Texts {
 
     };
 
-
-    public String setTex(String[] a, int i){
+    public String setTex(String[] a, int i) {
 
         return a[i];
     }

@@ -109,6 +109,7 @@ class SystemController{
 -r1 : Random
 -r2 : int
 -d : int
+-rd2 : int
 +ei : JLabel
 +wahlOption : JButton
  +karten[] : Karte[9]

@@ -6,7 +6,6 @@ public class DataStore implements Serializable {
     boolean angemeldet;
     boolean ver;
 
-
     String temp_KarteName;
     String temp_KarteSeltenheit;
     String temp_KarteDamage;
@@ -14,8 +13,7 @@ public class DataStore implements Serializable {
     String temp_KarteAgility;
     String temp_KarteElement;
     String temp_KarteID;
-    String temp_KarteAbility;    
-
+    String temp_KarteAbility;
 
     String re_KarteName;
     String re_KarteSeltenheit;
@@ -26,9 +24,9 @@ public class DataStore implements Serializable {
     String re_KarteID;
     String re_KarteAbility;
 
-    Karte[] karten = new Karte[10]; 
+    Karte[] karten = new Karte[10];
 
-    public DataStore(){
+    public DataStore() {
         karten[0] = new Karte();
         karten[1] = new Karte();
         karten[2] = new Karte();
@@ -42,8 +40,7 @@ public class DataStore implements Serializable {
 
     }
 
-
-    public void clearSavedTempCard(){
+    public void clearSavedTempCard() {
         temp_KarteName = null;
         temp_KarteSeltenheit = null;
         temp_KarteDamage = null;
@@ -53,5 +50,5 @@ public class DataStore implements Serializable {
         temp_KarteID = null;
         temp_KarteAbility = null;
     }
-    
+
 }
