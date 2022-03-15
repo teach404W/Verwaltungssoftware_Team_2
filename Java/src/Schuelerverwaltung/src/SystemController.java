@@ -18,11 +18,10 @@ public class SystemController extends GUI implements ActionListener {
 
     private Random r1;
     private int r2;
-    public  int d;
+    public int d;
     private int rd2;
 
     User user = new User();
-
 
     Karte[] karten = new Karte[9];
 
@@ -937,6 +936,20 @@ public class SystemController extends GUI implements ActionListener {
                 option1_1();
             }
 
+        }
+
+        if (e.getActionCommand().equals("Meine Karten")) {
+            for (int i = 0; i < 10; i++) {
+                if (dataStore.karten[i].karte_Agility != null)
+                    System.out.println("Name:" + dataStore.karten[i].karte_Name);
+                System.out.println("Seltenheit:" + dataStore.karten[i].karte_Seltenheit);
+                System.out.println("Damage:" + dataStore.karten[i].karte_Damage);
+                System.out.println("HP:" + dataStore.karten[i].karte_HP);
+                System.out.println("Agility:" + dataStore.karten[i].karte_Agility);
+                System.out.println("Element:" + dataStore.karten[i].karte_Element);
+                System.out.println("Ability:" + dataStore.karten[i].karte_Ability);
+                System.out.println("ID:" + dataStore.karten[i].karte_ID);
+            }
         }
 
         if (e.getActionCommand().equals("backB_0")) {
