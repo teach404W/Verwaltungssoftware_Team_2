@@ -2,7 +2,6 @@ import java.awt.Color;
 
 public class ArraysList {
 
-<<<<<<< HEAD
         String search_Results[] = {
                         "   ",
                         "MeineKarte",
@@ -15,24 +14,9 @@ public class ArraysList {
                         "",
                         "",
                         "",
-=======
-    String search_Results[] = {
-"   ",
-"MeineKarte",
-"Karte1",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
->>>>>>> 267a62f6960e22f0dc9369df9c55174bc5e63122
 
         };
 
-<<<<<<< HEAD
         String rar[] = {
                         "Gewöhnlich",
                         "Ungewöhnlich",
@@ -87,49 +71,4 @@ public class ArraysList {
 
         public ArraysList() {
         }
-=======
-    String rar[] = {
-        "Gewöhnlich",
-        "Ungewöhnlich",
-        "Rare",
-        "Sehr Rare",
-        "Ultra Rare",
-        "Secret Rare",
-        "Episch",
-        "Insane",
-        "Legendär",
-        "Heroic",
-        "Secret",
-        
-        };
-
-        String elemente[] = {
-            "Blitz",
-            "Cosmic",
-            "Erde",
-            "Feuer",
-            "Glitch",
-            "Gravitation",
-            "Magic",
-            "Wasser",
-            "Wind",
-            };
-
-
-            String skills[] = {
-                "Premium",
-                "Ghost",
-                };
-
-                String skills_Beschreibung[] = {
-                    "Stats(Damage, HP und Agilität) sind 2x besser",
-                    "Die Karte kann weniger als 0 HP haben(0 bis -1000)",
-                    };
- 
-
-    public ArraysList(){
-        System.out.println("Dt");
-
-    }
->>>>>>> 267a62f6960e22f0dc9369df9c55174bc5e63122
 }
