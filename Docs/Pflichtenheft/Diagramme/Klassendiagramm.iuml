@@ -40,7 +40,6 @@ class ArraysList{
  +re_KarteID : String
  +re_KarteAbility : String
  +karten[] : Karte[9]
- +clearSavedTempCard() : void
 }
 
 
@@ -72,12 +71,9 @@ class GUI{
  +backB: JButton
  +option[] : JButton[6]
  +optionI[] : JLabel[6]
- +randomCard[] : JButton[6]
  +sync_Box : JPanel
  +sync[] : JButton[3]
- +sync_Text : JTextArea
- +box2 : JPanel
- +descriptionBox : JTextArea
+ sync_Text : JTextArea
  -texts : Texts
  -arraysList : ArraysList
  -dataStore : DataStore
@@ -108,20 +104,18 @@ class Karte{
 class SystemController{
 -r1 : Random
 -r2 : int
-+d : int
--rd2 : int
-+user : User
+-d : int
 +ei : JLabel
 +wahlOption : JButton
  +karten[] : Karte[9]
  +loading() : void
  +clearBox() : void
  +addToBox(i : int) : void
- +ret() : void
+ -ret() : void
  +randomName() : String
  -anmelden() : void
  +sync() : void
- +generateObject(String [] a) : String
+ +generateRarity() : String
  +generateNumber() : int
  -confirmName() : void
  +confirmCardName() : void
@@ -134,6 +128,7 @@ class SystemController{
  +checkCards() : void
  +createCard(i : int) : void
  +option1_1() : void
+ +clearSavedTempCard() : void
  +showOptions(b : boolean) : void
  +viewMenu() : void
  +saveCards() : void
@@ -155,15 +150,6 @@ class User{
  -angemeldet: boolean
 }
 
-GUI <|-- SystemController
-SystemController -- DataStore
-SystemController "1" *-- "0..10" User
-GUI <|-- Input
-App "1" *-- "0..10" SystemController
-App "1" *-- "0..10" GUI
-GUI <|-- Texts
-GUI <|-- ArraysList
-DataStore -- Karte
-SystemController -- Karte
-Karte o-- User
+
+
 @enduml
