@@ -12,6 +12,7 @@ import java.awt.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 
@@ -779,16 +780,123 @@ wahlOption.add(ei);
                     }
 
                     public void showcards(){
-                        showcardsButtons[0] = new JButton(dataStore.karten[0].karte_Name);
-                        showcardsButtons[1] = new JButton(dataStore.karten[1].karte_Name);
+
+                        showOptions(false);
+                        cardsMenü.removeAll();
+                        cardsMenü.setVisible(true);
+                        if (!dataStore.karten[0].karte_Name.equals("null")){
+                            showcardsButtons[0] = new JButton("Text");
+                            showcardsButtons[0].addActionListener(this);
+                            showcardsButtons[0].setActionCommand("Karte1");
+                            showcardsButtons[0].setForeground(new Color(255, 255, 255));
+                            showcardsButtons[0].setBounds(0, 0, 200, 200); 
+                            showcardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
+                            showcardsButtons[0].setBackground(Color.BLACK);
+                            showcardsButtons[0].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                            showcardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+                       
+                        if (!dataStore.karten[1].karte_Name.equals("null")){
+
+                        showcardsButtons[1] = new JButton("Text2");
+                        showcardsButtons[1].setForeground(new Color(255,255,255));
+                        showcardsButtons[1].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[1].setBackground(Color.BLACK);
+                        showcardsButtons[1].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+                        if (!dataStore.karten[2].karte_Name.equals("null")){
+
                         showcardsButtons[2] = new JButton(dataStore.karten[2].karte_Name);
+                        showcardsButtons[2].setForeground(new Color(255,255,255));
+                        showcardsButtons[2].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[2].setBackground(Color.BLACK);
+                        showcardsButtons[2].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+
+                        if (!dataStore.karten[3].karte_Name.equals("null")){
+
                         showcardsButtons[3] = new JButton(dataStore.karten[3].karte_Name);
+                        showcardsButtons[3].setForeground(new Color(255,255,255));
+                        showcardsButtons[3].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[3].setBackground(Color.BLACK);
+                        showcardsButtons[3].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+
+                        if (!dataStore.karten[4].karte_Name.equals("null")){
+
                         showcardsButtons[4] = new JButton(dataStore.karten[4].karte_Name);
+                        showcardsButtons[4].setForeground(new Color(255,255,255));
+                        showcardsButtons[4].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[4].setBackground(Color.BLACK);
+                        showcardsButtons[4].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+
+                        if (!dataStore.karten[5].karte_Name.equals("null")){
+
                         showcardsButtons[5] = new JButton(dataStore.karten[5].karte_Name);
+                        showcardsButtons[5].setForeground(new Color(255,255,255));
+                        showcardsButtons[5].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[5].setBackground(Color.BLACK);
+                        showcardsButtons[5].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+
+                        if (!dataStore.karten[6].karte_Name.equals("null")){
+
                         showcardsButtons[6] = new JButton(dataStore.karten[6].karte_Name);
+                        showcardsButtons[6].setForeground(new Color(255,255,255));
+                        showcardsButtons[6].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[6].setBackground(Color.BLACK);
+                        showcardsButtons[6].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
+                        }
+
+                        if (!dataStore.karten[7].karte_Name.equals("null")){
+
                         showcardsButtons[7] = new JButton(dataStore.karten[7].karte_Name);
+                        showcardsButtons[7].setForeground(new Color(255,255,255));
+                        showcardsButtons[7].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[7].setBackground(Color.BLACK);
+                        showcardsButtons[7].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
+                        cardsMenü.add(showcardsButtons[7]);
+                        }
+
+                        if (!dataStore.karten[8].karte_Name.equals("null")){
+
                         showcardsButtons[8] = new JButton(dataStore.karten[8].karte_Name);
+                        showcardsButtons[8].setForeground(new Color(255,255,255));
+                        showcardsButtons[8].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[8].setBackground(Color.BLACK);
+                        showcardsButtons[8].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
+                        cardsMenü.add(showcardsButtons[8]);
+                        }
+
+                        if (!dataStore.karten[].karte_Name.equals("null")){
+
                         showcardsButtons[9] = new JButton(dataStore.karten[9].karte_Name);
+                        showcardsButtons[9].setForeground(new Color(255,255,255));
+                        showcardsButtons[9].setBounds(0, 0, 200, 200); 
+                        showcardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+                        showcardsButtons[9].setBackground(Color.BLACK);
+                        showcardsButtons[9].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+                        showcardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+                        cardsMenü.add(showcardsButtons[9]);
+                        }
+
                         cardsMenü.add(showcardsButtons[0]);
                         cardsMenü.add(showcardsButtons[1]);
                         cardsMenü.add(showcardsButtons[2]);
@@ -796,10 +904,18 @@ wahlOption.add(ei);
                         cardsMenü.add(showcardsButtons[4]);
                         cardsMenü.add(showcardsButtons[5]);
                         cardsMenü.add(showcardsButtons[6]);
-                        cardsMenü.add(showcardsButtons[7]);
-                        cardsMenü.add(showcardsButtons[8]);
-                        cardsMenü.add(showcardsButtons[9]);
-                        cardsMenü.setVisible(true);
+                        showcardsButtons[0].setVisible(true);
+                        showcardsButtons[1].setVisible(true);
+                        showcardsButtons[2].setVisible(true);
+                        showcardsButtons[3].setVisible(true);
+                        showcardsButtons[4].setVisible(true);
+                        showcardsButtons[5].setVisible(true);
+                        showcardsButtons[6].setVisible(true);
+                        showcardsButtons[7].setVisible(true);
+                        showcardsButtons[8].setVisible(true);
+                        showcardsButtons[9].setVisible(true);
+
+                        
                     }
 
                     public void actionPerformed(java.awt.event.ActionEvent e){
@@ -884,6 +1000,126 @@ wahlOption.add(ei);
 
                         if (e.getActionCommand().equals("Meine Karten")){
                             showcards();
+                        }
+
+                        if (e.getActionCommand().equals("Karte1")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte2")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte3")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte4")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte5")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte6")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte7")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte8")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte9")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+                        }
+
+                        if (e.getActionCommand().equals("Karte10")){
+                            System.out.println("K1");
+                            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+                            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+                            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+                            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+                            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+                            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+                            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+                            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
                         }
                 
 
