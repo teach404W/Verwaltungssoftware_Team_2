@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -17,11 +18,7 @@ public class SystemController extends GUI implements ActionListener {
 
     private Random r1;
     private int r2;
-    public  int d;
-    private int rd2;
-
-    User user = new User();
-
+    private int d;
 
     Karte[] karten = new Karte[9];
 
@@ -370,7 +367,7 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    public void ret() {
+    private void ret() {
         if (confirmButton.getActionCommand().equals("ConfirmName")) {
             randomName();
         }
@@ -455,19 +452,19 @@ public class SystemController extends GUI implements ActionListener {
         }
     }
 
-    public String generateObject(String[] a) {
+    public String generateRarity() {
         Random rd = new Random();
-        rd2 = rd.nextInt(a.length);
-        if (texarea.getText().equals(a[rd2])) {
-            for (int i = 0; i < 15; i++) {
-                rd2 = rd.nextInt(a.length);
-                if (!texarea.getText().equals(a[rd2])) {
-                    break;
-                }
+        int rd2;
+        rd2 = rd.nextInt(10);
+        if (texarea.getText().equals(arraysList.rar[rd2])) {
+            if (rd2 > 9) {
+                rd2--;
+            } else {
+                rd2++;
             }
         }
 
-        return a[rd2];
+        return arraysList.rar[rd2];
     }
 
     public int generateNumber(int i, int v) {
@@ -535,8 +532,6 @@ public class SystemController extends GUI implements ActionListener {
             texarea.setEditable(true);
             l2.setVisible(false);
             box2.setVisible(false);
-            sec_Image.setVisible(false);
-            sec_Image.setIcon(null);
             clearBox();
         }
     }
@@ -571,23 +566,19 @@ public class SystemController extends GUI implements ActionListener {
             addToBox(2);
             box2.setVisible(true);
             texarea.setEditable(false);
-            sec_Image.setVisible(true);
         }
     }
 
     public void confirmCardElement() {
         dataStore.temp_KarteElement = texarea.getText();
         texarea.setText(null);
-        eRandomButton.setActionCommand("GenerateAbility");
+        eRandomButton.setActionCommand("GenerateElement");
         confirmButton.setActionCommand("ConfirmCardAbility");
         infoText.setText("(optional) Ability auswählen");
         clearBox();
         box2.setVisible(false);
         addToBox(3);
         box2.setVisible(true);
-        sec_Image.setIcon(null);
-        descriptionBox.setVisible(true);
-
     }
 
     public void confirmCardAbility() {
@@ -604,9 +595,6 @@ public class SystemController extends GUI implements ActionListener {
         l2.setVisible(false);
         clearBox();
         box2.setVisible(false);
-        sec_Image.setVisible(false);
-        sec_Image.setIcon(null);
-        descriptionBox.setVisible(false);
 
         checkCards();
 
@@ -711,9 +699,6 @@ public class SystemController extends GUI implements ActionListener {
         backB.setVisible(true);
         texarea.setText(dataStore.temp_KarteName);
         box2.setVisible(false);
-        sec_Image.setVisible(false);
-        sec_Image.setIcon(null);
-        descriptionBox.setVisible(false);
         clearBox();
 
         dataStore.clearSavedTempCard();
@@ -760,16 +745,52 @@ public class SystemController extends GUI implements ActionListener {
         eRandomButton.setActionCommand("");
         backB.setVisible(false);
         box2.setVisible(false);
-        box2.setVisible(false);
-        sec_Image.setVisible(false);
-        sec_Image.setIcon(null);
-        descriptionBox.setVisible(false);
         clearBox();
         dataStore.clearSavedTempCard();
     }
 
     public void showEditPanel() {
         System.out.println(dataStore.karten[0].karte_Name);
+
+    }
+
+    public void karteLöschen() {
+        texarea.setVisible(true);
+        texarea.setText(null);
+        texarea.setEditable(true);
+
+        confirmButton.setVisible(true);
+        showOptions(false);
+        search_Box.setVisible(true);
+        searchB1.setVisible(true);
+
+        confirmButton.setActionCommand("Löschen Abfrage");
+
+    }
+
+    public void löschenAbfrage() {
+        
+        String löschendeKarte = texarea.getText();
+        texarea.setVisible(false);
+        texarea.setText(null);
+        texarea.setEditable(false);
+
+        confirmButton.setVisible(false);
+        showOptions(false);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+
+        if(dataStore.re_KarteName != null){
+            System.out.println("es gibt eine Karte");
+        }else{
+            for (int c = 0; c<10 ; c++){
+                if (dataStore.karten[c].karte_Name.equals(löschendeKarte)){
+                    dataStore.re_KarteName = dataStore.karten[c].karte_Name;
+                    dataStore.karten[c] = null;
+                    System.out.println(dataStore.re_KarteName);
+                }
+            }
+        }
 
     }
 
@@ -785,6 +806,7 @@ public class SystemController extends GUI implements ActionListener {
                 dataStore.karten[i].karte_Element = karten[i].karte_Element;
                 dataStore.karten[i].karte_Ability = karten[i].karte_Ability;
                 dataStore.karten[i].karte_ID = karten[i].karte_ID;
+                System.out.println(dataStore.karten[i].karte_Ability);
             }
         }
     }
@@ -830,7 +852,7 @@ public class SystemController extends GUI implements ActionListener {
             }
 
             if (e.getActionCommand().equals("GenerateRarity")) {
-                texarea.setText(generateObject(arraysList.rar));
+                texarea.setText(generateRarity());
                 try {
                     sec_Image.setVisible(true);
                     sec_Image.setIcon(new ImageIcon(new ImageIcon(
@@ -852,33 +874,6 @@ public class SystemController extends GUI implements ActionListener {
                 r1 = new Random();
                 r2 = r1.nextInt(100);
                 texarea.setText("" + generateNumber(r2, 1));
-            }
-
-            if (e.getActionCommand().equals("GenerateElement")) {
-                texarea.setText(generateObject(arraysList.elemente));
-                try {
-                    sec_Image.setVisible(true);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
-                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-
-                } catch (Exception x) {
-                    System.out.println(x.getStackTrace());
-                }
-            }
-
-            if (e.getActionCommand().equals("GenerateAbility")) {
-                texarea.setText(generateObject(arraysList.skills));
-                descriptionBox.setText(arraysList.skills_Beschreibung[rd2]);
-                try {
-                    sec_Image.setVisible(true);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png")
-                            .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-
-                } catch (Exception x) {
-                    System.out.println(x.getStackTrace());
-                }
             }
 
         }
@@ -964,14 +959,13 @@ public class SystemController extends GUI implements ActionListener {
             }
         }
 
-        for (int v = 0; v < arraysList.skills.length; v++) {
-            if (e.getActionCommand().equals(arraysList.skills[v])) {
-                texarea.setText(arraysList.skills[v]);
+        for (String v : arraysList.skills) {
+            if (e.getActionCommand().equals(v)) {
+                texarea.setText(v);
                 sec_Image.setVisible(true);
-                sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                        "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png")
-                        .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-                descriptionBox.setText(arraysList.skills_Beschreibung[v]);
+                sec_Image.setIcon(
+                        new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + v + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                 break;
             }
         }
@@ -1083,6 +1077,14 @@ public class SystemController extends GUI implements ActionListener {
 
         if (e.getActionCommand().equals("show edit panel")) {
             showEditPanel();
+        }
+
+        if(e.getActionCommand().equals("Karte Löschen")) {
+            karteLöschen();
+        }
+
+        if(e.getActionCommand().equals("Löschen Abfrage")) {
+            löschenAbfrage();
         }
 
     }
