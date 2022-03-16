@@ -781,6 +781,7 @@ public class SystemController extends GUI implements ActionListener {
 
         confirmButton.setActionCommand("show edit panel");
     }
+    
 
     public void showOptions(boolean b) {
         option[0].setVisible(b);
