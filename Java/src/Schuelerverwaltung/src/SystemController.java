@@ -613,16 +613,16 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void instanceCard() {
-        for (int v = 0; v < 9; v++) {
-            if (v == 0) {
+        for (int v21 = 0; v21 < 9; v21++) {
+            if (v21 == 0) {
                 if (karten[0] == null) {
                     karten[0] = new Karte();
                     return;
                 }
             }
 
-            if (v > 0 && karten[v] == null && karten[v - 1] != null) {
-                karten[v] = new Karte();
+            if (v21 > 0 && karten[v21] == null && karten[v21 - 1] != null) {
+                karten[v21] = new Karte();
                 return;
             }
         }
@@ -995,6 +995,8 @@ public class SystemController extends GUI implements ActionListener {
                 dataStore.ver = true;
 
                 System.out.println("Name:" + dataStore.karten[0].karte_Name);
+                System.out.println("Name:" + dataStore.karten[1].karte_Name);
+                System.out.println("Name:" + dataStore.karten[2].karte_Name);
                 System.out.println("Seltenheit:" + dataStore.karten[0].karte_Seltenheit);
                 System.out.println("Damage:" + dataStore.karten[0].karte_Damage);
                 System.out.println("HP:" + dataStore.karten[0].karte_HP);

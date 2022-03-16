@@ -69,6 +69,25 @@ public class ArraysList {
 
         };
 
+        Color[] elemente_colors = {
+                new Color(243,152,98), // Blitz
+                new Color(255,101,128), // Cosmic
+                new Color(94,67,66), // Erde
+                new Color(254,75,0), // Feuer
+                new Color(7, 255, 255), // Glitch
+                new Color(16, 191, 214), // Gravitation
+                new Color(255, 80, 135), // Magic
+                new Color(207, 215, 242), // Wasser
+                new Color(79, 153, 211), // Wind
+
+};
+
+
+Color[] skills_colors = {
+        new Color(255, 187, 113), // Premium 
+        new Color(239, 133, 241), // Ghost
+};
+
         public ArraysList() {
         }
 }

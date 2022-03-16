@@ -539,7 +539,7 @@ public class GUI{
                 cardInfoText[7].setVisible(true);
                 cardInfoText[7].setFocusable(false);
                 cardInfoText[7].setBorder(new LineBorder(Color.white));
-
+/*
                 frame.add(cardInfoImage);
                 frame.add(cardInfoText[0]);
                 frame.add(cardInfoText[1]);
@@ -549,7 +549,7 @@ public class GUI{
                 frame.add(cardInfoText[5]);
                 frame.add(cardInfoText[6]);
                 frame.add(cardInfoText[7]);
-
+*/
                 frame.add(cardInfoMenu);
                 eRandomButton = new JButton();
                 eRandomButton.setForeground(new Color(255, 255, 255));
