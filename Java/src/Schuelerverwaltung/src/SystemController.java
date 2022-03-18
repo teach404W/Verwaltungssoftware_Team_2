@@ -24,6 +24,7 @@ public class SystemController extends GUI implements ActionListener {
     boolean loadingValues[] = new boolean[9]; 
     int loading_Width = 500;
     int loading_hight = 300;
+    int cardIndex = -1;
 
 
 
@@ -117,7 +118,7 @@ public class SystemController extends GUI implements ActionListener {
 
 
 
-            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "Löschen Abfrage") {
+            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "Löschen Abfrage" || confirmButton.getActionCommand() == "show edit panel") {
                 int v = 1;
 
                 if (searchB1.getText() == null) {
@@ -684,6 +685,7 @@ public class SystemController extends GUI implements ActionListener {
    // int n = Integer.parseInt(s);
     
     public void confirmCardAbility() {
+        if (cardIndex < 0){
         dataStore.temp_KarteAbility = texarea.getText();
         texarea.setText(null);
         eRandomButton.setActionCommand("RandomName");
@@ -702,6 +704,41 @@ public class SystemController extends GUI implements ActionListener {
         loadingValues[1] = true;
 
         checkCards();
+        }
+
+        if (cardIndex >= 0){
+
+            texarea.setText(null);
+            eRandomButton.setActionCommand("RandomName");
+            confirmButton.setActionCommand("option[0]");
+            infoText.setVisible(false);
+            backB.setVisible(false);
+            texarea.setVisible(false);
+            confirmButton.setVisible(false);
+            randomButton.setVisible(false);
+            l2.setVisible(false);
+            clearBox();
+            box2.setVisible(false);
+            sec_Image.setVisible(false);
+            sec_Image.setIcon(null);
+            descriptionBox.setVisible(false);
+            loadingValues[1] = true;
+
+            karten[cardIndex].karte_Name = dataStore.temp_KarteName;
+            karten[cardIndex].karte_Seltenheit = dataStore.temp_KarteSeltenheit;
+            karten[cardIndex].karte_Damage = dataStore.temp_KarteDamage;
+            karten[cardIndex].karte_HP = dataStore.temp_KarteHP;
+            karten[cardIndex].karte_Agility = dataStore.temp_KarteAgility;
+            karten[cardIndex].karte_Element = dataStore.temp_KarteElement;
+            karten[cardIndex].karte_Ability = dataStore.temp_KarteAbility;
+            karten[cardIndex].karte_ID = dataStore.temp_KarteID;
+            karten[cardIndex].karte_ID = "" + generateNumber(10000, 1000000);
+    
+            arraysList.search_Results[cardIndex + 1] = dataStore.temp_KarteName;
+    
+            dataStore.clearSavedTempCard();
+
+        }
     
     }
     
@@ -861,7 +898,14 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void showEditPanel() {
-        System.out.println(dataStore.karten[0].karte_Name);
+        for (int i = 0; i< 10 ; i++){
+            if (karten[i] != null && karten[i].karte_Name.equals(texarea.getText())){
+                option1_1();
+                cardIndex = i;
+                break;
+            }
+        }
+        
 
     }
 
@@ -1136,7 +1180,7 @@ public class SystemController extends GUI implements ActionListener {
                 user.angemeldet = dataStore.angemeldet;
                 dataStore.ver = true;
 
-                for (int i = 10 ; i<10 ; i++){
+                for (int i = 0 ; i<9 ; i++){
                     karten[i] = dataStore.karten[i];
 
                 }
