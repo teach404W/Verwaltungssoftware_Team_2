@@ -884,7 +884,6 @@ public class SystemController extends GUI implements ActionListener {
         String löschendeKarte = texarea.getText();
         texarea.setVisible(false);
         texarea.setText(null);
-        texarea.setEditable(false);
 
         confirmButton.setVisible(false);
         showOptions(false);
@@ -893,20 +892,15 @@ public class SystemController extends GUI implements ActionListener {
 
         
 
-        if(dataStore.re_KarteName != null){
-            System.out.println("es gibt eine Karte");
-        }else{
             for (int c = 0; c<9 ; c++){
                 if (karten[c] != null && karten[c].karte_Name.equals(löschendeKarte)){
-                    dataStore.re_KarteName = dataStore.karten[c].karte_Name;
                     karten[c] = null;
-                    System.out.println(dataStore.re_KarteName);
-                    arraysList.search_Results[c] = "";
+                    arraysList.search_Results[c + 1] = "";
                 }
-            }
+                löschendeKarte = null;
+
         }
 
-        löschendeKarte = null;
 
         showOptions(true);
 
@@ -1149,7 +1143,7 @@ public class SystemController extends GUI implements ActionListener {
 
                 for (int i = 0; i<9 ; i++){
                     if (!dataStore.karten[0].karte_Name.equals("N/A")){
-                    arraysList.search_Results[i] = dataStore.karten[0].karte_Name;
+                    arraysList.search_Results[i + 1] = dataStore.karten[0].karte_Name;
                     }
                 }
 

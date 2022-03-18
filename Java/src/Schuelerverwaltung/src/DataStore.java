@@ -17,15 +17,6 @@ public class DataStore implements Serializable {
     String temp_KarteAbility;    
 
 
-    String re_KarteName;
-    String re_KarteSeltenheit;
-    String re_KarteDamage;
-    String re_KarteHP;
-    String re_KarteAgility;
-    String re_KarteElement;
-    String re_KarteID;
-    String re_KarteAbility;
-
     Karte[] karten = new Karte[10]; 
 
     public DataStore(){
