@@ -19,9 +19,12 @@ public class SystemController extends GUI implements ActionListener {
     private int r2;
     private int d;
     private int rd2;
+    String passwordController;
+    int passwordNumbers;
     boolean loadingValues[] = new boolean[9]; 
     int loading_Width = 500;
     int loading_hight = 300;
+
 
 
 
@@ -114,7 +117,7 @@ public class SystemController extends GUI implements ActionListener {
 
 
 
-            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "C") {
+            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "Löschen Abfrage") {
                 int v = 1;
 
                 if (searchB1.getText() == null) {
@@ -465,9 +468,15 @@ public class SystemController extends GUI implements ActionListener {
             }
             try {
                 if (user.password < 10000) {
-                    if (Integer.parseInt(texarea.getText().toString()) > 10000) {
-                        dataStore.password = Integer.parseInt(texarea.getText().toString());
-                        user.password = Integer.parseInt(texarea.getText().toString());
+                
+                     passwordController = texarea.getText().toString();
+
+    passwordController = passwordController.replaceAll("\\D+","");
+
+    passwordNumbers = Integer.parseInt(passwordController);
+                    if (passwordNumbers > 10000) {
+                        dataStore.password = passwordNumbers;
+                        user.password = passwordNumbers;
                         infoText.setText("Erfolgreich angemeldet");
                         randomButton.setVisible(false);
                         texarea.setVisible(false);
@@ -592,8 +601,16 @@ public class SystemController extends GUI implements ActionListener {
     }
     
     public void confirmCardDamage() {
-        if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
+        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteDamage = texarea.getText();
+            texarea.setText(null);
+            eRandomButton.setActionCommand("GenerateDamage");
+            confirmButton.setActionCommand("ConfirmCardHP");
+            infoText.setText("HP eingeben (0-1000)");
+        }
+
+        if (texarea.getText().length() < 1){
+            dataStore.temp_KarteDamage = "0";
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateDamage");
             confirmButton.setActionCommand("ConfirmCardHP");
@@ -602,8 +619,16 @@ public class SystemController extends GUI implements ActionListener {
     }
     
     public void confirmCardHP() {
-        if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
+        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteHP = texarea.getText();
+            texarea.setText(null);
+            eRandomButton.setActionCommand("GenerateAgility");
+            confirmButton.setActionCommand("ConfirmCardAgility");
+            infoText.setText("Agilität eingeben (0-100)");
+        }
+
+        if (texarea.getText().length() < 1){
+            dataStore.temp_KarteHP = "0";
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateAgility");
             confirmButton.setActionCommand("ConfirmCardAgility");
@@ -612,8 +637,20 @@ public class SystemController extends GUI implements ActionListener {
     }
     
     public void confirmCardAgility() {
-        if (Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 101) {
+        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 101) {
             dataStore.temp_KarteAgility = texarea.getText();
+            texarea.setText(null);
+            eRandomButton.setActionCommand("GenerateElement");
+            confirmButton.setActionCommand("ConfirmCardElement");
+            infoText.setText("Element auswählen");
+            addToBox(2);
+            box2.setVisible(true);
+            texarea.setEditable(false);
+            sec_Image.setVisible(true);
+        }
+        
+        if (texarea.getText().length() < 1){
+            dataStore.temp_KarteAgility = "0";
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateElement");
             confirmButton.setActionCommand("ConfirmCardElement");
@@ -626,6 +663,7 @@ public class SystemController extends GUI implements ActionListener {
     }
     
     public void confirmCardElement() {
+        if (texarea.getText().length() > 3){
         dataStore.temp_KarteElement = texarea.getText();
         texarea.setText(null);
         eRandomButton.setActionCommand("GenerateAbility");
@@ -637,8 +675,13 @@ public class SystemController extends GUI implements ActionListener {
         box2.setVisible(true);
         sec_Image.setIcon(null);
         descriptionBox.setVisible(true);
-    
+        }
     }
+
+   // String s = "Bewertung: 4"
+   // s = s.replaceAll("\\D+","");
+
+   // int n = Integer.parseInt(s);
     
     public void confirmCardAbility() {
         dataStore.temp_KarteAbility = texarea.getText();
@@ -668,12 +711,14 @@ public class SystemController extends GUI implements ActionListener {
             if (v21 == 0) {
                 if (karten[0] == null) {
                     karten[0] = new Karte();
+                    System.out.println(v21);
                     return;
                 }
             }
 
             if (v21 > 0 && karten[v21] == null && karten[v21 - 1] != null) {
                 karten[v21] = new Karte();
+                System.out.println(v21);
                 return;
             }
         }
@@ -682,51 +727,51 @@ public class SystemController extends GUI implements ActionListener {
 
     public void checkCards() {
         instanceCard();
-        if (karten[0].karte_Name.equals("null")) {
+        if (karten[0].karte_Name.equals("N/A")) {
             createCard(0);
             return;
         }
-        if (karten[1].karte_Name.equals("null")) {
+        if (karten[1].karte_Name.equals("N/A")) {
             createCard(1);
             return;
         }
 
-        if (karten[2].karte_Name.equals("null")) {
+        if (karten[2].karte_Name.equals("N/A")) {
             createCard(2);
             return;
         }
 
-        if (karten[3].karte_Name.equals("null")) {
+        if (karten[3].karte_Name.equals("N/A")) {
             createCard(3);
             return;
         }
 
-        if (karten[4].karte_Name.equals("null")) {
+        if (karten[4].karte_Name.equals("N/A")) {
             createCard(4);
             return;
         }
 
-        if (karten[5].karte_Name.equals("null")) {
+        if (karten[5].karte_Name.equals("N/A")) {
             createCard(5);
             return;
         }
 
-        if (karten[6].karte_Name.equals("null")) {
+        if (karten[6].karte_Name.equals("N/A")) {
             createCard(6);
             return;
         }
 
-        if (karten[7].karte_Name.equals("null")) {
+        if (karten[7].karte_Name.equals("N/A")) {
             createCard(7);
             return;
         }
 
-        if (karten[8].karte_Name.equals("null")) {
+        if (karten[8].karte_Name.equals("N/A")) {
             createCard(8);
             return;
         }
 
-        if (karten[9].karte_Name.equals("null")) {
+        if (karten[9].karte_Name.equals("N/A")) {
             createCard(9);
             return;
         }
@@ -743,6 +788,8 @@ public class SystemController extends GUI implements ActionListener {
         karten[i].karte_Ability = dataStore.temp_KarteAbility;
         karten[i].karte_ID = dataStore.temp_KarteID;
         karten[i].karte_ID = "" + generateNumber(10000, 1000000);
+
+        arraysList.search_Results[i + 1] = dataStore.temp_KarteName;
 
         dataStore.clearSavedTempCard();
     }
@@ -844,17 +891,24 @@ public class SystemController extends GUI implements ActionListener {
         search_Box.setVisible(false);
         searchB1.setVisible(false);
 
+        
+
         if(dataStore.re_KarteName != null){
             System.out.println("es gibt eine Karte");
         }else{
-            for (int c = 0; c<10 ; c++){
-                if (dataStore.karten[c].karte_Name.equals(löschendeKarte)){
+            for (int c = 0; c<9 ; c++){
+                if (karten[c] != null && karten[c].karte_Name.equals(löschendeKarte)){
                     dataStore.re_KarteName = dataStore.karten[c].karte_Name;
-                    dataStore.karten[c] = null;
+                    karten[c] = null;
                     System.out.println(dataStore.re_KarteName);
+                    arraysList.search_Results[c] = "";
                 }
             }
         }
+
+        löschendeKarte = null;
+
+        showOptions(true);
 
     }
 
@@ -1031,6 +1085,11 @@ public class SystemController extends GUI implements ActionListener {
         if (e.getActionCommand().equals("backB_0")) {
             viewMenu();
         }
+        
+
+        if (e.getActionCommand().equals("SearchB1")) {
+            texarea.setText(searchB1.getText());
+        }
 
         for (String v : arraysList.rar) {
             if (e.getActionCommand().equals(v)) {
@@ -1082,6 +1141,17 @@ public class SystemController extends GUI implements ActionListener {
                 user.password = dataStore.password;
                 user.angemeldet = dataStore.angemeldet;
                 dataStore.ver = true;
+
+                for (int i = 10 ; i<10 ; i++){
+                    karten[i] = dataStore.karten[i];
+
+                }
+
+                for (int i = 0; i<9 ; i++){
+                    if (!dataStore.karten[0].karte_Name.equals("N/A")){
+                    arraysList.search_Results[i] = dataStore.karten[0].karte_Name;
+                    }
+                }
 
                 System.out.println("Name:" + dataStore.karten[0].karte_Name);
                 System.out.println("Name:" + dataStore.karten[1].karte_Name);
