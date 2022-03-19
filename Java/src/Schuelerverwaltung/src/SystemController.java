@@ -650,6 +650,14 @@ public class SystemController extends GUI implements ActionListener {
                     eRandomButton.setActionCommand("GenerateDamage");
                     confirmButton.setActionCommand("ConfirmCardHP");
                     infoText.setText("HP Ändern (-1000-1000)");
+                } else {
+                    if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
+                        dataStore.temp_KarteDamage = texarea.getText();
+                        texarea.setText(karten[cardIndex].karte_HP);
+                        eRandomButton.setActionCommand("GenerateDamage");
+                        confirmButton.setActionCommand("ConfirmCardHP");
+                        infoText.setText("HP eingeben (0-1000)");
+                    }
                 }
 
                 }
@@ -669,7 +677,7 @@ public class SystemController extends GUI implements ActionListener {
     }
     
     public void confirmCardHP() {
-        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
+        if (cardIndex < 0 &&  texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteHP = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateAgility");
@@ -677,11 +685,46 @@ public class SystemController extends GUI implements ActionListener {
             infoText.setText("Agilität eingeben (0-100)");
         }
 
-        
+        if (cardIndex >= 0) {
+            if (karten[cardIndex].karte_Ability != null){
+                if (karten[cardIndex].karte_Ability.equals("Ghost")){
+                    if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= -1000 && Integer.parseInt(texarea.getText()) < 1001) {
+                        dataStore.temp_KarteHP = texarea.getText();
+                        texarea.setText(karten[cardIndex].karte_Agility);
+                        eRandomButton.setActionCommand("GenerateAgility");
+                        confirmButton.setActionCommand("ConfirmCardAgility");
+                        infoText.setText("Agilität eingeben (0-100)");
+                    }
+
+
+                } else {
+                    if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
+                        dataStore.temp_KarteHP = texarea.getText();
+                        texarea.setText(karten[cardIndex].karte_Agility);
+                        eRandomButton.setActionCommand("GenerateAgility");
+                        confirmButton.setActionCommand("ConfirmCardAgility");
+                        infoText.setText("Agilität eingeben (0-100)");
+                    }
+                }
+            }
+
+            if (karten[cardIndex].karte_Ability == null){
+                if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
+                dataStore.temp_KarteHP = texarea.getText();
+                texarea.setText(karten[cardIndex].karte_Agility);
+                eRandomButton.setActionCommand("GenerateAgility");
+                confirmButton.setActionCommand("ConfirmCardAgility");
+                infoText.setText("Agilität eingeben (0-100)");
+                }
+            }
+
+
+
+        }
     }
     
     public void confirmCardAgility() {
-        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 101) {
+        if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 101) {
             dataStore.temp_KarteAgility = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateElement");
@@ -694,11 +737,27 @@ public class SystemController extends GUI implements ActionListener {
             sec_Image.setVisible(true);
         }
         
+        if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 101) {
+            dataStore.temp_KarteAgility = texarea.getText();
+            texarea.setText(karten[cardIndex].karte_Element);
+            sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
+                .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING))); 
+                sec_Image.setVisible(true);           
+            eRandomButton.setActionCommand("GenerateElement");
+            confirmButton.setActionCommand("ConfirmCardElement");
+            infoText.setText("Element Ändern");
+            clearBox();
+            addToBox(2);
+            box2.setVisible(true);
+            texarea.setEditable(false);
+            sec_Image.setVisible(true);
+        }
        
     }
     
     public void confirmCardElement() {
-        if (texarea.getText().length() > 3){
+        if (cardIndex < 0 && texarea.getText().length() > 3){
         dataStore.temp_KarteElement = texarea.getText();
         texarea.setText(null);
         eRandomButton.setActionCommand("GenerateAbility");
@@ -711,6 +770,26 @@ public class SystemController extends GUI implements ActionListener {
         sec_Image.setIcon(null);
         descriptionBox.setVisible(true);
         }
+
+        if (cardIndex >= 0 && texarea.getText().length() > 3){
+            dataStore.temp_KarteElement = texarea.getText();
+            if (karten[cardIndex].karte_Ability != null){
+                texarea.setText(karten[cardIndex].karte_Ability);
+                sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                    "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png")
+                    .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                    sec_Image.setVisible(true);           
+            }
+            eRandomButton.setActionCommand("GenerateAbility");
+            confirmButton.setActionCommand("ConfirmCardAbility");
+            infoText.setText("(optional) Ability auswählen");
+            clearBox();
+            box2.setVisible(false);
+            addToBox(3);
+            box2.setVisible(true);
+            descriptionBox.setVisible(true);
+        }
+
     }
 
    // String s = "Bewertung: 4"
@@ -768,6 +847,12 @@ public class SystemController extends GUI implements ActionListener {
             karten[cardIndex].karte_Ability = dataStore.temp_KarteAbility;
     
             arraysList.search_Results[cardIndex + 1] = dataStore.temp_KarteName;
+
+            if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_HP) < 0 ){
+                if (!karten[cardIndex].karte_Ability.equals("Ghost")){
+                    karten[cardIndex].karte_HP = "0";
+                }
+            }
     
             dataStore.clearSavedTempCard();
 
