@@ -55,9 +55,7 @@ public class SystemController extends GUI implements ActionListener {
         l.setVisible(false);
         l2.setVisible(false);
 
-        texarea.setVisible(true);
-        confirmButton.setVisible(true);
-        infoText.setVisible(true);
+
         sync();
 
         while (user.angemeldet == true) {
@@ -570,7 +568,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void confirmCardName() {
-        if (texarea.getText().length() > 3 && texarea.getText().length() < 21) {
+        if (cardIndex < 0 && texarea.getText().length() > 3 && texarea.getText().length() < 21) {
             dataStore.temp_KarteName = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateRarity");
@@ -583,10 +581,29 @@ public class SystemController extends GUI implements ActionListener {
             loadingValues[0] = true;
     
         }
+
+        if (cardIndex >= 0 && texarea.getText().length() > 3 && texarea.getText().length() < 21) {
+            dataStore.temp_KarteName = texarea.getText();
+            texarea.setText(karten[cardIndex].karte_Seltenheit);
+            eRandomButton.setActionCommand("GenerateRarity");
+            confirmButton.setActionCommand("ConfirmCardRarity");
+            showOptions(false);
+            infoText.setText("Seltenheit Ändern");
+            addToBox(1);
+            box2.setVisible(true);
+            texarea.setEditable(false);
+            sec_Image.setVisible(true);
+            sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                            "Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png")
+                            .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+            loadingValues[0] = true;
+    
+        }
+
     }
     
     public void confirmCardRarity() {
-        if (texarea.getText().length() > 2 && texarea.getText().length() < 16) {
+        if (cardIndex < 0 && texarea.getText().length() > 2 && texarea.getText().length() < 16) {
             dataStore.temp_KarteSeltenheit = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateDamage");
@@ -599,10 +616,24 @@ public class SystemController extends GUI implements ActionListener {
             sec_Image.setIcon(null);
             clearBox();
         }
+
+        if (cardIndex >= 0 && texarea.getText().length() > 2 && texarea.getText().length() < 16) {
+            dataStore.temp_KarteSeltenheit = texarea.getText();
+            texarea.setText(karten[cardIndex].karte_Damage);
+            eRandomButton.setActionCommand("GenerateDamage");
+            confirmButton.setActionCommand("ConfirmCardDamage");
+            infoText.setText("Damage Ändern (0-1000)");
+            texarea.setEditable(true);
+            l2.setVisible(false);
+            box2.setVisible(false);
+            sec_Image.setVisible(false);
+            sec_Image.setIcon(null);
+            clearBox();
+        }
     }
     
     public void confirmCardDamage() {
-        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
+        if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteDamage = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateDamage");
@@ -610,17 +641,35 @@ public class SystemController extends GUI implements ActionListener {
             infoText.setText("HP eingeben (0-1000)");
         }
 
-        if (texarea.getText().length() < 1){
-            dataStore.temp_KarteDamage = "0";
-            texarea.setText(null);
+        if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
+            if (karten[cardIndex].karte_Ability != null){
+                System.out.println(karten[cardIndex].karte_Ability);
+                if (karten[cardIndex].karte_Ability.equals("Ghost")){
+                    dataStore.temp_KarteDamage = texarea.getText();
+                    texarea.setText(karten[cardIndex].karte_HP);
+                    eRandomButton.setActionCommand("GenerateDamage");
+                    confirmButton.setActionCommand("ConfirmCardHP");
+                    infoText.setText("HP Ändern (-1000-1000)");
+                }
+
+                }
+            }
+            if (karten[cardIndex].karte_Ability == null){
+            dataStore.temp_KarteDamage = texarea.getText();
+            texarea.setText(karten[cardIndex].karte_HP);
             eRandomButton.setActionCommand("GenerateDamage");
             confirmButton.setActionCommand("ConfirmCardHP");
             infoText.setText("HP eingeben (0-1000)");
+            
         }
+
+        
+       
+
     }
     
     public void confirmCardHP() {
-        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 1001) {
+        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteHP = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateAgility");
@@ -628,39 +677,24 @@ public class SystemController extends GUI implements ActionListener {
             infoText.setText("Agilität eingeben (0-100)");
         }
 
-        if (texarea.getText().length() < 1){
-            dataStore.temp_KarteHP = "0";
-            texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateAgility");
-            confirmButton.setActionCommand("ConfirmCardAgility");
-            infoText.setText("Agilität eingeben (0-100)");
-        }
+        
     }
     
     public void confirmCardAgility() {
-        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) > 0 && Integer.parseInt(texarea.getText()) < 101) {
+        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 101) {
             dataStore.temp_KarteAgility = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateElement");
             confirmButton.setActionCommand("ConfirmCardElement");
             infoText.setText("Element auswählen");
+            clearBox();
             addToBox(2);
             box2.setVisible(true);
             texarea.setEditable(false);
             sec_Image.setVisible(true);
         }
         
-        if (texarea.getText().length() < 1){
-            dataStore.temp_KarteAgility = "0";
-            texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateElement");
-            confirmButton.setActionCommand("ConfirmCardElement");
-            infoText.setText("Element auswählen");
-            addToBox(2);
-            box2.setVisible(true);
-            texarea.setEditable(false);
-            sec_Image.setVisible(true);
-        }
+       
     }
     
     public void confirmCardElement() {
@@ -707,6 +741,7 @@ public class SystemController extends GUI implements ActionListener {
         }
 
         if (cardIndex >= 0){
+            dataStore.temp_KarteAbility = texarea.getText();
 
             texarea.setText(null);
             eRandomButton.setActionCommand("RandomName");
@@ -731,8 +766,6 @@ public class SystemController extends GUI implements ActionListener {
             karten[cardIndex].karte_Agility = dataStore.temp_KarteAgility;
             karten[cardIndex].karte_Element = dataStore.temp_KarteElement;
             karten[cardIndex].karte_Ability = dataStore.temp_KarteAbility;
-            karten[cardIndex].karte_ID = dataStore.temp_KarteID;
-            karten[cardIndex].karte_ID = "" + generateNumber(10000, 1000000);
     
             arraysList.search_Results[cardIndex + 1] = dataStore.temp_KarteName;
     
@@ -832,6 +865,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void option1_1() {
+        if (cardIndex < 0){
         texarea.setText(null);
         texarea.setVisible(true);
         texarea.setEditable(true);
@@ -849,6 +883,25 @@ public class SystemController extends GUI implements ActionListener {
         clearBox();
 
         dataStore.clearSavedTempCard();
+        }
+
+        if (cardIndex >= 0){
+        texarea.setText(karten[cardIndex].karte_Name);
+        texarea.setVisible(true);
+        texarea.setEditable(true);
+        confirmButton.setVisible(true);
+        randomButton.setVisible(true);
+        eRandomButton.setActionCommand("RandomName");
+        confirmButton.setActionCommand("ConfirmCardName");
+        sec_Image.setVisible(false);
+        showOptions(false);
+        infoText.setVisible(true);
+        infoText.setText("Name Bearbeiten (4-20 Charakter)");
+        backB.setVisible(true);
+        box2.setVisible(false);
+        clearBox();
+
+        }
 
     }
 
@@ -866,6 +919,17 @@ public class SystemController extends GUI implements ActionListener {
         confirmButton.setActionCommand("show edit panel");
     }
     
+    public void showEditPanel() {
+        for (int i = 0; i< 10 ; i++){
+            if (karten[i] != null && karten[i].karte_Name.equals(texarea.getText())){
+                cardIndex = i;
+                option1_1();
+                break;
+            }
+        }
+        
+
+    }
 
     public void showOptions(boolean b) {
         option[0].setVisible(b);
@@ -897,17 +961,7 @@ public class SystemController extends GUI implements ActionListener {
         dataStore.clearSavedTempCard();
     }
 
-    public void showEditPanel() {
-        for (int i = 0; i< 10 ; i++){
-            if (karten[i] != null && karten[i].karte_Name.equals(texarea.getText())){
-                option1_1();
-                cardIndex = i;
-                break;
-            }
-        }
-        
 
-    }
 
     public void karteLöschen() {
         texarea.setVisible(true);
@@ -1169,6 +1223,10 @@ public class SystemController extends GUI implements ActionListener {
         if (e.getActionCommand().equals("LoadData")) {
             try {
 
+                texarea.setVisible(true);
+                confirmButton.setVisible(true);
+                randomButton.setVisible(true);
+
                 FileInputStream f2 = new FileInputStream("ver.dat");
                 BufferedInputStream b2 = new BufferedInputStream(f2);
                 ObjectInputStream obj2 = new ObjectInputStream(b2);
@@ -1186,8 +1244,8 @@ public class SystemController extends GUI implements ActionListener {
                 }
 
                 for (int i = 0; i<9 ; i++){
-                    if (!dataStore.karten[0].karte_Name.equals("N/A")){
-                    arraysList.search_Results[i + 1] = dataStore.karten[0].karte_Name;
+                    if (!dataStore.karten[i].karte_Name.equals("N/A")){
+                    arraysList.search_Results[i + 1] = dataStore.karten[i].karte_Name;
                     }
                 }
 
@@ -1226,9 +1284,13 @@ public class SystemController extends GUI implements ActionListener {
         if (e.getActionCommand().equals("NoData")) {
             try {
 
+                texarea.setVisible(true);
+                confirmButton.setVisible(true);
+                randomButton.setVisible(true);
                 FileInputStream f2 = new FileInputStream("ver.dat");
                 BufferedInputStream b2 = new BufferedInputStream(f2);
                 ObjectInputStream obj2 = new ObjectInputStream(b2);
+
 
                 obj2.close();
 
@@ -1247,6 +1309,10 @@ public class SystemController extends GUI implements ActionListener {
 
         if (e.getActionCommand().equals("DeleteData")) {
             try {
+
+                texarea.setVisible(true);
+                confirmButton.setVisible(true);
+                randomButton.setVisible(true);
 
                 FileOutputStream f = new FileOutputStream("ver.dat");
                 BufferedOutputStream b = new BufferedOutputStream(f);
@@ -1293,6 +1359,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void sync() throws Exception {
+        System.out.println("SYNC");
         try {
 
             saveButton.setVisible(true);
@@ -1330,6 +1397,10 @@ public class SystemController extends GUI implements ActionListener {
                 sync[0].setVisible(true);
                 sync[1].setVisible(true);
                 sync_Text.setVisible(true);
+            } else{
+                texarea.setVisible(true);
+                confirmButton.setVisible(true);
+                infoText.setVisible(true);
             }
 
             obj2.close();
@@ -1340,4 +1411,5 @@ public class SystemController extends GUI implements ActionListener {
             d2.printStackTrace();
         }
     }
+    
 }

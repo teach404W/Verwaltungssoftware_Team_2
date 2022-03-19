@@ -662,10 +662,10 @@ public class GUI{
 
                 l.setVisible(false);
 
-                texarea.setVisible(true);
-                confirmButton.setVisible(true);
+                texarea.setVisible(false);
+                confirmButton.setVisible(false);
                 randomButton.setVisible(false);
-                infoText.setVisible(true);
+                infoText.setVisible(false);
 
                 Thread.sleep(1000);
                 // loading();
