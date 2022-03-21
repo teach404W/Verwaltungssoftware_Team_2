@@ -53,6 +53,12 @@ public class GUI{
         JLabel cardInfoImage;
         JLabel[] cardInfoText = new JLabel[8];
 
+        JPanel infoPanel;
+        JLabel infoI;
+        JLabel infoN;
+        JTextArea infoD;
+        JLabel infoDif;
+
         Texts texts = new Texts();
         ArraysList arraysList = new ArraysList();
         DataStore dataStore = new DataStore();
@@ -638,6 +644,65 @@ public class GUI{
                 descriptionBox.setOpaque(false);
                 descriptionBox.setVisible(false);
                 descriptionBox.setFocusable(false);
+
+
+                infoPanel = new JPanel();
+                infoPanel.setForeground(new Color(255, 0, 150));
+                infoPanel.setFont(new Font("Times new Roman", Font.PLAIN, 60));
+                infoPanel.setBounds(1007, 280, 265, 120);
+                infoPanel.setVisible(false);
+                infoPanel.setFocusable(false);
+                infoPanel.setOpaque(false);
+                infoPanel.setBorder(new LineBorder(Color.white));
+        
+                infoI = new JLabel();
+                infoI.setForeground(new Color(255, 255, 255));
+                infoI.setFont(new Font("Times new Roman", Font.PLAIN, 15));
+                infoI.setBounds(1010, 280, 265, 120);
+                infoI.setBackground(Color.WHITE);
+                infoI.setVisible(false);
+                infoI.setFocusable(false);
+                infoI.setOpaque(false);
+                infoI.setIcon(new ImageIcon(new ImageIcon("Textrpg\\Images\\Achievements\\Tutorial.png").getImage()
+                        .getScaledInstance(105, 100, Image.SCALE_AREA_AVERAGING)));
+        
+                        infoN = new JLabel();
+                        infoN.setForeground(new Color(180, 180, 180));
+                        infoN.setFont(new Font("Times new Roman", Font.PLAIN, 22));
+                        infoN.setBounds(1120, 250, 265, 120);
+                        infoN.setBackground(Color.WHITE);
+                        infoN.setVisible(false);
+                        infoI.setFocusable(false);
+                        infoN.setOpaque(false);
+                        infoN.setText("Starter");
+        
+                        infoD = new JTextArea();
+                        infoD.setForeground(new Color(100, 100, 100));
+                        infoD.setFont(new Font("Times new Roman", Font.PLAIN, 15));
+                        infoD.setBounds(1120, 340, 120, 120);
+                        infoD.setBackground(Color.WHITE);
+                        infoD.setVisible(false);
+                        infoD.setFocusable(false);
+                        infoD.setOpaque(false);
+                        infoD.setLineWrap(true);
+                        infoD.setText("Mach das Tutorial zu Ende");
+        
+                        infoDif = new JLabel();
+                        infoDif.setForeground(new Color(0, 255, 25));
+                        infoDif.setFont(new Font("Times new Roman", Font.PLAIN, 14));
+                        infoDif.setBounds(1220, 325, 265, 120);
+                        infoDif.setBackground(Color.WHITE);
+                        infoDif.setVisible(false);
+                        infoDif.setFocusable(false);
+                        infoDif.setOpaque(false);
+                        infoDif.setText("Leicht");
+        
+                frame.add(infoPanel);
+        
+                frame.add(infoI);
+                frame.add(infoN);
+                frame.add(infoD);
+                frame.add(infoDif);
 
                 frame.add(saveButton);
                 saveButton.add(eSaveButton);

@@ -48,7 +48,21 @@ if (Nach Kontrolle) then
   -[#green,dashed]-> gibt es im konto
   eine **Karte?**;
    
-  :Der Benutzer erhält ein Menü mit allen Eigenschaften der gesuchten Karte;
+
+ -[#green,dashed]-> gibt es im konto
+  eine **Karte?**;
+   
+ -[#gray,dotted]->
+#LightGrey: (optional)Neuer Name eingeben(0-20C);
+#LightGrey: (optional)Neue Seltenheit auswählen[11];
+#LightGrey: (optional)Neuen Damagewert eingeben(0-1000);
+#LightGrey: (optional)Neuen HP-wert eingeben(0-1000);
+#LightGrey: (optional)Neuen Agilitätswert eingeben(0-100);
+#LightGrey: (optional)Neues Element auswählen[9];
+#LightGrey:(optional)Neue Fähigkeit eingeben;
+:Bestätigen;
+:Karte wird geändert;
+
 else
 
   -[#black,dotted]->
