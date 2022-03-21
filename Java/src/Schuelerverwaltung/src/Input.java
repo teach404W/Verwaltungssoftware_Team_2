@@ -10,6 +10,7 @@ public Input(GUI pInternGUI) throws Exception{
     internGUI = pInternGUI;
 }
 
+
 public void option1_1(GUI pGui){
 
     if (pGui.option[0].isVisible() == true){
@@ -37,7 +38,12 @@ public void option1_1(GUI pGui){
         pGui.backB.setVisible(true);
         pGui.backB.setActionCommand("backB_0");    
     }
+
+    
 }
+
+
+
 @Override
 
     public void keyPressed(java.awt.event.KeyEvent k){

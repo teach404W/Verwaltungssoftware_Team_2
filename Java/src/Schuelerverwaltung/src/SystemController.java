@@ -16,17 +16,22 @@ import javax.swing.border.LineBorder;
 
 public class SystemController extends GUI implements ActionListener {
 
-    private Random r1;
-    private int r2;
-    private int d;
-    private int rd2;
-    String passwordController;
-    int passwordNumbers;
-    boolean loadingValues[] = new boolean[9];
-    int loading_Width = 500;
-    int loading_hight = 300;
-    int cardIndex = -1;
-    int warnWait;
+   private Random r1;
+
+   protected boolean loadingValues[] = new boolean[9];
+
+   private Byte cardIndex = -1;
+   private Byte d;
+
+   private int loading_height = 300;
+   private int loading_width = 500;
+   private int passwordNumbers;
+   private int r2;
+   private int rd2;
+   private int warnWait;
+
+   private String passwordController;
+
 
     Karte[] karten = new Karte[10];
 
@@ -79,8 +84,8 @@ public class SystemController extends GUI implements ActionListener {
                 loadingValues[0] = false;
                 l.setBounds(0, 0, 200, 200);
                 l.setVisible(true);
-                loading_Width = 50;
-                loading_hight = 30;
+                loading_width = 50;
+                loading_height = 30;
                 loading(true, true, (byte) 1, (byte) 50, (byte) 50, (byte) 50, (byte) 50, (byte) 5);
 
             }
@@ -89,13 +94,13 @@ public class SystemController extends GUI implements ActionListener {
                 loadingValues[1] = false;
                 l.setBounds(380, 0, 600, 500);
                 l.setVisible(true);
-                loading_Width = 500;
-                loading_hight = 300;
+                loading_width = 500;
+                loading_height = 300;
                 l2.setVisible(true);
                 l2.setText("Karte wird hergestellt");
                 loading(false, true, (byte) 0, (byte) 50, (byte) 50, (byte) 50, (byte) 50, (byte) 3);
                 l2.setVisible(false);
-                showOptions(true);
+                showOptions(true, 0);
                 loadingValues[3] = true;
                 warn(2000, "Karte - Warn", "Karte erfolgreich hergestellt", "Save-System", "Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karten.png");
 
@@ -104,8 +109,8 @@ public class SystemController extends GUI implements ActionListener {
             if (loadingValues[2] == true) {
                 l.setBounds(380, 0, 600, 500);
                 l.setVisible(true);
-                loading_Width = 500;
-                loading_hight = 300;
+                loading_width = 500;
+                loading_height = 300;
                 l2.setVisible(true);
                 l2.setText("Wird abgemeldet");
                 loading(false, true, (byte) 0, (byte) 50, (byte) 50, (byte) 50, (byte) 50, (byte) 3);
@@ -120,7 +125,7 @@ public class SystemController extends GUI implements ActionListener {
                 infoPanel.setVisible(false);
                 infoN.setVisible(false);
                 infoD.setVisible(false);
-                infoDif.setVisible(false);
+                infoMes.setVisible(false);
                 infoI.setVisible(false);
 
             }
@@ -267,7 +272,7 @@ public class SystemController extends GUI implements ActionListener {
                 super.l.setIcon(
                         new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png")
                                 .getImage()
-                                .getScaledInstance(loading_Width, loading_hight, Image.SCALE_AREA_AVERAGING)));
+                                .getScaledInstance(loading_width, loading_height, Image.SCALE_AREA_AVERAGING)));
 
                 if (i == 15) {
                     t1 = lt2;
@@ -294,7 +299,7 @@ public class SystemController extends GUI implements ActionListener {
             for (int c = 60; c < 99; c += loadingTime + 1) {
                 Thread.sleep(t2);
                 l.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png")
-                        .getImage().getScaledInstance(loading_Width, loading_hight, Image.SCALE_AREA_AVERAGING)));
+                        .getImage().getScaledInstance(loading_width, loading_height, Image.SCALE_AREA_AVERAGING)));
 
                 if (c > 85) {
 
@@ -312,7 +317,7 @@ public class SystemController extends GUI implements ActionListener {
                     l.setIcon(
                             new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + i + ".png")
                                     .getImage()
-                                    .getScaledInstance(loading_Width, loading_hight, Image.SCALE_AREA_AVERAGING)));
+                                    .getScaledInstance(loading_width, loading_height, Image.SCALE_AREA_AVERAGING)));
 
                 }
 
@@ -321,7 +326,7 @@ public class SystemController extends GUI implements ActionListener {
                     l.setIcon(
                             new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Loading\\" + c + ".png")
                                     .getImage()
-                                    .getScaledInstance(loading_Width, loading_hight, Image.SCALE_AREA_AVERAGING)));
+                                    .getScaledInstance(loading_width, loading_height, Image.SCALE_AREA_AVERAGING)));
 
                 }
             }
@@ -503,7 +508,7 @@ public class SystemController extends GUI implements ActionListener {
                         infoText.setVisible(false);
                         dataStore.angemeldet = true;
                         user.angemeldet = true;
-                        showOptions(true);
+                        showOptions(true, 0);
                     }
                 }
 
@@ -517,7 +522,7 @@ public class SystemController extends GUI implements ActionListener {
                         infoText.setVisible(false);
                         dataStore.angemeldet = true;
                         user.angemeldet = true;
-                        showOptions(true);
+                        showOptions(true, 0);
                     }
 
                     if (user.password != Integer.parseInt(texarea.getText().toString())) {
@@ -592,7 +597,7 @@ public class SystemController extends GUI implements ActionListener {
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateRarity");
             confirmButton.setActionCommand("ConfirmCardRarity");
-            showOptions(false);
+            showOptions(false, 0);
             infoText.setText("Seltenheit Auswählen");
             addToBox(1);
             box2.setVisible(true);
@@ -606,7 +611,7 @@ public class SystemController extends GUI implements ActionListener {
             texarea.setText(karten[cardIndex].karte_Seltenheit);
             eRandomButton.setActionCommand("GenerateRarity");
             confirmButton.setActionCommand("ConfirmCardRarity");
-            showOptions(false);
+            showOptions(false, 0);
             infoText.setText("Seltenheit Ändern");
             addToBox(1);
             box2.setVisible(true);
@@ -989,7 +994,7 @@ public class SystemController extends GUI implements ActionListener {
                 eRandomButton.setActionCommand("RandomName");
                 confirmButton.setActionCommand("ConfirmCardName");
                 sec_Image.setVisible(false);
-                showOptions(false);
+                showOptions(false, 0);
                 infoText.setVisible(true);
                 infoText.setText("Name eingeben (4-20 Charakter)");
                 backB.setVisible(true);
@@ -1010,7 +1015,7 @@ public class SystemController extends GUI implements ActionListener {
             eRandomButton.setActionCommand("RandomName");
             confirmButton.setActionCommand("ConfirmCardName");
             sec_Image.setVisible(false);
-            showOptions(false);
+            showOptions(false, 0);
             infoText.setVisible(true);
             infoText.setText("Name Bearbeiten (4-20 Charakter)");
             backB.setVisible(true);
@@ -1021,6 +1026,140 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
+    public void showcards(){
+        showOptions(false,0);
+        cardsMenu.removeAll();
+        cardsMenu.setVisible(true);
+        System.out.println(dataStore.karten[0].karte_Name);
+        if (karten[0] != null && !karten[0].karte_Name.equals("N/A")){
+            showCardsButtons[0] = new JButton(karten[0].karte_Name);
+            showCardsButtons[0].addActionListener(this);
+            showCardsButtons[0].setActionCommand("Karte1");
+            showCardsButtons[0].setForeground(new Color(255, 255, 255));
+            showCardsButtons[0].setBounds(0, 0, 200, 200); 
+            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[0].setBackground(Color.BLACK);
+            showCardsButtons[0].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[0]);
+
+        }
+       
+        if (karten[1] != null && !karten[1].karte_Name.equals("N/A")){
+        showCardsButtons[1] = new JButton("Text2");
+        showCardsButtons[1].setForeground(new Color(255,255,255));
+        showCardsButtons[1].setBounds(0, 0, 200, 200); 
+        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[1].setBackground(Color.BLACK);
+        showCardsButtons[1].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[2] != null && !karten[2].karte_Name.equals("N/A")){
+        showCardsButtons[2] = new JButton(karten[2].karte_Name);
+        showCardsButtons[2].setForeground(new Color(255,255,255));
+        showCardsButtons[2].setBounds(0, 0, 200, 200); 
+        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[2].setBackground(Color.BLACK);
+        showCardsButtons[2].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[3] != null && !karten[3].karte_Name.equals("N/A")){
+        showCardsButtons[3] = new JButton(karten[3].karte_Name);
+        showCardsButtons[3].setForeground(new Color(255,255,255));
+        showCardsButtons[3].setBounds(0, 0, 200, 200); 
+        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[3].setBackground(Color.BLACK);
+        showCardsButtons[3].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[4] != null && !karten[4].karte_Name.equals("N/A")){
+        showCardsButtons[4] = new JButton(karten[4].karte_Name);
+        showCardsButtons[4].setForeground(new Color(255,255,255));
+        showCardsButtons[4].setBounds(0, 0, 200, 200); 
+        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[4].setBackground(Color.BLACK);
+        showCardsButtons[4].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[5] != null && !karten[5].karte_Name.equals("N/A")){
+        showCardsButtons[5] = new JButton(karten[5].karte_Name);
+        showCardsButtons[5].setForeground(new Color(255,255,255));
+        showCardsButtons[5].setBounds(0, 0, 200, 200); 
+        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[5].setBackground(Color.BLACK);
+        showCardsButtons[5].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[6] != null && !karten[6].karte_Name.equals("N/A")){
+        showCardsButtons[6] = new JButton(karten[6].karte_Name);
+        showCardsButtons[6].setForeground(new Color(255,255,255));
+        showCardsButtons[6].setBounds(0, 0, 200, 200); 
+        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[6].setBackground(Color.BLACK);
+        showCardsButtons[6].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
+        }
+        if (karten[7] != null && !karten[7].karte_Name.equals("N/A")){
+        showCardsButtons[7] = new JButton(karten[7].karte_Name);
+        showCardsButtons[7].setForeground(new Color(255,255,255));
+        showCardsButtons[7].setBounds(0, 0, 200, 200); 
+        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[7].setBackground(Color.BLACK);
+        showCardsButtons[7].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
+        cardsMenu.add(showCardsButtons[7]);
+        }
+        if (karten[8] != null && !karten[8].karte_Name.equals("N/A")){
+        showCardsButtons[8] = new JButton(karten[8].karte_Name);
+        showCardsButtons[8].setForeground(new Color(255,255,255));
+        showCardsButtons[8].setBounds(0, 0, 200, 200); 
+        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[8].setBackground(Color.BLACK);
+        showCardsButtons[8].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
+        cardsMenu.add(showCardsButtons[8]);
+        }
+        if (karten[9] != null && !karten[9].karte_Name.equals("N/A")){
+        showCardsButtons[9] = new JButton(karten[9].karte_Name);
+        showCardsButtons[9].setForeground(new Color(255,255,255));
+        showCardsButtons[9].setBounds(0, 0, 200, 200); 
+        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[9].setBackground(Color.BLACK);
+        showCardsButtons[9].setFont(new Font("Times new Roman", Font.PLAIN, 70)); 
+        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+        cardsMenu.add(showCardsButtons[9]);
+        }
+        if (showCardsButtons[0] != null){
+            cardsMenu.add(showCardsButtons[0]);
+            showCardsButtons[0].setVisible(true);
+
+        }
+
+        if (showCardsButtons[1] != null){
+            cardsMenu.add(showCardsButtons[1]);
+            showCardsButtons[1].setVisible(true);
+
+        }
+
+        if (showCardsButtons[2] != null){
+            cardsMenu.add(showCardsButtons[2]);
+            showCardsButtons[2].setVisible(true);
+
+        }
+       
+        /*
+        showCardsButtons[3].setVisible(true);
+        showCardsButtons[4].setVisible(true);
+        showCardsButtons[5].setVisible(true);
+        showCardsButtons[6].setVisible(true);
+        showCardsButtons[7].setVisible(true);
+        showCardsButtons[8].setVisible(true);
+        showCardsButtons[9].setVisible(true);
+        */
+        
+    }
+
+
     public void karteBearbeiten() {
 
         texarea.setVisible(true);
@@ -1028,7 +1167,7 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setEditable(true);
 
         confirmButton.setVisible(true);
-        showOptions(false);
+        showOptions(false, 0);
         search_Box.setVisible(true);
         searchB1.setVisible(true);
 
@@ -1036,7 +1175,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void showEditPanel() {
-        for (int i = 0; i < 10; i++) {
+        for (Byte i = 0; i < 10; i++) {
             if (karten[i] != null && karten[i].karte_Name.equals(texarea.getText())) {
                 cardIndex = i;
                 option1_1();
@@ -1046,19 +1185,26 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    public void showOptions(boolean b) {
-        option[0].setVisible(b);
-        optionI[0].setVisible(b);
-        option[1].setVisible(b);
-        optionI[1].setVisible(b);
-        option[2].setVisible(b);
-        optionI[2].setVisible(b);
-        option[3].setVisible(b);
-        optionI[3].setVisible(b);
-        option[4].setVisible(b);
-        optionI[4].setVisible(b);
-        option[5].setVisible(b);
-        optionI[5].setVisible(b);
+    protected void showOptions(boolean b, int n) {
+        if (n >= 0 && n < 6){
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            option[n].setVisible(b);
+            optionI[n].setVisible(b);
+            n++;
+            showOptions(b, n);
+        }else {
+            return;
+        }
+
     }
 
     public void viewMenu() {
@@ -1066,7 +1212,7 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setVisible(false);
         confirmButton.setVisible(false);
         randomButton.setVisible(false);
-        showOptions(true);
+        showOptions(true, 0);
         infoText.setText("Erfolgreich angemeldet");
         confirmButton.setActionCommand("");
         eRandomButton.setActionCommand("");
@@ -1082,7 +1228,7 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setEditable(true);
 
         confirmButton.setVisible(true);
-        showOptions(false);
+        showOptions(false, 0);
         search_Box.setVisible(true);
         searchB1.setVisible(true);
 
@@ -1097,7 +1243,7 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setText(null);
 
         confirmButton.setVisible(false);
-        showOptions(false);
+        showOptions(false, 0);
         search_Box.setVisible(false);
         searchB1.setVisible(false);
 
@@ -1110,7 +1256,7 @@ public class SystemController extends GUI implements ActionListener {
 
         }
 
-        showOptions(true);
+        showOptions(true, 0);
 
     }
 
@@ -1157,7 +1303,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     private void abmelden() {
-        showOptions(false);
+        showOptions(false, 0);
         loadingValues[2] = true;
 
     }
@@ -1270,6 +1416,131 @@ public class SystemController extends GUI implements ActionListener {
             }
 
         }
+
+        if (e.getActionCommand().equals("Meine Karten")){
+            showcards();
+        }
+        if (e.getActionCommand().equals("Karte1")){
+            System.out.println("K1");
+            cardInfoMenu.setVisible(false);
+            cardInfoImage.setVisible(true);
+            cardInfoText[0].setVisible(true);
+            cardInfoText[1].setVisible(true);
+            cardInfoText[2].setVisible(true);
+            cardInfoText[3].setVisible(true);
+            cardInfoText[4].setVisible(true);
+            cardInfoText[5].setVisible(true);
+            cardInfoText[6].setVisible(true);
+            cardInfoText[7].setVisible(true);
+            cardInfoText[0].setText(karten[0].karte_Name);
+            cardInfoText[1].setText(karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(karten[0].karte_Damage);
+            cardInfoText[3].setText(karten[0].karte_HP);
+            cardInfoText[4].setText(karten[0].karte_Agility);
+            cardInfoText[5].setText(karten[0].karte_Element);
+            cardInfoText[6].setText(karten[0].karte_Ability);
+            cardInfoText[7].setText(karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte2")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte3")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte4")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte5")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte6")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte7")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte8")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte9")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+        if (e.getActionCommand().equals("Karte10")){
+            System.out.println("K1");
+            cardInfoText[0].setText(dataStore.karten[0].karte_Name);
+            cardInfoText[1].setText(dataStore.karten[0].karte_Seltenheit);
+            cardInfoText[2].setText(dataStore.karten[0].karte_Damage);
+            cardInfoText[3].setText(dataStore.karten[0].karte_HP);
+            cardInfoText[4].setText(dataStore.karten[0].karte_Agility);
+            cardInfoText[5].setText(dataStore.karten[0].karte_Element);
+            cardInfoText[6].setText(dataStore.karten[0].karte_Ability);
+            cardInfoText[7].setText(dataStore.karten[0].karte_ID);
+        }
+
 
         if (e.getActionCommand().equals("Abmelden")) {
             abmelden();
@@ -1527,7 +1798,7 @@ public class SystemController extends GUI implements ActionListener {
 
         infoN.setText(n);
         infoD.setText(d);
-        infoDif.setText(dif);
+        infoMes.setText(dif);
         infoI.setIcon(new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(105, 100, Image.SCALE_AREA_AVERAGING)));
                 
 
@@ -1535,21 +1806,21 @@ public class SystemController extends GUI implements ActionListener {
         infoI.setBounds(1010, 280, 265, 120);
         infoN.setBounds(1120, 250, 265, 120);
         infoD.setBounds(1120, 340, 120, 120);
-        infoDif.setBounds(1220, 325, 265, 120);
+        infoMes.setBounds(1220, 325, 265, 120);
 
         if (i.equals("")){
             infoPanel.setBounds(1007, 280, 265, 80);
             infoI.setBounds(910, 280, 265, 120);
             infoN.setBounds(1020, 240, 265, 120);
             infoD.setBounds(1020, 313, 160, 120);
-            infoDif.setBounds(1230, 288, 265, 120);
+            infoMes.setBounds(1230, 288, 265, 120);
         }
 
         infoPanel.setVisible(true);
         infoI.setVisible(true);
         infoN.setVisible(true);
         infoD.setVisible(true);
-        infoDif.setVisible(true);
+        infoMes.setVisible(true);
 
     }
 }

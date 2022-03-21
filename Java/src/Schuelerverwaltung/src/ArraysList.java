@@ -2,7 +2,7 @@ import java.awt.Color;
 
 public class ArraysList {
 
-        String search_Results[] = {
+       protected String search_Results[] = {
                         "   ",
                         "MeineKarte",
                         "Karte1",
@@ -17,7 +17,7 @@ public class ArraysList {
 
         };
 
-        String rar[] = {
+        protected String rar[] = {
                         "Gewöhnlich",
                         "Ungewöhnlich",
                         "Rare",
@@ -32,7 +32,7 @@ public class ArraysList {
 
         };
 
-        String elemente[] = {
+        protected String elemente[] = {
                         "Blitz",
                         "Cosmic",
                         "Erde",
@@ -44,17 +44,17 @@ public class ArraysList {
                         "Wind",
         };
 
-        String skills[] = {
+        protected String skills[] = {
                         "Premium",
                         "Ghost",
         };
 
-        String skills_Beschreibung[] = {
+        protected String skills_Beschreibung[] = {
                         "Stats(Damage, HP und Agilität) sind 2x besser",
                         "Die Karte kann weniger als 0 HP haben(1000 bis -1000)",
         };
 
-        Color[] rar_colors = {
+        protected Color[] rar_colors = {
                         new Color(84, 84, 84), // Gewöhnlich
                         new Color(222, 222, 222), // Ungewöhnlich
                         new Color(214, 48, 48), // Rare
@@ -69,7 +69,7 @@ public class ArraysList {
 
         };
 
-        Color[] elemente_colors = {
+        protected Color[] elemente_colors = {
                 new Color(243,152,98), // Blitz
                 new Color(255,101,128), // Cosmic
                 new Color(94,67,66), // Erde
@@ -83,10 +83,10 @@ public class ArraysList {
 };
 
 
-Color[] skills_colors = {
+        protected Color[] skills_colors = {
         new Color(255, 187, 113), // Premium 
         new Color(239, 133, 241), // Ghost
-};
+        };
 
         public ArraysList() {
         }

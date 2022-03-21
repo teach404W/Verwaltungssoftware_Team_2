@@ -12,52 +12,58 @@ import javax.swing.border.LineBorder;
 
 public class GUI{
 
-        JFrame frame;
-        double v;
+       protected JFrame frame;
+
+       protected JPanel box2;
+       protected JPanel cardInfoMenu;
+       protected JPanel cardsMenu = new JPanel();
+       protected JPanel infoPanel;
+       protected JPanel panel1;
+       protected JPanel randomButton;
+       protected JPanel saveButton;
+       protected JPanel search_Box;
+       protected JPanel sync_Box;
+
+
+       protected JLabel cardInfoImage;
+       protected JLabel[] cardInfoText = new JLabel[8];
+       protected JLabel infoI;
+       protected JLabel infoMes;
+       protected JLabel infoN;
+       protected JLabel iRandomButton;
+       protected JLabel iSaveButton;
+       protected JLabel infoText;
+       protected JLabel l;
+       protected JLabel l2;
+       protected JLabel[] optionI = new JLabel[6];
+       protected JLabel[] randomCard = new JLabel[6];      
+       protected JLabel sec_Image;
+
+
+       protected JButton backB;
+       protected JButton confirmButton;
+       protected JButton eRandomButton;
+       protected JButton eSaveButton;
+       protected JButton[] option = new JButton[6];
+       protected JButton searchB1;
+       protected JButton searchB2;
+       protected JButton searchB3;
+       protected JButton searchB4;
+       protected JButton[] showCardsButtons = new JButton[10];
+       protected JButton[] sync = new JButton[3];
+
+
+       protected JTextArea descriptionBox;
+       protected JTextArea infoD;
+       protected JTextArea sync_Text;
+
+
+       protected JTextField texarea;
+
+
         double r;
-        JLabel l;
-        JLabel l2;
-        JLabel infoText;
-        JPanel panel1;
-        JTextField texarea;
-        JButton confirmButton;
-        JPanel randomButton;
-        JButton eRandomButton;
-        JLabel iRandomButton;
-        JLabel sec_Image;
-
-        JPanel saveButton;
-        JButton eSaveButton;
-        JLabel iSaveButton;
-
-        JPanel search_Box;
-        JButton searchB1;
-        JButton searchB2;
-        JButton searchB3;
-        JButton searchB4;
-        JButton backB;
-
-        JButton[] option = new JButton[6];
-        JLabel[] optionI = new JLabel[6];
-        JLabel[] randomCard = new JLabel[6];
-
-        JPanel sync_Box;
-
-        JButton[] sync = new JButton[3];
-        JTextArea sync_Text;
-
-        JPanel box2;
-        JTextArea descriptionBox;
-
-        JPanel cardInfoMenu;
-        JLabel cardInfoImage;
-        JLabel[] cardInfoText = new JLabel[8];
-
-        JPanel infoPanel;
-        JLabel infoI;
-        JLabel infoN;
-        JTextArea infoD;
-        JLabel infoDif;
+        double v;
+        
 
         Texts texts = new Texts();
         ArraysList arraysList = new ArraysList();
@@ -546,6 +552,18 @@ public class GUI{
                 cardInfoText[7].setVisible(true);
                 cardInfoText[7].setFocusable(false);
                 cardInfoText[7].setBorder(new LineBorder(Color.white));
+
+
+                cardsMenu = new JPanel(); // setten von sync_Box
+cardsMenu.setForeground(new Color(255, 255, 255)); // 
+cardsMenu.setFont(new Font("Times new Roman", Font.PLAIN, 60)); // Die Schriftart von sync_Box eingeben | "Times New Roman" ist die Schriftart und 60 ist die Schriftgröße
+cardsMenu.setBounds(800, 200, 550, 550); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein
+//sync_Box.setBackground(Color.black); // Hintergrundsfarbe setten
+cardsMenu.setVisible(true); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
+cardsMenu.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
+cardsMenu.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
+cardsMenu.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben>
+frame.add(cardsMenu);
 /*
                 frame.add(cardInfoImage);
                 frame.add(cardInfoText[0]);
@@ -687,22 +705,22 @@ public class GUI{
                         infoD.setLineWrap(true);
                         infoD.setText("Mach das Tutorial zu Ende");
         
-                        infoDif = new JLabel();
-                        infoDif.setForeground(new Color(0, 255, 25));
-                        infoDif.setFont(new Font("Times new Roman", Font.PLAIN, 14));
-                        infoDif.setBounds(1220, 325, 265, 120);
-                        infoDif.setBackground(Color.WHITE);
-                        infoDif.setVisible(false);
-                        infoDif.setFocusable(false);
-                        infoDif.setOpaque(false);
-                        infoDif.setText("Leicht");
+                        infoMes = new JLabel();
+                        infoMes.setForeground(new Color(0, 255, 25));
+                        infoMes.setFont(new Font("Times new Roman", Font.PLAIN, 14));
+                        infoMes.setBounds(1220, 325, 265, 120);
+                        infoMes.setBackground(Color.WHITE);
+                        infoMes.setVisible(false);
+                        infoMes.setFocusable(false);
+                        infoMes.setOpaque(false);
+                        infoMes.setText("Leicht");
         
                 frame.add(infoPanel);
         
                 frame.add(infoI);
                 frame.add(infoN);
                 frame.add(infoD);
-                frame.add(infoDif);
+                frame.add(infoMes);
 
                 frame.add(saveButton);
                 saveButton.add(eSaveButton);

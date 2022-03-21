@@ -3,10 +3,12 @@ public class App {
         //  Schuelerverwaltung app1 = new Schuelerverwaltung();
 
         //GUI2 gui = new GUI2();
-        SystemController s = new SystemController();
+        ArraysList a = new ArraysList();
+        
         Input input = new Input();
 
-        ArraysList a = new ArraysList();
+        SystemController s = new SystemController();
+
         
     }
 }

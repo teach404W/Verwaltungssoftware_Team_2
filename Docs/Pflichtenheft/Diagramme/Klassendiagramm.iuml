@@ -2,44 +2,41 @@
 skinparam classAttributeIconSize 0
 
 class App{
- -s : SystemController
- -input : Input
- -a : ArraysList
+ a : ArraysList
+ input : Input
+ s : SystemController
+
 }
 
 
 
 class ArraysList{
-+search_Results : String[]
-+rar : String[]
-+elemente : String[]
-+skills : String[]
-+skills_Beschreibung : String[]
+#search_Results : String[]
+#rar : String[]
+#elemente : String[]
+#skills : String[]
+#skills_Beschreibung : String[]
+#rar_colors : Color[]
+#elemente_colors : Color[]
+#skills_colors : Color[]
 
  }
  
  class DataStore{
- +name: String
- +password: int
- +angemeldet: boolean
- +ver : Boolean
- +temp_KarteName : String
- +temp_KarteSeltenheit : String
- +temp_KarteDamage : String
- +temp_KarteHP : String
- +temp_KarteAgility : String
- +temp_KarteElement : String
- +temp_KarteID : String
- +temp_KarteAbility : String    
- +re_KarteName : String
- +re_KarteSeltenheit : String
- +re_KarteDamage : String
- +re_KarteHP : String
- +re_KarteAgility : String
- +re_KarteElement : String
- +re_KarteID : String
- +re_KarteAbility : String
- +karten[] : Karte[9]
+ ~name: String
+ ~password: int
+ ~angemeldet: boolean
+ ~ver : Boolean
+ ~temp_KarteName : String
+ ~temp_KarteSeltenheit : String
+ ~temp_KarteDamage : String
+ ~temp_KarteHP : String
+ ~temp_KarteAgility : String
+ ~temp_KarteElement : String
+ ~temp_KarteID : String
+ ~temp_KarteAbility : String    
+ ~karten[] : Karte[9]
+ +clearSavedTempCard() : void
 }
 
 
@@ -47,37 +44,56 @@ class ArraysList{
 
 
 class GUI{
- +frame: JFrame
- +v: double
- +r: double
- +l: JLabel
- +l2: JLabel
- +infoText : JLabel
- +panel1 : JPanel
- +texarea: JTextField
- +confirmButton: JButton
- +randomButton : JPanel
- +eRandomButton : JButton
- +iRandomButton : JLabel
- +sec_Image : JLabel
- +saveButton: JPanel
- +eSaveButton: JButton
- +iSaveButton: JLabel
- +search_Box: JPanel
- +searchB1: JButton
- +searchB2: JButton
- +searchB3: JButton
- +searchB4: JButton
- +backB: JButton
- +option[] : JButton[6]
- +optionI[] : JLabel[6]
- +sync_Box : JPanel
- +sync[] : JButton[3]
- sync_Text : JTextArea
- -texts : Texts
- -arraysList : ArraysList
- -dataStore : DataStore
- -input : Input
+ #frame: JFrame
+ #box2 : JPanel
+ #cardInfoMenu : JPanel      
+ #cardsMenu : JPanel
+ #infoPanel : JPanel
+ #panel1 : JPanel
+ #randomButton : JPanel
+ #saveButton : JPanel
+ #search_Box : JPanel
+ #sync_Box : JPanel
+
+ #cardInfoImage : JLabel
+ #cardInfoText[] : JLabel[8]
+ #infoI : JLabel
+ #infoMes : JLabel
+ #infoN : JLabel
+ #iRandomButton : JLabel
+ #iSaveButton: JLabel
+ #infoText : JLabel
+ #l: JLabel
+ #l2: JLabel
+ #optionI[] : JLabel[6]
+ #randomCard[] : JLabel[6]
+ #sec_Image : JLabel
+
+ #backB: JButton
+ #confirmButton: JButton
+ #eRandomButton : JButton
+ #eSaveButton: JButton
+ #option[] : JButton[6]
+ #searchB1: JButton
+ #searchB2: JButton
+ #searchB3: JButton
+ #searchB4: JButton
+ #showCardsButtons[] : JButton[10]
+ #sync[] : JButton[3]
+
+ #descriptionBox : JTextArea
+ #infoD : JTextArea
+ #sync_Text : JTextArea
+
+ #texarea: JTextField
+
+ ~r: double
+ ~v: double
+
+ texts : Texts
+ arraysList : ArraysList
+ dataStore : DataStore
+ input : Input
 
 }
 
@@ -90,24 +106,39 @@ class Input{
 }
 
 class Karte{
- -Karte_Name: String
- -Karte_Seltenheit: String
- -Karte_Damage: String
- -Karte_HP: String
- -Karte_Agility: String
- -Karte_Element: String
- -Karte_ID: String
- -Karte_Ability: String
+ #Karte_Name: String
+ #Karte_Seltenheit: String
+ #Karte_Damage: String
+ #Karte_HP: String
+ #Karte_Agility: String
+ #Karte_Element: String
+ #Karte_Ability: String
+ #Karte_ID: String
 
 }
 
 class SystemController{
 -r1 : Random
+
+#loadingValues[] : boolean[9]
+
+-cardIndex : Byte
+-d : Byte
+
+-loading_height : int
+-loading_width : int
+-passwordNumbers : int
 -r2 : int
--d : int
+-rd2 : int
+-warnWait : int
+
+-passwordController : String
+
 +ei : JLabel
 +wahlOption : JButton
+
  +karten[] : Karte[9]
+
  +loading() : void
  +clearBox() : void
  +addToBox(i : int) : void
@@ -149,6 +180,19 @@ class User{
  -password: int
  -angemeldet: boolean
 }
+
+
+GUI <|-- SystemController
+SystemController -- DataStore
+SystemController "1" *-- "0..10" User
+GUI <|-- Input
+App "1" *-- "0..10" SystemController
+App "1" *-- "0..10" GUI
+GUI <|-- Texts
+GUI <|-- ArraysList
+DataStore -- Karte
+SystemController -- Karte
+Karte o-- User
 
 
 

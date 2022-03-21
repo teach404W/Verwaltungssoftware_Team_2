@@ -19,6 +19,17 @@ public class DataStore implements Serializable {
 
     Karte[] karten = new Karte[10]; 
 
+    public void clearSavedTempCard(){
+        temp_KarteName = null;
+        temp_KarteSeltenheit = null;
+        temp_KarteDamage = null;
+        temp_KarteHP = null;
+        temp_KarteAgility = null;
+        temp_KarteElement = null;
+        temp_KarteID = null;
+        temp_KarteAbility = null;
+    }
+
     public DataStore(){
         karten[0] = new Karte();
         karten[1] = new Karte();
@@ -34,15 +45,6 @@ public class DataStore implements Serializable {
     }
 
 
-    public void clearSavedTempCard(){
-        temp_KarteName = null;
-        temp_KarteSeltenheit = null;
-        temp_KarteDamage = null;
-        temp_KarteHP = null;
-        temp_KarteAgility = null;
-        temp_KarteElement = null;
-        temp_KarteID = null;
-        temp_KarteAbility = null;
-    }
+
     
 }
