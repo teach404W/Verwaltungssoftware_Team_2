@@ -690,7 +690,7 @@ public class SystemController extends GUI implements ActionListener {
                 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteDamage = texarea.getText();
             texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateDamage");
+            eRandomButton.setActionCommand("GenerateHP");
             confirmButton.setActionCommand("ConfirmCardHP");
             infoText.setText("HP eingeben (0-1000)");
         }
@@ -700,7 +700,7 @@ public class SystemController extends GUI implements ActionListener {
                     if (karten[cardIndex].karte_Ability == null) {
                         dataStore.temp_KarteDamage = texarea.getText();
                         texarea.setText(karten[cardIndex].karte_HP);
-                        eRandomButton.setActionCommand("GenerateDamage");
+                        eRandomButton.setActionCommand("GenerateHP");
                         confirmButton.setActionCommand("ConfirmCardHP");
                         infoText.setText("HP eingeben (0-1000)");
             
@@ -710,7 +710,7 @@ public class SystemController extends GUI implements ActionListener {
                 if (karten[cardIndex].karte_Ability.equals("Ghost")) {
                     dataStore.temp_KarteDamage = texarea.getText();
                     texarea.setText(karten[cardIndex].karte_HP);
-                    eRandomButton.setActionCommand("GenerateDamage");
+                    eRandomButton.setActionCommand("GenerateHP");
                     confirmButton.setActionCommand("ConfirmCardHP");
                     infoText.setText("HP Ändern (-1000-1000)");
                 } else {
@@ -718,7 +718,7 @@ public class SystemController extends GUI implements ActionListener {
                             && Integer.parseInt(texarea.getText()) < 1001) {
                         dataStore.temp_KarteDamage = texarea.getText();
                         texarea.setText(karten[cardIndex].karte_HP);
-                        eRandomButton.setActionCommand("GenerateDamage");
+                        eRandomButton.setActionCommand("GenerateHP");
                         confirmButton.setActionCommand("ConfirmCardHP");
                         infoText.setText("HP eingeben (0-1000)");
                     }
@@ -1129,6 +1129,25 @@ public class SystemController extends GUI implements ActionListener {
                 cardInfoText[4].setForeground(new Color(255,255,255));
             }
 
+            if (karten[card].karte_Ability != null){
+                if (karten[card].karte_Ability.equals("Premium")){
+                    cardInfoText[2].setText(karten[card].karte_Damage + " x2[" + Integer.parseInt(karten[card].karte_Damage) * 2 + "]");
+                    cardInfoText[3].setText(karten[card].karte_HP + " x2[" + Integer.parseInt(karten[card].karte_HP) * 2 + "]");
+                    cardInfoText[4].setText(karten[card].karte_Agility  + " x2[" + Integer.parseInt(karten[card].karte_Agility) * 2 + "]");
+                    cardInfoText[5].setText(karten[card].karte_Element);
+                    cardInfoText[6].setText(karten[card].karte_Ability);
+
+                    cardInfoText[2].setForeground(new Color(255, 187, 113));
+                    cardInfoText[3].setForeground(new Color(255, 187, 113));
+                    cardInfoText[4].setForeground(new Color(255, 187, 113));
+
+                    cardInfoText[2].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Damage.length()));
+                    cardInfoText[3].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_HP.length()));
+                    cardInfoText[4].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Agility.length()));
+
+                }
+            }
+
         }  
     }
 
@@ -1449,6 +1468,22 @@ public class SystemController extends GUI implements ActionListener {
                 r1 = new Random();
                 r2 = r1.nextInt(1000);
                 texarea.setText("" + generateNumber(r2, 1));
+            }
+
+
+            if (e.getActionCommand().equals("GenerateHP")) {
+                r1 = new Random();
+                r2 = r1.nextInt(1000);
+                texarea.setText("" + generateNumber(r2, 1));
+                System.out.println(cardIndex);
+                if (cardIndex >= 0){
+                    System.out.println("Ghost");
+                    if (karten[cardIndex].karte_Ability.equals("Ghost")){
+                        r2 = r1.nextInt(1000);
+                        texarea.setText("" + generateNumber(r2, -1000));
+
+                    }
+                }
             }
 
             if (e.getActionCommand().equals("GenerateAgility")) {

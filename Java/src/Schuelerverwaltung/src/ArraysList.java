@@ -54,8 +54,9 @@ public class ArraysList {
                         "Die Karte kann weniger als 0 HP haben(1000 bis -1000)",
         };
 
-        protected Color[][] rar_col = new Color[2][3];
 
+
+        
 
         protected Color[] rar_colors = {
                         new Color(84, 84, 84), // Gewöhnlich
@@ -91,6 +92,24 @@ public class ArraysList {
         new Color(239, 133, 241), // Ghost
         };
 
+        protected String[][] extra_Damage = {
+                {"Beast", "2500"},
+                {"Beast", "2500"}
+        
+                };
+
+                protected String[][] extra_Damage2 = new String[2][3];
+
+        
+
         public ArraysList() {
+                System.out.println();
+                extra_Damage2[0][0] = "Premium";
+                extra_Damage2[0][1] = "2500";
+
+                extra_Damage2[1][1] = "Ghost";
+                extra_Damage2[1][2] = "8000";
+
+
         }
 }
