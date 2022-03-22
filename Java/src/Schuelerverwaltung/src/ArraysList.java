@@ -54,6 +54,9 @@ public class ArraysList {
                         "Die Karte kann weniger als 0 HP haben(1000 bis -1000)",
         };
 
+        protected Color[][] rar_col = new Color[2][3];
+
+
         protected Color[] rar_colors = {
                         new Color(84, 84, 84), // Gewöhnlich
                         new Color(222, 222, 222), // Ungewöhnlich

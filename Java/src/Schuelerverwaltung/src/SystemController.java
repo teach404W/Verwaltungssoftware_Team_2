@@ -55,7 +55,7 @@ public class SystemController extends GUI implements ActionListener {
         eRandomButton.addActionListener(this);
         eSaveButton.addActionListener(this);
         Thread.sleep(1000);
-        // loading();
+        loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
         l.setVisible(false);
         l2.setVisible(false);
 
@@ -102,7 +102,7 @@ public class SystemController extends GUI implements ActionListener {
                 l2.setVisible(false);
                 showOptions(true, 0);
                 loadingValues[3] = true;
-                warn(2000, "Karte - Warn", "Karte erfolgreich hergestellt", "Save-System", "Java\\src\\Schuelerverwaltung\\Images\\Menü\\Karten.png");
+                warn(2000, "Karte - Warn", "Karte wurde \nerfolgreich angelegt", "Save-System", "Java\\src\\Schuelerverwaltung\\Images\\Others\\Save.png");
 
             }
 
@@ -262,8 +262,8 @@ public class SystemController extends GUI implements ActionListener {
         }
     }
 
-    public void loading(boolean progress, boolean rotation, byte loadingTime, byte lt1, byte lt2, byte lt3, byte lt4,
-            byte rotations) throws InterruptedException {
+    public void loading(boolean progress, boolean rotation, byte loadingTime, byte lt1, byte lt2, byte lt3, byte lt4, byte rotations) throws InterruptedException {
+
         int t1 = lt1;
         if (progress == true) {
             Texts texts = new Texts();
@@ -485,6 +485,8 @@ public class SystemController extends GUI implements ActionListener {
 
             if (texarea.getText().charAt(0) == '0' && user.password < 1) {
                 infoText.setText("0 darf nicht am Anfang stehen");
+                warn(2000, "Anmelden - Warn", "0 darf nicht am Anfang \nstehen", "Anmelden-System", "");
+                loadingValues[3] = true;
                 return;
             }
             try {
@@ -498,7 +500,7 @@ public class SystemController extends GUI implements ActionListener {
                     if (passwordNumbers > 10000) {
                         dataStore.password = passwordNumbers;
                         user.password = passwordNumbers;
-                        warn(4000, "Konto - Warn", "Name: " + user.name + "\nPassword: " + user.password, "Info", "");
+                        warn(4000, "Konto - Warn", "Name: " + user.name + "\nPassword: " + user.password, "Anmelden-System", "");
                         loadingValues[3] = true;
                         infoText.setText("Erfolgreich angemeldet");
                         randomButton.setVisible(false);
@@ -526,12 +528,25 @@ public class SystemController extends GUI implements ActionListener {
                     }
 
                     if (user.password != Integer.parseInt(texarea.getText().toString())) {
-                        infoText.setText("Password: Falsch");
+                      //  infoText.setText("Password: Falsch");
+                            warn(2000, "Anmelden - Warn", "Passwort: Falsch", "Anmelden-System", "");
+                            loadingValues[3] = true;
+                        
                     }
 
                 }
             } catch (Exception d) {
                 System.err.println("");
+            }
+        }else {
+            if (texarea.getText().length() < 4){
+                warn(2000, "Anmelden - Warn", "Passwort ist kurz", "Anmelden-System", "");
+                loadingValues[3] = true;
+            }
+
+            if (texarea.getText().length() > 16){
+                warn(2000, "Anmelden - Warn", "Passwort ist lang", "Anmelden-System", "");
+                loadingValues[3] = true;
             }
         }
     }
@@ -561,7 +576,10 @@ public class SystemController extends GUI implements ActionListener {
         if (user.name != null) {
 
             if (!texarea.getText().toString().equals(user.name)) {
-                infoText.setText("Name: Falsch");
+                //infoText.setText("Name: Falsch");
+                warn(2000, "Anmelden - Warn", "Name: Falsch", "Anmelden-System", "");
+                loadingValues[3] = true;
+
             }
 
             if (texarea.getText().toString().equals(user.name)) {
@@ -586,6 +604,17 @@ public class SystemController extends GUI implements ActionListener {
                 if (user.password < 10000) {
                     randomButton.setVisible(true);
                 }
+            } else{
+                if (texarea.getText().length() < 4){
+                    warn(2000, "Anmelden - Warn", "Name ist kurz", "Anmelden-System", "");
+                    loadingValues[3] = true;
+                }
+
+                if (texarea.getText().length() > 20){
+                    warn(2000, "Anmelden - Warn", "Name ist lang", "Anmelden-System", "");
+                    loadingValues[3] = true;
+                }
+
             }
         }
 
@@ -1026,11 +1055,87 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
+    public void showCardInfo(int card){
+        if (karten[card] != null){
+            cardInfoText[0].setFont(new Font("Comic Sans MS", Font.BOLD, 35 - karten[card].karte_Name.length()));
+            cardInfoText[1].setFont(new Font("Comic Sans MS", Font.PLAIN, 36 - karten[card].karte_Seltenheit.length()));
+            cardInfoText[2].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Name.length()));
+            cardInfoText[3].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Name.length()));
+            cardInfoText[4].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Name.length()));
+            cardInfoText[5].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Element.length()));
+            cardInfoText[6].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Ability.length()));
+            cardInfoText[7].setFont(new Font("Comic Sans MS", Font.ITALIC, 40 - karten[card].karte_ID.length()));
+
+
+
+            cardInfoMenu.setVisible(true);
+            cardInfoImage.setVisible(true);
+            cardInfoText[0].setVisible(true);
+            cardInfoText[1].setVisible(true);
+            cardInfoText[2].setVisible(true);
+            cardInfoText[3].setVisible(true);
+            cardInfoText[4].setVisible(true);
+            cardInfoText[5].setVisible(true);
+            cardInfoText[6].setVisible(true);
+            cardInfoText[7].setVisible(true);
+            cardInfoText[0].setText(karten[card].karte_Name);
+            cardInfoText[1].setText(karten[card].karte_Seltenheit);
+            cardInfoText[2].setText(karten[card].karte_Damage);
+            cardInfoText[3].setText(karten[card].karte_HP);
+            cardInfoText[4].setText(karten[card].karte_Agility);
+            cardInfoText[5].setText(karten[card].karte_Element);
+            cardInfoText[6].setText(karten[card].karte_Ability);
+            cardInfoText[7].setText("                    " + karten[card].karte_ID);
+
+            for (int i = 0; i<arraysList.rar.length; i++){
+                if (cardInfoText[1].getText().equals(arraysList.rar[i])){
+                    cardInfoText[1].setForeground(arraysList.rar_colors[i]);
+                    cardInfoText[1].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + cardInfoText[1].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                }
+            }
+
+            for (int i = 0; i<arraysList.elemente.length; i++){
+                if (cardInfoText[5].getText().equals(arraysList.elemente[i])){
+                    cardInfoText[5].setForeground(arraysList.elemente_colors[i]);
+                    cardInfoText[5].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + cardInfoText[5].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                }
+            }
+
+            for (int i = 0; i<arraysList.skills.length; i++){
+                if (cardInfoText[6].getText().equals(arraysList.skills[i])){
+                    cardInfoText[6].setForeground(arraysList.skills_colors[i]);
+                    cardInfoText[6].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + cardInfoText[6].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                }
+            }
+
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) < 800){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.jpg").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(200,200,200));
+                cardInfoText[3].setForeground(new Color(200,200,200));
+                cardInfoText[4].setForeground(new Color(200,200,200));
+            }    
+            
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 800){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(255,200,0));
+                cardInfoText[3].setForeground(new Color(255,200,0));
+                cardInfoText[4].setForeground(new Color(150,0,0));
+            }    
+            
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 1600){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(25,255,255));
+                cardInfoText[3].setForeground(new Color(255,25,255));
+                cardInfoText[4].setForeground(new Color(255,255,255));
+            }
+
+        }  
+    }
+
     public void showcards(){
         showOptions(false,0);
         cardsMenu.removeAll();
         cardsMenu.setVisible(true);
-        System.out.println(dataStore.karten[0].karte_Name);
         if (karten[0] != null && !karten[0].karte_Name.equals("N/A")){
             showCardsButtons[0] = new JButton(karten[0].karte_Name);
             showCardsButtons[0].addActionListener(this);
@@ -1046,7 +1151,9 @@ public class SystemController extends GUI implements ActionListener {
         }
        
         if (karten[1] != null && !karten[1].karte_Name.equals("N/A")){
-        showCardsButtons[1] = new JButton("Text2");
+        showCardsButtons[1] = new JButton(karten[1].karte_Name);
+        showCardsButtons[1].addActionListener(this);
+        showCardsButtons[1].setActionCommand("Karte2");
         showCardsButtons[1].setForeground(new Color(255,255,255));
         showCardsButtons[1].setBounds(0, 0, 200, 200); 
         showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
@@ -1056,6 +1163,8 @@ public class SystemController extends GUI implements ActionListener {
         }
         if (karten[2] != null && !karten[2].karte_Name.equals("N/A")){
         showCardsButtons[2] = new JButton(karten[2].karte_Name);
+        showCardsButtons[2].addActionListener(this);
+        showCardsButtons[2].setActionCommand("Karte3");
         showCardsButtons[2].setForeground(new Color(255,255,255));
         showCardsButtons[2].setBounds(0, 0, 200, 200); 
         showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
@@ -1420,9 +1529,34 @@ public class SystemController extends GUI implements ActionListener {
         if (e.getActionCommand().equals("Meine Karten")){
             showcards();
         }
+
+        for (int c = 0; c<10; c++){
+            if (e.getActionCommand().equals("Karte" + c)){
+                System.out.println(c);
+                c-=1;
+                if (c<0){
+                    c = 0;
+                }
+                showCardInfo(c);
+                break;
+        }
+
+        }
+       /* 
         if (e.getActionCommand().equals("Karte1")){
             System.out.println("K1");
-            cardInfoMenu.setVisible(false);
+            cardInfoText[0].setFont(new Font("Times new Roman", Font.PLAIN, 35 - karten[0].karte_Name.length()));
+            cardInfoText[1].setFont(new Font("Times new Roman", Font.PLAIN, 36 - karten[0].karte_Seltenheit.length()));
+            cardInfoText[2].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_Name.length()));
+            cardInfoText[3].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_Name.length()));
+            cardInfoText[4].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_Name.length()));
+            cardInfoText[5].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_Element.length()));
+            cardInfoText[6].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_Ability.length()));
+            cardInfoText[7].setFont(new Font("Times new Roman", Font.PLAIN, 40 - karten[0].karte_ID.length()));
+
+
+
+            cardInfoMenu.setVisible(true);
             cardInfoImage.setVisible(true);
             cardInfoText[0].setVisible(true);
             cardInfoText[1].setVisible(true);
@@ -1440,7 +1574,41 @@ public class SystemController extends GUI implements ActionListener {
             cardInfoText[5].setText(karten[0].karte_Element);
             cardInfoText[6].setText(karten[0].karte_Ability);
             cardInfoText[7].setText(karten[0].karte_ID);
-        }
+
+            for (int i = 0; i<arraysList.rar.length; i++){
+                System.out.println(arraysList.rar[i]);
+                if (cardInfoText[1].getText().equals(arraysList.rar[i])){
+                    cardInfoText[1].setForeground(arraysList.rar_colors[i]);
+                    cardInfoText[1].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + cardInfoText[1].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+
+                }
+            }
+
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) < 800){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(200,200,200));
+                cardInfoText[3].setForeground(new Color(200,200,200));
+                cardInfoText[4].setForeground(new Color(200,200,200));
+
+            }    
+            
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 800){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(255,200,0));
+                cardInfoText[3].setForeground(new Color(255,200,0));
+                cardInfoText[4].setForeground(new Color(150,0,0));
+            }    
+            
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 1600){
+                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(25,255,255));
+                cardInfoText[3].setForeground(new Color(255,25,255));
+                cardInfoText[4].setForeground(new Color(255,255,255));
+            }
+
+    }
+
+    
         if (e.getActionCommand().equals("Karte2")){
             System.out.println("K1");
             cardInfoText[0].setText(dataStore.karten[0].karte_Name);
@@ -1541,6 +1709,8 @@ public class SystemController extends GUI implements ActionListener {
             cardInfoText[7].setText(dataStore.karten[0].karte_ID);
         }
 
+        */
+
 
         if (e.getActionCommand().equals("Abmelden")) {
             abmelden();
@@ -1587,6 +1757,12 @@ public class SystemController extends GUI implements ActionListener {
         for (String v : arraysList.skills) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
+                for (int i = 0; i< arraysList.skills.length; i++){
+                    if (texarea.getText().equals(arraysList.skills[i])){
+                        rd2 = i;
+                    }
+                }
+                descriptionBox.setText(arraysList.skills_Beschreibung[rd2]);
                 sec_Image.setVisible(true);
                 sec_Image.setIcon(
                         new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + v + ".png")
@@ -1802,18 +1978,18 @@ public class SystemController extends GUI implements ActionListener {
         infoI.setIcon(new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(105, 100, Image.SCALE_AREA_AVERAGING)));
                 
 
-        infoPanel.setBounds(1007, 280, 265, 120);
-        infoI.setBounds(1010, 280, 265, 120);
-        infoN.setBounds(1120, 250, 265, 120);
-        infoD.setBounds(1120, 340, 120, 120);
-        infoMes.setBounds(1220, 325, 265, 120);
+        infoPanel.setBounds(1007, 580, 265, 120);
+        infoI.setBounds(1010, 580, 265, 120);
+        infoN.setBounds(1120, 550, 265, 120);
+        infoD.setBounds(1120, 640, 120, 120);
+        infoMes.setBounds(1220, 625, 265, 120);
 
         if (i.equals("")){
-            infoPanel.setBounds(1007, 280, 265, 80);
-            infoI.setBounds(910, 280, 265, 120);
-            infoN.setBounds(1020, 240, 265, 120);
-            infoD.setBounds(1020, 313, 160, 120);
-            infoMes.setBounds(1230, 288, 265, 120);
+            infoPanel.setBounds(1007, 580, 265, 80);
+            infoI.setBounds(910, 580, 565, 120);
+            infoN.setBounds(1020, 540, 565, 120);
+            infoD.setBounds(1020, 613, 460, 120);
+            infoMes.setBounds(1160, 588, 565, 120);
         }
 
         infoPanel.setVisible(true);

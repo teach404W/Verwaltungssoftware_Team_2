@@ -113,7 +113,7 @@ public class GUI{
                                              // Anfangstext
                                              // von sync[0] und kann später geändert werden
                 sync[0].setForeground(new Color(0, 255, 25)); // mit rgb(rot, grün, blau) die Hintergrundsfarbe setten
-                sync[0].setFont(new Font("Times new Roman", Font.PLAIN, 30)); // Die Schriftart von sync[0] eingeben |
+                sync[0].setFont(new Font("Comic Sans MS", Font.PLAIN, 26)); // Die Schriftart von sync[0] eingeben |
                                                                               // Die
                                                                               // Schriftart ist "Times new Roman" und
                                                                               // die
@@ -133,7 +133,7 @@ public class GUI{
 
                 sync[1] = new JButton("Nein");
                 sync[1].setForeground(new Color(255, 0, 25));
-                sync[1].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                sync[1].setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
                 sync[1].setBounds(1032, 550, 100, 30);
                 sync[1].setBackground(Color.BLACK);
                 sync[1].setVisible(false);
@@ -143,7 +143,7 @@ public class GUI{
 
                 sync[2] = new JButton("Daten löschen");
                 sync[2].setForeground(new Color(255, 0, 120));
-                sync[2].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                sync[2].setFont(new Font("Comic Sans MS", Font.PLAIN, 26));
                 sync[2].setBounds(1020, 1210, 212, 30);
                 sync[2].setBackground(Color.BLACK);
                 sync[2].setVisible(true);
@@ -151,12 +151,12 @@ public class GUI{
                 sync[2].setActionCommand("DeleteData");
                 sync[2].setBorder(new LineBorder(new Color(255, 0, 120)));
 
-                sync_Text = new JTextArea("           Willst du die \n gespeicherten Daten laden?"); // Text von
+                sync_Text = new JTextArea("  Willst du die gespeicherten\n              Daten laden?"); // Text von
                                                                                                      // sync_Text
                                                                                                      // setten. \n ist
                                                                                                      // nextline
                 sync_Text.setForeground(new Color(255, 255, 255)); // Textfarbe mit rgb(rot, grün, blau) setten
-                sync_Text.setFont(new Font("Times new Roman", Font.PLAIN, 22)); // Schriftart eingebn | "Times New
+                sync_Text.setFont(new Font("Comic Sans MS", Font.PLAIN, 18)); // Schriftart eingebn | "Times New
                                                                                 // Roman" ist
                                                                                 // die Schriftart und 22 ist die
                                                                                 // Schriftgröße
@@ -185,7 +185,7 @@ public class GUI{
                 backB = new JButton("x");
                 backB.setForeground(new Color(255, 0, 25));
                 backB.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-                backB.setBounds(50, 80, 70, 50);
+                backB.setBounds(20, 40, 70, 50);
                 backB.setBackground(Color.BLACK);
                 backB.setVisible(false);
                 backB.setFocusable(false);
@@ -407,7 +407,7 @@ public class GUI{
 
                 l2 = new JLabel("Loading");
                 l2.setForeground(Color.white);
-                l2.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                l2.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
                 l2.setBounds(530, 200, 400, 0);
                 l2.setSize(400, 500);
                 l2.setBackground(Color.black);
@@ -416,7 +416,7 @@ public class GUI{
 
                 infoText = new JLabel("Anmeldung: Name eingeben (4-20 Charakter)");
                 infoText.setForeground(new Color(80, 80, 80));
-                infoText.setFont(new Font("Times new Roman", Font.PLAIN, 18));
+                infoText.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
                 infoText.setBounds(420, 324, 400, 0);
                 infoText.setSize(400, 100);
                 infoText.setOpaque(false);
@@ -455,10 +455,9 @@ public class GUI{
 
                 cardInfoMenu = new JPanel();
                 cardInfoMenu.setForeground(new Color(255, 255, 255));
-                cardInfoMenu.setFont(new Font("Times new Roman", Font.PLAIN, 60));
-                cardInfoMenu.setBounds(150, 100, 600, 600);
+                cardInfoMenu.setBounds(50, 100, 600, 600);
                 cardInfoMenu.setBackground(Color.black);
-                cardInfoMenu.setVisible(true);
+                cardInfoMenu.setVisible(false);
                 cardInfoMenu.setFocusable(false);
                 cardInfoMenu.setOpaque(false);
                 // confirmButton.addActionListener(this);
@@ -467,10 +466,9 @@ public class GUI{
 
                 cardInfoImage = new JLabel();
                 cardInfoImage.setForeground(new Color(255, 255, 255));
-                cardInfoImage.setFont(new Font("Times new Roman", Font.PLAIN, 40));
-                cardInfoImage.setBounds(400, 100, 350, 350);
+                cardInfoImage.setBounds(300, 100, 350, 350);
                 cardInfoImage.setBackground(new Color(39, 43, 49));
-                cardInfoImage.setVisible(true);
+                cardInfoImage.setVisible(false);
                 cardInfoImage.setFocusable(false);
                 cardInfoImage.setIcon(
                                 new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
@@ -480,18 +478,18 @@ public class GUI{
                 cardInfoText[0] = new JLabel("Name");
                 cardInfoText[0].setForeground(new Color(255, 255, 255));
                 cardInfoText[0].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[0].setBounds(180, 120, 200, 50);
+                cardInfoText[0].setBounds(80, 120, 200, 50);
                 cardInfoText[0].setBackground(new Color(39, 43, 49));
-                cardInfoText[0].setVisible(true);
+                cardInfoText[0].setVisible(false);
                 cardInfoText[0].setFocusable(false);
                 cardInfoText[0].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[1] = new JLabel("Legendär");
                 cardInfoText[1].setForeground(new Color(255, 255, 255));
                 cardInfoText[1].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[1].setBounds(180, 200, 200, 50);
+                cardInfoText[1].setBounds(80, 200, 200, 50);
                 cardInfoText[1].setBackground(new Color(39, 43, 49));
-                cardInfoText[1].setVisible(true);
+                cardInfoText[1].setVisible(false);
                 cardInfoText[1].setFocusable(false);
                 cardInfoText[1].setIcon(new ImageIcon(
                                 new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\Legendär.png")
@@ -502,54 +500,54 @@ public class GUI{
                 cardInfoText[2] = new JLabel("160");
                 cardInfoText[2].setForeground(new Color(255, 255, 255));
                 cardInfoText[2].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[2].setBounds(180, 280, 200, 50);
+                cardInfoText[2].setBounds(80, 280, 200, 50);
                 cardInfoText[2].setBackground(new Color(39, 43, 49));
-                cardInfoText[2].setVisible(true);
+                cardInfoText[2].setVisible(false);
                 cardInfoText[2].setFocusable(false);
                 cardInfoText[2].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[3] = new JLabel("474");
                 cardInfoText[3].setForeground(new Color(255, 255, 255));
                 cardInfoText[3].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[3].setBounds(180, 360, 200, 50);
+                cardInfoText[3].setBounds(80, 360, 200, 50);
                 cardInfoText[3].setBackground(new Color(39, 43, 49));
-                cardInfoText[3].setVisible(true);
+                cardInfoText[3].setVisible(false);
                 cardInfoText[3].setFocusable(false);
                 cardInfoText[3].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[4] = new JLabel("57");
                 cardInfoText[4].setForeground(new Color(255, 255, 255));
                 cardInfoText[4].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[4].setBounds(180, 440, 200, 50);
+                cardInfoText[4].setBounds(80, 440, 200, 50);
                 cardInfoText[4].setBackground(new Color(39, 43, 49));
-                cardInfoText[4].setVisible(true);
+                cardInfoText[4].setVisible(false);
                 cardInfoText[4].setFocusable(false);
                 cardInfoText[4].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[5] = new JLabel("Glitch");
                 cardInfoText[5].setForeground(new Color(60, 255, 255));
                 cardInfoText[5].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[5].setBounds(180, 520, 260, 50);
+                cardInfoText[5].setBounds(80, 520, 260, 50);
                 cardInfoText[5].setBackground(new Color(39, 43, 49));
-                cardInfoText[5].setVisible(true);
+                cardInfoText[5].setVisible(false);
                 cardInfoText[5].setFocusable(false);
                 cardInfoText[5].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[6] = new JLabel("Ghost");
                 cardInfoText[6].setForeground(new Color(255, 255, 255));
                 cardInfoText[6].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[6].setBounds(460, 520, 260, 50);
+                cardInfoText[6].setBounds(360, 520, 260, 50);
                 cardInfoText[6].setBackground(new Color(39, 43, 49));
-                cardInfoText[6].setVisible(true);
+                cardInfoText[6].setVisible(false);
                 cardInfoText[6].setFocusable(false);
                 cardInfoText[6].setBorder(new LineBorder(Color.white));
 
                 cardInfoText[7] = new JLabel("5754732");
                 cardInfoText[7].setForeground(new Color(255, 255, 255));
                 cardInfoText[7].setFont(new Font("Times new Roman", Font.PLAIN, 36));
-                cardInfoText[7].setBounds(180, 610, 540, 50);
+                cardInfoText[7].setBounds(80, 610, 540, 50);
                 cardInfoText[7].setBackground(new Color(39, 43, 49));
-                cardInfoText[7].setVisible(true);
+                cardInfoText[7].setVisible(false);
                 cardInfoText[7].setFocusable(false);
                 cardInfoText[7].setBorder(new LineBorder(Color.white));
 
@@ -557,14 +555,14 @@ public class GUI{
                 cardsMenu = new JPanel(); // setten von sync_Box
 cardsMenu.setForeground(new Color(255, 255, 255)); // 
 cardsMenu.setFont(new Font("Times new Roman", Font.PLAIN, 60)); // Die Schriftart von sync_Box eingeben | "Times New Roman" ist die Schriftart und 60 ist die Schriftgröße
-cardsMenu.setBounds(800, 200, 550, 550); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein
+cardsMenu.setBounds(700, 100, 550, 600); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein
 //sync_Box.setBackground(Color.black); // Hintergrundsfarbe setten
 cardsMenu.setVisible(true); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben>
 frame.add(cardsMenu);
-/*
+
                 frame.add(cardInfoImage);
                 frame.add(cardInfoText[0]);
                 frame.add(cardInfoText[1]);
@@ -574,7 +572,7 @@ frame.add(cardsMenu);
                 frame.add(cardInfoText[5]);
                 frame.add(cardInfoText[6]);
                 frame.add(cardInfoText[7]);
-*/
+
                 frame.add(cardInfoMenu);
                 eRandomButton = new JButton();
                 eRandomButton.setForeground(new Color(255, 255, 255));
@@ -612,7 +610,6 @@ frame.add(cardsMenu);
 
                 saveButton = new JPanel();
                 saveButton.setForeground(new Color(255, 255, 255));
-                saveButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
                 saveButton.setBounds(15, 720, 60, 60);
                 saveButton.setBackground(Color.black);
                 saveButton.setVisible(false);
@@ -623,7 +620,6 @@ frame.add(cardsMenu);
 
                 eSaveButton = new JButton();
                 eSaveButton.setForeground(new Color(255, 255, 255));
-                eSaveButton.setFont(new Font("Times new Roman", Font.PLAIN, 60));
                 eSaveButton.setBounds(0, 0, 100, 100);
                 eSaveButton.setBackground(null);
                 eSaveButton.setVisible(true);
@@ -634,7 +630,6 @@ frame.add(cardsMenu);
 
                 iSaveButton = new JLabel();
                 iSaveButton.setForeground(Color.white);
-                iSaveButton.setFont(new Font("Times new Roman", Font.PLAIN, 50));
                 iSaveButton.setSize(80, 80);
                 iSaveButton.setVisible(true);
                 iSaveButton.setFocusable(false);
@@ -656,7 +651,7 @@ frame.add(cardsMenu);
 
                 descriptionBox = new JTextArea();
                 descriptionBox.setForeground(new Color(60, 60, 60));
-                descriptionBox.setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                descriptionBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
                 descriptionBox.setBounds(200, 500, 700, 20);
                 descriptionBox.setSize(850, 240);
                 descriptionBox.setOpaque(false);
@@ -686,7 +681,7 @@ frame.add(cardsMenu);
         
                         infoN = new JLabel();
                         infoN.setForeground(new Color(180, 180, 180));
-                        infoN.setFont(new Font("Times new Roman", Font.PLAIN, 22));
+                        infoN.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
                         infoN.setBounds(1120, 250, 265, 120);
                         infoN.setBackground(Color.WHITE);
                         infoN.setVisible(false);
@@ -696,7 +691,7 @@ frame.add(cardsMenu);
         
                         infoD = new JTextArea();
                         infoD.setForeground(new Color(100, 100, 100));
-                        infoD.setFont(new Font("Times new Roman", Font.PLAIN, 15));
+                        infoD.setFont(new Font("Comic Sans MS", Font.PLAIN, 13));
                         infoD.setBounds(1120, 340, 120, 120);
                         infoD.setBackground(Color.WHITE);
                         infoD.setVisible(false);
@@ -707,7 +702,7 @@ frame.add(cardsMenu);
         
                         infoMes = new JLabel();
                         infoMes.setForeground(new Color(0, 255, 25));
-                        infoMes.setFont(new Font("Times new Roman", Font.PLAIN, 14));
+                        infoMes.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
                         infoMes.setBounds(1220, 325, 265, 120);
                         infoMes.setBackground(Color.WHITE);
                         infoMes.setVisible(false);
@@ -743,6 +738,7 @@ frame.add(cardsMenu);
                 frame.add(panel1);
                 frame.setVisible(true);
 
+                /*
                 l.setVisible(false);
 
                 texarea.setVisible(false);
@@ -750,6 +746,7 @@ frame.add(cardsMenu);
                 randomButton.setVisible(false);
                 infoText.setVisible(false);
 
+                */
                 Thread.sleep(1000);
                 // loading();
 
