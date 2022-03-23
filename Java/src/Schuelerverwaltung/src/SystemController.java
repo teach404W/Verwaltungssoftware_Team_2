@@ -338,6 +338,22 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
+    public void reset_texarea(){
+        texarea.setForeground(Color.WHITE);
+        texarea.setFont(new Font("Arial", Font.BOLD, 18));
+        texarea.setBorder(new LineBorder(Color.white));
+
+        infoText.setForeground(new Color(80, 80, 80));
+        infoText.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+
+        randomButton.setBorder(new LineBorder(Color.white));
+
+        confirmButton.setBorder(new LineBorder(Color.white));
+
+        sec_Image.setIcon(null);
+
+    }
+
     public void clearBox() {
         box2.removeAll();
     }
@@ -689,12 +705,26 @@ public class SystemController extends GUI implements ActionListener {
             for (int i = 0; i<2 ; i++){
                 if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[i][i])){
                     infoText.setText("Damage ändern (0-" + arraysList.extra_Damage[i][i + 1 ] + ")");
+                    for (int v = 0; v<arraysList.skills.length; v++){
+                        if (arraysList.skills[v].equals(arraysList.extra_Damage[i][i])){
+                            texarea.setForeground(arraysList.skills_colors[v]);
+                            texarea.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            confirmButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            randomButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            infoText.setForeground(arraysList.skills_colors[v]);
+                            sec_Image.setVisible(true);
+                            sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                        }
+                    }
                 }
             }
         }
     }
 
     public void confirmCardDamage() {
+        reset_texarea();
         if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteDamage = texarea.getText();
@@ -722,6 +752,14 @@ public class SystemController extends GUI implements ActionListener {
                 if (karten[cardIndex].karte_Ability != null) {
                     if (karten[cardIndex].karte_Ability.equals("Ghost")) {
                         infoText.setText("HP Ändern (-1000-1000)");
+                        texarea.setForeground(arraysList.skills_colors[1]);
+                        texarea.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                        confirmButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                        randomButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                        infoText.setForeground(arraysList.skills_colors[1]);
+                        sec_Image.setVisible(true);
+                        sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                        
                     }
                 }    
 
@@ -748,6 +786,15 @@ public class SystemController extends GUI implements ActionListener {
             if (karten[cardIndex].karte_Ability != null) {
                 System.out.println(karten[cardIndex].karte_Ability);
                 if (karten[cardIndex].karte_Ability.equals("Ghost")) {
+
+                    texarea.setForeground(arraysList.skills_colors[1]);
+                    texarea.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                    confirmButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                    randomButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
+                    infoText.setForeground(arraysList.skills_colors[1]);
+                    sec_Image.setVisible(true);
+                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
                     dataStore.temp_KarteDamage = texarea.getText();
                     texarea.setText(karten[cardIndex].karte_HP);
                     eRandomButton.setActionCommand("GenerateHP");
@@ -955,15 +1002,22 @@ public class SystemController extends GUI implements ActionListener {
                 }
             }
 
-            if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Damage) > 1000) {
-                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0]) || karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0])) {
+        if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Damage) > 1000) {
+            if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0]) || karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[1][1])) {
 
-                } else {
+                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0]) && Integer.parseInt(karten[cardIndex].karte_Damage) > 1500){
                     loadingValues[3] = true;
-                    warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1000", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
-                    karten[cardIndex].karte_Damage = "1000";
+                    warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1500", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
+                    karten[cardIndex].karte_Damage = "1500";
+
                 }
+
+            } else {
+                loadingValues[3] = true;
+                warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1000", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
+                karten[cardIndex].karte_Damage = "1000";
             }
+        }
     
 
             dataStore.clearSavedTempCard();
@@ -1068,7 +1122,6 @@ public class SystemController extends GUI implements ActionListener {
 
     public void option1_1() {
     if (cardIndex < 0) {
-        System.out.println(karten[9].karte_Name);
         for (int i = 0; i<10 ; i++){
             if (karten[i] == null || karten[i].karte_Name.equals("N/A")){
                 texarea.setText(null);
@@ -1088,7 +1141,7 @@ public class SystemController extends GUI implements ActionListener {
                 clearBox();
 
                 dataStore.clearSavedTempCard();
-            } else{
+            } else if (karten[0] != null && karten[1] != null && karten[2] != null && karten[3] != null && karten[4] != null && karten[5] != null && karten[6] != null && karten[7] != null && karten[8] != null && karten[9] != null){
                 warn(2000, "Karte - Warn", "Es gibt 10\n Karten", "Speicher", "Java\\src\\Schuelerverwaltung\\Images\\Menü\\Remove.png");
                 loadingValues[3] = true;
             }
@@ -1482,21 +1535,23 @@ public class SystemController extends GUI implements ActionListener {
 
     public void löschenAbfrage() {
 
+        System.out.println("Abfrage");
+
         String löschendeKarte = texarea.getText();
         texarea.setVisible(false);
         texarea.setText(null);
 
         confirmButton.setVisible(false);
-        showOptions(false, 0);
         search_Box.setVisible(false);
         searchB1.setVisible(false);
 
         for (int c = 0; c < 10; c++) {
             if (karten[c] != null && karten[c].karte_Name.equals(löschendeKarte)) {
+                System.out.println(c);
                 karten[c] = null;
                 arraysList.search_Results[c + 1] = "";
             }
-            löschendeKarte = null;
+          //  löschendeKarte = null;
 
         }
 

@@ -48,13 +48,15 @@ public class ArraysList {
                         "Premium",
                         "Ghost",
                         "Rage",
+                        "Shredder",
 
         };
 
         protected String skills_Beschreibung[] = {
                         "Stats(Damage, HP und Agilität) sind 2x besser",
                         "Die Karte kann weniger als 0 HP haben (-1000 bis 1000)",
-                        "Die Karte kann 250 extra Schaden haben (1000 bis 1250)",
+                        "Die Karte kann 250 extra Schaden haben (1000 bis 1500)",
+                        "Die Karte kann 1000 extra Schaden haben (1000 bis 2000)",
 
         };
 
@@ -95,6 +97,7 @@ public class ArraysList {
         new Color(255, 187, 113), // Premium 
         new Color(239, 133, 241), // Ghost
         new Color(255, 60, 80), // Rage
+        new Color(111, 255, 185), // Shredder
 
         };
 
@@ -106,10 +109,10 @@ public class ArraysList {
         public ArraysList() {
                 System.out.println();
                 extra_Damage[0][0] = "Rage";
-                extra_Damage[0][1] = "1250";
+                extra_Damage[0][1] = "1500";
 
                 extra_Damage[1][1] = "Shredder";
-                extra_Damage[1][2] = "8000";
+                extra_Damage[1][2] = "2000";
 
 
         }
