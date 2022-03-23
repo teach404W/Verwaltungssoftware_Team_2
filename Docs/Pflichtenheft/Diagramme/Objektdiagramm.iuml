@@ -1,5 +1,24 @@
 @startuml
 
+<<<<<<< HEAD
+Object Karte{
+
+Name : String
+Klasse : String
+Seltenheit : String
+Karten ID : String (Ints)
+Damage : String (Ints)
+HP : String (Ints)
+Agilität : String (Ints)
+Element : String
+}
+
+Object User{
+
+Name : String
+Passwort : Int
+Angemeldet : boolean
+=======
 Object karte1{
 
 name = "Ice Dargon"
@@ -68,6 +87,7 @@ object systemcontroller{
     d : Int
     karten[] = [Karte0; Karte1 ; Karte2 ; Karte3 ; Karte4 ; Karte5 ; Karte6 ; Karte7 ; Karte8 ; Karte9]
 
+>>>>>>> main
 
 }
 
