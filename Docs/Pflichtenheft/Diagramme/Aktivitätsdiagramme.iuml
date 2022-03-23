@@ -2,15 +2,32 @@
 start
 :Anmelden;
 :Menü: Karte anlegen;
+if (Gibt es im Konto weniger als 10 Karten?) then
+  -[#black]->
+  :Ja;
+ 
+   
+else
+
+  -[#black,dotted]->
+  :Nein;
+
+  -[#black,dotted]->
+
+  -[#black,dotted]-> 
+  end
+
+endif
+-[#gray,dotted]->
 :Name eingeben(0-20C);
 :Seltenheit auswählen[11];
 :Damage eingeben(0-1000);
 :HP eingeben(0-1000);
 :Agilität eingeben(0-100);
 :Element auswählen[9];
-:ID wird generiert;
 #LightGrey:(optional)Fähigkeit eingeben;
 :Bestätigen;
+:ID wird generiert;
 end
 
 start
@@ -25,6 +42,39 @@ start
 :Name oder Index der Karte eingeben;
 :Bestätigen;
 :Kartekontrolle(wird kontrolliert, ob die Karte vorhanden ist oder nicht);
+if (Nach Kontrolle) then
+  -[#black]->
+  :Ja;
+  -[#green,dashed]-> gibt es im konto
+  eine **Karte?**;
+   
+
+ -[#green,dashed]-> gibt es im konto
+  eine **Karte?**;
+   
+ -[#gray,dotted]->
+#LightGrey: (optional)Neuer Name eingeben(0-20C);
+#LightGrey: (optional)Neue Seltenheit auswählen[11];
+#LightGrey: (optional)Neuen Damagewert eingeben(0-1000);
+#LightGrey: (optional)Neuen HP-wert eingeben(0-1000);
+#LightGrey: (optional)Neuen Agilitätswert eingeben(0-100);
+#LightGrey: (optional)Neues Element auswählen[9];
+#LightGrey:(optional)Neue Fähigkeit eingeben;
+:Bestätigen;
+:Karte wird geändert;
+
+else
+
+  -[#black,dotted]->
+  :Nein;
+
+  -[#black,dotted]->
+
+  :Funktion wird gestoppt;
+  -[#black,dotted]->
+
+endif
+-[#gray,dotted]->
 end
 
 start
@@ -33,13 +83,13 @@ start
 :Name oder Index der Karte eingeben;
 :Bestätigen;
 :Kartekontrolle(wird kontrolliert, ob die Karte vorhanden ist oder nicht);
-if (Warnung) then
+if (Nach Kontrolle) then
   -[#black]->
   :Ja;
-  -[#green,dashed]-> gibt es in DataStore
-  eine **gespeicherte** Karte?;
+  -[#green,dashed]-> gibt es im konto
+  eine **Karte?**;
    
-  :Warnung;
+  :Karte wird gelöscht;
 else
 
   -[#black,dotted]->
@@ -47,7 +97,7 @@ else
 
   -[#black,dotted]->
 
-  :Karte wird gelöscht und in DataStore gespeichert;
+  :Funktion wird gestoppt;
   -[#black,dotted]->
 
 endif

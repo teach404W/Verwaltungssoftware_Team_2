@@ -1,12 +1,14 @@
 public class App {
     public static void main(String[] args) throws Exception {
-      //  Schuelerverwaltung app1 = new Schuelerverwaltung();
+        //  Schuelerverwaltung app1 = new Schuelerverwaltung();
 
-//GUI2 gui = new GUI2();
-SystemController s = new SystemController();
-Input input = new Input();
+        //GUI2 gui = new GUI2();
+        ArraysList a = new ArraysList();
+        
+        Input input = new Input();
 
-ArraysList a = new ArraysList();
+        SystemController s = new SystemController();
+
         
     }
 }

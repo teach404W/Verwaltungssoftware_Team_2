@@ -21,7 +21,6 @@ Angemeldet : boolean
 =======
 Object karte1{
 
-<<<<<<< HEAD
 name = "Ice Dargon"
 seltenheit = "Legendär"
 karten ID = "1"
@@ -29,21 +28,11 @@ damage = "800"
 hP = "900"
 agilität = "75"
 element = "Wasser"
-=======
-Name = "Ice Dargon"
-Seltenheit = "Legendär"
-Karten ID = "189678"
-Damage = "800"
-HP = "900"
-Agilität = "75"
-Element = "Wasser"
->>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
 
 }
 
 object karte2{
 
-<<<<<<< HEAD
     name = "Fire Dragon"
     seltenheit = "Legendär"
     karten ID = "4"
@@ -51,15 +40,6 @@ object karte2{
     hP = "950"
     agilität = "80"
     element = "Feuer"
-=======
-    Name = "Fire Dragon"
-    Seltenheit = "Legendär"
-    Karten ID = "45785"
-    Damage = "850"
-    HP = "950"
-    Agilität = "80"
-    Element = "Feuer"
->>>>>>> 6edd8c632af0a98cd8c173f8897ae63c221cd10f
 }
 
 Object user{

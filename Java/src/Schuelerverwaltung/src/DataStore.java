@@ -17,16 +17,18 @@ public class DataStore implements Serializable {
     String temp_KarteAbility;    
 
 
-    String re_KarteName;
-    String re_KarteSeltenheit;
-    String re_KarteDamage;
-    String re_KarteHP;
-    String re_KarteAgility;
-    String re_KarteElement;
-    String re_KarteID;
-    String re_KarteAbility;
-
     Karte[] karten = new Karte[10]; 
+
+    public void clearSavedTempCard(){
+        temp_KarteName = null;
+        temp_KarteSeltenheit = null;
+        temp_KarteDamage = null;
+        temp_KarteHP = null;
+        temp_KarteAgility = null;
+        temp_KarteElement = null;
+        temp_KarteID = null;
+        temp_KarteAbility = null;
+    }
 
     public DataStore(){
         karten[0] = new Karte();
@@ -43,15 +45,6 @@ public class DataStore implements Serializable {
     }
 
 
-    public void clearSavedTempCard(){
-        temp_KarteName = null;
-        temp_KarteSeltenheit = null;
-        temp_KarteDamage = null;
-        temp_KarteHP = null;
-        temp_KarteAgility = null;
-        temp_KarteElement = null;
-        temp_KarteID = null;
-        temp_KarteAbility = null;
-    }
+
     
 }
