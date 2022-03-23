@@ -4,8 +4,8 @@ public class ArraysList {
 
        protected String search_Results[] = {
                         "   ",
-                        "MeineKarte",
-                        "Karte1",
+                        "",
+                        "",
                         "",
                         "",
                         "",
@@ -47,11 +47,15 @@ public class ArraysList {
         protected String skills[] = {
                         "Premium",
                         "Ghost",
+                        "Rage",
+
         };
 
         protected String skills_Beschreibung[] = {
                         "Stats(Damage, HP und Agilität) sind 2x besser",
-                        "Die Karte kann weniger als 0 HP haben(1000 bis -1000)",
+                        "Die Karte kann weniger als 0 HP haben (-1000 bis 1000)",
+                        "Die Karte kann 250 extra Schaden haben (1000 bis 1250)",
+
         };
 
 
@@ -90,25 +94,22 @@ public class ArraysList {
         protected Color[] skills_colors = {
         new Color(255, 187, 113), // Premium 
         new Color(239, 133, 241), // Ghost
+        new Color(255, 60, 80), // Rage
+
         };
 
-        protected String[][] extra_Damage = {
-                {"Beast", "2500"},
-                {"Beast", "2500"}
-        
-                };
 
-                protected String[][] extra_Damage2 = new String[2][3];
+                protected String[][] extra_Damage = new String[3][3];
 
         
 
         public ArraysList() {
                 System.out.println();
-                extra_Damage2[0][0] = "Premium";
-                extra_Damage2[0][1] = "2500";
+                extra_Damage[0][0] = "Rage";
+                extra_Damage[0][1] = "1250";
 
-                extra_Damage2[1][1] = "Ghost";
-                extra_Damage2[1][2] = "8000";
+                extra_Damage[1][1] = "Shredder";
+                extra_Damage[1][2] = "8000";
 
 
         }
