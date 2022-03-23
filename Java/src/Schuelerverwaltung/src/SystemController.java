@@ -637,6 +637,36 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
+    public void setRarityColor(){
+        for (int i = 0; i < arraysList.rar.length; i++){
+            if (texarea.getText().equals(arraysList.rar[i])){
+                texarea.setForeground(arraysList.rar_colors[i]);
+                texarea.setBorder(new LineBorder(arraysList.rar_colors[i]));
+                confirmButton.setBorder(new LineBorder(arraysList.rar_colors[i]));
+                randomButton.setBorder(new LineBorder(arraysList.rar_colors[i]));
+                infoText.setForeground(arraysList.rar_colors[i]);
+                sec_Image.setVisible(true);
+                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + arraysList.rar[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+            }
+        }
+    }
+
+    public void setElementColor(){
+        for (int i = 0; i < arraysList.elemente.length; i++){
+            if (texarea.getText().equals(arraysList.elemente[i])){
+                texarea.setForeground(arraysList.elemente_colors[i]);
+                texarea.setBorder(new LineBorder(arraysList.elemente_colors[i]));
+                confirmButton.setBorder(new LineBorder(arraysList.elemente_colors[i]));
+                randomButton.setBorder(new LineBorder(arraysList.elemente_colors[i]));
+                infoText.setForeground(arraysList.elemente_colors[i]);
+                sec_Image.setVisible(true);
+                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + arraysList.elemente[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+            }
+        }
+    }
+
     public void confirmCardName() {
         if (cardIndex < 0 && texarea.getText().length() > 3 && texarea.getText().length() < 21) {
             dataStore.temp_KarteName = texarea.getText();
@@ -670,10 +700,14 @@ public class SystemController extends GUI implements ActionListener {
 
         }
 
+        setRarityColor();
+        
+
     }
 
     public void confirmCardRarity() {
         if (cardIndex < 0 && texarea.getText().length() > 2 && texarea.getText().length() < 16) {
+            reset_texarea();
             dataStore.temp_KarteSeltenheit = texarea.getText();
             texarea.setText(null);
             eRandomButton.setActionCommand("GenerateDamage");
@@ -690,6 +724,7 @@ public class SystemController extends GUI implements ActionListener {
         }
 
         if (cardIndex >= 0 && texarea.getText().length() > 2 && texarea.getText().length() < 16) {
+            reset_texarea();
             dataStore.temp_KarteSeltenheit = texarea.getText();
             texarea.setText(karten[cardIndex].karte_Damage);
             eRandomButton.setActionCommand("GenerateDamage");
@@ -724,7 +759,8 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void confirmCardDamage() {
-        reset_texarea();
+        try {
+
         if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteDamage = texarea.getText();
@@ -732,6 +768,8 @@ public class SystemController extends GUI implements ActionListener {
             eRandomButton.setActionCommand("GenerateHP");
             confirmButton.setActionCommand("ConfirmCardHP");
             infoText.setText("HP eingeben (0-1000)");
+            reset_texarea();
+
         }
 
     if (cardIndex >= 0 && texarea.getText().length() > 0){
@@ -747,9 +785,12 @@ public class SystemController extends GUI implements ActionListener {
                 confirmButton.setActionCommand("ConfirmCardHP");
                 if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0){
                     infoText.setText("HP eingeben (0-1000)");
+                    reset_texarea();
+
                 }
 
                 if (karten[cardIndex].karte_Ability != null) {
+                    reset_texarea();
                     if (karten[cardIndex].karte_Ability.equals("Ghost")) {
                         infoText.setText("HP Ändern (-1000-1000)");
                         texarea.setForeground(arraysList.skills_colors[1]);
@@ -759,7 +800,6 @@ public class SystemController extends GUI implements ActionListener {
                         infoText.setForeground(arraysList.skills_colors[1]);
                         sec_Image.setVisible(true);
                         sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-                        
                     }
                 }    
 
@@ -767,7 +807,7 @@ public class SystemController extends GUI implements ActionListener {
             } else{
                 loadingValues[3] = true;
                 warn(3000, "Damage - Warn", "Damage - Max:\n" + Integer.parseInt(arraysList.extra_Damage[i][i + 1 ]) + " < " + Integer.parseInt(texarea.getText()), "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");            }
-
+                
             }
         }
 
@@ -781,10 +821,12 @@ public class SystemController extends GUI implements ActionListener {
                         eRandomButton.setActionCommand("GenerateHP");
                         confirmButton.setActionCommand("ConfirmCardHP");
                         infoText.setText("HP eingeben (0-1000)");
+                        reset_texarea();
+
             
                     }
             if (karten[cardIndex].karte_Ability != null) {
-                System.out.println(karten[cardIndex].karte_Ability);
+                reset_texarea();
                 if (karten[cardIndex].karte_Ability.equals("Ghost")) {
 
                     texarea.setForeground(arraysList.skills_colors[1]);
@@ -800,6 +842,7 @@ public class SystemController extends GUI implements ActionListener {
                     eRandomButton.setActionCommand("GenerateHP");
                     confirmButton.setActionCommand("ConfirmCardHP");
                     infoText.setText("HP Ändern (-1000-1000)");
+
                 } else {
                     if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                             && Integer.parseInt(texarea.getText()) < 1001) {
@@ -808,16 +851,26 @@ public class SystemController extends GUI implements ActionListener {
                         eRandomButton.setActionCommand("GenerateHP");
                         confirmButton.setActionCommand("ConfirmCardHP");
                         infoText.setText("HP eingeben (0-1000)");
+                        reset_texarea();
+
                     }
                 }
 
             }
         }
 
+    } catch (Exception e) {
+        loadingValues[3] = true;
+        warn(2000, "Damage - Warn", "Damage muss eine\n Zahl sein", "Info", "");            
+    
+        
+    }
+
 
     }
 
     public void confirmCardHP() {
+        try {
         if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                 && Integer.parseInt(texarea.getText()) < 1001) {
             dataStore.temp_KarteHP = texarea.getText();
@@ -825,6 +878,8 @@ public class SystemController extends GUI implements ActionListener {
             eRandomButton.setActionCommand("GenerateAgility");
             confirmButton.setActionCommand("ConfirmCardAgility");
             infoText.setText("Agilität eingeben (0-100)");
+            reset_texarea();
+
         }
 
         if (cardIndex >= 0) {
@@ -837,6 +892,8 @@ public class SystemController extends GUI implements ActionListener {
                         eRandomButton.setActionCommand("GenerateAgility");
                         confirmButton.setActionCommand("ConfirmCardAgility");
                         infoText.setText("Agilität eingeben (0-100)");
+                        reset_texarea();
+
                     }
 
                 } else {
@@ -847,11 +904,41 @@ public class SystemController extends GUI implements ActionListener {
                         eRandomButton.setActionCommand("GenerateAgility");
                         confirmButton.setActionCommand("ConfirmCardAgility");
                         infoText.setText("Agilität eingeben (0-100)");
+                        reset_texarea();
+
                     }
                 }
+
+            if (karten[cardIndex].karte_Ability != null){
+                reset_texarea();
+                if (cardIndex >= 0 && texarea.getText().length() > 0){
+                    for (int i = 0; i<2 ; i++){
+                        if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
+                            infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
+                        
+            
+                        if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(arraysList.extra_Agility[i][i + 1 ])){
+                            dataStore.temp_KarteAgility = texarea.getText();
+                            dataStore.temp_KarteHP = texarea.getText();
+                            texarea.setText(karten[cardIndex].karte_Agility);
+                            eRandomButton.setActionCommand("GenerateAgility");
+                            confirmButton.setActionCommand("ConfirmCardAgility");
+                            infoText.setText("Agilität eingeben (0-100)");
+                            if (karten[cardIndex].karte_Ability.equals("Bolt")) {
+                             infoText.setText("Agilität eingeben (0-250)");
+
+                            }
+
+                            }
+                        }
+                    }
+                }
+
             }
+        }
 
             if (karten[cardIndex].karte_Ability == null) {
+                reset_texarea();
                 if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                         && Integer.parseInt(texarea.getText()) < 1001) {
                     dataStore.temp_KarteHP = texarea.getText();
@@ -862,10 +949,35 @@ public class SystemController extends GUI implements ActionListener {
                 }
             }
 
+            for (int i = 0; i<1 ; i++){
+                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
+                    infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
+                    for (int v = 0; v<arraysList.skills.length; v++){
+                        if (arraysList.skills[v].equals(arraysList.extra_Agility[i][i])){
+                            texarea.setForeground(arraysList.skills_colors[v]);
+                            texarea.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            confirmButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            randomButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
+                            infoText.setForeground(arraysList.skills_colors[v]);
+                            sec_Image.setVisible(true);
+                            sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                        }
+                    }
+                }
+            }
+
         }
+
+    } catch (Exception e){
+        loadingValues[3] = true;
+        warn(2000, "HP - Warn", "HP muss eine\n Zahl sein", "Info", "");            
+    }
     }
 
     public void confirmCardAgility() {
+        try {
         if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                 && Integer.parseInt(texarea.getText()) < 101) {
             dataStore.temp_KarteAgility = texarea.getText();
@@ -896,7 +1008,47 @@ public class SystemController extends GUI implements ActionListener {
             box2.setVisible(true);
             texarea.setEditable(false);
             sec_Image.setVisible(true);
+            setElementColor();
         }
+
+        if (cardIndex >= 0 && karten[cardIndex].karte_Ability != null){
+    if (karten[cardIndex].karte_Ability != null)
+        if (cardIndex >= 0 && texarea.getText().length() > 0){
+            for (int i = 0; i<2 ; i++){
+                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
+                    infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
+                
+    
+                if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(arraysList.extra_Agility[i][i + 1 ])){
+                    reset_texarea();
+                    dataStore.temp_KarteAgility = texarea.getText();
+                    texarea.setText(karten[cardIndex].karte_Element);
+                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
+                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                    sec_Image.setVisible(true);
+                    eRandomButton.setActionCommand("GenerateElement");
+                    confirmButton.setActionCommand("ConfirmCardElement");
+                    infoText.setText("Element Ändern");
+                    clearBox();
+                    addToBox(2);
+                    box2.setVisible(true);
+                    texarea.setEditable(false);
+                    sec_Image.setVisible(true);
+                    setElementColor();
+
+
+                    }
+                }
+            }
+        }
+    }
+
+} catch (Exception e) {
+     
+    loadingValues[3] = true;
+    warn(2000, "Agility - Warn", "Agility muss eine\n Zahl sein", "Info", "");            
+}
 
     }
 
@@ -911,8 +1063,10 @@ public class SystemController extends GUI implements ActionListener {
             box2.setVisible(false);
             addToBox(3);
             box2.setVisible(true);
-            sec_Image.setIcon(null);
             descriptionBox.setVisible(true);
+            texarea.setText("Keine");
+            sec_Image.setVisible(true);
+            sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Keine.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
         }
 
         if (cardIndex >= 0 && texarea.getText().length() > 3) {
@@ -932,6 +1086,7 @@ public class SystemController extends GUI implements ActionListener {
             addToBox(3);
             box2.setVisible(true);
             descriptionBox.setVisible(true);
+           
         }
 
     }
@@ -1018,6 +1173,14 @@ public class SystemController extends GUI implements ActionListener {
                 karten[cardIndex].karte_Damage = "1000";
             }
         }
+
+        if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Agility) > 100) {
+            if (!karten[cardIndex].karte_Ability.equals("Bolt")) {
+                loadingValues[3] = true;
+                warn(3000, "Agility - Warn", "Agility:" + karten[cardIndex].karte_Agility + " > " + "100", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
+                karten[cardIndex].karte_Agility = "100";
+            }
+        }
     
 
             dataStore.clearSavedTempCard();
@@ -1025,7 +1188,8 @@ public class SystemController extends GUI implements ActionListener {
 
         }
 
-       
+        reset_texarea();
+
 
 
     }
@@ -1122,6 +1286,7 @@ public class SystemController extends GUI implements ActionListener {
 
     public void option1_1() {
     if (cardIndex < 0) {
+        reset_texarea();
         for (int i = 0; i<10 ; i++){
             if (karten[i] == null || karten[i].karte_Name.equals("N/A")){
                 texarea.setText(null);
@@ -1149,6 +1314,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
         if (cardIndex >= 0) {
+            reset_texarea();
             texarea.setText(karten[cardIndex].karte_Name);
             texarea.setVisible(true);
             texarea.setEditable(true);
@@ -1505,6 +1671,7 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void viewMenu() {
+        reset_texarea();
         texarea.setText(null);
         texarea.setVisible(false);
         confirmButton.setVisible(false);
@@ -1515,6 +1682,9 @@ public class SystemController extends GUI implements ActionListener {
         eRandomButton.setActionCommand("");
         backB.setVisible(false);
         box2.setVisible(false);
+        sec_Image.setIcon(null);
+        sec_Image.setVisible(false);
+        infoText.setVisible(false);
         clearBox();
         dataStore.clearSavedTempCard();
     }
@@ -1550,6 +1720,7 @@ public class SystemController extends GUI implements ActionListener {
                 System.out.println(c);
                 karten[c] = null;
                 arraysList.search_Results[c + 1] = "";
+                cardIndex = -1;
             }
           //  löschendeKarte = null;
 
@@ -1624,11 +1795,11 @@ public class SystemController extends GUI implements ActionListener {
 
             if (e.getActionCommand().equals("GenerateRarity")) {
                 texarea.setText(generateObject(arraysList.rar));
+
+
+               
                 try {
-                    sec_Image.setVisible(true);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + texarea.getText() + ".png")
-                            .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                    setRarityColor();
 
                 } catch (Exception x) {
                     System.out.println(x.getStackTrace());
@@ -1638,7 +1809,20 @@ public class SystemController extends GUI implements ActionListener {
             if (e.getActionCommand().equals("GenerateDamage")) {
                 r1 = new Random();
                 r2 = r1.nextInt(1000);
+
+                if (cardIndex >= 0){
+                    if (karten[cardIndex].karte_Ability.equals("Rage")){
+                        r2 = r1.nextInt(1500);
+                    }
+
+                    if (karten[cardIndex].karte_Ability.equals("Shredder")){
+                        r2 = r1.nextInt(2000);
+                    }
+
+                }
+
                 texarea.setText("" + generateNumber(r2, 1));
+
             }
 
 
@@ -1666,10 +1850,8 @@ public class SystemController extends GUI implements ActionListener {
             if (e.getActionCommand().equals("GenerateElement")) {
                 texarea.setText(generateObject(arraysList.elemente));
                 try {
-                    sec_Image.setVisible(true);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
-                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                    setElementColor();
+
 
                 } catch (Exception x) {
                     System.out.println(x.getStackTrace());
@@ -1776,6 +1958,9 @@ public class SystemController extends GUI implements ActionListener {
                 sec_Image.setIcon(new ImageIcon(
                         new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + v + ".png").getImage()
                                 .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+                                setRarityColor();
+
                 break;
             }
         }
@@ -1783,12 +1968,14 @@ public class SystemController extends GUI implements ActionListener {
         for (String v : arraysList.elemente) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
+                setElementColor();
                 sec_Image.setVisible(true);
                 sec_Image.setIcon(
                         new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + v + ".png")
                                 .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                 break;
             }
+
         }
 
         for (String v : arraysList.skills) {

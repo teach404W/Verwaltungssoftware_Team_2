@@ -45,18 +45,22 @@ public class ArraysList {
         };
 
         protected String skills[] = {
-                        "Premium",
-                        "Ghost",
-                        "Rage",
-                        "Shredder",
+                "Keine",
+                "Premium",
+                "Ghost",
+                "Rage",
+                "Shredder",
+                "Bolt",
 
         };
 
         protected String skills_Beschreibung[] = {
-                        "Stats(Damage, HP und Agilität) sind 2x besser",
-                        "Die Karte kann weniger als 0 HP haben (-1000 bis 1000)",
-                        "Die Karte kann 250 extra Schaden haben (1000 bis 1500)",
-                        "Die Karte kann 1000 extra Schaden haben (1000 bis 2000)",
+                "Keine Fähigkeit",
+                "Stats(Damage, HP und Agilität) sind 2x besser",
+                "Die Karte kann weniger als 0 HP haben (-1000 bis 1000)",
+                "Die Karte kann 500 extra Schaden haben (1000 bis 1500)",
+                "Die Karte kann 1000 extra Schaden haben (1000 bis 2000)",
+                "Die Karte kann 150 extra Agility haben (100 bis 250)",
 
         };
 
@@ -94,15 +98,18 @@ public class ArraysList {
 
 
         protected Color[] skills_colors = {
-        new Color(255, 187, 113), // Premium 
-        new Color(239, 133, 241), // Ghost
-        new Color(255, 60, 80), // Rage
-        new Color(111, 255, 185), // Shredder
+                new Color(255,255,255), // Premium 
+                new Color(255, 187, 113), // Premium 
+                new Color(239, 133, 241), // Ghost
+                new Color(255, 60, 80), // Rage
+                new Color(111, 255, 185), // Shredder
+                new Color(188, 41, 99), // Bolt
 
         };
 
 
                 protected String[][] extra_Damage = new String[3][3];
+                protected String[][] extra_Agility = new String[3][3];
 
         
 
@@ -114,6 +121,12 @@ public class ArraysList {
                 extra_Damage[1][1] = "Shredder";
                 extra_Damage[1][2] = "2000";
 
+
+                extra_Agility[0][0] = "Bolt";
+                extra_Agility[0][1] = "250";
+
+                extra_Agility[1][1] = "Bolt2";
+                extra_Agility[1][2] = "80";
 
         }
 }
