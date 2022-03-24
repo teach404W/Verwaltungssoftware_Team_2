@@ -552,12 +552,11 @@ public class GUI{
                 cardInfoText[7].setBorder(new LineBorder(Color.white));
 
 
-                cardsMenu = new JPanel(); // setten von sync_Box
+                cardsMenu = new JPanel(); // setten von cardsMenu
 cardsMenu.setForeground(new Color(255, 255, 255)); // 
-cardsMenu.setFont(new Font("Times new Roman", Font.PLAIN, 60)); // Die Schriftart von sync_Box eingeben | "Times New Roman" ist die Schriftart und 60 ist die Schriftgröße
-cardsMenu.setBounds(700, 100, 550, 600); // Die Position von sync_Box setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird sync_Box oben auf der linken Ecke sein
-//sync_Box.setBackground(Color.black); // Hintergrundsfarbe setten
-cardsMenu.setVisible(true); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
+cardsMenu.setBounds(700, 100, 550, 600); // Die Position von cardsMenu setten (x Position, y Position, x Größe, y Größe) | Wenn die x und y Positionen 0 sind, dann wird cardsMenu oben auf der linken Ecke sein
+//cardsMenu.setBackground(Color.black); // Hintergrundsfarbe setten
+cardsMenu.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben>
