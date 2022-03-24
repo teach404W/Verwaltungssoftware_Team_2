@@ -65,7 +65,7 @@ public class GUI{
         double v;
         
 
-        Texts texts = new Texts();
+        Texts texts = new Texts();  // GUI hat (Assoziation / Komposition) zu Text
         ArraysList arraysList = new ArraysList();
         DataStore dataStore = new DataStore();
         User user = new User();

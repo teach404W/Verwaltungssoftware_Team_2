@@ -182,17 +182,17 @@ class User{
 }
 
 
-GUI <|-- SystemController
-SystemController -- DataStore
 SystemController "1" *-- "0..10" User
-GUI <|-- Input
+GUI "1" *-- "0..10" Texts
+GUI "1" *-- "0..10" Input
+GUI "1" *-- "0..10" ArraysList
 App "1" *-- "0..10" SystemController
-App "1" *-- "0..10" GUI
-GUI <|-- Texts
-GUI <|-- ArraysList
+SystemController "1" *-- "0..10" GUI
 DataStore -- Karte
-SystemController -- Karte
 Karte o-- User
+GUI "1" *-- "0..10" DataStore
+SystemController "1" *-- "0..10" Karte
+
 
 
 

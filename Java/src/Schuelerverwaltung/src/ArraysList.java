@@ -109,7 +109,7 @@ public class ArraysList {
 
 
                 protected String[][] extra_Damage = new String[3][3];
-                protected String[][] extra_Agility = new String[3][3];
+                protected String[][] extra_Agility = new String[2][2];
 
         
 
@@ -125,8 +125,6 @@ public class ArraysList {
                 extra_Agility[0][0] = "Bolt";
                 extra_Agility[0][1] = "250";
 
-                extra_Agility[1][1] = "Bolt2";
-                extra_Agility[1][2] = "80";
 
         }
 }
