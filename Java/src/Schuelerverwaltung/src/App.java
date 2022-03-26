@@ -3,7 +3,6 @@ public class App {
         //  Schuelerverwaltung app1 = new Schuelerverwaltung();
 
         //GUI2 gui = new GUI2();
-        ArraysList a = new ArraysList();
         
         Input input = new Input();
 

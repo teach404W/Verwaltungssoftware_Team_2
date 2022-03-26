@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class ArraysList {
+public abstract class ArraysList {
 
        protected String search_Results[] = {
                         "   ",

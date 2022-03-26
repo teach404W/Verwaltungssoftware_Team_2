@@ -31,6 +31,7 @@ public class SystemController extends GUI implements ActionListener {
    private int warnWait;
 
    private String passwordController;
+   private String meineKarten_Filter = "10 bis 1";
 
 
     Karte[] karten = new Karte[10];
@@ -68,7 +69,7 @@ public class SystemController extends GUI implements ActionListener {
                     sec_Image.setVisible(false);
                 }
                 if (texarea.getText().length() > 0) {
-                    for (String r : arraysList.rar) {
+                    for (String r : super.rar) {
                         System.out.println(r);
                         sec_Image.setIcon(
                                 new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\"
@@ -143,38 +144,38 @@ public class SystemController extends GUI implements ActionListener {
                 }
 
                 search_Box.setVisible(true);
-                for (int a = 0; a < arraysList.search_Results.length; a++) {
+                for (int a = 0; a < super.search_Results.length; a++) {
 
-                    for (int z = 0; z < arraysList.search_Results[a].length(); z++) {
+                    for (int z = 0; z < super.search_Results[a].length(); z++) {
                         if (texarea.getText().length() > 0) {
                             try {
-                                if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z)) {
+                                if (texarea.getText().charAt(v) == super.search_Results[a].charAt(z)) {
                                     searchB1.setVisible(true);
-                                    searchB1.setText(arraysList.search_Results[a]);
+                                    searchB1.setText(super.search_Results[a]);
                                     v++;
 
-                                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z + 1)) {
+                                    if (texarea.getText().charAt(v) == super.search_Results[a].charAt(z + 1)) {
                                         searchB1.setVisible(true);
-                                        searchB1.setText(arraysList.search_Results[a]);
+                                        searchB1.setText(super.search_Results[a]);
                                         v++;
                                     }
 
-                                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z + 2)) {
+                                    if (texarea.getText().charAt(v) == super.search_Results[a].charAt(z + 2)) {
                                         searchB1.setVisible(true);
-                                        searchB1.setText(arraysList.search_Results[a]);
+                                        searchB1.setText(super.search_Results[a]);
                                         v++;
 
                                     }
 
-                                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z + 3)) {
+                                    if (texarea.getText().charAt(v) == super.search_Results[a].charAt(z + 3)) {
                                         searchB1.setVisible(true);
-                                        searchB1.setText(arraysList.search_Results[a]);
+                                        searchB1.setText(super.search_Results[a]);
                                         v++;
                                     }
 
-                                    if (texarea.getText().charAt(v) == arraysList.search_Results[a].charAt(z + 4)) {
+                                    if (texarea.getText().charAt(v) == super.search_Results[a].charAt(z + 4)) {
                                         searchB1.setVisible(true);
-                                        searchB1.setText(arraysList.search_Results[a]);
+                                        searchB1.setText(super.search_Results[a]);
                                         v++;
                                     }
 
@@ -189,9 +190,9 @@ public class SystemController extends GUI implements ActionListener {
 
                     try {
 
-                        if (texarea.getText().toString().equals(arraysList.search_Results[a])) {
+                        if (texarea.getText().toString().equals(super.search_Results[a])) {
                             searchB1.setVisible(true);
-                            searchB1.setText(arraysList.search_Results[a]);
+                            searchB1.setText(super.search_Results[a]);
                             search_Box.setBounds(800, 300, 250, 320);
                             // searchB3.setVisible(false);
                             // searchB4.setVisible(false);
@@ -202,19 +203,19 @@ public class SystemController extends GUI implements ActionListener {
                                 searchB2.setVisible(true);
                                 search_Box.setBounds(800, 300, 250, 320);
                                 d = 0;
-                                for (int z = 0; z < arraysList.search_Results.length; z++) {
-                                    if (!searchB1.getText().toString().equals(arraysList.search_Results[z])) {
+                                for (int z = 0; z < super.search_Results.length; z++) {
+                                    if (!searchB1.getText().toString().equals(super.search_Results[z])) {
                                         d++;
                                         if (texarea.getText().length() > 1)
-                                            if (texarea.getText().toString().charAt(0) == arraysList.search_Results[z]
+                                            if (texarea.getText().toString().charAt(0) == super.search_Results[z]
                                                     .charAt(0)
                                                     && texarea.getText().toString()
-                                                            .charAt(1) == arraysList.search_Results[z].charAt(1)
+                                                            .charAt(1) == super.search_Results[z].charAt(1)
                                                     && !searchB1.getText().toString()
-                                                            .equals(arraysList.search_Results[z])) {
-                                                if (!texarea.getText().toString().equals(arraysList.search_Results[z]))
+                                                            .equals(super.search_Results[z])) {
+                                                if (!texarea.getText().toString().equals(super.search_Results[z]))
                                                     searchB2.setVisible(true);
-                                                searchB2.setText(arraysList.search_Results[z]);
+                                                searchB2.setText(super.search_Results[z]);
                                                 search_Box.setBounds(800, 300, 250, 320);
                                                 break;
                                             }
@@ -234,7 +235,7 @@ public class SystemController extends GUI implements ActionListener {
                         if (Integer.parseInt(texarea.getText().toString()) == a
                                 && Integer.parseInt(texarea.getText().toString()) < 11) {
                             searchB1.setVisible(true);
-                            searchB1.setText(arraysList.search_Results[a]);
+                            searchB1.setText(super.search_Results[a]);
                             search_Box.setBounds(800, 300, 250, 320);
                             searchB2.setVisible(false);
                             searchB3.setVisible(false);
@@ -362,7 +363,7 @@ public class SystemController extends GUI implements ActionListener {
         if (i == 1) {
             JLabel ei;
 
-            for (int e = 0; e < arraysList.rar.length; e++) {
+            for (int e = 0; e < super.rar.length; e++) {
 
                 javax.swing.JButton wahlOption = new JButton();
                 wahlOption.setForeground(new Color(80, 0, 255));
@@ -372,13 +373,13 @@ public class SystemController extends GUI implements ActionListener {
                 wahlOption.setVisible(true);
                 wahlOption.setFocusable(false);
                 wahlOption.addActionListener(this);
-                wahlOption.setActionCommand(arraysList.rar[e]);
+                wahlOption.setActionCommand(super.rar[e]);
                 wahlOption.setBorder(new LineBorder(Color.white));
 
                 ei = new JLabel();
                 ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
                 ei.setIcon(new ImageIcon(new ImageIcon(
-                        "Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + arraysList.rar[e] + ".png")
+                        "Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + super.rar[e] + ".png")
                         .getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
                 ei.setSize(600, 600);
                 ei.setBackground(Color.white);
@@ -395,7 +396,7 @@ public class SystemController extends GUI implements ActionListener {
         if (i == 2) {
             JLabel ei;
 
-            for (int e = 0; e < arraysList.elemente.length; e++) {
+            for (int e = 0; e < super.elemente.length; e++) {
 
                 javax.swing.JButton wahlOption = new JButton();
                 wahlOption.setForeground(new Color(80, 0, 255));
@@ -405,13 +406,13 @@ public class SystemController extends GUI implements ActionListener {
                 wahlOption.setVisible(true);
                 wahlOption.setFocusable(false);
                 wahlOption.addActionListener(this);
-                wahlOption.setActionCommand(arraysList.elemente[e]);
+                wahlOption.setActionCommand(super.elemente[e]);
                 wahlOption.setBorder(new LineBorder(Color.white));
 
                 ei = new JLabel();
                 ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
                 ei.setIcon(new ImageIcon(new ImageIcon(
-                        "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + arraysList.elemente[e] + ".png")
+                        "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + super.elemente[e] + ".png")
                         .getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
                 ei.setSize(600, 600);
                 ei.setBackground(Color.white);
@@ -428,7 +429,7 @@ public class SystemController extends GUI implements ActionListener {
         if (i == 3) {
             JLabel ei;
 
-            for (int e = 0; e < arraysList.skills.length; e++) {
+            for (int e = 0; e < super.skills.length; e++) {
 
                 javax.swing.JButton wahlOption = new JButton();
                 wahlOption.setForeground(new Color(80, 0, 255));
@@ -438,13 +439,13 @@ public class SystemController extends GUI implements ActionListener {
                 wahlOption.setVisible(true);
                 wahlOption.setFocusable(false);
                 wahlOption.addActionListener(this);
-                wahlOption.setActionCommand(arraysList.skills[e]);
+                wahlOption.setActionCommand(super.skills[e]);
                 wahlOption.setBorder(new LineBorder(Color.white));
 
                 ei = new JLabel();
                 ei.setFont(new Font("Times new Roman", Font.PLAIN, 30));
                 ei.setIcon(new ImageIcon(new ImageIcon(
-                        "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[e] + ".png")
+                        "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[e] + ".png")
                         .getImage().getScaledInstance(100, 95, Image.SCALE_AREA_AVERAGING)));
                 ei.setSize(600, 600);
                 ei.setBackground(Color.white);
@@ -638,30 +639,30 @@ public class SystemController extends GUI implements ActionListener {
     }
 
     public void setRarityColor(){
-        for (int i = 0; i < arraysList.rar.length; i++){
-            if (texarea.getText().equals(arraysList.rar[i])){
-                texarea.setForeground(arraysList.rar_colors[i]);
-                texarea.setBorder(new LineBorder(arraysList.rar_colors[i]));
-                confirmButton.setBorder(new LineBorder(arraysList.rar_colors[i]));
-                randomButton.setBorder(new LineBorder(arraysList.rar_colors[i]));
-                infoText.setForeground(arraysList.rar_colors[i]);
+        for (int i = 0; i < super.rar.length; i++){
+            if (texarea.getText().equals(super.rar[i])){
+                texarea.setForeground(super.rar_colors[i]);
+                texarea.setBorder(new LineBorder(super.rar_colors[i]));
+                confirmButton.setBorder(new LineBorder(super.rar_colors[i]));
+                randomButton.setBorder(new LineBorder(super.rar_colors[i]));
+                infoText.setForeground(super.rar_colors[i]);
                 sec_Image.setVisible(true);
-                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + arraysList.rar[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + super.rar[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
             }
         }
     }
 
     public void setElementColor(){
-        for (int i = 0; i < arraysList.elemente.length; i++){
-            if (texarea.getText().equals(arraysList.elemente[i])){
-                texarea.setForeground(arraysList.elemente_colors[i]);
-                texarea.setBorder(new LineBorder(arraysList.elemente_colors[i]));
-                confirmButton.setBorder(new LineBorder(arraysList.elemente_colors[i]));
-                randomButton.setBorder(new LineBorder(arraysList.elemente_colors[i]));
-                infoText.setForeground(arraysList.elemente_colors[i]);
+        for (int i = 0; i < super.elemente.length; i++){
+            if (texarea.getText().equals(super.elemente[i])){
+                texarea.setForeground(super.elemente_colors[i]);
+                texarea.setBorder(new LineBorder(super.elemente_colors[i]));
+                confirmButton.setBorder(new LineBorder(super.elemente_colors[i]));
+                randomButton.setBorder(new LineBorder(super.elemente_colors[i]));
+                infoText.setForeground(super.elemente_colors[i]);
                 sec_Image.setVisible(true);
-                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + arraysList.elemente[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + super.elemente[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
             }
         }
@@ -738,18 +739,18 @@ public class SystemController extends GUI implements ActionListener {
             clearBox();
 
             for (int i = 0; i<2 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[i][i])){
-                    infoText.setText("Damage ändern (0-" + arraysList.extra_Damage[i][i + 1 ] + ")");
-                    for (int v = 0; v<arraysList.skills.length; v++){
-                        if (arraysList.skills[v].equals(arraysList.extra_Damage[i][i])){
-                            texarea.setForeground(arraysList.skills_colors[v]);
-                            texarea.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            confirmButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            randomButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            infoText.setForeground(arraysList.skills_colors[v]);
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])){
+                    infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1 ] + ")");
+                    for (int v = 0; v<super.skills.length; v++){
+                        if (super.skills[v].equals(super.extra_Damage[i][i])){
+                            texarea.setForeground(super.skills_colors[v]);
+                            texarea.setBorder(new LineBorder(super.skills_colors[v]));
+                            confirmButton.setBorder(new LineBorder(super.skills_colors[v]));
+                            randomButton.setBorder(new LineBorder(super.skills_colors[v]));
+                            infoText.setForeground(super.skills_colors[v]);
                             sec_Image.setVisible(true);
                             sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png")
+                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v] + ".png")
                                 .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                         }
                     }
@@ -774,11 +775,11 @@ public class SystemController extends GUI implements ActionListener {
 
     if (cardIndex >= 0 && texarea.getText().length() > 0){
         for (int i = 0; i<2 ; i++){
-            if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[i][i])){
-                infoText.setText("Damage ändern (0-" + arraysList.extra_Damage[i][i + 1 ] + ")");
+            if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])){
+                infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1 ] + ")");
             
 
-            if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(arraysList.extra_Damage[i][i + 1 ])){
+            if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Damage[i][i + 1 ])){
                 dataStore.temp_KarteDamage = texarea.getText();
                 texarea.setText(karten[cardIndex].karte_HP);
                 eRandomButton.setActionCommand("GenerateHP");
@@ -793,11 +794,11 @@ public class SystemController extends GUI implements ActionListener {
                     reset_texarea();
                     if (karten[cardIndex].karte_Ability.equals("Ghost")) {
                         infoText.setText("HP Ändern (-1000-1000)");
-                        texarea.setForeground(arraysList.skills_colors[1]);
-                        texarea.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                        confirmButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                        randomButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                        infoText.setForeground(arraysList.skills_colors[1]);
+                        texarea.setForeground(super.skills_colors[1]);
+                        texarea.setBorder(new LineBorder(super.skills_colors[1]));
+                        confirmButton.setBorder(new LineBorder(super.skills_colors[1]));
+                        randomButton.setBorder(new LineBorder(super.skills_colors[1]));
+                        infoText.setForeground(super.skills_colors[1]);
                         sec_Image.setVisible(true);
                         sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                     }
@@ -806,7 +807,7 @@ public class SystemController extends GUI implements ActionListener {
                 return;
             } else{
                 loadingValues[3] = true;
-                warn(3000, "Damage - Warn", "Damage - Max:\n" + Integer.parseInt(arraysList.extra_Damage[i][i + 1 ]) + " < " + Integer.parseInt(texarea.getText()), "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");            }
+                warn(3000, "Damage - Warn", "Damage - Max:\n" + Integer.parseInt(super.extra_Damage[i][i + 1 ]) + " < " + Integer.parseInt(texarea.getText()), "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");            }
                 
             }
         }
@@ -829,11 +830,11 @@ public class SystemController extends GUI implements ActionListener {
                 reset_texarea();
                 if (karten[cardIndex].karte_Ability.equals("Ghost")) {
 
-                    texarea.setForeground(arraysList.skills_colors[1]);
-                    texarea.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                    confirmButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                    randomButton.setBorder(new LineBorder(arraysList.skills_colors[1]));
-                    infoText.setForeground(arraysList.skills_colors[1]);
+                    texarea.setForeground(super.skills_colors[1]);
+                    texarea.setBorder(new LineBorder(super.skills_colors[1]));
+                    confirmButton.setBorder(new LineBorder(super.skills_colors[1]));
+                    randomButton.setBorder(new LineBorder(super.skills_colors[1]));
+                    infoText.setForeground(super.skills_colors[1]);
                     sec_Image.setVisible(true);
                     sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
@@ -913,11 +914,11 @@ public class SystemController extends GUI implements ActionListener {
                 reset_texarea();
                 if (cardIndex >= 0 && texarea.getText().length() > 0){
                     for (int i = 0; i<2 ; i++){
-                        if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
-                            infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
+                        if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
+                            infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
                         
             
-                        if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(arraysList.extra_Agility[i][i + 1 ])){
+                        if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Agility[i][i + 1 ])){
                             dataStore.temp_KarteAgility = texarea.getText();
                             dataStore.temp_KarteHP = texarea.getText();
                             texarea.setText(karten[cardIndex].karte_Agility);
@@ -950,18 +951,18 @@ public class SystemController extends GUI implements ActionListener {
             }
 
             for (int i = 0; i<1 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
-                    infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
-                    for (int v = 0; v<arraysList.skills.length; v++){
-                        if (arraysList.skills[v].equals(arraysList.extra_Agility[i][i])){
-                            texarea.setForeground(arraysList.skills_colors[v]);
-                            texarea.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            confirmButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            randomButton.setBorder(new LineBorder(arraysList.skills_colors[v]));
-                            infoText.setForeground(arraysList.skills_colors[v]);
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
+                    infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
+                    for (int v = 0; v<super.skills.length; v++){
+                        if (super.skills[v].equals(super.extra_Agility[i][i])){
+                            texarea.setForeground(super.skills_colors[v]);
+                            texarea.setBorder(new LineBorder(super.skills_colors[v]));
+                            confirmButton.setBorder(new LineBorder(super.skills_colors[v]));
+                            randomButton.setBorder(new LineBorder(super.skills_colors[v]));
+                            infoText.setForeground(super.skills_colors[v]);
                             sec_Image.setVisible(true);
                             sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + arraysList.skills[v] + ".png")
+                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v] + ".png")
                                 .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                         }
                     }
@@ -1015,11 +1016,11 @@ public class SystemController extends GUI implements ActionListener {
     if (karten[cardIndex].karte_Ability != null)
         if (cardIndex >= 0 && texarea.getText().length() > 0){
             for (int i = 0; i<2 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Agility[i][i])){
-                    infoText.setText("Agility ändern (0-" + arraysList.extra_Agility[i][i + 1 ] + ")");
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
+                    infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
                 
     
-                if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(arraysList.extra_Agility[i][i + 1 ])){
+                if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Agility[i][i + 1 ])){
                     reset_texarea();
                     dataStore.temp_KarteAgility = texarea.getText();
                     texarea.setText(karten[cardIndex].karte_Element);
@@ -1147,7 +1148,7 @@ public class SystemController extends GUI implements ActionListener {
             karten[cardIndex].karte_Element = dataStore.temp_KarteElement;
             karten[cardIndex].karte_Ability = dataStore.temp_KarteAbility;
 
-            arraysList.search_Results[cardIndex + 1] = dataStore.temp_KarteName;
+            super.search_Results[cardIndex + 1] = dataStore.temp_KarteName;
 
             if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_HP) < 0) {
                 if (!karten[cardIndex].karte_Ability.equals("Ghost")) {
@@ -1158,9 +1159,9 @@ public class SystemController extends GUI implements ActionListener {
             }
 
         if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Damage) > 1000) {
-            if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0]) || karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[1][1])) {
+            if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0]) || karten[cardIndex].karte_Ability.equals(super.extra_Damage[1][1])) {
 
-                if (karten[cardIndex].karte_Ability.equals(arraysList.extra_Damage[0][0]) && Integer.parseInt(karten[cardIndex].karte_Damage) > 1500){
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0]) && Integer.parseInt(karten[cardIndex].karte_Damage) > 1500){
                     loadingValues[3] = true;
                     warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1500", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
                     karten[cardIndex].karte_Damage = "1500";
@@ -1277,7 +1278,7 @@ public class SystemController extends GUI implements ActionListener {
         karten[i].karte_ID = dataStore.temp_KarteID;
         karten[i].karte_ID = "" + generateNumber(10000, 1000000);
 
-        arraysList.search_Results[i + 1] = dataStore.temp_KarteName;
+        super.search_Results[i + 1] = dataStore.temp_KarteName;
 
         dataStore.clearSavedTempCard();
 
@@ -1368,23 +1369,23 @@ public class SystemController extends GUI implements ActionListener {
             cardInfoText[7].setText("                    " + karten[card].karte_ID);
             System.out.println(karten[card].karte_Ability);
 
-            for (int i = 0; i<arraysList.rar.length; i++){
-                if (cardInfoText[1].getText().equals(arraysList.rar[i])){
-                    cardInfoText[1].setForeground(arraysList.rar_colors[i]);
+            for (int i = 0; i<super.rar.length; i++){
+                if (cardInfoText[1].getText().equals(super.rar[i])){
+                    cardInfoText[1].setForeground(super.rar_colors[i]);
                     cardInfoText[1].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + cardInfoText[1].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
 
-            for (int i = 0; i<arraysList.elemente.length; i++){
-                if (cardInfoText[5].getText().equals(arraysList.elemente[i])){
-                    cardInfoText[5].setForeground(arraysList.elemente_colors[i]);
+            for (int i = 0; i<super.elemente.length; i++){
+                if (cardInfoText[5].getText().equals(super.elemente[i])){
+                    cardInfoText[5].setForeground(super.elemente_colors[i]);
                     cardInfoText[5].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + cardInfoText[5].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
 
-            for (int i = 0; i<arraysList.skills.length; i++){
-                if (cardInfoText[6].getText().equals(arraysList.skills[i])){
-                    cardInfoText[6].setForeground(arraysList.skills_colors[i]);
+            for (int i = 0; i<super.skills.length; i++){
+                if (cardInfoText[6].getText().equals(super.skills[i])){
+                    cardInfoText[6].setForeground(super.skills_colors[i]);
                     cardInfoText[6].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + cardInfoText[6].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
@@ -1435,181 +1436,42 @@ public class SystemController extends GUI implements ActionListener {
 
     public void showcards(){
         showOptions(false,0);
+        
+        backB.setVisible(true);
+        try {
+        cardsMenu.setVisible(false);
         cardsMenu.removeAll();
         cardsMenu.setVisible(true);
-        if (karten[0] != null && !karten[0].karte_Name.equals("N/A")){
-            showCardsButtons[0] = new JButton(karten[0].karte_Name);
-            showCardsButtons[0].addActionListener(this);
-            showCardsButtons[0].setActionCommand("Karte1");
-            showCardsButtons[0].setForeground(new Color(255, 255, 255));
-            showCardsButtons[0].setBounds(0, 0, 200, 200); 
-            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
-            showCardsButtons[0].setBackground(Color.BLACK);
-            showCardsButtons[0].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
-            cardsMenu.add(showCardsButtons[0]);
+        }catch (Exception e){
 
         }
-       
-        if (karten[1] != null && !karten[1].karte_Name.equals("N/A")){
-        showCardsButtons[1] = new JButton(karten[1].karte_Name);
-        showCardsButtons[1].addActionListener(this);
-        showCardsButtons[1].setActionCommand("Karte2");
-        showCardsButtons[1].setForeground(new Color(255,255,255));
-        showCardsButtons[1].setBounds(0, 0, 200, 200); 
-        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[1].setBackground(Color.BLACK);
-        showCardsButtons[1].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+    if (meineKarten_Filter.equals("1 bis 10")){
+        for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+    
+            }
+
         }
-        if (karten[2] != null && !karten[2].karte_Name.equals("N/A")){
-        showCardsButtons[2] = new JButton(karten[2].karte_Name);
-        showCardsButtons[2].addActionListener(this);
-        showCardsButtons[2].setActionCommand("Karte3");
-        showCardsButtons[2].setForeground(new Color(255,255,255));
-        showCardsButtons[2].setBounds(0, 0, 200, 200); 
-        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[2].setBackground(Color.BLACK);
-        showCardsButtons[2].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[3] != null && !karten[3].karte_Name.equals("N/A")){
-        showCardsButtons[3] = new JButton(karten[3].karte_Name);
-        showCardsButtons[3].addActionListener(this);
-        showCardsButtons[3].setActionCommand("Karte4");
-        showCardsButtons[3].setForeground(new Color(255,255,255));
-        showCardsButtons[3].setBounds(0, 0, 200, 200); 
-        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[3].setBackground(Color.BLACK);
-        showCardsButtons[3].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[4] != null && !karten[4].karte_Name.equals("N/A")){
-        showCardsButtons[4] = new JButton(karten[4].karte_Name);
-        showCardsButtons[4].addActionListener(this);
-        showCardsButtons[4].setActionCommand("Karte5");
-        showCardsButtons[4].setForeground(new Color(255,255,255));
-        showCardsButtons[4].setBounds(0, 0, 200, 200); 
-        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[4].setBackground(Color.BLACK);
-        showCardsButtons[4].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[5] != null && !karten[5].karte_Name.equals("N/A")){
-        showCardsButtons[5] = new JButton(karten[5].karte_Name);
-        showCardsButtons[5].addActionListener(this);
-        showCardsButtons[5].setActionCommand("Karte6");
-        showCardsButtons[5].setForeground(new Color(255,255,255));
-        showCardsButtons[5].setBounds(0, 0, 200, 200); 
-        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[5].setBackground(Color.BLACK);
-        showCardsButtons[5].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[6] != null && !karten[6].karte_Name.equals("N/A")){
-        showCardsButtons[6] = new JButton(karten[6].karte_Name);
-        showCardsButtons[6].addActionListener(this);
-        showCardsButtons[6].setActionCommand("Karte7");
-        showCardsButtons[6].setForeground(new Color(255,255,255));
-        showCardsButtons[6].setBounds(0, 0, 200, 200); 
-        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[6].setBackground(Color.BLACK);
-        showCardsButtons[6].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[7] != null && !karten[7].karte_Name.equals("N/A")){
-        showCardsButtons[7] = new JButton(karten[7].karte_Name);
-        showCardsButtons[7].addActionListener(this);
-        showCardsButtons[7].setActionCommand("Karte8");
-        showCardsButtons[7].setForeground(new Color(255,255,255));
-        showCardsButtons[7].setBounds(0, 0, 200, 200); 
-        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[7].setBackground(Color.BLACK);
-        showCardsButtons[7].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[8] != null && !karten[8].karte_Name.equals("N/A")){
-        showCardsButtons[8] = new JButton(karten[8].karte_Name);
-        showCardsButtons[8].addActionListener(this);
-        showCardsButtons[8].setActionCommand("Karte9");
-        showCardsButtons[8].setForeground(new Color(255,255,255));
-        showCardsButtons[8].setBounds(0, 0, 200, 200); 
-        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[8].setBackground(Color.BLACK);
-        showCardsButtons[8].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[9] != null && !karten[9].karte_Name.equals("N/A")){
-        showCardsButtons[9] = new JButton(karten[9].karte_Name);
-        showCardsButtons[9].addActionListener(this);
-        showCardsButtons[9].setActionCommand("Karte10");
-        showCardsButtons[9].setForeground(new Color(255,255,255));
-        showCardsButtons[9].setBounds(0, 0, 200, 200); 
-        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[9].setBackground(Color.BLACK);
-        showCardsButtons[9].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+
+
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+            cardsMenu.add(showCardsButtons[i]);
+            showCardsButtons[i].setVisible(true);
+
         }
         
-        if (showCardsButtons[0] != null){
-            cardsMenu.add(showCardsButtons[0]);
-            showCardsButtons[0].setVisible(true);
-
-        }
-
-        if (showCardsButtons[1] != null){
-            cardsMenu.add(showCardsButtons[1]);
-            showCardsButtons[1].setVisible(true);
-
-        }
-
-        if (showCardsButtons[2] != null){
-            cardsMenu.add(showCardsButtons[2]);
-            showCardsButtons[2].setVisible(true);
-
-        }
-
-        if (showCardsButtons[3] != null){
-            cardsMenu.add(showCardsButtons[3]);
-            showCardsButtons[3].setVisible(true);
-
-        }
-
-        if (showCardsButtons[4] != null){
-            cardsMenu.add(showCardsButtons[4]);
-            showCardsButtons[4].setVisible(true);
-
-        }
-
-        if (showCardsButtons[5] != null){
-            cardsMenu.add(showCardsButtons[5]);
-            showCardsButtons[5].setVisible(true);
-
-        }
-       
-        if (showCardsButtons[6] != null){
-            cardsMenu.add(showCardsButtons[6]);
-            showCardsButtons[6].setVisible(true);
-
-        }
-
-        if (showCardsButtons[7] != null){
-            cardsMenu.add(showCardsButtons[7]);
-            showCardsButtons[7].setVisible(true);
-
-        }
-
-        if (showCardsButtons[8] != null){
-            cardsMenu.add(showCardsButtons[8]);
-            showCardsButtons[8].setVisible(true);
-
-        }
-
-        if (showCardsButtons[9] != null){
-            cardsMenu.add(showCardsButtons[9]);
-            showCardsButtons[9].setVisible(true);
-
-        }
+    }
         /*
         showCardsButtons[3].setVisible(true);
         showCardsButtons[4].setVisible(true);
@@ -1619,12 +1481,203 @@ public class SystemController extends GUI implements ActionListener {
         showCardsButtons[8].setVisible(true);
         showCardsButtons[9].setVisible(true);
         */
+    }
+
+    if (meineKarten_Filter.equals("10 bis 1")){
+        for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
+                System.out.println(karten[i].karte_Name);
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+               
+               
+        
+                }
+
+                
+
+           
+        }
+
+        for (int i = 9; i>-1; i--){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+        }
+
+  }
+
+  if (meineKarten_Filter.equals("schwach zu stark")){
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+    }
+
+    for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
+                System.out.println(karten[i].karte_Name);
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+               
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                    cardsMenu.add(showCardsButtons[i]);
+                    showCardsButtons[i].setVisible(true);
+                }
+        
+                }
+
+            }
+            for (int i = 0; i<10; i++){
+
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    cardsMenu.add(showCardsButtons[i]);
+                   
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                    }
+            
+                    }
+
+                
+    
+
+    }
+            
+
+}
+
+if (meineKarten_Filter.equals("stark zu schwach")){
+
+    for (int i = 0; i<10; i++){
+
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+
+        
+
+
+}
+
+for (int i = 0; i<10; i++){
+    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
+        System.out.println(karten[i].karte_Name);
+        showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+        showCardsButtons[i].addActionListener(this);
+        showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+        showCardsButtons[i].setForeground(new Color(255, 255, 255));
+        showCardsButtons[i].setBounds(0, 0, 200, 200); 
+        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[i].setBackground(Color.BLACK);
+        showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+        cardsMenu.add(showCardsButtons[i]);
+       
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+            cardsMenu.add(showCardsButtons[i]);
+            showCardsButtons[i].setVisible(true);
+        }
+
+        }
+
+    }
+   
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+    }
+
+   
+            
+
+}
+
+    
         
     }
 
 
     public void karteBearbeiten() {
 
+        backB.setVisible(true);
         texarea.setVisible(true);
         texarea.setText(null);
         texarea.setEditable(true);
@@ -1676,6 +1729,11 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setVisible(false);
         confirmButton.setVisible(false);
         randomButton.setVisible(false);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
+        searchB3.setVisible(false);
+        searchB4.setVisible(false);
         showOptions(true, 0);
         infoText.setText("Erfolgreich angemeldet");
         confirmButton.setActionCommand("");
@@ -1685,11 +1743,28 @@ public class SystemController extends GUI implements ActionListener {
         sec_Image.setIcon(null);
         sec_Image.setVisible(false);
         infoText.setVisible(false);
+        if (cardsMenu.isVisible() == true){
+           // cardsMenu.removeAll();
+            cardsMenu.setVisible(false);
+            cardInfoMenu.setVisible(false);
+            cardInfoImage.setVisible(false);
+            cardInfoText[0].setVisible(false);
+            cardInfoText[1].setVisible(false);
+            cardInfoText[2].setVisible(false);
+            cardInfoText[3].setVisible(false);
+            cardInfoText[4].setVisible(false);
+            cardInfoText[5].setVisible(false);
+            cardInfoText[6].setVisible(false);
+            cardInfoText[7].setVisible(false);
+
+        }
         clearBox();
         dataStore.clearSavedTempCard();
     }
 
     public void karteLöschen() {
+
+        backB.setVisible(true);
         texarea.setVisible(true);
         texarea.setText(null);
         texarea.setEditable(true);
@@ -1719,8 +1794,9 @@ public class SystemController extends GUI implements ActionListener {
             if (karten[c] != null && karten[c].karte_Name.equals(löschendeKarte)) {
                 System.out.println(c);
                 karten[c] = null;
-                arraysList.search_Results[c + 1] = "";
+                super.search_Results[c + 1] = "";
                 cardIndex = -1;
+                break;
             }
           //  löschendeKarte = null;
 
@@ -1794,7 +1870,7 @@ public class SystemController extends GUI implements ActionListener {
             }
 
             if (e.getActionCommand().equals("GenerateRarity")) {
-                texarea.setText(generateObject(arraysList.rar));
+                texarea.setText(generateObject(super.rar));
 
 
                
@@ -1848,7 +1924,7 @@ public class SystemController extends GUI implements ActionListener {
             }
 
             if (e.getActionCommand().equals("GenerateElement")) {
-                texarea.setText(generateObject(arraysList.elemente));
+                texarea.setText(generateObject(super.elemente));
                 try {
                     setElementColor();
 
@@ -1859,8 +1935,8 @@ public class SystemController extends GUI implements ActionListener {
             }
 
             if (e.getActionCommand().equals("GenerateAbility")) {
-                texarea.setText(generateObject(arraysList.skills));
-                descriptionBox.setText(arraysList.skills_Beschreibung[rd2]);
+                texarea.setText(generateObject(super.skills));
+                descriptionBox.setText(super.skills_Beschreibung[rd2]);
                 try {
                     sec_Image.setVisible(true);
                     sec_Image.setIcon(new ImageIcon(new ImageIcon(
@@ -1951,7 +2027,7 @@ public class SystemController extends GUI implements ActionListener {
             texarea.setText(searchB1.getText());
         }
 
-        for (String v : arraysList.rar) {
+        for (String v : super.rar) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
                 sec_Image.setVisible(true);
@@ -1965,7 +2041,7 @@ public class SystemController extends GUI implements ActionListener {
             }
         }
 
-        for (String v : arraysList.elemente) {
+        for (String v : super.elemente) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
                 setElementColor();
@@ -1978,15 +2054,15 @@ public class SystemController extends GUI implements ActionListener {
 
         }
 
-        for (String v : arraysList.skills) {
+        for (String v : super.skills) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
-                for (int i = 0; i< arraysList.skills.length; i++){
-                    if (texarea.getText().equals(arraysList.skills[i])){
+                for (int i = 0; i< super.skills.length; i++){
+                    if (texarea.getText().equals(super.skills[i])){
                         rd2 = i;
                     }
                 }
-                descriptionBox.setText(arraysList.skills_Beschreibung[rd2]);
+                descriptionBox.setText(super.skills_Beschreibung[rd2]);
                 sec_Image.setVisible(true);
                 sec_Image.setIcon(
                         new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + v + ".png")
@@ -2024,7 +2100,7 @@ public class SystemController extends GUI implements ActionListener {
 
                 for (int i = 0; i < 10; i++) {
                     if (!dataStore.karten[i].karte_Name.equals("N/A")) {
-                        arraysList.search_Results[i + 1] = dataStore.karten[i].karte_Name;
+                        super.search_Results[i + 1] = dataStore.karten[i].karte_Name;
                     }
                 }
 

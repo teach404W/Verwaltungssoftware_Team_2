@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-public class GUI{
+public class GUI extends ArraysList{
 
        protected JFrame frame;
 
@@ -66,7 +66,7 @@ public class GUI{
         
 
         Texts texts = new Texts();  // GUI hat (Assoziation / Komposition) zu Text
-        ArraysList arraysList = new ArraysList();
+    //    ArraysList arraysList = new ArraysList();
         DataStore dataStore = new DataStore();
         User user = new User();
         Input input = new Input(this);
@@ -560,6 +560,7 @@ cardsMenu.setVisible(false); // Sichtbarkeit setten | false = nicht sichtbar ; t
 cardsMenu.setFocusable(false); // Textrand ändern | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setOpaque(false); // Hintergrundssichtbarkeit | false = nicht sichtbar ; true = sichtbar
 cardsMenu.setBorder(new LineBorder(Color.white)); // Outline und die Farbe eingeben>
+cardsMenu.setLayout(new GridLayout(10,1));
 frame.add(cardsMenu);
 
                 frame.add(cardInfoImage);
