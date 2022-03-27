@@ -31,6 +31,7 @@ public class SystemController extends GUI implements ActionListener {
    private int warnWait;
 
    private String passwordController;
+   private String meineKarten_Filter = "10 bis 1";
 
 
     Karte[] karten = new Karte[10];
@@ -1435,181 +1436,42 @@ public class SystemController extends GUI implements ActionListener {
 
     public void showcards(){
         showOptions(false,0);
+        
+        backB.setVisible(true);
+        try {
+        cardsMenu.setVisible(false);
         cardsMenu.removeAll();
         cardsMenu.setVisible(true);
-        if (karten[0] != null && !karten[0].karte_Name.equals("N/A")){
-            showCardsButtons[0] = new JButton(karten[0].karte_Name);
-            showCardsButtons[0].addActionListener(this);
-            showCardsButtons[0].setActionCommand("Karte1");
-            showCardsButtons[0].setForeground(new Color(255, 255, 255));
-            showCardsButtons[0].setBounds(0, 0, 200, 200); 
-            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
-            showCardsButtons[0].setBackground(Color.BLACK);
-            showCardsButtons[0].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-            showCardsButtons[0].setBorder(new LineBorder(new Color(255,255,255)));
-            cardsMenu.add(showCardsButtons[0]);
+        }catch (Exception e){
 
         }
-       
-        if (karten[1] != null && !karten[1].karte_Name.equals("N/A")){
-        showCardsButtons[1] = new JButton(karten[1].karte_Name);
-        showCardsButtons[1].addActionListener(this);
-        showCardsButtons[1].setActionCommand("Karte2");
-        showCardsButtons[1].setForeground(new Color(255,255,255));
-        showCardsButtons[1].setBounds(0, 0, 200, 200); 
-        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[1].setBackground(Color.BLACK);
-        showCardsButtons[1].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[1].setBorder(new LineBorder(new Color(255,255,255)));
+    if (meineKarten_Filter.equals("1 bis 10")){
+        for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+    
+            }
+
         }
-        if (karten[2] != null && !karten[2].karte_Name.equals("N/A")){
-        showCardsButtons[2] = new JButton(karten[2].karte_Name);
-        showCardsButtons[2].addActionListener(this);
-        showCardsButtons[2].setActionCommand("Karte3");
-        showCardsButtons[2].setForeground(new Color(255,255,255));
-        showCardsButtons[2].setBounds(0, 0, 200, 200); 
-        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[2].setBackground(Color.BLACK);
-        showCardsButtons[2].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[2].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[3] != null && !karten[3].karte_Name.equals("N/A")){
-        showCardsButtons[3] = new JButton(karten[3].karte_Name);
-        showCardsButtons[3].addActionListener(this);
-        showCardsButtons[3].setActionCommand("Karte4");
-        showCardsButtons[3].setForeground(new Color(255,255,255));
-        showCardsButtons[3].setBounds(0, 0, 200, 200); 
-        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[3].setBackground(Color.BLACK);
-        showCardsButtons[3].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[3].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[4] != null && !karten[4].karte_Name.equals("N/A")){
-        showCardsButtons[4] = new JButton(karten[4].karte_Name);
-        showCardsButtons[4].addActionListener(this);
-        showCardsButtons[4].setActionCommand("Karte5");
-        showCardsButtons[4].setForeground(new Color(255,255,255));
-        showCardsButtons[4].setBounds(0, 0, 200, 200); 
-        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[4].setBackground(Color.BLACK);
-        showCardsButtons[4].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[4].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[5] != null && !karten[5].karte_Name.equals("N/A")){
-        showCardsButtons[5] = new JButton(karten[5].karte_Name);
-        showCardsButtons[5].addActionListener(this);
-        showCardsButtons[5].setActionCommand("Karte6");
-        showCardsButtons[5].setForeground(new Color(255,255,255));
-        showCardsButtons[5].setBounds(0, 0, 200, 200); 
-        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[5].setBackground(Color.BLACK);
-        showCardsButtons[5].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[5].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[6] != null && !karten[6].karte_Name.equals("N/A")){
-        showCardsButtons[6] = new JButton(karten[6].karte_Name);
-        showCardsButtons[6].addActionListener(this);
-        showCardsButtons[6].setActionCommand("Karte7");
-        showCardsButtons[6].setForeground(new Color(255,255,255));
-        showCardsButtons[6].setBounds(0, 0, 200, 200); 
-        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[6].setBackground(Color.BLACK);
-        showCardsButtons[6].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[6].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[7] != null && !karten[7].karte_Name.equals("N/A")){
-        showCardsButtons[7] = new JButton(karten[7].karte_Name);
-        showCardsButtons[7].addActionListener(this);
-        showCardsButtons[7].setActionCommand("Karte8");
-        showCardsButtons[7].setForeground(new Color(255,255,255));
-        showCardsButtons[7].setBounds(0, 0, 200, 200); 
-        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[7].setBackground(Color.BLACK);
-        showCardsButtons[7].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[7].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[8] != null && !karten[8].karte_Name.equals("N/A")){
-        showCardsButtons[8] = new JButton(karten[8].karte_Name);
-        showCardsButtons[8].addActionListener(this);
-        showCardsButtons[8].setActionCommand("Karte9");
-        showCardsButtons[8].setForeground(new Color(255,255,255));
-        showCardsButtons[8].setBounds(0, 0, 200, 200); 
-        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[8].setBackground(Color.BLACK);
-        showCardsButtons[8].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[8].setBorder(new LineBorder(new Color(255,255,255)));
-        }
-        if (karten[9] != null && !karten[9].karte_Name.equals("N/A")){
-        showCardsButtons[9] = new JButton(karten[9].karte_Name);
-        showCardsButtons[9].addActionListener(this);
-        showCardsButtons[9].setActionCommand("Karte10");
-        showCardsButtons[9].setForeground(new Color(255,255,255));
-        showCardsButtons[9].setBounds(0, 0, 200, 200); 
-        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[9].setBackground(Color.BLACK);
-        showCardsButtons[9].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[9].setBorder(new LineBorder(new Color(255,255,255)));
+
+
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+            cardsMenu.add(showCardsButtons[i]);
+            showCardsButtons[i].setVisible(true);
+
         }
         
-        if (showCardsButtons[0] != null){
-            cardsMenu.add(showCardsButtons[0]);
-            showCardsButtons[0].setVisible(true);
-
-        }
-
-        if (showCardsButtons[1] != null){
-            cardsMenu.add(showCardsButtons[1]);
-            showCardsButtons[1].setVisible(true);
-
-        }
-
-        if (showCardsButtons[2] != null){
-            cardsMenu.add(showCardsButtons[2]);
-            showCardsButtons[2].setVisible(true);
-
-        }
-
-        if (showCardsButtons[3] != null){
-            cardsMenu.add(showCardsButtons[3]);
-            showCardsButtons[3].setVisible(true);
-
-        }
-
-        if (showCardsButtons[4] != null){
-            cardsMenu.add(showCardsButtons[4]);
-            showCardsButtons[4].setVisible(true);
-
-        }
-
-        if (showCardsButtons[5] != null){
-            cardsMenu.add(showCardsButtons[5]);
-            showCardsButtons[5].setVisible(true);
-
-        }
-       
-        if (showCardsButtons[6] != null){
-            cardsMenu.add(showCardsButtons[6]);
-            showCardsButtons[6].setVisible(true);
-
-        }
-
-        if (showCardsButtons[7] != null){
-            cardsMenu.add(showCardsButtons[7]);
-            showCardsButtons[7].setVisible(true);
-
-        }
-
-        if (showCardsButtons[8] != null){
-            cardsMenu.add(showCardsButtons[8]);
-            showCardsButtons[8].setVisible(true);
-
-        }
-
-        if (showCardsButtons[9] != null){
-            cardsMenu.add(showCardsButtons[9]);
-            showCardsButtons[9].setVisible(true);
-
-        }
+    }
         /*
         showCardsButtons[3].setVisible(true);
         showCardsButtons[4].setVisible(true);
@@ -1619,12 +1481,203 @@ public class SystemController extends GUI implements ActionListener {
         showCardsButtons[8].setVisible(true);
         showCardsButtons[9].setVisible(true);
         */
+    }
+
+    if (meineKarten_Filter.equals("10 bis 1")){
+        for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
+                System.out.println(karten[i].karte_Name);
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+               
+               
+        
+                }
+
+                
+
+           
+        }
+
+        for (int i = 9; i>-1; i--){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+        }
+
+  }
+
+  if (meineKarten_Filter.equals("schwach zu stark")){
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+    }
+
+    for (int i = 0; i<10; i++){
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
+                System.out.println(karten[i].karte_Name);
+                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                showCardsButtons[i].addActionListener(this);
+                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                showCardsButtons[i].setBackground(Color.BLACK);
+                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                cardsMenu.add(showCardsButtons[i]);
+               
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                    cardsMenu.add(showCardsButtons[i]);
+                    showCardsButtons[i].setVisible(true);
+                }
+        
+                }
+
+            }
+            for (int i = 0; i<10; i++){
+
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200); 
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    cardsMenu.add(showCardsButtons[i]);
+                   
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                    }
+            
+                    }
+
+                
+    
+
+    }
+            
+
+}
+
+if (meineKarten_Filter.equals("stark zu schwach")){
+
+    for (int i = 0; i<10; i++){
+
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+
+        
+
+
+}
+
+for (int i = 0; i<10; i++){
+    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
+        System.out.println(karten[i].karte_Name);
+        showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+        showCardsButtons[i].addActionListener(this);
+        showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+        showCardsButtons[i].setForeground(new Color(255, 255, 255));
+        showCardsButtons[i].setBounds(0, 0, 200, 200); 
+        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+        showCardsButtons[i].setBackground(Color.BLACK);
+        showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+        cardsMenu.add(showCardsButtons[i]);
+       
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+            cardsMenu.add(showCardsButtons[i]);
+            showCardsButtons[i].setVisible(true);
+        }
+
+        }
+
+    }
+   
+    for (int i = 0; i<10; i++){
+        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
+            System.out.println(karten[i].karte_Name);
+            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+            showCardsButtons[i].addActionListener(this);
+            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+            showCardsButtons[i].setForeground(new Color(255, 255, 255));
+            showCardsButtons[i].setBounds(0, 0, 200, 200); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            showCardsButtons[i].setBackground(Color.BLACK);
+            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
+            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+            cardsMenu.add(showCardsButtons[i]);
+           
+            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+                cardsMenu.add(showCardsButtons[i]);
+                showCardsButtons[i].setVisible(true);
+            }
+    
+            }
+    }
+
+   
+            
+
+}
+
+    
         
     }
 
 
     public void karteBearbeiten() {
 
+        backB.setVisible(true);
         texarea.setVisible(true);
         texarea.setText(null);
         texarea.setEditable(true);
@@ -1676,6 +1729,11 @@ public class SystemController extends GUI implements ActionListener {
         texarea.setVisible(false);
         confirmButton.setVisible(false);
         randomButton.setVisible(false);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
+        searchB3.setVisible(false);
+        searchB4.setVisible(false);
         showOptions(true, 0);
         infoText.setText("Erfolgreich angemeldet");
         confirmButton.setActionCommand("");
@@ -1685,11 +1743,28 @@ public class SystemController extends GUI implements ActionListener {
         sec_Image.setIcon(null);
         sec_Image.setVisible(false);
         infoText.setVisible(false);
+        if (cardsMenu.isVisible() == true){
+           // cardsMenu.removeAll();
+            cardsMenu.setVisible(false);
+            cardInfoMenu.setVisible(false);
+            cardInfoImage.setVisible(false);
+            cardInfoText[0].setVisible(false);
+            cardInfoText[1].setVisible(false);
+            cardInfoText[2].setVisible(false);
+            cardInfoText[3].setVisible(false);
+            cardInfoText[4].setVisible(false);
+            cardInfoText[5].setVisible(false);
+            cardInfoText[6].setVisible(false);
+            cardInfoText[7].setVisible(false);
+
+        }
         clearBox();
         dataStore.clearSavedTempCard();
     }
 
     public void karteLöschen() {
+
+        backB.setVisible(true);
         texarea.setVisible(true);
         texarea.setText(null);
         texarea.setEditable(true);
@@ -1721,6 +1796,7 @@ public class SystemController extends GUI implements ActionListener {
                 karten[c] = null;
                 super.search_Results[c + 1] = "";
                 cardIndex = -1;
+                break;
             }
           //  löschendeKarte = null;
 

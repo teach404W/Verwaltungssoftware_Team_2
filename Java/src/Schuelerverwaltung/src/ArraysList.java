@@ -1,6 +1,10 @@
 import java.awt.Color;
 
+<<<<<<< HEAD
 abstract class ArraysList {
+=======
+public abstract class ArraysList {
+>>>>>>> 64494faa82e0382d3c5907f1ea1eb26856e060b1
 
        protected String search_Results[] = {
                         "   ",

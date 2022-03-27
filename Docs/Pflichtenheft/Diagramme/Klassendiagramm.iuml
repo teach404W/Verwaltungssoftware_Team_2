@@ -2,6 +2,10 @@
 skinparam classAttributeIconSize 0
 
 class App{
+<<<<<<< HEAD
+=======
+ input : Input
+>>>>>>> 64494faa82e0382d3c5907f1ea1eb26856e060b1
  s : SystemController
 
 }
