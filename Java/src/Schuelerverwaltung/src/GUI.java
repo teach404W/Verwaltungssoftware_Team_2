@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-public class GUI{
+class GUI extends ArraysList{
 
        protected JFrame frame;
 
@@ -66,12 +66,12 @@ public class GUI{
         
 
         Texts texts = new Texts();  // GUI hat (Assoziation / Komposition) zu Text
-        ArraysList arraysList = new ArraysList();
+    //    ArraysList arraysList = new ArraysList();
         DataStore dataStore = new DataStore();
         User user = new User();
         Input input = new Input(this);
 
-        public GUI() throws Exception {
+         GUI() throws Exception {
 
                 frame = new JFrame(); // Öffnet ein Fenster beim Starten
 
@@ -422,6 +422,8 @@ public class GUI{
                 infoText.setOpaque(false);
                 infoText.setVisible(false);
                 infoText.setFocusable(false);
+
+                
 
                 texarea = new JTextField(10);
                 texarea.setBounds(420, 300, 300, 60);

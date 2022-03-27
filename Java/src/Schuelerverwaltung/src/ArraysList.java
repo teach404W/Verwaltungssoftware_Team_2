@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class ArraysList {
+abstract class ArraysList {
 
        protected String search_Results[] = {
                         "   ",
@@ -113,7 +113,7 @@ public class ArraysList {
 
         
 
-        public ArraysList() {
+         ArraysList() {
                 System.out.println();
                 extra_Damage[0][0] = "Rage";
                 extra_Damage[0][1] = "1500";

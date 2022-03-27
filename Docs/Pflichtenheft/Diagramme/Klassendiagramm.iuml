@@ -2,15 +2,13 @@
 skinparam classAttributeIconSize 0
 
 class App{
- a : ArraysList
- input : Input
  s : SystemController
 
 }
 
 
 
-class ArraysList{
+abstract ArraysList{
 #search_Results : String[]
 #rar : String[]
 #elemente : String[]
@@ -120,7 +118,7 @@ class Karte{
 class SystemController{
 -r1 : Random
 
-#loadingValues[] : boolean[9]
+-loadingValues[] : boolean[9]
 
 -cardIndex : Byte
 -d : Byte
@@ -160,7 +158,7 @@ class SystemController{
  +createCard(i : int) : void
  +option1_1() : void
  +clearSavedTempCard() : void
- +showOptions(b : boolean) : void
+ +showOptions(b : boolean, n : int) : void
  +viewMenu() : void
  +saveCards() : void
  +editCard() : void
