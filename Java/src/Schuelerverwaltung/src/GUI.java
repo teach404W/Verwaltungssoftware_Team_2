@@ -10,11 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-<<<<<<< HEAD
 class GUI extends ArraysList{
-=======
-public class GUI extends ArraysList{
->>>>>>> 64494faa82e0382d3c5907f1ea1eb26856e060b1
 
        protected JFrame frame;
 
@@ -55,6 +51,7 @@ public class GUI extends ArraysList{
        protected JButton searchB4;
        protected JButton[] showCardsButtons = new JButton[10];
        protected JButton[] sync = new JButton[3];
+       protected JButton filterChanger;
 
 
        protected JTextArea descriptionBox;
@@ -68,6 +65,8 @@ public class GUI extends ArraysList{
         double r;
         double v;
         
+        String meineKarten_Filter = "1 bis 10";
+
 
         Texts texts = new Texts();  // GUI hat (Assoziation / Komposition) zu Text
     //    ArraysList arraysList = new ArraysList();
@@ -715,6 +714,19 @@ frame.add(cardsMenu);
                         infoMes.setFocusable(false);
                         infoMes.setOpaque(false);
                         infoMes.setText("Leicht");
+
+
+
+                        filterChanger = new JButton("Filter: " + meineKarten_Filter);
+                        filterChanger.setForeground(new Color(255, 255, 255));
+                        filterChanger.setFont(new Font("Times new Roman", Font.PLAIN, 20));
+                        filterChanger.setBounds(700, 47, 140, 50);
+                        filterChanger.setBackground(Color.black);
+                        filterChanger.setVisible(true);
+                        filterChanger.setFocusable(false);
+                        filterChanger.setActionCommand("filterChanger");
+                        filterChanger.setBorder(new LineBorder(Color.white));
+                        
         
                 frame.add(infoPanel);
         
@@ -726,6 +738,8 @@ frame.add(cardsMenu);
                 frame.add(saveButton);
                 saveButton.add(eSaveButton);
                 eSaveButton.add(iSaveButton);
+
+                frame.add(filterChanger);
 
                 frame.add(l2);
                 frame.add(texarea);

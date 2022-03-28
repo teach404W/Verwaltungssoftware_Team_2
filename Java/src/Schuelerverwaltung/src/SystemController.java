@@ -31,7 +31,6 @@ public class SystemController extends GUI implements ActionListener {
    private int warnWait;
 
    private String passwordController;
-   private String meineKarten_Filter = "10 bis 1";
 
 
     Karte[] karten = new Karte[10];
@@ -55,6 +54,7 @@ public class SystemController extends GUI implements ActionListener {
         confirmButton.addActionListener(this);
         eRandomButton.addActionListener(this);
         eSaveButton.addActionListener(this);
+        filterChanger.addActionListener(this);
         Thread.sleep(1000);
      //   loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
      loading(false, false, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
@@ -2011,6 +2011,39 @@ for (int i = 0; i<10; i++){
             abmelden();
         }
 
+        if (e.getActionCommand().equals("filterChanger")) {
+            if (meineKarten_Filter.equals("1 bis 10")){
+                meineKarten_Filter = "10 bis 1";
+                filterChanger.setText("Filter: " + meineKarten_Filter);
+                showcards();
+                return;
+
+            }
+
+            if (meineKarten_Filter.equals("10 bis 1")){
+                meineKarten_Filter = "schwach zu stark";
+                filterChanger.setText("Filter: " + meineKarten_Filter);
+                showcards();
+                return;
+
+            }
+
+            if (meineKarten_Filter.equals("schwach zu stark")){
+                meineKarten_Filter = "stark zu schwach";
+                filterChanger.setText("Filter: " + meineKarten_Filter);
+                showcards();
+                return;
+
+            }
+
+            if (meineKarten_Filter.equals("stark zu schwach")){
+                meineKarten_Filter = "1 bis 10";
+                filterChanger.setText("Filter: " + meineKarten_Filter);
+                showcards();
+                return;
+
+            }
+        }
         if (e.getSource() == backB || e.getSource() == option[0]) {
 
             if (e.getActionCommand().equals("option[0]")) {
