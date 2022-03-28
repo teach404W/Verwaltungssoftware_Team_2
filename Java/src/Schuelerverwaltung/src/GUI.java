@@ -720,13 +720,13 @@ frame.add(cardsMenu);
                         filterChanger = new JButton("Filter: " + meineKarten_Filter);
                         filterChanger.setForeground(new Color(255, 255, 255));
                         filterChanger.setFont(new Font("Times new Roman", Font.PLAIN, 20));
-                        filterChanger.setBounds(700, 47, 140, 50);
+                        filterChanger.setBounds(700, 47, 550, 50);
                         filterChanger.setBackground(Color.black);
                         filterChanger.setVisible(true);
                         filterChanger.setFocusable(false);
                         filterChanger.setActionCommand("filterChanger");
                         filterChanger.setBorder(new LineBorder(Color.white));
-                        
+
         
                 frame.add(infoPanel);
         

@@ -114,7 +114,6 @@ abstract class ArraysList {
         
 
          ArraysList() {
-                System.out.println();
                 extra_Damage[0][0] = "Rage";
                 extra_Damage[0][1] = "1500";
 

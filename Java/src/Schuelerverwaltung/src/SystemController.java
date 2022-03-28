@@ -2001,7 +2001,10 @@ for (int i = 0; i<10; i++){
                 if (c<0){
                     c = 0;
                 }
-                showCardInfo(c);
+                if (!karten[c].karte_Name.equals(cardInfoText[0].getText())){
+                    showCardInfo(c);
+
+                }
                 break;
             }
 

@@ -2,10 +2,6 @@
 skinparam classAttributeIconSize 0
 
 class App{
-<<<<<<< HEAD
-=======
- input : Input
->>>>>>> 64494faa82e0382d3c5907f1ea1eb26856e060b1
  s : SystemController
 
 }
@@ -187,15 +183,16 @@ class User{
 SystemController "1" *-- "0..10" User
 GUI "1" *-- "0..10" Texts
 GUI "1" *-- "0..10" Input
-GUI "1" *-- "0..10" ArraysList
 App "1" *-- "0..10" SystemController
 SystemController "1" *-- "0..10" GUI
 DataStore -- Karte
 Karte o-- User
 GUI "1" *-- "0..10" DataStore
 SystemController "1" *-- "0..10" Karte
+GUI "1" *-- "0..10" ArraysList
 
-
+ArraysList <|-- GUI
+GUI <|-- SystemController
 
 
 @enduml
