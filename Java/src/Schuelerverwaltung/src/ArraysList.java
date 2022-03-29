@@ -16,6 +16,8 @@ abstract class ArraysList {
                         "",
 
         };
+        
+        
 
         protected String rar[] = {
                         "Gewöhnlich",
@@ -111,7 +113,7 @@ abstract class ArraysList {
                 protected String[][] extra_Damage = new String[3][3];
                 protected String[][] extra_Agility = new String[2][2];
 
-        
+
 
          ArraysList() {
                 extra_Damage[0][0] = "Rage";
