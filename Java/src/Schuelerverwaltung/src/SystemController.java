@@ -1458,7 +1458,8 @@ public class SystemController extends GUI implements ActionListener {
                 showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
                 showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
                 cardsMenu.add(showCardsButtons[i]);
-    
+                filterChanger.setVisible(true);
+
             }
 
         }
@@ -1511,6 +1512,8 @@ public class SystemController extends GUI implements ActionListener {
             if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                 cardsMenu.add(showCardsButtons[i]);
                 showCardsButtons[i].setVisible(true);
+                filterChanger.setVisible(true);
+
             }
         }
 
@@ -1534,6 +1537,8 @@ public class SystemController extends GUI implements ActionListener {
             if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                 cardsMenu.add(showCardsButtons[i]);
                 showCardsButtons[i].setVisible(true);
+                filterChanger.setVisible(true);
+
             }
     
             }
@@ -1556,6 +1561,8 @@ public class SystemController extends GUI implements ActionListener {
                 if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                     cardsMenu.add(showCardsButtons[i]);
                     showCardsButtons[i].setVisible(true);
+                    filterChanger.setVisible(true);
+
                 }
         
                 }
@@ -1579,6 +1586,8 @@ public class SystemController extends GUI implements ActionListener {
                     if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                         cardsMenu.add(showCardsButtons[i]);
                         showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+
                     }
             
                     }
@@ -1611,6 +1620,8 @@ if (meineKarten_Filter.equals("stark zu schwach")){
             if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                 cardsMenu.add(showCardsButtons[i]);
                 showCardsButtons[i].setVisible(true);
+                filterChanger.setVisible(true);
+
             }
     
             }
@@ -1637,6 +1648,8 @@ for (int i = 0; i<10; i++){
         if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
             cardsMenu.add(showCardsButtons[i]);
             showCardsButtons[i].setVisible(true);
+            filterChanger.setVisible(true);
+
         }
 
         }
@@ -1660,6 +1673,7 @@ for (int i = 0; i<10; i++){
             if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
                 cardsMenu.add(showCardsButtons[i]);
                 showCardsButtons[i].setVisible(true);
+                filterChanger.setVisible(true);
             }
     
             }
@@ -1743,6 +1757,8 @@ for (int i = 0; i<10; i++){
         sec_Image.setIcon(null);
         sec_Image.setVisible(false);
         infoText.setVisible(false);
+        filterChanger.setVisible(false);
+
         if (cardsMenu.isVisible() == true){
            // cardsMenu.removeAll();
             cardsMenu.setVisible(false);
