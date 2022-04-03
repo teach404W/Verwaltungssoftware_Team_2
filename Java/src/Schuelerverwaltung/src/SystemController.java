@@ -1442,7 +1442,7 @@ public class SystemController extends GUI implements ActionListener {
         cardsMenu.setVisible(false);
         cardsMenu.removeAll();
         cardsMenu.setVisible(true);
-        }catch (Exception e){
+        } catch (Exception e){
 
         }
     if (meineKarten_Filter.equals("1 bis 10")){
@@ -1469,7 +1469,6 @@ public class SystemController extends GUI implements ActionListener {
         if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
             cardsMenu.add(showCardsButtons[i]);
             showCardsButtons[i].setVisible(true);
-
         }
         
     }
