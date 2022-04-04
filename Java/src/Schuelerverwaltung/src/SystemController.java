@@ -23,6 +23,8 @@ public class SystemController extends GUI implements ActionListener {
 
     User user = new User();
 
+    boolean generateCard = false;
+
 
     Karte[] karten = new Karte[9];
 
@@ -50,6 +52,39 @@ public class SystemController extends GUI implements ActionListener {
         sync();
 
         while (user.angemeldet == true) {
+
+            if (generateCard == true){
+                generateCard = false;
+
+                for(int i=0;i<=180;i+=2){
+                    Thread.sleep(10);
+                    generateRandomCard();
+                }
+
+                randomCard[5].setIcon(new ImageIcon(new ImageIcon(
+                    "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + randomCard[5].getText() + ".png")
+                    .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+                    randomCard[6].setIcon(new ImageIcon(new ImageIcon(
+                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + randomCard[6].getText() + ".png").getImage()
+                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+                            randomCard[0].setText("Name: " + randomCard[0].getText());
+                            randomCard[1].setText("Seltenheit:" + randomCard[1].getText());
+                            randomCard[2].setText("Damage:" + randomCard[2].getText());
+                            r2 = r1.nextInt(1000);
+                            randomCard[3].setText("HP:" + randomCard[3].getText());
+                            r2 = r1.nextInt(1000);
+                            randomCard[4].setText("Agility:" + randomCard[4].getText());
+                            randomCard[5].setText("Element:" + randomCard[5].getText());
+                           
+            
+                                        randomCard[6].setText("Fähigkeit:" + randomCard[6].getText());
+                                        randomCard[7].setText("ID:" + randomCard[7].getText());
+                                        
+            
+
+            }
             if (confirmButton.getActionCommand() == "ConfirmCardRarity") {
                 if (texarea.getText().length() < 1) {
                     sec_Image.setVisible(false);
@@ -750,6 +785,35 @@ public class SystemController extends GUI implements ActionListener {
         optionI[5].setVisible(b);
     }
 
+    public void generateRandomCard(){
+        r1 = new Random();
+                r2 = r1.nextInt(1000);
+
+                randomCard[0].setText(randomName());
+                randomCard[1].setText(generateObject(arraysList.rar));
+                randomCard[2].setText(generateNumber(r2, 1) + "");
+                r2 = r1.nextInt(1000);
+                randomCard[3].setText(generateNumber(r2, 1) + "");
+                r2 = r1.nextInt(1000);
+                randomCard[4].setText(generateNumber(r2, 1) + "");
+                randomCard[5].setText(generateObject(arraysList.elemente));
+               
+
+                            randomCard[6].setText(generateObject(arraysList.skills));
+                            
+
+
+                            r2 = r1.nextInt(1000000);
+                randomCard[7].setText("" + generateNumber(10000, r2));
+
+                System.out.println(generateObject(arraysList.rar));
+                System.out.println("Damage" + generateNumber(10000, r2));
+                System.out.println("HP" + generateNumber(10000, r2));
+                System.out.println("Agility" + generateNumber(10000, r2));
+
+
+    }
+
     public void viewMenu() {
         texarea.setText(null);
         texarea.setVisible(false);
@@ -883,6 +947,12 @@ public class SystemController extends GUI implements ActionListener {
             }
 
         }
+
+        if (e.getActionCommand().equals("Zufällige Karte machen")) {
+            generateCard = true;
+                
+        }
+
 
         if (e.getSource() == confirmButton) {
 
