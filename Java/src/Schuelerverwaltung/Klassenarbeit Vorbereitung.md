@@ -35,4 +35,4 @@ Es gibt 4 Sichtbarkeiten: Public, Private, Protected und Package
   `Beispiel:`\
   Wenn man eine liste mit 10 plätzen für preise anlegen möchte, schreibt man: `int[] preise = new int[10];`. Hierbei können die stellen 0 - 10 im array benutzt und abgerufen werden.\
   Abgerufen kann es mit `System.out.println(preise[0]);`, dabei wird der preis des Arrays an erster Stelle abgerufen und Ausgegeben.
-  Wenn man klassen wie z.b. die klasse Karte als array mit 10 plätzen erstellen will, schreibt man: `Karte[] karten = new Karte[10];` und danach mit `karten[0] = new Karte();` initialisieren und deklarieren.
+  Wenn man klassen wie z.b. die klasse Karte als array mit 10 plätzen erstellen will, schreibt man: `Karte[] karten = new Karte[10];` und danach mit `karten[0] = new Karte();` initialisieren und deklarieren, das macht man dann 10 mal und setzt für die 0 jeweils die zahlen 1 - 10 ein.
