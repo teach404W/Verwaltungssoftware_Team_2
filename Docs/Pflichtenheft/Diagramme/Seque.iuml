@@ -2,7 +2,7 @@
 ' You can also declare:
 group Karte anlegen [Karte anlegen]
     user.User -> "systemController.SystemController" : option1_1()
-    systemController.SystemController -> "GUI" : (Hier wird der Gui gesagt, dass asufüllbare Textfeld anzuzeigen)
+    systemController.SystemController -> "GUI" : (Hier wird der Gui gesagt, dass ausfüllbare Textfeld anzuzeigen)
     systemController.SystemController -> "systemController.SystemController " : showOptions(false) + clearBox()
     systemController.SystemController -> "dataStore.DataStore" : clearSavedTempCard()
     systemController.SystemController  -> "systemController.SystemController" : return showOptions(null) ; clearBox(null)
@@ -77,7 +77,6 @@ group Karte anlegen [Karte anlegen]
 @enduml
 
 @startuml 
-' You can also declare:
 group Meine Karten [Meine Karten]
        user.User -> "systemController.SystemController" : option2_1()
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein Menü mit Karten wird sichtbar gemacht)
@@ -85,11 +84,9 @@ group Meine Karten [Meine Karten]
         systemController.SystemController -> systemController.SystemController : (Beim Klicken auf eine Karte -> showCardInformation(int) return String[])
         systemController.SystemController -> GUI :  (Menü wird sichtbar gemacht und sie bekommt die zurück gegebenen\nInformationen aus ShowCardInformation())
         GUI -> systemController.SystemController :  
-
 @enduml
 
 @startuml 
-' You can also declare:
 group Karte bearbeiten [Karte bearbeiten]
        user.User -> "systemController.SystemController" : option3_1()
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)
@@ -104,7 +101,6 @@ group Karte bearbeiten [Karte bearbeiten]
 
 
 @startuml 
-' You can also declare:
 group Karte löschen [Karte löschen]
        user.User -> "systemController.SystemController" : option4_1()
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)

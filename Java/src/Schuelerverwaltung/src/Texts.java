@@ -1,6 +1,7 @@
 
 public class Texts {
 
+
     String loadingtex[] = {
             "System lädt",
             "System lädt.",
@@ -13,18 +14,18 @@ public class Texts {
             "Funktionen laden...",
             "Funktionen laden....",
             "Methoden werden vorbereitet",
-            "Methoden werden vorbereitet.",
-            "Methoden werden vorbereitet..",
-            "Methoden werden vorbereitet...",
-            "Methoden werden vorbereitet....",
-            "Methoden werden vorbereitet.....",
-            "Methoden werden vorbereitet......",
-            "Methoden werden vorbereitet.......",
-            "Random generators laden",
-            "Random generators laden",
-            "Random generators laden",
-            "Random generators laden",
-            "Random generators laden",
+            "Methoden werden vorbereitet",
+            "Anmelden - System lädt",
+            "Anmelden - System lädt",
+            "Anmelden - System lädt",
+            "Save - System lädt",
+            "Save - System lädt",
+            "Save - System lädt",
+            "Random Generator lädt",
+            "Random Generator lädt",
+            "Random Generator lädt",
+            "Random Generator lädt",
+            "Random Generator lädt",
             "Suchmaschine lädt",
             "Suchmaschine lädt",
             "Suchmaschine lädt",
@@ -185,7 +186,8 @@ public class Texts {
 
     };
 
-    public String setTex(String[] a, int i) {
+
+    public String setTex(String[] a, int i){
 
         return a[i];
     }

@@ -19,16 +19,14 @@ Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschrei
 
 ### **1.1 Grobbeschreibung** 
 
-In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Name und Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) Fähigkeiten(Premium, Ghost, ..), Stats(Damage, HP und Agilität) und bekommen eine eigene ID. Die ID generieren wir mit der Funktion generateNumber() in der Klasse SystemController. L. 450 findet man die Funktion und auf der L. 633 wird die ID generiert.
+In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Name und Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) Fähigkeiten(Premium, Ghost, ..), Stats(Damage, HP und Agilität) und bekommen eine eigene ID. Die ID generieren wir mit der Funktion generateNumber() in der Klasse SystemController. L. 531 findet man die Funktion und auf der L. 789 wird die ID generiert.
 
 Die Stats haben eine wichtige Auswirkung auf die Karte.
-unter "Java\\src\\Schuelerverwaltung\\Images\\Karten" findet man 3 Arten von Karten. "Silver", "Gold" und "Elite". Wenn die Stats der Karte mehr als 800 sind, dann bekommt die Karte die "Gold" Stufe. Das heißt, wenn die Stats(Damage, HP und Agilität) zusammen gerechnet mehr als 800 sind, dann wird die Karte "Gold" als Theme haben wird. Wenn die Stats mehr als 1500 sind, dann bekommt die Karte die "Elite" Stufe und das zeigt, dass die Karte wertvöllig ist.
-
-TODO Ausführlicher -> Welche Fähigkeiten und Seltenheitsstufen gibt es z. B. Welche Stats gibt es und welche Auswirkung haben diese
+unter "Java\\src\\Schuelerverwaltung\\Images\\Karten" findet man 3 Arten von Karten. "Silver", "Gold" und "Elite". Wenn die Stats der Karte mehr als 800 sind, dann bekommt die Karte die "Gold" Stufe. Das heißt, wenn die Stats(Damage, HP und Agilität) zusammen gerechnet mehr als 800 sind, dann wird die Karte "Gold" als Theme haben werden. Wenn die Stats mehr als 1800 sind, dann bekommt die Karte die "Elite" Stufe und das zeigt, dass die Karte wertvöllig ist.
 
 Fähigkeiten
  -Premium: Stats(Damage, HP und Agilität) sind 2x besser
- -Ghost: Die Karte kann weniger als 0 HP haben(0 bis -1000)
+ -Ghost: Die Karte kann weniger als 0 HP haben(1000 bis -1000)
 ### **1.2 Menüführung**
 
 Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes muss man einen Namen und ein Passwort eingeben. Man erstellt also entweder neue Daten(Konto), oder man kann die gespeicherten Daten in DataStore laden(dafür braucht man den gespeicherten Namen und das gespeicherte Passwort). Danach kann der Nutzer von den 6 Möglichkeiten eine auswählen:
@@ -94,8 +92,9 @@ Die Menüführung besteht aus 6 Tasten mit Bildern. Beim Starten des Projektes m
 
 - Karte löschen    
   - der Nutzer wählt eine verfügbare Karte aus und kann sie löschen   
-  - die gelöschte Karte bleibt in DataStore und der Nutzer kann sie jederzeit wiederherstellen   
-  - wenn der Nutzer eine Karte löscht, während in DataStore eine gelöschte Karte gespeichert ist, bekommt der Nutzer eine Warnung und muss zwischen "Ja" und "Nein" wählen. Wenn der Nutzer "Ja" auswählt, dann wird die gespeicherte Karte aus der DataStore entfernt. Wählt der Nutzer "Nein" aus, dann bleibt die gespeicherte Karte in DataStore und die Karte, die der Nutzer löschen wollte, bleibt im Konto.
+  - wenn der Nutzer bestätigt, dann kontrollliert das System, ob die Karte existiert oder nicht
+  - wenn das System die Karte findet, dann wird sie gelöscht. Findet das System keine Karte, dann wird die Funktion gestoppt
+
 
 
 
@@ -124,7 +123,7 @@ Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestalt
 
 ### **3.1 Klassendiagramm**
 
-![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramm.iuml)
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/Klassendiagramme.iuml)
 
 
 ### 3.2 Objektdiagramm
@@ -138,4 +137,4 @@ Zusätzlich benutzt unser Programm eine GUI, welche mit Bildern und Text gestalt
 
 ### 3.4 Sequenzdiagramm
 
-![Seque](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/seque.iuml)
+![your-UML-diagram-name](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/teach404W/Verwaltungssoftware_Team_2/main/Docs/Pflichtenheft/Diagramme/seque.iuml)

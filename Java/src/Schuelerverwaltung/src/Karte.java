@@ -1,14 +1,14 @@
 import java.io.Serializable;
 
-public class Karte implements Serializable {
-
-    String karte_Name = "null";
-    String karte_Seltenheit;
-    String karte_Damage;
-    String karte_HP;
-    String karte_Agility;
-    String karte_Element;
-    String karte_ID;
-    String karte_Ability;
+public class Karte implements Serializable{
+    
+   protected String karte_Name = "N/A";
+   protected String karte_Seltenheit;
+   protected String karte_Damage;
+   protected String karte_HP;
+   protected String karte_Agility;
+   protected String karte_Element;
+   protected String karte_Ability;
+   protected String karte_ID;
 
 }
