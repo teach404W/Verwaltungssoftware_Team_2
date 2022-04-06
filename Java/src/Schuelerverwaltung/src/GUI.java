@@ -37,6 +37,7 @@ class GUI extends ArraysList {
         protected JLabel[] optionI = new JLabel[6];
         protected JLabel[] randomCard = new JLabel[8];
         protected JLabel sec_Image;
+        protected JLabel unboxingI;
 
         protected JButton backB;
         protected JButton confirmButton;
@@ -409,6 +410,13 @@ class GUI extends ArraysList {
                 randomCard[7].setVisible(true);
                 randomCard[7].setFocusable(false);
 
+                unboxingI = new JLabel();
+                unboxingI.setBounds(410,350,400,400);
+                unboxingI.setVisible(false);
+
+                frame.add(unboxingI);
+
+
                 // frame.add(option[0]_Image);
                 frame.add(optionI[1]);
                 frame.add(optionI[2]);
@@ -426,22 +434,14 @@ class GUI extends ArraysList {
                 frame.add(randomCard[6]);
                 frame.add(randomCard[7]);              
 
-
-
-
-
-
-
-
-
-
-
                 frame.add(option[0]);
                 frame.add(option[1]);
                 frame.add(option[2]);
                 frame.add(option[3]);
                 frame.add(option[4]);
                 frame.add(option[5]);
+
+
                 searchB2 = new JButton("           ");
                 searchB2.setForeground(new Color(255, 255, 255));
                 searchB2.setFont(new Font("Times new Roman", Font.PLAIN, 45));
