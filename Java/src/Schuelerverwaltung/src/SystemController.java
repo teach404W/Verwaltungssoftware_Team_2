@@ -125,40 +125,6 @@ public class SystemController extends GUI implements ActionListener {
                         .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
 
                 }
-
-
-
-                if (d + h + a > 800 && d + h + a < 1600){
-                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
-    
-                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold_Glow.png")
-
-                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
-
-                    
-
-                    for (int i = 0; i < 13; i ++) {
-                        Thread.sleep(20);
-                        generateRandomCard();
-                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
-    
-                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Gold\\" + i + ".png")
-    
-                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
-    
-                    }
-
-
-                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
-    
-                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
-
-                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
-
-                        
-
-                }
-
                 
 
                 if (d + h + a >= 1600){
@@ -205,6 +171,48 @@ public class SystemController extends GUI implements ActionListener {
 
                 }
                
+
+                                if (d + h + a > 800 && d + h + a < 1600){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold_Glow.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                        for (int sil = 0; sil<600; sil+=2){
+                            unboxingI.setBounds(410,950 - sil,400,400);;
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+                    for (int i = 0; i < 25; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Gold\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                }
+
 
                 randomCard[1].setIcon(new ImageIcon(new ImageIcon(
 
@@ -304,7 +312,7 @@ public class SystemController extends GUI implements ActionListener {
                 loading_width = 500;
                 loading_height = 300;
                 l2.setVisible(true);
-                l2.setText("Karte wird hergestellt");
+                l2.setText("Karte wird angelegt");
                 loading(false, true, (byte) 0, (byte) 50, (byte) 50, (byte) 50, (byte) 50, (byte) 3);
                 l2.setVisible(false);
                 showOptions(true, 0);
@@ -1940,6 +1948,7 @@ public class SystemController extends GUI implements ActionListener {
 
     public void karteBearbeiten() {
 
+
         backB.setVisible(true);
         texarea.setVisible(true);
         texarea.setText(null);
@@ -1947,8 +1956,9 @@ public class SystemController extends GUI implements ActionListener {
 
         confirmButton.setVisible(true);
         showOptions(false, 0);
-        search_Box.setVisible(true);
-        searchB1.setVisible(true);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
 
         confirmButton.setActionCommand("show edit panel");
     }
@@ -2065,8 +2075,9 @@ public class SystemController extends GUI implements ActionListener {
 
         confirmButton.setVisible(true);
         showOptions(false, 0);
-        search_Box.setVisible(true);
-        searchB1.setVisible(true);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
 
         confirmButton.setActionCommand("Löschen Abfrage");
 
@@ -2311,7 +2322,19 @@ public class SystemController extends GUI implements ActionListener {
             unboxingButton[0].setVisible(false);
             unboxingButton[1].setVisible(false);
             unboxingButton[2].setVisible(false);
+            unboxingI.setVisible(false);
+            randomCard[0].setVisible(false);
+            randomCard[1].setVisible(false);
+            randomCard[2].setVisible(false);
+            randomCard[3].setVisible(false);
+            randomCard[4].setVisible(false);
+            randomCard[5].setVisible(false);
+            randomCard[6].setVisible(false);
+            randomCard[7].setVisible(false);
+
             checkCards();
+            loadingValues[1] = true;
+
         }
 
 
