@@ -69,6 +69,9 @@ public class SystemController extends GUI implements ActionListener {
                 randomCard[1].setIcon(null);
                 randomCard[5].setIcon(null);
                 randomCard[6].setIcon(null);
+                randomCard[1].setForeground(new Color(255,255,255));
+                randomCard[5].setForeground(new Color(255,255,255));
+                randomCard[6].setForeground(new Color(255,255,255));
 
                 for (int i = 0; i <= 180; i += 2) {
                     Thread.sleep(20);
@@ -128,7 +131,7 @@ public class SystemController extends GUI implements ActionListener {
                 randomCard[7].setText("ID:" + randomCard[7].getText());
 
             }
-            
+
 
             if (confirmButton.getActionCommand() == "ConfirmCardRarity") {
                 if (texarea.getText().length() < 1) {

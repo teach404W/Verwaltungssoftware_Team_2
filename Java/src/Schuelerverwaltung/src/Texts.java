@@ -196,7 +196,4 @@ public class Texts {
     }
 
 
-    Texts(){
-        System.out.println("Fina Fantasyl " + r2);
-    }
 }
