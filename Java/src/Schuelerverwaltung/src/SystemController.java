@@ -65,6 +65,9 @@ public class SystemController extends GUI implements ActionListener {
 
         while (user.angemeldet == true) {
             if (generateCard == true) {
+                int d = r1.nextInt(1000);;
+                int h = r1.nextInt(1000);;
+                int a = r1.nextInt(100);;
                 generateCard = false;
                 showOptions(false,0);
                 randomCard[1].setIcon(null);
@@ -73,18 +76,154 @@ public class SystemController extends GUI implements ActionListener {
                 randomCard[1].setForeground(new Color(255,255,255));
                 randomCard[5].setForeground(new Color(255,255,255));
                 randomCard[6].setForeground(new Color(255,255,255));
+                unboxingI.setBounds(410,350,400,400);
                 unboxingI.setVisible(true);
 
-                for (int i = 0; i <= 180; i +=2) {
-                    Thread.sleep(20);
-                    generateRandomCard();
+                
+
+                if (d + h + a < 800){
                     unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver_Glow.png")
 
-                        "Java\\src\\Schuelerverwaltung\\Images\\Animation_Pack opening\\" + i + ".jpg")
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
 
-                        .getImage().getScaledInstance(380, 300, Image.SCALE_AREA_AVERAGING)));
+                        for (int sil = 0; sil<600; sil+=2){
+                            unboxingI.setBounds(410,950 - sil,400,400);;
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+                    for (int i = 0; i < 25; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Silver\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.jpg")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
 
                 }
+
+
+
+                if (d + h + a > 800 && d + h + a < 1600){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold_Glow.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                        
+
+                    
+
+                    for (int sil = 0; sil<600; sil+=2){
+                        unboxingI.setBounds(410,950 - 1,400,400);
+                        Thread.sleep(1);
+                    }
+
+                    for (int b = 0; b<100; b+=2){
+                        unboxingI.setBounds(410,350-b,400,400);
+                        Thread.sleep(1);
+                    }
+
+                    for (int b32 = 0; b32<100; b32++){
+                        unboxingI.setBounds(410,350-b32,400,400);
+                        Thread.sleep(1);
+                    }
+
+                    for (int b32 = 0; b32<50; b32++){
+                        unboxingI.setBounds(410,250-b32,400,400);
+                        Thread.sleep(3);
+                    }
+                    
+
+                    for (int i = 0; i < 13; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Gold\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+
+
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                        
+
+                }
+
+                
+
+                if (d + h + a >= 1600){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite_Glow.png")
+                        
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+
+                        for (int b = 0; b<600; b+=2){
+                            unboxingI.setBounds(410,950 - b,400,400);
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+
+                    for (int i = 0; i < 22; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Elite\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                }
+               
 
                 randomCard[1].setIcon(new ImageIcon(new ImageIcon(
 
@@ -121,15 +260,11 @@ public class SystemController extends GUI implements ActionListener {
 
                 randomCard[1].setText("Seltenheit:" + randomCard[1].getText());
 
-                randomCard[2].setText("Damage:" + randomCard[2].getText());
+                randomCard[2].setText("Damage:" + d);
 
-                r2 = r1.nextInt(1000);
+                randomCard[3].setText("HP:" + h);
 
-                randomCard[3].setText("HP:" + randomCard[3].getText());
-
-                r2 = r1.nextInt(1000);
-
-                randomCard[4].setText("Agility:" + randomCard[4].getText());
+                randomCard[4].setText("Agility:" + a);
 
                 randomCard[5].setText("Element:" + randomCard[5].getText());
 
