@@ -54,6 +54,9 @@ public class SystemController extends GUI implements ActionListener {
         eRandomButton.addActionListener(this);
         eSaveButton.addActionListener(this);
         filterChanger.addActionListener(this);
+        unboxingButton[0].addActionListener(this);
+        unboxingButton[1].addActionListener(this);
+        unboxingButton[2].addActionListener(this);
         Thread.sleep(1000);
         // loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34,
         // (byte) 4);
@@ -65,9 +68,10 @@ public class SystemController extends GUI implements ActionListener {
 
         while (user.angemeldet == true) {
             if (generateCard == true) {
-                int d = r1.nextInt(1000);;
-                int h = r1.nextInt(1000);;
-                int a = r1.nextInt(100);;
+                r1 = new Random();
+                int d = r1.nextInt(1000);
+                int h = r1.nextInt(1000);
+                int a = r1.nextInt(100);
                 generateCard = false;
                 showOptions(false,0);
                 randomCard[1].setIcon(null);
@@ -131,29 +135,6 @@ public class SystemController extends GUI implements ActionListener {
 
                         .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
 
-                        
-
-                    
-
-                    for (int sil = 0; sil<600; sil+=2){
-                        unboxingI.setBounds(410,950 - 1,400,400);
-                        Thread.sleep(1);
-                    }
-
-                    for (int b = 0; b<100; b+=2){
-                        unboxingI.setBounds(410,350-b,400,400);
-                        Thread.sleep(1);
-                    }
-
-                    for (int b32 = 0; b32<100; b32++){
-                        unboxingI.setBounds(410,350-b32,400,400);
-                        Thread.sleep(1);
-                    }
-
-                    for (int b32 = 0; b32<50; b32++){
-                        unboxingI.setBounds(410,250-b32,400,400);
-                        Thread.sleep(3);
-                    }
                     
 
                     for (int i = 0; i < 13; i ++) {
@@ -256,6 +237,15 @@ public class SystemController extends GUI implements ActionListener {
                     }
                 }
 
+                dataStore.temp_KarteName = randomCard[0].getText();
+                dataStore.temp_KarteSeltenheit = randomCard[1].getText();
+                dataStore.temp_KarteDamage = d + "";
+                dataStore.temp_KarteHP = h + "";
+                dataStore.temp_KarteAgility = a + "";
+                dataStore.temp_KarteElement = randomCard[5].getText();
+                dataStore.temp_KarteAbility = randomCard[6].getText();
+                dataStore.temp_KarteID = randomCard[7].getText();
+
                 randomCard[0].setText("Name: " + randomCard[0].getText());
 
                 randomCard[1].setText("Seltenheit:" + randomCard[1].getText());
@@ -271,6 +261,10 @@ public class SystemController extends GUI implements ActionListener {
                 randomCard[6].setText("Fähigkeit:" + randomCard[6].getText());
 
                 randomCard[7].setText("ID:" + randomCard[7].getText());
+
+                unboxingButton[0].setVisible(true);
+                unboxingButton[1].setVisible(true);
+                unboxingButton[2].setVisible(true);
 
             }
 
@@ -2307,9 +2301,19 @@ public class SystemController extends GUI implements ActionListener {
         }
 
         if (e.getActionCommand().equals("Zufällige Karte machen")) {
-            System.out.println("True");
+            unboxingButton[0].setVisible(false);
+            unboxingButton[1].setVisible(false);
+            unboxingButton[2].setVisible(false);
             generateCard = true;
         }
+
+        if (e.getActionCommand().equals("Accept_Unboxed_Card")) {
+            unboxingButton[0].setVisible(false);
+            unboxingButton[1].setVisible(false);
+            unboxingButton[2].setVisible(false);
+            checkCards();
+        }
+
 
         if (e.getActionCommand().equals("Abmelden")) {
             abmelden();
@@ -2470,6 +2474,8 @@ public class SystemController extends GUI implements ActionListener {
                 d.printStackTrace();
             } catch (ClassNotFoundException d2) {
                 d2.printStackTrace();
+            } catch (Exception m){
+
             }
         }
 

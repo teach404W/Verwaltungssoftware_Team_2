@@ -51,6 +51,7 @@ class GUI extends ArraysList {
         protected JButton[] showCardsButtons = new JButton[10];
         protected JButton[] sync = new JButton[3];
         protected JButton filterChanger;
+        protected JButton[] unboxingButton = new JButton[4];
 
         protected JTextArea descriptionBox;
         protected JTextArea infoD;
@@ -414,7 +415,44 @@ class GUI extends ArraysList {
                 unboxingI.setBounds(410,350,400,400);
                 unboxingI.setVisible(false);
 
+                unboxingButton[0] = new JButton("Annehmen");
+                unboxingButton[0].setForeground(new Color(0, 255, 50));
+                unboxingButton[0].setBackground(Color.black);
+                unboxingButton[0].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                unboxingButton[0].setBounds(200, 600, 195, 50);
+                unboxingButton[0].setVisible(false);
+                unboxingButton[0].setFocusable(false);
+                unboxingButton[0].setOpaque(false);
+                unboxingButton[0].setActionCommand("Accept_Unboxed_Card");
+                unboxingButton[0].setBorder(new LineBorder(new Color(0, 255, 50)));
+
+                unboxingButton[1] = new JButton("Ablehnen");
+                unboxingButton[1].setForeground(new Color(255, 0, 50));
+                unboxingButton[1].setBackground(Color.black);
+                unboxingButton[1].setFont(new Font("Times new Roman", Font.PLAIN, 30));
+                unboxingButton[1].setBounds(405, 600, 195, 50);
+                unboxingButton[1].setVisible(false);
+                unboxingButton[1].setFocusable(false);
+                unboxingButton[1].setOpaque(false);
+                unboxingButton[1].setActionCommand("Decline_Unboxed_Card");
+                unboxingButton[1].setBorder(new LineBorder(new Color(255, 0, 50)));
+
+                unboxingButton[2] = new JButton("    Unboxing  ");
+                unboxingButton[2].setForeground(new Color(150, 0, 255));
+                unboxingButton[2].setBackground(Color.black);
+                unboxingButton[2].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                unboxingButton[2].setBounds(200, 660, 400, 50);
+                unboxingButton[2].setVisible(false);
+                unboxingButton[2].setFocusable(false);
+                unboxingButton[2].setOpaque(false);
+                unboxingButton[2].setActionCommand("Zufällige Karte machen");
+                unboxingButton[2].setBorder(new LineBorder(new Color(150, 0, 255)));
+
+
                 frame.add(unboxingI);
+                frame.add(unboxingButton[0]);
+                frame.add(unboxingButton[1]);
+                frame.add(unboxingButton[2]);
 
 
                 // frame.add(option[0]_Image);
