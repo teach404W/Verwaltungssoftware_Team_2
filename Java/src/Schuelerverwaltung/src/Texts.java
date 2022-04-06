@@ -1,6 +1,9 @@
+import java.util.Random;
 
 public class Texts {
 
+    Random r1 = new Random();
+    int r2 = r1.nextInt(13);
 
     String loadingtex[] = {
             "System lädt",
@@ -67,38 +70,38 @@ public class Texts {
     };
 
     String randomNames[] = {
-            "Mighty",
+            "Ter",
             "The",
             "Knight",
             "Shredder",
             "Zufälliger",
             "Lack",
-            "Of",
+            "Master",
             "Richtig",
             "Eins",
             "Name",
-            "?",
+            "Element",
             "Null",
             "Keiner",
             "Echter",
             "Bester",
-            "OP",
-            "Zer",
-            "M",
-            "D",
-            "F",
-            "G",
-            "§",
-            "W",
-            "U",
-            "S",
-            "V",
-            "§",
-            "!",
-            "W",
-            "Der",
-            "Eine",
-            "Wie",
+            "Ninja",
+            "Zero",
+            "Zufällig",
+            "Destroyer",
+            "_Laser",
+            "Game",
+            "Cube",
+            "Core",
+            "Neon",
+            "Zahl",
+            "Generic",
+            "Funktion",
+            "Code",
+            "Winner",
+            "Dust",
+            "Nemesis",
+            "Final Fantasy" + r2,
             "Terminator",
             "User",
             "Axe",
@@ -117,24 +120,24 @@ public class Texts {
             "Bat",
             "Kämpfer",
             "Falle",
-            "Rot",
-            "Ist",
-            "Aus",
-            "In",
-            "Rat",
+            "Rote",
+            "Ista",
+            "AusT",
+            "InD_",
+            "Rats",
             "Spike",
             "Klasse",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
-            "Zufälliger",
+            "Abstrakte",
+            "Fantasy",
+            "Old School ",
+            "Hero",
+            "Lord",
+            "Dark",
+            "Void",
+            "Reaper",
+            "Invisible",
+            "Monster",
+            "Mana",
             "Zufälliger",
             "Zufälliger",
             "Zufälliger",
@@ -190,5 +193,10 @@ public class Texts {
     public String setTex(String[] a, int i){
 
         return a[i];
+    }
+
+
+    Texts(){
+        System.out.println("Fina Fantasyl " + r2);
     }
 }
