@@ -1,22 +1,92 @@
 @startuml
 
-Object Karte{
+Object karte{
 
-Name : String
-Klasse : String
-Seltenheit : String
-Karten ID : String (Ints)
-Damage : String (Ints)
-HP : String (Ints)
-Agilität : String (Ints)
-Element : String
+karte_Name = "Karte"
+karte_Seltenheit = "Episch"
+karte_Damage = "765"
+karte_HP = "343"
+karte_Agility = "183"
+karte_Element = "Glitch"
+karte_Ability = "Bolt"
+karte_ID = "285438"
 }
 
 Object User{
 
-Name : String
-Passwort : Int
-Angemeldet : boolean
+name = "User"
+password = 12345
+Angemeldet = true
+
+Object karte1{
+
+karte_Name = "Ice Dargon"
+karte_Seltenheit = "Legendär"
+karte_Damage = "800"
+karte_HP = "1000"
+karte_Agility = "75"
+karte_Element = "Wasser"
+karte_Ability = "Keine"
+karten ID = "15463"
+
+
+}
+
+object karte2{
+    karte_Name = "Fire Dragon"
+    karte_Seltenheit = "Legendär"
+    karte_Damage = "1850"
+    karte_HP = "950"
+    karte_Agility = "80"
+    karte_Element = "Feuer"
+    karte_Ability = "Shredder"
+    karten ID = "495323"
+
+}
+
+Object user{
+
+name = "Lukas"
+passwort = "12345"
+angemeldet = true
+
+}
+
+object dataStore {
+
+    name = "User"
+    password = "23456"
+    angemeldet = true
+    ver = false
+
+
+    temp_KarteName = "Fire Golem"
+    temp_KarteSeltenheit = "Episch"
+    temp_KarteDamage = "600"
+    temp_KarteHP = "700"
+    temp_KarteAgility = "50"
+    temp_KarteElement = "Feuer"
+    temp_KarteAbility = "Premium"    
+    temp_KarteID = "298456"
+
+}
+
+object systemcontroller{
+
+    r1 = new Random()
+    r2 = r1.nextInt(1000)
+    d = 0
+    karten[0] = null
+    karten[1] = null
+    karten[2] = null
+    karten[3] = null
+    karten[4] = null
+    karten[5] = null
+    karten[6] = null
+    karten[7] = null
+    karten[8] = null
+    karten[9] = null
+
 
 }
 
