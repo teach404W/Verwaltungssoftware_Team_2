@@ -889,6 +889,24 @@ public class SystemController extends GUI implements ActionListener {
         }
     }
 
+    public void setAbilityColor() {
+        for (int i = 0; i < super.skills.length; i++) {
+            if (texarea.getText().equals(super.skills[i])) {
+                texarea.setForeground(super.skills_colors[i]);
+                texarea.setBorder(new LineBorder(super.skills_colors[i]));
+                confirmButton.setBorder(new LineBorder(super.skills_colors[i]));
+                randomButton.setBorder(new LineBorder(super.skills_colors[i]));
+                infoText.setForeground(super.skills_colors[i]);
+                sec_Image.setVisible(true);
+                sec_Image.setIcon(new ImageIcon(
+                        new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[i] + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+            }
+        }
+    }
+
+
     public void confirmCardName() {
         if (cardIndex < 0 && texarea.getText().length() > 3 && texarea.getText().length() < 21) {
             dataStore.temp_KarteName = texarea.getText();
@@ -1294,6 +1312,7 @@ public class SystemController extends GUI implements ActionListener {
             box2.setVisible(true);
             descriptionBox.setVisible(true);
             texarea.setText("Keine");
+            setAbilityColor();
             sec_Image.setVisible(true);
             sec_Image.setIcon(
                     new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Keine.png")
@@ -1304,6 +1323,7 @@ public class SystemController extends GUI implements ActionListener {
             dataStore.temp_KarteElement = texarea.getText();
             if (karten[cardIndex].karte_Ability != null) {
                 texarea.setText(karten[cardIndex].karte_Ability);
+                setAbilityColor();
                 sec_Image.setIcon(new ImageIcon(new ImageIcon(
                         "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png")
                         .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
@@ -2239,6 +2259,7 @@ public class SystemController extends GUI implements ActionListener {
                 texarea.setText(generateObject(super.skills));
                 descriptionBox.setText(super.skills_Beschreibung[rd2]);
                 try {
+                    setAbilityColor();
                     sec_Image.setVisible(true);
                     sec_Image.setIcon(new ImageIcon(new ImageIcon(
                             "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + texarea.getText() + ".png")
@@ -2337,6 +2358,23 @@ public class SystemController extends GUI implements ActionListener {
 
         }
 
+        if (e.getActionCommand().equals("Decline_Unboxed_Card")) {
+            unboxingButton[0].setVisible(false);
+            unboxingButton[1].setVisible(false);
+            unboxingButton[2].setVisible(false);
+            unboxingI.setVisible(false);
+            randomCard[0].setVisible(false);
+            randomCard[1].setVisible(false);
+            randomCard[2].setVisible(false);
+            randomCard[3].setVisible(false);
+            randomCard[4].setVisible(false);
+            randomCard[5].setVisible(false);
+            randomCard[6].setVisible(false);
+            randomCard[7].setVisible(false);
+
+            showOptions(true, 0);
+        }
+
 
         if (e.getActionCommand().equals("Abmelden")) {
             abmelden();
@@ -2421,6 +2459,7 @@ public class SystemController extends GUI implements ActionListener {
         for (String v : super.skills) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
+                setAbilityColor();
                 for (int i = 0; i < super.skills.length; i++) {
                     if (texarea.getText().equals(super.skills[i])) {
                         rd2 = i;
