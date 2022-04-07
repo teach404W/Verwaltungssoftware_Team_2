@@ -19,7 +19,7 @@ Dies ist das Pflichtenheft zu unsewrem Projekt. In dieser Markdown Page beschrei
 
 ### **1.1 Grobbeschreibung** 
 
-In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Name und Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) Fähigkeiten(Premium, Ghost, Rage, Shredder, Bolt), Stats(Damage, HP und Agilität) und bekommen eine eigene ID. Die ID generieren wir mit der Funktion generateNumber() in der Klasse SystemController. L. 828 findet man die Funktion und auf der L. 1557 wird die ID generiert.
+In unser Programm implimentieren wir Eine Spielekartenbibliothek. Diese dient zur Erstellung, Verwaltung, Organisation und Pack Openings von Spielkarten. Dabei haben die Karten Eigenschaften wie Name und Seltenheit(Gewöhnlich, Ungewöhnlich, Rare, Super Rare, Ultra Rare, Secret Rare, Episch, Insane, Legendär, Heroic, Secret), Elemente(Blitz, Cosmic, Erde, Feuer, Glitch, Gravitation, Magic, Wasser und Wind) Fähigkeiten(Premium, Ghost, Rage, Shredder, Bolt), Stats(Damage, HP und Agilität) und bekommen eine eigene ID. Die ID generieren wir mit der Funktion generateNumber() in der Klasse SystemController. L. 818 findet man die Funktion und auf der L. 1547 wird die ID generiert.
 
 Die Stats haben eine wichtige Auswirkung auf die Karte. \
 Unter `"Java\\src\\Schuelerverwaltung\\Images\\Karten"` findet man 3 Arten von Karten. `"Silver"`, `"Gold"` und `"Elite"`. Wenn die Stats der Karte mehr als `800` sind, dann bekommt die Karte die `"Gold"` Stufe. Das heißt, wenn die Stats(`Damage`, `HP` und `Agilität`) zusammen gerechnet mehr als `800` sind, dann wird die Karte `"Gold"` als Theme haben werden. Wenn die Stats mehr als `1600` sind, dann bekommt die Karte die `"Elite"` Stufe und das zeigt, dass die Karte wertvöllig ist.
@@ -127,7 +127,7 @@ Die Menüführung besteht aus `6` Tasten mit Bildern. Beim Starten des Projektes
 ### **2.2 Besonderheiten**
 
 Unser Programm hat ein paar `Besonderheiten`, einmal, dass jede Karte, die erstellt wird, automatisch eine `ID` zugewiesen wird. Außerdem, dass man nach dem Karten erstellen, mit dem hinzugefügten Kartenpool, eine Art `Pack Opening` durchführen kann. Die gezogene Karte wird beim `annehmen` dem `Inventar` zugefügt (Anzahl der Exemplare einer Karte) und beim `ablehnen` gelöscht. 
-Zusätzlich benutzt unser Programm eine `GUI`, welches mit `Bildern` und `Text` gestaltet wurde. Zuletzt noch, dass die Karten beim beenden des Programmes gespeichert werden.
+Zusätzlich benutzt unser Programm eine `GUI`, welches mit `Bildern` und `Text` gestaltet wurde. Zuletzt noch, dass die Karten und Daten beim beenden des Programmes gespeichert werden können, wenn der Benutzer auf "Save" klickt.
 
 ## 3. Diagramm Dokumentation
 
