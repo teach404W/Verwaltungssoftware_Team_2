@@ -1,6 +1,6 @@
 @startuml
 
-Object karte{
+Object karte #DarkGray-Grey{
 
 karte_Name = "Karte"
 karte_Seltenheit = "Episch"
@@ -12,13 +12,13 @@ karte_Ability = "Bolt"
 karte_ID = "285438"
 }
 
-Object User{
+Object user #DarkGray-Grey{
 
 name = "User"
 password = 12345
-Angemeldet = true
+Angemeldet = false
 
-Object karte1{
+Object karte1 #DarkGray-Grey{
 
 karte_Name = "Ice Dargon"
 karte_Seltenheit = "Legendär"
@@ -32,7 +32,7 @@ karten ID = "15463"
 
 }
 
-object karte2{
+object karte2 #DarkGray-Grey{
     karte_Name = "Fire Dragon"
     karte_Seltenheit = "Legendär"
     karte_Damage = "1850"
@@ -44,20 +44,13 @@ object karte2{
 
 }
 
-Object user{
 
-name = "Lukas"
-passwort = "12345"
-angemeldet = true
-
-}
-
-object dataStore {
+object dataStore #DarkGray-Grey{
 
     name = "User"
     password = "23456"
-    angemeldet = true
-    ver = false
+    angemeldet = false
+    ver = true
 
 
     temp_KarteName = "Fire Golem"
@@ -71,11 +64,19 @@ object dataStore {
 
 }
 
-object systemcontroller{
+object systemcontroller #DarkGray-Grey{
 
     r1 = new Random()
-    r2 = r1.nextInt(1000)
+    loadingValues[] = new boolean[4]
+    trueDo = true
+    cardIndex = -1
     d = 0
+    loading_height = 300
+    loading_width = 500    
+    rd2 = 5;
+    int warnWait = 2000
+    passwordController = z259ie031r
+    passwordNumbers = 259031
     karten[0] = null
     karten[1] = null
     karten[2] = null
@@ -87,6 +88,7 @@ object systemcontroller{
     karten[8] = null
     karten[9] = null
 
+    r2 = r1.nextInt(1000)
 
 }
 

@@ -46,8 +46,6 @@ class GUI extends ArraysList {
         protected JButton[] option = new JButton[6];
         protected JButton searchB1;
         protected JButton searchB2;
-        protected JButton searchB3;
-        protected JButton searchB4;
         protected JButton[] showCardsButtons = new JButton[10];
         protected JButton[] sync = new JButton[3];
         protected JButton filterChanger;
@@ -59,10 +57,11 @@ class GUI extends ArraysList {
 
         protected JTextField texarea;
 
+        boolean generateCard = false;
+
         double r;
         double v;
 
-        boolean generateCard = false;
 
         String meineKarten_Filter = "1 bis 10";
 
@@ -70,7 +69,6 @@ class GUI extends ArraysList {
         // ArraysList arraysList = new ArraysList();
         DataStore dataStore = new DataStore();
         User user = new User();
-        Input input = new Input(this);
 
         GUI() throws Exception {
 
@@ -419,7 +417,7 @@ class GUI extends ArraysList {
                 unboxingButton[0].setForeground(new Color(0, 255, 50));
                 unboxingButton[0].setBackground(Color.black);
                 unboxingButton[0].setFont(new Font("Times new Roman", Font.PLAIN, 30));
-                unboxingButton[0].setBounds(200, 600, 195, 50);
+                unboxingButton[0].setBounds(400, 600, 195, 50);
                 unboxingButton[0].setVisible(false);
                 unboxingButton[0].setFocusable(false);
                 unboxingButton[0].setOpaque(false);
@@ -430,7 +428,7 @@ class GUI extends ArraysList {
                 unboxingButton[1].setForeground(new Color(255, 0, 50));
                 unboxingButton[1].setBackground(Color.black);
                 unboxingButton[1].setFont(new Font("Times new Roman", Font.PLAIN, 30));
-                unboxingButton[1].setBounds(405, 600, 195, 50);
+                unboxingButton[1].setBounds(605, 600, 195, 50);
                 unboxingButton[1].setVisible(false);
                 unboxingButton[1].setFocusable(false);
                 unboxingButton[1].setOpaque(false);
@@ -441,7 +439,7 @@ class GUI extends ArraysList {
                 unboxingButton[2].setForeground(new Color(150, 0, 255));
                 unboxingButton[2].setBackground(Color.black);
                 unboxingButton[2].setFont(new Font("Times new Roman", Font.PLAIN, 40));
-                unboxingButton[2].setBounds(200, 660, 400, 50);
+                unboxingButton[2].setBounds(400, 660, 400, 50);
                 unboxingButton[2].setVisible(false);
                 unboxingButton[2].setFocusable(false);
                 unboxingButton[2].setOpaque(false);
@@ -490,30 +488,10 @@ class GUI extends ArraysList {
                 searchB2.setActionCommand("SearchB2");
                 searchB2.setBorder(new LineBorder(Color.white));
 
-                searchB3 = new JButton("           ");
-                searchB3.setForeground(new Color(255, 255, 255));
-                searchB3.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-                searchB3.setBounds(825, 475, 200, 50);
-                searchB3.setBackground(new Color(39, 43, 49));
-                searchB3.setVisible(false);
-                searchB3.setFocusable(false);
-                searchB3.setActionCommand("searchB3");
-                searchB3.setBorder(new LineBorder(Color.white));
-
-                searchB4 = new JButton("           ");
-                searchB4.setForeground(new Color(255, 255, 255));
-                searchB4.setFont(new Font("Times new Roman", Font.PLAIN, 45));
-                searchB4.setBounds(825, 550, 200, 50);
-                searchB4.setBackground(new Color(39, 43, 49));
-                searchB4.setVisible(false);
-                searchB4.setFocusable(false);
-                searchB4.setActionCommand("searchB4");
-                searchB4.setBorder(new LineBorder(Color.white));
 
                 frame.add(searchB1);
                 frame.add(searchB2);
-                frame.add(searchB3);
-                frame.add(searchB4);
+
 
                 frame.add(backB);
 
@@ -886,6 +864,11 @@ class GUI extends ArraysList {
                 // loading();
 
                 // while (texarea.isVisible() == true && dataStore.angemeldet == true){
+        }
+
+
+        public void clearBox() {
+                cardsMenu.removeAll();
         }
 
 }

@@ -4,9 +4,6 @@ skinparam classAttributeIconSize 0
 class App #DarkGray-Grey {
  s : SystemController
 
-
-
-
 }
 
 note left of App #MediumVioletRed\9932CC
@@ -24,13 +21,16 @@ abstract ArraysList #DarkGray-Grey{
 #rar_colors : Color[]
 #elemente_colors : Color[]
 #skills_colors : Color[]
+#extra_Damage : String[][]
+#extra_Agility : String[][]
+
 
  }
  
  class DataStore #DarkGray-Grey{
- ~name: String 
- ~password: int
- ~angemeldet: boolean
+ ~name : String 
+ ~password : int
+ ~angemeldet : boolean
  ~ver : Boolean
  ~temp_KarteName : String
  ~temp_KarteSeltenheit : String
@@ -49,7 +49,8 @@ abstract ArraysList #DarkGray-Grey{
 
 
 class GUI #DarkGray-Grey {
- #frame: JFrame
+ #frame : JFrame
+
  #box2 : JPanel
  #cardInfoMenu : JPanel      
  #cardsMenu : JPanel
@@ -66,49 +67,48 @@ class GUI #DarkGray-Grey {
  #infoMes : JLabel
  #infoN : JLabel
  #iRandomButton : JLabel
- #iSaveButton: JLabel
+ #iSaveButton : JLabel
  #infoText : JLabel
- #l: JLabel
- #l2: JLabel
+ #l : JLabel
+ #l2 : JLabel
  #optionI[] : JLabel[6]
  #randomCard[] : JLabel[6]
  #sec_Image : JLabel
+ #unboxingI : JLabel
 
- #backB: JButton
- #confirmButton: JButton
+ #backB : JButton
+ #confirmButton : JButton
  #eRandomButton : JButton
  #eSaveButton: JButton
  #option[] : JButton[6]
- #searchB1: JButton
- #searchB2: JButton
- #searchB3: JButton
- #searchB4: JButton
+ #searchB1 : JButton
+ #searchB2 : JButton
  #showCardsButtons[] : JButton[10]
  #sync[] : JButton[3]
+ #filterChanger : JButton
+ #unboxingButton[] : JButton[4]
 
  #descriptionBox : JTextArea
  #infoD : JTextArea
  #sync_Text : JTextArea
 
- #texarea: JTextField
+ #texarea : JTextField
 
- ~r: double
- ~v: double
+generateCard : boolean
+
+ ~r : double
+ ~v : double
+
+ meineKarten_Filter : String
 
  texts : Texts
- arraysList : ArraysList
  dataStore : DataStore
- input : Input
+ user : User
+
+ +clearBox() : void
 
 }
 
-
-class Input #DarkGray-Grey {
- +option_1(): void
- +keyPressed(java.awt.event.KeyEvent k) : void
- +keyReleased(java.awt.event.KeyEvent k) : void
- +keyTyped(java.awt.event.KeyEvent k) : void
-}
 
 class Karte #DarkGray-Grey {
  #Karte_Name: String
@@ -126,6 +126,7 @@ class SystemController #DarkGray-Grey {
 -r1 : Random
 
 -loadingValues[] : boolean[9]
+-trueDo : boolean
 
 -cardIndex : Byte
 -d : Byte
@@ -139,21 +140,21 @@ class SystemController #DarkGray-Grey {
 
 -passwordController : String
 
-+ei : JLabel
-+wahlOption : JButton
 
  +karten[] : Karte[9]
 
  +loading() : void
+ +reset_texarea() : void
  +clearBox() : void
  +addToBox(i : int) : void
- -ret() : void
  +randomName() : String
  -anmelden() : void
- +sync() : void
- +generateRarity() : String
+ +generateObject(a : String[]) : String
  +generateNumber() : int
  -confirmName() : void
+ +setRarityColor() : void
+ +setElementColor : void
+ +setAbilityColor : void
  +confirmCardName() : void
  +confirmCardRarity() : void
  +confirmCardDamage() : void
@@ -161,16 +162,28 @@ class SystemController #DarkGray-Grey {
  +confirmCardAgility() : void
  +confirmCardElement() : void
  +confirmCardAbility() : void
+ +instanceCard() : void
  +checkCards() : void
  +createCard(i : int) : void
  +option1_1() : void
- +clearSavedTempCard() : void
+ +showCardInfo(card : int) : void
+ +showcards() : void
+ +karteBearbeiten() : void
+ +showEditPanel : void
+ +generateRandomCard() : void
  +showOptions(b : boolean, n : int) : void
  +viewMenu() : void
+ +karte_Delete : void
+ +delete_Request : void
  +saveCards() : void
- +editCard() : void
- +showEditPanel() : void
+ +saveData() : void
+ +loadData() : void
+ +noData() : void
+ +deleteData() : void
+ +abmelden() : void
  +actionPerformed(java.awt.event.ActionEvent e) : void
+ +sync() : void
+ +warn(a : int, n : String, d : String, dif : String, i : String) : void
 }
 
 
@@ -190,7 +203,6 @@ class User #DarkGray-Grey {
 
 SystemController "1" *-- "0..10" User
 GUI "1" *-- "0..10" Texts
-GUI "1" *-- "0..10" Input
 App "1" *-- "0..10" SystemController
 SystemController "1" *-- "0..10" GUI
 DataStore -- Karte
@@ -199,8 +211,6 @@ GUI "1" *-- "0..10" DataStore
 SystemController "1" *-- "0..10" Karte
 GUI "1" *-- "0..10" ArraysList
 
-ArraysList <|-- GUI
-GUI <|-- SystemController
 
 
 @enduml

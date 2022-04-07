@@ -1,16 +1,16 @@
-@startuml 
+@startuml  
 ' You can also declare:
 group Karte anlegen [Karte anlegen]
     user.User -> "systemController.SystemController" : option1_1()
     systemController.SystemController -> "GUI" : (Hier wird der Gui gesagt, dass ausfüllbare Textfeld anzuzeigen)
-    systemController.SystemController -> "systemController.SystemController " : showOptions(false) + clearBox()
+    systemController.SystemController -> "systemController.SystemController " : showOptions(false,0) + clearBox()
     systemController.SystemController -> "dataStore.DataStore" : clearSavedTempCard()
     systemController.SystemController  -> "systemController.SystemController" : return showOptions(null) ; clearBox(null)
     dataStore.DataStore -> "systemController.SystemController" : return clearSavedTempCard(null)
 
     GUI -> "systemController.SystemController" : 
     user.User -> "systemController.SystemController" : confirmCardName()
-        systemController.SystemController -> "systemController.SystemController " : showOptions(false) + addToBox(1) -> erste Auswahl(Seltenheit)
+        systemController.SystemController -> "systemController.SystemController " : showOptions(false,0) + addToBox(1) -> erste Auswahl(Seltenheit)
         systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteName geändert)
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert. Textbox wird deaktiviert; Wahlbox wird sichtbar)
         dataStore.DataStore -> systemController.SystemController
@@ -58,7 +58,7 @@ group Karte anlegen [Karte anlegen]
 
         systemController.SystemController -> dataStore.DataStore : (Hier wird temp_KarteAbility geändert)
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert, Textbox unsichtbar und das Menu wird sichtbar)
-        systemController.SystemController -> "systemController.SystemController " : showOptions(true) + clearBox() + checkCards() -> Karte wird instanziiert
+        systemController.SystemController -> "systemController.SystemController " : showOptions(true,0) + clearBox() + checkCards() -> Karte wird instanziiert
         dataStore.DataStore -> systemController.SystemController
         GUI -> systemController.SystemController
         systemController.SystemController  -> "systemController.SystemController" : return showOptions(null) ; clearBox(null) ; checkCards(null)
@@ -81,19 +81,19 @@ group Meine Karten [Meine Karten]
        user.User -> "systemController.SystemController" : option2_1()
         systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein Menü mit Karten wird sichtbar gemacht)
         GUI -> systemController.SystemController : 
-        systemController.SystemController -> systemController.SystemController : (Beim Klicken auf eine Karte -> showCardInformation(int) return String[])
-        systemController.SystemController -> GUI :  (Menü wird sichtbar gemacht und sie bekommt die zurück gegebenen\nInformationen aus ShowCardInformation())
+        systemController.SystemController -> systemController.SystemController : (Beim Klicken auf eine Karte -> showcards(int))
+        systemController.SystemController -> GUI :  (Menü wird sichtbar gemacht und sie bekommt die zurück gegebenen\nInformationen aus showcards())
         GUI -> systemController.SystemController :  
 @enduml
 
 @startuml 
 group Karte bearbeiten [Karte bearbeiten]
-       user.User -> "systemController.SystemController" : option3_1()
-        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)
+       user.User -> "systemController.SystemController" : karteBearbeiten()
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein Textfeld mit Suchmaschine vorbereitet)
         GUI -> systemController.SystemController : 
         systemController.SystemController -> dataStore.DataStore : (Beim bestätigen wird kontrolliert, ob die Karte existiert oder nicht)
         dataStore.DataStore -> systemController.SystemController : 
-        systemController.SystemController -> systemController.SystemController :  ja -> showEditPanel() ; nein -> return(null)
+        systemController.SystemController -> systemController.SystemController :  ja -> showEditPanel() ; nein -> Funktion wird gestoppt
         GUI -> systemController.SystemController : 
 
 @enduml
@@ -102,13 +102,13 @@ group Karte bearbeiten [Karte bearbeiten]
 
 @startuml 
 group Karte löschen [Karte löschen]
-       user.User -> "systemController.SystemController" : option4_1()
-        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein neues Objekt sichtbar gemacht)
+       user.User -> "systemController.SystemController" : karteLöschen()
+        systemController.SystemController -> GUI : (Hier werden ActionCommands geändert und ein Textfeld mit Suchmaschine vorbereitet)
         GUI -> systemController.SystemController : 
         systemController.SystemController -> dataStore.DataStore : (Beim bestätigen wird kontrolliert, ob die Karte existiert oder nicht)
-        systemController.SystemController -> dataStore.DataStore :  ja -> wird kontrolliert, ob in DataStore eine gespeicherte Karte gibt \nnein -> Karte wird gelöscht und in DataStore gepseichert
+        systemController.SystemController -> dataStore.DataStore :  ja -> Karte wird gelöscht -> löschenAbfrage() \nnein -> Funktion wird gestoppt
         dataStore.DataStore -> systemController.SystemController : 
         GUI -> systemController.SystemController : 
-        dataStore.DataStore -> systemController.SystemController : wenn eine Karte existiert, dann bekommt der Nutzer eine Warnung\nWenn nicht, dann wird die Karte gelöscht und gespeichert
+        dataStore.DataStore -> systemController.SystemController :
 
 @enduml
