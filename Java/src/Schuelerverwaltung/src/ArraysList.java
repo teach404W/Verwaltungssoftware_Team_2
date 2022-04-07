@@ -2,6 +2,9 @@ import java.awt.Color;
 
 abstract class ArraysList {
 
+
+
+
        protected String search_Results[] = {
                         "   ",
                         "",

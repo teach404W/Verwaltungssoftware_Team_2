@@ -26,12 +26,13 @@ Es gibt 4 Sichtbarkeiten: Public, Private, Protected und Package
 
  > ### `Package` 
 
-<<<<<<< HEAD
+
 ## Polymorphie
 
-Polymorphie beschreibt die Proritätenreinfolge einer Methode innerhalb einer Klasse. Wenn 2 Klassen eine gleichgenannte Methode haben, und zusätzlich dazu, eine Klasse von der anderen erbt, hat eine Klasse logischer Weise, 2 mal eine gleich genannte Methode. Welche wird nun ausgeführt, wenn man den Methodenanmen ausführt. Hier kommt Polymorphie ins Spiel. Die Klasse priorisiert  Methode der eigenen Klasse, vor der, der extendeten Klasse.
+>Polymorphie beschreibt die Proritätenreinfolge einer Methode innerhalb einer Klasse. Wenn 2 Klassen eine gleichgenannte Methode haben, und zusätzlich dazu, eine Klasse von der anderen erbt, hat eine Klasse logischer Weise, 2 mal eine gleich genannte Methode. Welche wird nun ausgeführt, wenn man den Methodenanmen ausführt. Hier kommt Polymorphie ins Spiel. Die Klasse priorisiert  Methode der eigenen Klasse, vor der, der extendeten Klasse.
 
-Hier ein Beispiel:
+>Hier ein Beispiel:
+
     public class Vogel {
 
       public void singen() {
@@ -64,13 +65,18 @@ Hier ein Beispiel:
     Ausgabe:
     Kurr Kurr
 
-Hier wird Eine Klasse Vogel und Amsel deklariert, wobei Amsel, Vogel extendet. Beide haben die Funktion singen(), und bei der Ausgabe von der Funktion der Klasse Amsel, wird die der eigenen Klasse ausgegeben, da die Funktion, der der anderen Klasse gegenüber priorisiert.
-=======
+>Hier wird Eine Klasse Vogel und Amsel deklariert, wobei Amsel, Vogel extendet. Beide haben die Funktion singen(), und bei der Ausgabe von der Funktion der Klasse Amsel, wird die der eigenen Klasse ausgegeben, da die Funktion, der der anderen Klasse gegenüber priorisiert.
   > ..
 
  > ### `Arrays`
 
-  > Unter einem Array in Java versteht man einen Container, der eine feste Anzahl von Werten eines einzelnen Typs enthält. Bei der Deklaration wird von Beginn an ein konkreter Datentyp für das Array bestimmt, der dann nicht mehr verändert werden kann. Wichig dabei ist, dass in einem Array immer bei 0 angefangen wird zu Zählen und das letzte nicht benutzt werden kann.\
+  > Unter einem Array in Java versteht man einen Container, der eine feste Anzahl von Werten eines einzelnen Typs enthält. Bei der Deklaration wird von Beginn an ein konkreter Datentyp für das Array bestimmt, der dann nicht mehr verändert werden kann. Wichig dabei ist, dass in einem Array immer bei 0 angefangen wird zu Zählen und das letzte nicht benutzt werden kann.
+  Man kann auch ganze klassen als Array erstellen.    
   `Beispiel:`\
+  Wenn man eine liste mit 10 plätzen für preise anlegen möchte, schreibt man: `int[] preise = new int[10];`. Hierbei können die stellen 0 - 10 im array benutzt und abgerufen werden.\
+  Abgerufen kann es mit `System.out.println(preise[0]);`, dabei wird der preis des Arrays an erster Stelle abgerufen und Ausgegeben.
+  Wenn man klassen wie z.b. die klasse Karte als array mit 10 plätzen erstellen will, schreibt man: `Karte[] karten = new Karte[10];` und danach mit `karten[0] = new Karte();` initialisieren und deklarieren, das macht man dann 10 mal und setzt für die 0 jeweils die zahlen 1 - 10 ein.
   Wenn man eine liste mit 10 plätzen für preise anlegen möchte, schreibt man: `int[] preise = new int[10];`. Hierbei können die stellen 0 - 10 im array benutzt und abgerufen werden.
+
 >>>>>>> 510fbbccae771540d48a7a3bcec13e95b0aa899f
+>>>>>>> 607f2e2c1c2c19e9a038707bb3924c5d8af5f75d
