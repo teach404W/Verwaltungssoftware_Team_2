@@ -16,27 +16,21 @@ import javax.swing.border.LineBorder;
 
 public class SystemController extends GUI implements ActionListener {
 
-   private Random r1;
+    private Random r1;
 
-   private boolean loadingValues[] = new boolean[9];
+    private boolean loadingValues[] = new boolean[9];
 
-   private Byte cardIndex = -1;
-   private Byte d;
+    private Byte cardIndex = -1;
+    private Byte d;
 
-   private int loading_height = 300;
-   private int loading_width = 500;
-   private int passwordNumbers;
-   private int r2;
-   private int rd2;
-   private int warnWait;
+    private int loading_height = 300;
+    private int loading_width = 500;
+    private int passwordNumbers;
+    private int r2;
+    private int rd2;
+    private int warnWait;
 
-<<<<<<< HEAD
-    boolean generateCard = false;
-
-=======
-   private String passwordController;
->>>>>>> fc229ae177ac7d97ad4285cf96552f837bd148e2
-
+    private String passwordController;
 
     Karte[] karten = new Karte[10];
 
@@ -60,48 +54,229 @@ public class SystemController extends GUI implements ActionListener {
         eRandomButton.addActionListener(this);
         eSaveButton.addActionListener(this);
         filterChanger.addActionListener(this);
+        unboxingButton[0].addActionListener(this);
+        unboxingButton[1].addActionListener(this);
+        unboxingButton[2].addActionListener(this);
         Thread.sleep(1000);
-     //   loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
-     loading(false, false, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
+        // loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34,
+        // (byte) 4);
+        loading(false, false, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
         l.setVisible(false);
         l2.setVisible(false);
 
         sync();
 
         while (user.angemeldet == true) {
-
-            if (generateCard == true){
+            if (generateCard == true) {
+                r1 = new Random();
+                int d = r1.nextInt(1000);
+                int h = r1.nextInt(1000);
+                int a = r1.nextInt(100);
                 generateCard = false;
+                showOptions(false,0);
+                randomCard[1].setIcon(null);
+                randomCard[5].setIcon(null);
+                randomCard[6].setIcon(null);
+                randomCard[1].setForeground(new Color(255,255,255));
+                randomCard[5].setForeground(new Color(255,255,255));
+                randomCard[6].setForeground(new Color(255,255,255));
+                unboxingI.setBounds(410,350,400,400);
+                unboxingI.setVisible(true);
 
-                for(int i=0;i<=180;i+=2){
-                    Thread.sleep(10);
-                    generateRandomCard();
+                
+
+                if (d + h + a < 800){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver_Glow.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                        for (int sil = 0; sil<600; sil+=2){
+                            unboxingI.setBounds(410,950 - sil,400,400);;
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+                    for (int i = 0; i < 25; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Silver\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.jpg")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                }
+                
+
+                if (d + h + a >= 1600){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite_Glow.png")
+                        
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+
+                        for (int b = 0; b<600; b+=2){
+                            unboxingI.setBounds(410,950 - b,400,400);
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+
+                    for (int i = 0; i < 22; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Elite\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                }
+               
+
+                                if (d + h + a > 800 && d + h + a < 1600){
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold_Glow.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                        for (int sil = 0; sil<600; sil+=2){
+                            unboxingI.setBounds(410,950 - sil,400,400);;
+                            Thread.sleep(1);
+                        }
+
+                        for (int b32 = 0; b32<100; b32++){
+                            unboxingI.setBounds(410,350-b32,400,400);
+                            Thread.sleep(1);
+                        }
+
+
+                        for (int b32 = 0; b32<50; b32++){
+                            unboxingI.setBounds(410,250-b32,400,400);
+                            Thread.sleep(3);
+                        }
+
+                    for (int i = 0; i < 25; i ++) {
+                        Thread.sleep(20);
+                        generateRandomCard();
+                        unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                            "Java\\src\\Schuelerverwaltung\\Images\\Unboxing_Gold\\" + i + ".png")
+    
+                            .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+    
+                    }
+                    unboxingI.setIcon(new ImageIcon(new ImageIcon(
+    
+                        "Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
+
+                        .getImage().getScaledInstance(480, 300, Image.SCALE_AREA_AVERAGING)));
+
+                }
+
+
+                randomCard[1].setIcon(new ImageIcon(new ImageIcon(
+
+                        "Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + randomCard[1].getText() + ".png")
+
+                        .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+                for (int i = 0; i < super.rar_colors.length; i++) {
+                    if (rar[i].equals(randomCard[1].getText())) {
+                        randomCard[1].setForeground(rar_colors[i]);
+                    }
                 }
 
                 randomCard[5].setIcon(new ImageIcon(new ImageIcon(
-                    "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + randomCard[5].getText() + ".png")
-                    .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                        "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + randomCard[5].getText() + ".png")
 
-                    randomCard[6].setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + randomCard[6].getText() + ".png").getImage()
-                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                        .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
-                            randomCard[0].setText("Name: " + randomCard[0].getText());
-                            randomCard[1].setText("Seltenheit:" + randomCard[1].getText());
-                            randomCard[2].setText("Damage:" + randomCard[2].getText());
-                            r2 = r1.nextInt(1000);
-                            randomCard[3].setText("HP:" + randomCard[3].getText());
-                            r2 = r1.nextInt(1000);
-                            randomCard[4].setText("Agility:" + randomCard[4].getText());
-                            randomCard[5].setText("Element:" + randomCard[5].getText());
-                           
-            
-                                        randomCard[6].setText("Fähigkeit:" + randomCard[6].getText());
-                                        randomCard[7].setText("ID:" + randomCard[7].getText());
-                                        
-            
+                for (int i = 0; i < super.elemente_colors.length; i++) {
+                    if (elemente[i].equals(randomCard[5].getText())) {
+                        randomCard[5].setForeground(elemente_colors[i]);
+                    }
+                }
+
+                randomCard[6].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + randomCard[6].getText() + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+
+                for (int i = 0; i < super.skills.length; i++) {
+                    if (skills[i].equals(randomCard[6].getText())) {
+                        randomCard[6].setForeground(skills_colors[i]);
+                    }
+                }
+
+                dataStore.temp_KarteName = randomCard[0].getText();
+                dataStore.temp_KarteSeltenheit = randomCard[1].getText();
+                dataStore.temp_KarteDamage = d + "";
+                dataStore.temp_KarteHP = h + "";
+                dataStore.temp_KarteAgility = a + "";
+                dataStore.temp_KarteElement = randomCard[5].getText();
+                dataStore.temp_KarteAbility = randomCard[6].getText();
+                dataStore.temp_KarteID = randomCard[7].getText();
+
+                randomCard[0].setText("Name: " + randomCard[0].getText());
+
+                randomCard[1].setText("Seltenheit:" + randomCard[1].getText());
+
+                randomCard[2].setText("Damage:" + d);
+
+                randomCard[3].setText("HP:" + h);
+
+                randomCard[4].setText("Agility:" + a);
+
+                randomCard[5].setText("Element:" + randomCard[5].getText());
+
+                randomCard[6].setText("Fähigkeit:" + randomCard[6].getText());
+
+                randomCard[7].setText("ID:" + randomCard[7].getText());
+
+                unboxingButton[0].setVisible(true);
+                unboxingButton[1].setVisible(true);
+                unboxingButton[2].setVisible(true);
 
             }
+
+
             if (confirmButton.getActionCommand() == "ConfirmCardRarity") {
                 if (texarea.getText().length() < 1) {
                     sec_Image.setVisible(false);
@@ -137,12 +312,13 @@ public class SystemController extends GUI implements ActionListener {
                 loading_width = 500;
                 loading_height = 300;
                 l2.setVisible(true);
-                l2.setText("Karte wird hergestellt");
+                l2.setText("Karte wird angelegt");
                 loading(false, true, (byte) 0, (byte) 50, (byte) 50, (byte) 50, (byte) 50, (byte) 3);
                 l2.setVisible(false);
                 showOptions(true, 0);
                 loadingValues[3] = true;
-                warn(2000, "Karte - Warn", "Karte wurde \nerfolgreich angelegt", "Save-System", "Java\\src\\Schuelerverwaltung\\Images\\Others\\Save.png");
+                warn(2000, "Karte - Warn", "Karte wurde \nerfolgreich angelegt", "Save-System",
+                        "Java\\src\\Schuelerverwaltung\\Images\\Others\\Save.png");
 
             }
 
@@ -170,8 +346,9 @@ public class SystemController extends GUI implements ActionListener {
 
             }
 
-            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "Löschen Abfrage" || confirmButton.getActionCommand() == "show edit panel") {
-                   
+            if (texarea.getText().length() >= 1 && confirmButton.getActionCommand() == "Löschen Abfrage"
+                    || confirmButton.getActionCommand() == "show edit panel") {
+
                 int v = 1;
 
                 if (searchB1.getText() == null) {
@@ -302,7 +479,8 @@ public class SystemController extends GUI implements ActionListener {
         }
     }
 
-    public void loading(boolean progress, boolean rotation, byte loadingTime, byte lt1, byte lt2, byte lt3, byte lt4, byte rotations) throws InterruptedException {
+    public void loading(boolean progress, boolean rotation, byte loadingTime, byte lt1, byte lt2, byte lt3, byte lt4,
+            byte rotations) throws InterruptedException {
 
         int t1 = lt1;
         if (progress == true) {
@@ -377,7 +555,7 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    public void reset_texarea(){
+    public void reset_texarea() {
         texarea.setForeground(Color.WHITE);
         texarea.setFont(new Font("Arial", Font.BOLD, 18));
         texarea.setBorder(new LineBorder(Color.white));
@@ -556,7 +734,8 @@ public class SystemController extends GUI implements ActionListener {
                     if (passwordNumbers > 10000) {
                         dataStore.password = passwordNumbers;
                         user.password = passwordNumbers;
-                        warn(4000, "Konto - Warn", "Name: " + user.name + "\nPassword: " + user.password, "Anmelden-System", "");
+                        warn(4000, "Konto - Warn", "Name: " + user.name + "\nPassword: " + user.password,
+                                "Anmelden-System", "");
                         loadingValues[3] = true;
                         infoText.setText("Erfolgreich angemeldet");
                         randomButton.setVisible(false);
@@ -584,23 +763,23 @@ public class SystemController extends GUI implements ActionListener {
                     }
 
                     if (user.password != Integer.parseInt(texarea.getText().toString())) {
-                      //  infoText.setText("Password: Falsch");
-                            warn(2000, "Anmelden - Warn", "Passwort: Falsch", "Anmelden-System", "");
-                            loadingValues[3] = true;
-                        
+                        // infoText.setText("Password: Falsch");
+                        warn(2000, "Anmelden - Warn", "Passwort: Falsch", "Anmelden-System", "");
+                        loadingValues[3] = true;
+
                     }
 
                 }
             } catch (Exception d) {
                 System.err.println("");
             }
-        }else {
-            if (texarea.getText().length() < 4){
+        } else {
+            if (texarea.getText().length() < 4) {
                 warn(2000, "Anmelden - Warn", "Passwort ist kurz", "Anmelden-System", "");
                 loadingValues[3] = true;
             }
 
-            if (texarea.getText().length() > 16){
+            if (texarea.getText().length() > 16) {
                 warn(2000, "Anmelden - Warn", "Passwort ist lang", "Anmelden-System", "");
                 loadingValues[3] = true;
             }
@@ -632,7 +811,7 @@ public class SystemController extends GUI implements ActionListener {
         if (user.name != null) {
 
             if (!texarea.getText().toString().equals(user.name)) {
-                //infoText.setText("Name: Falsch");
+                // infoText.setText("Name: Falsch");
                 warn(2000, "Anmelden - Warn", "Name: Falsch", "Anmelden-System", "");
                 loadingValues[3] = true;
 
@@ -660,13 +839,13 @@ public class SystemController extends GUI implements ActionListener {
                 if (user.password < 10000) {
                     randomButton.setVisible(true);
                 }
-            } else{
-                if (texarea.getText().length() < 4){
+            } else {
+                if (texarea.getText().length() < 4) {
                     warn(2000, "Anmelden - Warn", "Name ist kurz", "Anmelden-System", "");
                     loadingValues[3] = true;
                 }
 
-                if (texarea.getText().length() > 20){
+                if (texarea.getText().length() > 20) {
                     warn(2000, "Anmelden - Warn", "Name ist lang", "Anmelden-System", "");
                     loadingValues[3] = true;
                 }
@@ -676,31 +855,35 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    public void setRarityColor(){
-        for (int i = 0; i < super.rar.length; i++){
-            if (texarea.getText().equals(super.rar[i])){
+    public void setRarityColor() {
+        for (int i = 0; i < super.rar.length; i++) {
+            if (texarea.getText().equals(super.rar[i])) {
                 texarea.setForeground(super.rar_colors[i]);
                 texarea.setBorder(new LineBorder(super.rar_colors[i]));
                 confirmButton.setBorder(new LineBorder(super.rar_colors[i]));
                 randomButton.setBorder(new LineBorder(super.rar_colors[i]));
                 infoText.setForeground(super.rar_colors[i]);
                 sec_Image.setVisible(true);
-                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + super.rar[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                sec_Image.setIcon(new ImageIcon(
+                        new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + super.rar[i] + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
             }
         }
     }
 
-    public void setElementColor(){
-        for (int i = 0; i < super.elemente.length; i++){
-            if (texarea.getText().equals(super.elemente[i])){
+    public void setElementColor() {
+        for (int i = 0; i < super.elemente.length; i++) {
+            if (texarea.getText().equals(super.elemente[i])) {
                 texarea.setForeground(super.elemente_colors[i]);
                 texarea.setBorder(new LineBorder(super.elemente_colors[i]));
                 confirmButton.setBorder(new LineBorder(super.elemente_colors[i]));
                 randomButton.setBorder(new LineBorder(super.elemente_colors[i]));
                 infoText.setForeground(super.elemente_colors[i]);
                 sec_Image.setVisible(true);
-                sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + super.elemente[i] + ".png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                sec_Image.setIcon(new ImageIcon(
+                        new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + super.elemente[i] + ".png")
+                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
             }
         }
@@ -758,7 +941,6 @@ public class SystemController extends GUI implements ActionListener {
         }
 
         setRarityColor();
-        
 
     }
 
@@ -777,7 +959,6 @@ public class SystemController extends GUI implements ActionListener {
             sec_Image.setIcon(null);
             clearBox();
 
-            
         }
 
         if (cardIndex >= 0 && texarea.getText().length() > 2 && texarea.getText().length() < 16) {
@@ -794,11 +975,11 @@ public class SystemController extends GUI implements ActionListener {
             sec_Image.setIcon(null);
             clearBox();
 
-            for (int i = 0; i<2 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])){
-                    infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1 ] + ")");
-                    for (int v = 0; v<super.skills.length; v++){
-                        if (super.skills[v].equals(super.extra_Damage[i][i])){
+            for (int i = 0; i < 2; i++) {
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])) {
+                    infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1] + ")");
+                    for (int v = 0; v < super.skills.length; v++) {
+                        if (super.skills[v].equals(super.extra_Damage[i][i])) {
                             texarea.setForeground(super.skills_colors[v]);
                             texarea.setBorder(new LineBorder(super.skills_colors[v]));
                             confirmButton.setBorder(new LineBorder(super.skills_colors[v]));
@@ -806,8 +987,8 @@ public class SystemController extends GUI implements ActionListener {
                             infoText.setForeground(super.skills_colors[v]);
                             sec_Image.setVisible(true);
                             sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v] + ".png")
-                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                                    "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v] + ".png")
+                                    .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                         }
                     }
                 }
@@ -818,142 +999,191 @@ public class SystemController extends GUI implements ActionListener {
     public void confirmCardDamage() {
         try {
 
-        if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                && Integer.parseInt(texarea.getText()) < 1001) {
-            dataStore.temp_KarteDamage = texarea.getText();
-            texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateHP");
-            confirmButton.setActionCommand("ConfirmCardHP");
-            infoText.setText("HP eingeben (0-1000)");
-            reset_texarea();
-
-        }
-
-    if (cardIndex >= 0 && texarea.getText().length() > 0){
-        for (int i = 0; i<2 ; i++){
-            if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])){
-                infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1 ] + ")");
-            
-
-            if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Damage[i][i + 1 ])){
+            if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                    && Integer.parseInt(texarea.getText()) < 1001) {
                 dataStore.temp_KarteDamage = texarea.getText();
-                texarea.setText(karten[cardIndex].karte_HP);
+                texarea.setText(null);
                 eRandomButton.setActionCommand("GenerateHP");
                 confirmButton.setActionCommand("ConfirmCardHP");
-                if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0){
+                infoText.setText("HP eingeben (0-1000)");
+                reset_texarea();
+
+            }
+
+            if (cardIndex >= 0 && texarea.getText().length() > 0) {
+                for (int i = 0; i < 2; i++) {
+                    if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[i][i])) {
+                        infoText.setText("Damage ändern (0-" + super.extra_Damage[i][i + 1] + ")");
+
+                        if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Damage[i][i + 1])) {
+                            dataStore.temp_KarteDamage = texarea.getText();
+                            texarea.setText(karten[cardIndex].karte_HP);
+                            eRandomButton.setActionCommand("GenerateHP");
+                            confirmButton.setActionCommand("ConfirmCardHP");
+                            if (cardIndex >= 0 && texarea.getText().length() > 0
+                                    && Integer.parseInt(texarea.getText()) >= 0) {
+                                infoText.setText("HP eingeben (0-1000)");
+                                reset_texarea();
+
+                            }
+
+                            if (karten[cardIndex].karte_Ability != null) {
+                                reset_texarea();
+                                if (karten[cardIndex].karte_Ability.equals("Ghost")) {
+                                    infoText.setText("HP Ändern (-1000-1000)");
+                                    texarea.setForeground(super.skills_colors[1]);
+                                    texarea.setBorder(new LineBorder(super.skills_colors[1]));
+                                    confirmButton.setBorder(new LineBorder(super.skills_colors[1]));
+                                    randomButton.setBorder(new LineBorder(super.skills_colors[1]));
+                                    infoText.setForeground(super.skills_colors[1]);
+                                    sec_Image.setVisible(true);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage()
+                                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                                }
+                            }
+
+                            return;
+                        } else {
+                            loadingValues[3] = true;
+                            warn(3000, "Damage - Warn",
+                                    "Damage - Max:\n" + Integer.parseInt(super.extra_Damage[i][i + 1]) + " < "
+                                            + Integer.parseInt(texarea.getText()),
+                                    "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\"
+                                            + karten[cardIndex].karte_Ability + ".png");
+                        }
+
+                    }
+                }
+
+            }
+
+            if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                    && Integer.parseInt(texarea.getText()) < 1001) {
+
+                if (karten[cardIndex].karte_Ability == null) {
+                    dataStore.temp_KarteDamage = texarea.getText();
+                    texarea.setText(karten[cardIndex].karte_HP);
+                    eRandomButton.setActionCommand("GenerateHP");
+                    confirmButton.setActionCommand("ConfirmCardHP");
                     infoText.setText("HP eingeben (0-1000)");
                     reset_texarea();
 
                 }
-
                 if (karten[cardIndex].karte_Ability != null) {
                     reset_texarea();
                     if (karten[cardIndex].karte_Ability.equals("Ghost")) {
-                        infoText.setText("HP Ändern (-1000-1000)");
+
                         texarea.setForeground(super.skills_colors[1]);
                         texarea.setBorder(new LineBorder(super.skills_colors[1]));
                         confirmButton.setBorder(new LineBorder(super.skills_colors[1]));
                         randomButton.setBorder(new LineBorder(super.skills_colors[1]));
                         infoText.setForeground(super.skills_colors[1]);
                         sec_Image.setVisible(true);
-                        sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-                    }
-                }    
+                        sec_Image.setIcon(new ImageIcon(
+                                new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png")
+                                        .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
-                return;
-            } else{
-                loadingValues[3] = true;
-                warn(3000, "Damage - Warn", "Damage - Max:\n" + Integer.parseInt(super.extra_Damage[i][i + 1 ]) + " < " + Integer.parseInt(texarea.getText()), "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");            }
-                
-            }
-        }
-
-    }
-
-        if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0 && Integer.parseInt(texarea.getText()) < 1001) {
-
-                    if (karten[cardIndex].karte_Ability == null) {
                         dataStore.temp_KarteDamage = texarea.getText();
                         texarea.setText(karten[cardIndex].karte_HP);
                         eRandomButton.setActionCommand("GenerateHP");
                         confirmButton.setActionCommand("ConfirmCardHP");
-                        infoText.setText("HP eingeben (0-1000)");
-                        reset_texarea();
+                        infoText.setText("HP Ändern (-1000-1000)");
 
-            
+                    } else {
+                        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                                && Integer.parseInt(texarea.getText()) < 1001) {
+                            dataStore.temp_KarteDamage = texarea.getText();
+                            texarea.setText(karten[cardIndex].karte_HP);
+                            eRandomButton.setActionCommand("GenerateHP");
+                            confirmButton.setActionCommand("ConfirmCardHP");
+                            infoText.setText("HP eingeben (0-1000)");
+                            reset_texarea();
+
+                        }
                     }
-            if (karten[cardIndex].karte_Ability != null) {
-                reset_texarea();
-                if (karten[cardIndex].karte_Ability.equals("Ghost")) {
 
-                    texarea.setForeground(super.skills_colors[1]);
-                    texarea.setBorder(new LineBorder(super.skills_colors[1]));
-                    confirmButton.setBorder(new LineBorder(super.skills_colors[1]));
-                    randomButton.setBorder(new LineBorder(super.skills_colors[1]));
-                    infoText.setForeground(super.skills_colors[1]);
-                    sec_Image.setVisible(true);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Ghost.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-
-                    dataStore.temp_KarteDamage = texarea.getText();
-                    texarea.setText(karten[cardIndex].karte_HP);
-                    eRandomButton.setActionCommand("GenerateHP");
-                    confirmButton.setActionCommand("ConfirmCardHP");
-                    infoText.setText("HP Ändern (-1000-1000)");
-
-                } else {
-                    if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                            && Integer.parseInt(texarea.getText()) < 1001) {
-                        dataStore.temp_KarteDamage = texarea.getText();
-                        texarea.setText(karten[cardIndex].karte_HP);
-                        eRandomButton.setActionCommand("GenerateHP");
-                        confirmButton.setActionCommand("ConfirmCardHP");
-                        infoText.setText("HP eingeben (0-1000)");
-                        reset_texarea();
-
-                    }
                 }
-
             }
+
+        } catch (Exception e) {
+            loadingValues[3] = true;
+            warn(2000, "Damage - Warn", "Damage muss eine\n Zahl sein", "Info", "");
+
         }
-
-    } catch (Exception e) {
-        loadingValues[3] = true;
-        warn(2000, "Damage - Warn", "Damage muss eine\n Zahl sein", "Info", "");            
-    
-        
-    }
-
 
     }
 
     public void confirmCardHP() {
         try {
-        if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                && Integer.parseInt(texarea.getText()) < 1001) {
-            dataStore.temp_KarteHP = texarea.getText();
-            texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateAgility");
-            confirmButton.setActionCommand("ConfirmCardAgility");
-            infoText.setText("Agilität eingeben (0-100)");
-            reset_texarea();
+            if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                    && Integer.parseInt(texarea.getText()) < 1001) {
+                dataStore.temp_KarteHP = texarea.getText();
+                texarea.setText(null);
+                eRandomButton.setActionCommand("GenerateAgility");
+                confirmButton.setActionCommand("ConfirmCardAgility");
+                infoText.setText("Agilität eingeben (0-100)");
+                reset_texarea();
 
-        }
+            }
 
-        if (cardIndex >= 0) {
-            if (karten[cardIndex].karte_Ability != null) {
-                if (karten[cardIndex].karte_Ability.equals("Ghost")) {
-                    if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= -1000
-                            && Integer.parseInt(texarea.getText()) < 1001) {
-                        dataStore.temp_KarteHP = texarea.getText();
-                        texarea.setText(karten[cardIndex].karte_Agility);
-                        eRandomButton.setActionCommand("GenerateAgility");
-                        confirmButton.setActionCommand("ConfirmCardAgility");
-                        infoText.setText("Agilität eingeben (0-100)");
-                        reset_texarea();
+            if (cardIndex >= 0) {
+                if (karten[cardIndex].karte_Ability != null) {
+                    if (karten[cardIndex].karte_Ability.equals("Ghost")) {
+                        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= -1000
+                                && Integer.parseInt(texarea.getText()) < 1001) {
+                            dataStore.temp_KarteHP = texarea.getText();
+                            texarea.setText(karten[cardIndex].karte_Agility);
+                            eRandomButton.setActionCommand("GenerateAgility");
+                            confirmButton.setActionCommand("ConfirmCardAgility");
+                            infoText.setText("Agilität eingeben (0-100)");
+                            reset_texarea();
 
+                        }
+
+                    } else {
+                        if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                                && Integer.parseInt(texarea.getText()) < 1001) {
+                            dataStore.temp_KarteHP = texarea.getText();
+                            texarea.setText(karten[cardIndex].karte_Agility);
+                            eRandomButton.setActionCommand("GenerateAgility");
+                            confirmButton.setActionCommand("ConfirmCardAgility");
+                            infoText.setText("Agilität eingeben (0-100)");
+                            reset_texarea();
+
+                        }
                     }
 
-                } else {
+                    if (karten[cardIndex].karte_Ability != null) {
+                        reset_texarea();
+                        if (cardIndex >= 0 && texarea.getText().length() > 0) {
+                            for (int i = 0; i < 2; i++) {
+                                if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])) {
+                                    infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1] + ")");
+
+                                    if (Integer.parseInt(texarea.getText()) <= Integer
+                                            .parseInt(super.extra_Agility[i][i + 1])) {
+                                        dataStore.temp_KarteAgility = texarea.getText();
+                                        dataStore.temp_KarteHP = texarea.getText();
+                                        texarea.setText(karten[cardIndex].karte_Agility);
+                                        eRandomButton.setActionCommand("GenerateAgility");
+                                        confirmButton.setActionCommand("ConfirmCardAgility");
+                                        infoText.setText("Agilität eingeben (0-100)");
+                                        if (karten[cardIndex].karte_Ability.equals("Bolt")) {
+                                            infoText.setText("Agilität eingeben (0-250)");
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                if (karten[cardIndex].karte_Ability == null) {
+                    reset_texarea();
                     if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                             && Integer.parseInt(texarea.getText()) < 1001) {
                         dataStore.temp_KarteHP = texarea.getText();
@@ -961,151 +1191,111 @@ public class SystemController extends GUI implements ActionListener {
                         eRandomButton.setActionCommand("GenerateAgility");
                         confirmButton.setActionCommand("ConfirmCardAgility");
                         infoText.setText("Agilität eingeben (0-100)");
-                        reset_texarea();
-
                     }
                 }
 
-            if (karten[cardIndex].karte_Ability != null){
-                reset_texarea();
-                if (cardIndex >= 0 && texarea.getText().length() > 0){
-                    for (int i = 0; i<2 ; i++){
-                        if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
-                            infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
-                        
-            
-                        if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Agility[i][i + 1 ])){
-                            dataStore.temp_KarteAgility = texarea.getText();
-                            dataStore.temp_KarteHP = texarea.getText();
-                            texarea.setText(karten[cardIndex].karte_Agility);
-                            eRandomButton.setActionCommand("GenerateAgility");
-                            confirmButton.setActionCommand("ConfirmCardAgility");
-                            infoText.setText("Agilität eingeben (0-100)");
-                            if (karten[cardIndex].karte_Ability.equals("Bolt")) {
-                             infoText.setText("Agilität eingeben (0-250)");
-
-                            }
-
+                for (int i = 0; i < 1; i++) {
+                    if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])) {
+                        infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1] + ")");
+                        for (int v = 0; v < super.skills.length; v++) {
+                            if (super.skills[v].equals(super.extra_Agility[i][i])) {
+                                texarea.setForeground(super.skills_colors[v]);
+                                texarea.setBorder(new LineBorder(super.skills_colors[v]));
+                                confirmButton.setBorder(new LineBorder(super.skills_colors[v]));
+                                randomButton.setBorder(new LineBorder(super.skills_colors[v]));
+                                infoText.setForeground(super.skills_colors[v]);
+                                sec_Image.setVisible(true);
+                                sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                                        "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v]
+                                                + ".png")
+                                        .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
                             }
                         }
                     }
                 }
 
             }
+
+        } catch (Exception e) {
+            loadingValues[3] = true;
+            warn(2000, "HP - Warn", "HP muss eine\n Zahl sein", "Info", "");
         }
-
-            if (karten[cardIndex].karte_Ability == null) {
-                reset_texarea();
-                if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                        && Integer.parseInt(texarea.getText()) < 1001) {
-                    dataStore.temp_KarteHP = texarea.getText();
-                    texarea.setText(karten[cardIndex].karte_Agility);
-                    eRandomButton.setActionCommand("GenerateAgility");
-                    confirmButton.setActionCommand("ConfirmCardAgility");
-                    infoText.setText("Agilität eingeben (0-100)");
-                }
-            }
-
-            for (int i = 0; i<1 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
-                    infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
-                    for (int v = 0; v<super.skills.length; v++){
-                        if (super.skills[v].equals(super.extra_Agility[i][i])){
-                            texarea.setForeground(super.skills_colors[v]);
-                            texarea.setBorder(new LineBorder(super.skills_colors[v]));
-                            confirmButton.setBorder(new LineBorder(super.skills_colors[v]));
-                            randomButton.setBorder(new LineBorder(super.skills_colors[v]));
-                            infoText.setForeground(super.skills_colors[v]);
-                            sec_Image.setVisible(true);
-                            sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + super.skills[v] + ".png")
-                                .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-                        }
-                    }
-                }
-            }
-
-        }
-
-    } catch (Exception e){
-        loadingValues[3] = true;
-        warn(2000, "HP - Warn", "HP muss eine\n Zahl sein", "Info", "");            
-    }
     }
 
     public void confirmCardAgility() {
         try {
-        if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                && Integer.parseInt(texarea.getText()) < 101) {
-            dataStore.temp_KarteAgility = texarea.getText();
-            texarea.setText(null);
-            eRandomButton.setActionCommand("GenerateElement");
-            confirmButton.setActionCommand("ConfirmCardElement");
-            infoText.setText("Element auswählen");
-            clearBox();
-            addToBox(2);
-            box2.setVisible(true);
-            texarea.setEditable(false);
-            sec_Image.setVisible(true);
-        }
-
-        if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
-                && Integer.parseInt(texarea.getText()) < 101) {
-            dataStore.temp_KarteAgility = texarea.getText();
-            texarea.setText(karten[cardIndex].karte_Element);
-            sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                    "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
-                    .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-            sec_Image.setVisible(true);
-            eRandomButton.setActionCommand("GenerateElement");
-            confirmButton.setActionCommand("ConfirmCardElement");
-            infoText.setText("Element Ändern");
-            clearBox();
-            addToBox(2);
-            box2.setVisible(true);
-            texarea.setEditable(false);
-            sec_Image.setVisible(true);
-            setElementColor();
-        }
-
-        if (cardIndex >= 0 && karten[cardIndex].karte_Ability != null){
-    if (karten[cardIndex].karte_Ability != null)
-        if (cardIndex >= 0 && texarea.getText().length() > 0){
-            for (int i = 0; i<2 ; i++){
-                if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])){
-                    infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1 ] + ")");
-                
-    
-                if (Integer.parseInt(texarea.getText()) <= Integer.parseInt(super.extra_Agility[i][i + 1 ])){
-                    reset_texarea();
-                    dataStore.temp_KarteAgility = texarea.getText();
-                    texarea.setText(karten[cardIndex].karte_Element);
-                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
-                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
-                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
-                    sec_Image.setVisible(true);
-                    eRandomButton.setActionCommand("GenerateElement");
-                    confirmButton.setActionCommand("ConfirmCardElement");
-                    infoText.setText("Element Ändern");
-                    clearBox();
-                    addToBox(2);
-                    box2.setVisible(true);
-                    texarea.setEditable(false);
-                    sec_Image.setVisible(true);
-                    setElementColor();
-
-
-                    }
-                }
+            if (cardIndex < 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                    && Integer.parseInt(texarea.getText()) < 101) {
+                dataStore.temp_KarteAgility = texarea.getText();
+                texarea.setText(null);
+                eRandomButton.setActionCommand("GenerateElement");
+                confirmButton.setActionCommand("ConfirmCardElement");
+                infoText.setText("Element auswählen");
+                clearBox();
+                addToBox(2);
+                box2.setVisible(true);
+                texarea.setEditable(false);
+                sec_Image.setVisible(true);
             }
-        }
-    }
 
-} catch (Exception e) {
-     
-    loadingValues[3] = true;
-    warn(2000, "Agility - Warn", "Agility muss eine\n Zahl sein", "Info", "");            
-}
+            if (cardIndex >= 0 && texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
+                    && Integer.parseInt(texarea.getText()) < 101) {
+                dataStore.temp_KarteAgility = texarea.getText();
+                texarea.setText(karten[cardIndex].karte_Element);
+                sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                        "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText() + ".png").getImage()
+                        .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                sec_Image.setVisible(true);
+                eRandomButton.setActionCommand("GenerateElement");
+                confirmButton.setActionCommand("ConfirmCardElement");
+                infoText.setText("Element Ändern");
+                clearBox();
+                addToBox(2);
+                box2.setVisible(true);
+                texarea.setEditable(false);
+                sec_Image.setVisible(true);
+                setElementColor();
+            }
+
+            if (cardIndex >= 0 && karten[cardIndex].karte_Ability != null) {
+                if (karten[cardIndex].karte_Ability != null)
+                    if (cardIndex >= 0 && texarea.getText().length() > 0) {
+                        for (int i = 0; i < 2; i++) {
+                            if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])) {
+                                infoText.setText("Agility ändern (0-" + super.extra_Agility[i][i + 1] + ")");
+
+                                if (Integer.parseInt(texarea.getText()) <= Integer
+                                        .parseInt(super.extra_Agility[i][i + 1])) {
+                                    reset_texarea();
+                                    dataStore.temp_KarteAgility = texarea.getText();
+                                    texarea.setText(karten[cardIndex].karte_Element);
+                                    sec_Image.setIcon(new ImageIcon(new ImageIcon(
+                                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + texarea.getText()
+                                                    + ".png")
+                                            .getImage()
+                                            .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+                                    sec_Image.setVisible(true);
+                                    eRandomButton.setActionCommand("GenerateElement");
+                                    confirmButton.setActionCommand("ConfirmCardElement");
+                                    infoText.setText("Element Ändern");
+                                    clearBox();
+                                    addToBox(2);
+                                    box2.setVisible(true);
+                                    texarea.setEditable(false);
+                                    sec_Image.setVisible(true);
+                                    setElementColor();
+
+                                }
+                            }
+                        }
+                    }
+            }
+
+        } catch (Exception e) {
+
+            loadingValues[3] = true;
+            warn(2000, "Agility - Warn", "Agility muss eine\n Zahl sein", "Info", "");
+        }
 
     }
 
@@ -1124,7 +1314,9 @@ public class SystemController extends GUI implements ActionListener {
             texarea.setText("Keine");
             setAbilityColor();
             sec_Image.setVisible(true);
-            sec_Image.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Keine.png").getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
+            sec_Image.setIcon(
+                    new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\Keine.png")
+                            .getImage().getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
         }
 
         if (cardIndex >= 0 && texarea.getText().length() > 3) {
@@ -1145,7 +1337,7 @@ public class SystemController extends GUI implements ActionListener {
             addToBox(3);
             box2.setVisible(true);
             descriptionBox.setVisible(true);
-           
+
         }
 
     }
@@ -1175,7 +1367,6 @@ public class SystemController extends GUI implements ActionListener {
             loadingValues[1] = true;
 
             checkCards();
-           
 
         }
 
@@ -1211,36 +1402,47 @@ public class SystemController extends GUI implements ActionListener {
             if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_HP) < 0) {
                 if (!karten[cardIndex].karte_Ability.equals("Ghost")) {
                     loadingValues[3] = true;
-                    warn(3000, "HP - Warn", "HP:" + karten[cardIndex].karte_HP + " > " + Math.abs(Integer.parseInt(karten[cardIndex].karte_HP)), "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
+                    warn(3000, "HP - Warn",
+                            "HP:" + karten[cardIndex].karte_HP + " > "
+                                    + Math.abs(Integer.parseInt(karten[cardIndex].karte_HP)),
+                            "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\"
+                                    + karten[cardIndex].karte_Ability + ".png");
                     karten[cardIndex].karte_HP = "" + Math.abs(Integer.parseInt(karten[cardIndex].karte_HP));
                 }
             }
 
-        if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Damage) > 1000) {
-            if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0]) || karten[cardIndex].karte_Ability.equals(super.extra_Damage[1][1])) {
+            if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Damage) > 1000) {
+                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0])
+                        || karten[cardIndex].karte_Ability.equals(super.extra_Damage[1][1])) {
 
-                if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0]) && Integer.parseInt(karten[cardIndex].karte_Damage) > 1500){
+                    if (karten[cardIndex].karte_Ability.equals(super.extra_Damage[0][0])
+                            && Integer.parseInt(karten[cardIndex].karte_Damage) > 1500) {
+                        loadingValues[3] = true;
+                        warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage + " > " + "1500", "Info",
+                                "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability
+                                        + ".png");
+                        karten[cardIndex].karte_Damage = "1500";
+
+                    }
+
+                } else {
                     loadingValues[3] = true;
-                    warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1500", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
-                    karten[cardIndex].karte_Damage = "1500";
-
+                    warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage + " > " + "1000", "Info",
+                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability
+                                    + ".png");
+                    karten[cardIndex].karte_Damage = "1000";
                 }
-
-            } else {
-                loadingValues[3] = true;
-                warn(3000, "Damage - Warn", "Damage:" + karten[cardIndex].karte_Damage+ " > " + "1000", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
-                karten[cardIndex].karte_Damage = "1000";
             }
-        }
 
-        if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Agility) > 100) {
-            if (!karten[cardIndex].karte_Ability.equals("Bolt")) {
-                loadingValues[3] = true;
-                warn(3000, "Agility - Warn", "Agility:" + karten[cardIndex].karte_Agility + " > " + "100", "Info", "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability + ".png");
-                karten[cardIndex].karte_Agility = "100";
+            if (karten[cardIndex].karte_Ability != null && Integer.parseInt(karten[cardIndex].karte_Agility) > 100) {
+                if (!karten[cardIndex].karte_Ability.equals("Bolt")) {
+                    loadingValues[3] = true;
+                    warn(3000, "Agility - Warn", "Agility:" + karten[cardIndex].karte_Agility + " > " + "100", "Info",
+                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + karten[cardIndex].karte_Ability
+                                    + ".png");
+                    karten[cardIndex].karte_Agility = "100";
+                }
             }
-        }
-    
 
             dataStore.clearSavedTempCard();
             cardIndex = -1;
@@ -1248,8 +1450,6 @@ public class SystemController extends GUI implements ActionListener {
         }
 
         reset_texarea();
-
-
 
     }
 
@@ -1340,37 +1540,39 @@ public class SystemController extends GUI implements ActionListener {
 
         dataStore.clearSavedTempCard();
 
-       
     }
 
     public void option1_1() {
-    if (cardIndex < 0) {
-        reset_texarea();
-        for (int i = 0; i<10 ; i++){
-            if (karten[i] == null || karten[i].karte_Name.equals("N/A")){
-                texarea.setText(null);
-                texarea.setVisible(true);
-                texarea.setEditable(true);
-                confirmButton.setVisible(true);
-                randomButton.setVisible(true);
-                eRandomButton.setActionCommand("RandomName");
-                confirmButton.setActionCommand("ConfirmCardName");
-                sec_Image.setVisible(false);
-                showOptions(false, 0);
-                infoText.setVisible(true);
-                infoText.setText("Name eingeben (4-20 Charakter)");
-                backB.setVisible(true);
-                texarea.setText(dataStore.temp_KarteName);
-                box2.setVisible(false);
-                clearBox();
+        if (cardIndex < 0) {
+            reset_texarea();
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] == null || karten[i].karte_Name.equals("N/A")) {
+                    texarea.setText(null);
+                    texarea.setVisible(true);
+                    texarea.setEditable(true);
+                    confirmButton.setVisible(true);
+                    randomButton.setVisible(true);
+                    eRandomButton.setActionCommand("RandomName");
+                    confirmButton.setActionCommand("ConfirmCardName");
+                    sec_Image.setVisible(false);
+                    showOptions(false, 0);
+                    infoText.setVisible(true);
+                    infoText.setText("Name eingeben (4-20 Charakter)");
+                    backB.setVisible(true);
+                    texarea.setText(dataStore.temp_KarteName);
+                    box2.setVisible(false);
+                    clearBox();
 
-                dataStore.clearSavedTempCard();
-            } else if (karten[0] != null && karten[1] != null && karten[2] != null && karten[3] != null && karten[4] != null && karten[5] != null && karten[6] != null && karten[7] != null && karten[8] != null && karten[9] != null){
-                warn(2000, "Karte - Warn", "Es gibt 10\n Karten", "Speicher", "Java\\src\\Schuelerverwaltung\\Images\\Menü\\Remove.png");
-                loadingValues[3] = true;
+                    dataStore.clearSavedTempCard();
+                } else if (karten[0] != null && karten[1] != null && karten[2] != null && karten[3] != null
+                        && karten[4] != null && karten[5] != null && karten[6] != null && karten[7] != null
+                        && karten[8] != null && karten[9] != null) {
+                    warn(2000, "Karte - Warn", "Es gibt 10\n Karten", "Speicher",
+                            "Java\\src\\Schuelerverwaltung\\Images\\Menü\\Remove.png");
+                    loadingValues[3] = true;
+                }
             }
         }
-    }
 
         if (cardIndex >= 0) {
             reset_texarea();
@@ -1393,8 +1595,8 @@ public class SystemController extends GUI implements ActionListener {
 
     }
 
-    public void showCardInfo(int card){
-        if (karten[card] != null){
+    public void showCardInfo(int card) {
+        if (karten[card] != null) {
             cardInfoText[0].setFont(new Font("Comic Sans MS", Font.BOLD, 35 - karten[card].karte_Name.length()));
             cardInfoText[1].setFont(new Font("Comic Sans MS", Font.PLAIN, 36 - karten[card].karte_Seltenheit.length()));
             cardInfoText[2].setFont(new Font("Comic Sans MS", Font.PLAIN, 40 - karten[card].karte_Name.length()));
@@ -1405,7 +1607,6 @@ public class SystemController extends GUI implements ActionListener {
             cardInfoText[7].setFont(new Font("Comic Sans MS", Font.ITALIC, 40 - karten[card].karte_ID.length()));
 
             cardInfoText[6].setIcon(null);
-
 
             cardInfoMenu.setVisible(true);
             cardInfoImage.setVisible(true);
@@ -1427,53 +1628,72 @@ public class SystemController extends GUI implements ActionListener {
             cardInfoText[7].setText("                    " + karten[card].karte_ID);
             System.out.println(karten[card].karte_Ability);
 
-            for (int i = 0; i<super.rar.length; i++){
-                if (cardInfoText[1].getText().equals(super.rar[i])){
+            for (int i = 0; i < super.rar.length; i++) {
+                if (cardInfoText[1].getText().equals(super.rar[i])) {
                     cardInfoText[1].setForeground(super.rar_colors[i]);
-                    cardInfoText[1].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + cardInfoText[1].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                    cardInfoText[1]
+                            .setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\"
+                                    + cardInfoText[1].getText() + ".png").getImage()
+                                    .getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
 
-            for (int i = 0; i<super.elemente.length; i++){
-                if (cardInfoText[5].getText().equals(super.elemente[i])){
+            for (int i = 0; i < super.elemente.length; i++) {
+                if (cardInfoText[5].getText().equals(super.elemente[i])) {
                     cardInfoText[5].setForeground(super.elemente_colors[i]);
-                    cardInfoText[5].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + cardInfoText[5].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                    cardInfoText[5].setIcon(new ImageIcon(new ImageIcon(
+                            "Java\\src\\Schuelerverwaltung\\Images\\Elemente\\" + cardInfoText[5].getText() + ".png")
+                            .getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
 
-            for (int i = 0; i<super.skills.length; i++){
-                if (cardInfoText[6].getText().equals(super.skills[i])){
+            for (int i = 0; i < super.skills.length; i++) {
+                if (cardInfoText[6].getText().equals(super.skills[i])) {
                     cardInfoText[6].setForeground(super.skills_colors[i]);
-                    cardInfoText[6].setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + cardInfoText[6].getText() + ".png").getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
+                    cardInfoText[6].setIcon(new ImageIcon(new ImageIcon(
+                            "Java\\src\\Schuelerverwaltung\\Images\\Fähigkeiten\\" + cardInfoText[6].getText() + ".png")
+                            .getImage().getScaledInstance(36, 36, Image.SCALE_AREA_AVERAGING)));
                 }
             }
 
-            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) < 800){
-                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.jpg").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
-                cardInfoText[2].setForeground(new Color(200,200,200));
-                cardInfoText[3].setForeground(new Color(200,200,200));
-                cardInfoText[4].setForeground(new Color(200,200,200));
-            }    
-            
-            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 800){
-                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
-                cardInfoText[2].setForeground(new Color(255,200,0));
-                cardInfoText[3].setForeground(new Color(255,200,0));
-                cardInfoText[4].setForeground(new Color(150,0,0));
-            }    
-            
-            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText()) + Integer.parseInt(cardInfoText[4].getText()) > 1600){
-                cardInfoImage.setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png").getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
-                cardInfoText[2].setForeground(new Color(25,255,255));
-                cardInfoText[3].setForeground(new Color(255,25,255));
-                cardInfoText[4].setForeground(new Color(255,255,255));
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText())
+                    + Integer.parseInt(cardInfoText[4].getText()) < 800) {
+                cardInfoImage.setIcon(
+                        new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Silver.jpg")
+                                .getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(200, 200, 200));
+                cardInfoText[3].setForeground(new Color(200, 200, 200));
+                cardInfoText[4].setForeground(new Color(200, 200, 200));
             }
 
-            if (karten[card].karte_Ability != null){
-                if (karten[card].karte_Ability.equals("Premium")){
-                    cardInfoText[2].setText(karten[card].karte_Damage + " x2[" + Integer.parseInt(karten[card].karte_Damage) * 2 + "]");
-                    cardInfoText[3].setText(karten[card].karte_HP + " x2[" + Integer.parseInt(karten[card].karte_HP) * 2 + "]");
-                    cardInfoText[4].setText(karten[card].karte_Agility  + " x2[" + Integer.parseInt(karten[card].karte_Agility) * 2 + "]");
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText())
+                    + Integer.parseInt(cardInfoText[4].getText()) > 800) {
+                cardInfoImage
+                        .setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Gold.png")
+                                .getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(255, 200, 0));
+                cardInfoText[3].setForeground(new Color(255, 200, 0));
+                cardInfoText[4].setForeground(new Color(150, 0, 0));
+            }
+
+            if (Integer.parseInt(cardInfoText[2].getText()) + Integer.parseInt(cardInfoText[3].getText())
+                    + Integer.parseInt(cardInfoText[4].getText()) > 1600) {
+                cardInfoImage
+                        .setIcon(new ImageIcon(new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Karten\\Elite.png")
+                                .getImage().getScaledInstance(350, 220, Image.SCALE_AREA_AVERAGING)));
+                cardInfoText[2].setForeground(new Color(25, 255, 255));
+                cardInfoText[3].setForeground(new Color(255, 25, 255));
+                cardInfoText[4].setForeground(new Color(255, 255, 255));
+            }
+
+            if (karten[card].karte_Ability != null) {
+                if (karten[card].karte_Ability.equals("Premium")) {
+                    cardInfoText[2].setText(
+                            karten[card].karte_Damage + " x2[" + Integer.parseInt(karten[card].karte_Damage) * 2 + "]");
+                    cardInfoText[3].setText(
+                            karten[card].karte_HP + " x2[" + Integer.parseInt(karten[card].karte_HP) * 2 + "]");
+                    cardInfoText[4].setText(karten[card].karte_Agility + " x2["
+                            + Integer.parseInt(karten[card].karte_Agility) * 2 + "]");
                     cardInfoText[5].setText(karten[card].karte_Element);
                     cardInfoText[6].setText(karten[card].karte_Ability);
 
@@ -1481,272 +1701,273 @@ public class SystemController extends GUI implements ActionListener {
                     cardInfoText[3].setForeground(new Color(255, 187, 113));
                     cardInfoText[4].setForeground(new Color(255, 187, 113));
 
-                    cardInfoText[2].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Damage.length()));
+                    cardInfoText[2]
+                            .setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Damage.length()));
                     cardInfoText[3].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_HP.length()));
-                    cardInfoText[4].setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Agility.length()));
+                    cardInfoText[4]
+                            .setFont(new Font("Comic Sans MS", Font.PLAIN, 30 - karten[card].karte_Agility.length()));
 
                 }
             }
 
-
-        }  
+        }
     }
 
-    public void showcards(){
-        showOptions(false,0);
-        
+    public void showcards() {
+        showOptions(false, 0);
+
         backB.setVisible(true);
         try {
-        cardsMenu.setVisible(false);
-        cardsMenu.removeAll();
-        cardsMenu.setVisible(true);
-        } catch (Exception e){
+            cardsMenu.setVisible(false);
+            cardsMenu.removeAll();
+            cardsMenu.setVisible(true);
+        } catch (Exception e) {
 
         }
-    if (meineKarten_Filter.equals("1 bis 10")){
-        for (int i = 0; i<10; i++){
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
-                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-                showCardsButtons[i].addActionListener(this);
-                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-                showCardsButtons[i].setForeground(new Color(255, 255, 255));
-                showCardsButtons[i].setBounds(0, 0, 200, 200); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                showCardsButtons[i].setBackground(Color.BLACK);
-                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                cardsMenu.add(showCardsButtons[i]);
-                filterChanger.setVisible(true);
-
-            }
-
-        }
-
-
-    for (int i = 0; i<10; i++){
-        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-            cardsMenu.add(showCardsButtons[i]);
-            showCardsButtons[i].setVisible(true);
-        }
-        
-    }
-        /*
-        showCardsButtons[3].setVisible(true);
-        showCardsButtons[4].setVisible(true);
-        showCardsButtons[5].setVisible(true);
-        showCardsButtons[6].setVisible(true);
-        showCardsButtons[7].setVisible(true);
-        showCardsButtons[8].setVisible(true);
-        showCardsButtons[9].setVisible(true);
-        */
-    }
-
-    if (meineKarten_Filter.equals("10 bis 1")){
-        for (int i = 0; i<10; i++){
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A")){
-                System.out.println(karten[i].karte_Name);
-                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-                showCardsButtons[i].addActionListener(this);
-                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-                showCardsButtons[i].setForeground(new Color(255, 255, 255));
-                showCardsButtons[i].setBounds(0, 0, 200, 200); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                showCardsButtons[i].setBackground(Color.BLACK);
-                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                cardsMenu.add(showCardsButtons[i]);
-               
-               
-        
-                }
-
-                
-
-           
-        }
-
-        for (int i = 9; i>-1; i--){
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-                cardsMenu.add(showCardsButtons[i]);
-                showCardsButtons[i].setVisible(true);
-                filterChanger.setVisible(true);
-
-            }
-        }
-
-  }
-
-  if (meineKarten_Filter.equals("schwach zu stark")){
-    for (int i = 0; i<10; i++){
-        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
-            System.out.println(karten[i].karte_Name);
-            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-            showCardsButtons[i].addActionListener(this);
-            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-            showCardsButtons[i].setForeground(new Color(255, 255, 255));
-            showCardsButtons[i].setBounds(0, 0, 200, 200); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            showCardsButtons[i].setBackground(Color.BLACK);
-            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            cardsMenu.add(showCardsButtons[i]);
-           
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-                cardsMenu.add(showCardsButtons[i]);
-                showCardsButtons[i].setVisible(true);
-                filterChanger.setVisible(true);
-
-            }
-    
-            }
-    }
-
-    for (int i = 0; i<10; i++){
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
-                System.out.println(karten[i].karte_Name);
-                showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-                showCardsButtons[i].addActionListener(this);
-                showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-                showCardsButtons[i].setForeground(new Color(255, 255, 255));
-                showCardsButtons[i].setBounds(0, 0, 200, 200); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                showCardsButtons[i].setBackground(Color.BLACK);
-                showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-                showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-                cardsMenu.add(showCardsButtons[i]);
-               
-                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+        if (meineKarten_Filter.equals("1 bis 10")) {
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")) {
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
                     cardsMenu.add(showCardsButtons[i]);
-                    showCardsButtons[i].setVisible(true);
                     filterChanger.setVisible(true);
 
                 }
-        
+
+            }
+
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                    cardsMenu.add(showCardsButtons[i]);
+                    showCardsButtons[i].setVisible(true);
                 }
 
             }
-            for (int i = 0; i<10; i++){
+            /*
+             * showCardsButtons[3].setVisible(true);
+             * showCardsButtons[4].setVisible(true);
+             * showCardsButtons[5].setVisible(true);
+             * showCardsButtons[6].setVisible(true);
+             * showCardsButtons[7].setVisible(true);
+             * showCardsButtons[8].setVisible(true);
+             * showCardsButtons[9].setVisible(true);
+             */
+        }
 
-                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
+        if (meineKarten_Filter.equals("10 bis 1")) {
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")) {
                     System.out.println(karten[i].karte_Name);
                     showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
                     showCardsButtons[i].addActionListener(this);
                     showCardsButtons[i].setActionCommand("Karte" + (i + 1));
                     showCardsButtons[i].setForeground(new Color(255, 255, 255));
-                    showCardsButtons[i].setBounds(0, 0, 200, 200); 
-                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
                     showCardsButtons[i].setBackground(Color.BLACK);
-                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-                    showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
                     cardsMenu.add(showCardsButtons[i]);
-                   
-                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
+
+                }
+
+            }
+
+            for (int i = 9; i > -1; i--) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                    cardsMenu.add(showCardsButtons[i]);
+                    showCardsButtons[i].setVisible(true);
+                    filterChanger.setVisible(true);
+
+                }
+            }
+
+        }
+
+        if (meineKarten_Filter.equals("schwach zu stark")) {
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage)
+                        + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
                         cardsMenu.add(showCardsButtons[i]);
                         showCardsButtons[i].setVisible(true);
                         filterChanger.setVisible(true);
 
                     }
-            
+
+                }
+            }
+
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) > 800
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) < 1600) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+
                     }
 
-                
-    
-
-    }
-            
-
-}
-
-if (meineKarten_Filter.equals("stark zu schwach")){
-
-    for (int i = 0; i<10; i++){
-
-        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) >= 1600){
-            System.out.println(karten[i].karte_Name);
-            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-            showCardsButtons[i].addActionListener(this);
-            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-            showCardsButtons[i].setForeground(new Color(255, 255, 255));
-            showCardsButtons[i].setBounds(0, 0, 200, 200); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            showCardsButtons[i].setBackground(Color.BLACK);
-            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            cardsMenu.add(showCardsButtons[i]);
-           
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-                cardsMenu.add(showCardsButtons[i]);
-                showCardsButtons[i].setVisible(true);
-                filterChanger.setVisible(true);
+                }
 
             }
-    
+            for (int i = 0; i < 10; i++) {
+
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) > 800
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) >= 1600) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+
+                    }
+
+                }
+
             }
-
-        
-
-
-}
-
-for (int i = 0; i<10; i++){
-    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) > 800 && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 1600){
-        System.out.println(karten[i].karte_Name);
-        showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-        showCardsButtons[i].addActionListener(this);
-        showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-        showCardsButtons[i].setForeground(new Color(255, 255, 255));
-        showCardsButtons[i].setBounds(0, 0, 200, 200); 
-        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-        showCardsButtons[i].setBackground(Color.BLACK);
-        showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-        showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-        cardsMenu.add(showCardsButtons[i]);
-       
-        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-            cardsMenu.add(showCardsButtons[i]);
-            showCardsButtons[i].setVisible(true);
-            filterChanger.setVisible(true);
 
         }
 
+        if (meineKarten_Filter.equals("stark zu schwach")) {
+
+            for (int i = 0; i < 10; i++) {
+
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) > 800
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) >= 1600) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+
+                    }
+
+                }
+
+            }
+
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A")
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) > 800
+                        && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP)
+                                + Integer.parseInt(karten[i].karte_Agility) < 1600) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+
+                    }
+
+                }
+
+            }
+
+            for (int i = 0; i < 10; i++) {
+                if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage)
+                        + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800) {
+                    System.out.println(karten[i].karte_Name);
+                    showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
+                    showCardsButtons[i].addActionListener(this);
+                    showCardsButtons[i].setActionCommand("Karte" + (i + 1));
+                    showCardsButtons[i].setForeground(new Color(255, 255, 255));
+                    showCardsButtons[i].setBounds(0, 0, 200, 200);
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    showCardsButtons[i].setBackground(Color.BLACK);
+                    showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40));
+                    showCardsButtons[i].setBorder(new LineBorder(new Color(255, 255, 255)));
+                    cardsMenu.add(showCardsButtons[i]);
+
+                    if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null) {
+                        cardsMenu.add(showCardsButtons[i]);
+                        showCardsButtons[i].setVisible(true);
+                        filterChanger.setVisible(true);
+                    }
+
+                }
+            }
+
         }
 
     }
-   
-    for (int i = 0; i<10; i++){
-        if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && Integer.parseInt(karten[i].karte_Damage) + Integer.parseInt(karten[i].karte_HP) + Integer.parseInt(karten[i].karte_Agility) < 800){
-            System.out.println(karten[i].karte_Name);
-            showCardsButtons[i] = new JButton(karten[i].karte_Name + "[" + (i + 1) + "]");
-            showCardsButtons[i].addActionListener(this);
-            showCardsButtons[i].setActionCommand("Karte" + (i + 1));
-            showCardsButtons[i].setForeground(new Color(255, 255, 255));
-            showCardsButtons[i].setBounds(0, 0, 200, 200); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            showCardsButtons[i].setBackground(Color.BLACK);
-            showCardsButtons[i].setFont(new Font("Times new Roman", Font.PLAIN, 40)); 
-            showCardsButtons[i].setBorder(new LineBorder(new Color(255,255,255)));
-            cardsMenu.add(showCardsButtons[i]);
-           
-            if (karten[i] != null && !karten[i].karte_Name.equals("N/A") && showCardsButtons[i] != null){
-                cardsMenu.add(showCardsButtons[i]);
-                showCardsButtons[i].setVisible(true);
-                filterChanger.setVisible(true);
-            }
-    
-            }
-    }
-
-   
-            
-
-}
-
-    
-        
-    }
-
 
     public void karteBearbeiten() {
+
 
         backB.setVisible(true);
         texarea.setVisible(true);
@@ -1755,8 +1976,9 @@ for (int i = 0; i<10; i++){
 
         confirmButton.setVisible(true);
         showOptions(false, 0);
-        search_Box.setVisible(true);
-        searchB1.setVisible(true);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
 
         confirmButton.setActionCommand("show edit panel");
     }
@@ -1772,8 +1994,37 @@ for (int i = 0; i<10; i++){
 
     }
 
+    public void generateRandomCard() {
+
+        r1 = new Random();
+
+        r2 = r1.nextInt(1000);
+
+        randomCard[0].setText(randomName());
+
+        randomCard[1].setText(generateObject(super.rar));
+
+        randomCard[2].setText(generateNumber(r2, 1) + "");
+
+        r2 = r1.nextInt(1000);
+
+        randomCard[3].setText(generateNumber(r2, 1) + "");
+
+        r2 = r1.nextInt(1000);
+
+        randomCard[4].setText(generateNumber(r2, 1) + "");
+
+        randomCard[5].setText(generateObject(super.elemente));
+
+        randomCard[6].setText(generateObject(super.skills));
+
+        r2 = r1.nextInt(1000000);
+
+        randomCard[7].setText("" + generateNumber(10000, r2));
+    }
+
     public void showOptions(boolean b, int n) {
-        if (n >= 0 && n < 6){
+        if (n >= 0 && n < 6) {
             option[n].setVisible(b);
             optionI[n].setVisible(b);
             option[n].setVisible(b);
@@ -1788,38 +2039,9 @@ for (int i = 0; i<10; i++){
             optionI[n].setVisible(b);
             n++;
             showOptions(b, n);
-        }else {
+        } else {
             return;
         }
-
-    }
-
-    public void generateRandomCard(){
-        r1 = new Random();
-                r2 = r1.nextInt(1000);
-
-                randomCard[0].setText(randomName());
-                randomCard[1].setText(generateObject(arraysList.rar));
-                randomCard[2].setText(generateNumber(r2, 1) + "");
-                r2 = r1.nextInt(1000);
-                randomCard[3].setText(generateNumber(r2, 1) + "");
-                r2 = r1.nextInt(1000);
-                randomCard[4].setText(generateNumber(r2, 1) + "");
-                randomCard[5].setText(generateObject(arraysList.elemente));
-               
-
-                            randomCard[6].setText(generateObject(arraysList.skills));
-                            
-
-
-                            r2 = r1.nextInt(1000000);
-                randomCard[7].setText("" + generateNumber(10000, r2));
-
-                System.out.println(generateObject(arraysList.rar));
-                System.out.println("Damage" + generateNumber(10000, r2));
-                System.out.println("HP" + generateNumber(10000, r2));
-                System.out.println("Agility" + generateNumber(10000, r2));
-
 
     }
 
@@ -1845,8 +2067,8 @@ for (int i = 0; i<10; i++){
         infoText.setVisible(false);
         filterChanger.setVisible(false);
 
-        if (cardsMenu.isVisible() == true){
-           // cardsMenu.removeAll();
+        if (cardsMenu.isVisible() == true) {
+            // cardsMenu.removeAll();
             cardsMenu.setVisible(false);
             cardInfoMenu.setVisible(false);
             cardInfoImage.setVisible(false);
@@ -1873,8 +2095,9 @@ for (int i = 0; i<10; i++){
 
         confirmButton.setVisible(true);
         showOptions(false, 0);
-        search_Box.setVisible(true);
-        searchB1.setVisible(true);
+        search_Box.setVisible(false);
+        searchB1.setVisible(false);
+        searchB2.setVisible(false);
 
         confirmButton.setActionCommand("Löschen Abfrage");
 
@@ -1900,7 +2123,7 @@ for (int i = 0; i<10; i++){
                 cardIndex = -1;
                 break;
             }
-          //  löschendeKarte = null;
+            // löschendeKarte = null;
 
         }
 
@@ -1974,8 +2197,6 @@ for (int i = 0; i<10; i++){
             if (e.getActionCommand().equals("GenerateRarity")) {
                 texarea.setText(generateObject(super.rar));
 
-
-               
                 try {
                     setRarityColor();
 
@@ -1988,12 +2209,12 @@ for (int i = 0; i<10; i++){
                 r1 = new Random();
                 r2 = r1.nextInt(1000);
 
-                if (cardIndex >= 0){
-                    if (karten[cardIndex].karte_Ability.equals("Rage")){
+                if (cardIndex >= 0) {
+                    if (karten[cardIndex].karte_Ability.equals("Rage")) {
                         r2 = r1.nextInt(1500);
                     }
 
-                    if (karten[cardIndex].karte_Ability.equals("Shredder")){
+                    if (karten[cardIndex].karte_Ability.equals("Shredder")) {
                         r2 = r1.nextInt(2000);
                     }
 
@@ -2003,15 +2224,14 @@ for (int i = 0; i<10; i++){
 
             }
 
-
             if (e.getActionCommand().equals("GenerateHP")) {
                 r1 = new Random();
                 r2 = r1.nextInt(1000);
                 texarea.setText("" + generateNumber(r2, 1));
                 System.out.println(cardIndex);
-                if (cardIndex >= 0){
+                if (cardIndex >= 0) {
                     System.out.println("Ghost");
-                    if (karten[cardIndex].karte_Ability.equals("Ghost")){
+                    if (karten[cardIndex].karte_Ability.equals("Ghost")) {
                         r2 = r1.nextInt(1000);
                         texarea.setText("" + generateNumber(r2, -1000));
 
@@ -2029,7 +2249,6 @@ for (int i = 0; i<10; i++){
                 texarea.setText(generateObject(super.elemente));
                 try {
                     setElementColor();
-
 
                 } catch (Exception x) {
                     System.out.println(x.getStackTrace());
@@ -2052,12 +2271,6 @@ for (int i = 0; i<10; i++){
             }
 
         }
-
-        if (e.getActionCommand().equals("Zufällige Karte machen")) {
-            generateCard = true;
-                
-        }
-
 
         if (e.getSource() == confirmButton) {
 
@@ -2099,18 +2312,18 @@ for (int i = 0; i<10; i++){
 
         }
 
-        if (e.getActionCommand().equals("Meine Karten")){
+        if (e.getActionCommand().equals("Meine Karten")) {
             showcards();
         }
 
-        for (int c = 0; c<11; c++){
-            if (e.getActionCommand().equals("Karte" + c)){
+        for (int c = 0; c < 11; c++) {
+            if (e.getActionCommand().equals("Karte" + c)) {
                 System.out.println(c);
-                c-=1;
-                if (c<0){
+                c -= 1;
+                if (c < 0) {
                     c = 0;
                 }
-                if (!karten[c].karte_Name.equals(cardInfoText[0].getText())){
+                if (!karten[c].karte_Name.equals(cardInfoText[0].getText())) {
                     showCardInfo(c);
 
                 }
@@ -2118,7 +2331,6 @@ for (int i = 0; i<10; i++){
             }
 
         }
-<<<<<<< HEAD
 
         if (e.getActionCommand().equals("Zufällige Karte machen")) {
             unboxingButton[0].setVisible(false);
@@ -2145,34 +2357,15 @@ for (int i = 0; i<10; i++){
             loadingValues[1] = true;
 
         }
-
-        if (e.getActionCommand().equals("Decline_Unboxed_Card")) {
-            unboxingButton[0].setVisible(false);
-            unboxingButton[1].setVisible(false);
-            unboxingButton[2].setVisible(false);
-            unboxingI.setVisible(false);
-            randomCard[0].setVisible(false);
-            randomCard[1].setVisible(false);
-            randomCard[2].setVisible(false);
-            randomCard[3].setVisible(false);
-            randomCard[4].setVisible(false);
-            randomCard[5].setVisible(false);
-            randomCard[6].setVisible(false);
-            randomCard[7].setVisible(false);
-
-            showOptions(true, 0);
-        }
+        
 
 
-=======
-     
->>>>>>> 5711838b8f49f05654b91d7197a9d9aed9f4f9f4
         if (e.getActionCommand().equals("Abmelden")) {
             abmelden();
         }
 
         if (e.getActionCommand().equals("filterChanger")) {
-            if (meineKarten_Filter.equals("1 bis 10")){
+            if (meineKarten_Filter.equals("1 bis 10")) {
                 meineKarten_Filter = "10 bis 1";
                 filterChanger.setText("Filter: " + meineKarten_Filter);
                 showcards();
@@ -2180,7 +2373,7 @@ for (int i = 0; i<10; i++){
 
             }
 
-            if (meineKarten_Filter.equals("10 bis 1")){
+            if (meineKarten_Filter.equals("10 bis 1")) {
                 meineKarten_Filter = "schwach zu stark";
                 filterChanger.setText("Filter: " + meineKarten_Filter);
                 showcards();
@@ -2188,7 +2381,7 @@ for (int i = 0; i<10; i++){
 
             }
 
-            if (meineKarten_Filter.equals("schwach zu stark")){
+            if (meineKarten_Filter.equals("schwach zu stark")) {
                 meineKarten_Filter = "stark zu schwach";
                 filterChanger.setText("Filter: " + meineKarten_Filter);
                 showcards();
@@ -2196,7 +2389,7 @@ for (int i = 0; i<10; i++){
 
             }
 
-            if (meineKarten_Filter.equals("stark zu schwach")){
+            if (meineKarten_Filter.equals("stark zu schwach")) {
                 meineKarten_Filter = "1 bis 10";
                 filterChanger.setText("Filter: " + meineKarten_Filter);
                 showcards();
@@ -2228,7 +2421,7 @@ for (int i = 0; i<10; i++){
                         new ImageIcon("Java\\src\\Schuelerverwaltung\\Images\\Seltenheiten\\" + v + ".png").getImage()
                                 .getScaledInstance(50, 45, Image.SCALE_AREA_AVERAGING)));
 
-                                setRarityColor();
+                setRarityColor();
 
                 break;
             }
@@ -2250,14 +2443,9 @@ for (int i = 0; i<10; i++){
         for (String v : super.skills) {
             if (e.getActionCommand().equals(v)) {
                 texarea.setText(v);
-<<<<<<< HEAD
                 setAbilityColor();
                 for (int i = 0; i < super.skills.length; i++) {
                     if (texarea.getText().equals(super.skills[i])) {
-=======
-                for (int i = 0; i< super.skills.length; i++){
-                    if (texarea.getText().equals(super.skills[i])){
->>>>>>> 5711838b8f49f05654b91d7197a9d9aed9f4f9f4
                         rd2 = i;
                     }
                 }
@@ -2332,6 +2520,8 @@ for (int i = 0; i<10; i++){
                 d.printStackTrace();
             } catch (ClassNotFoundException d2) {
                 d2.printStackTrace();
+            } catch (Exception m){
+
             }
         }
 
@@ -2467,15 +2657,15 @@ for (int i = 0; i<10; i++){
         }
     }
 
-    public void warn(int a, String n, String d, String dif, String i){
+    public void warn(int a, String n, String d, String dif, String i) {
 
         warnWait = a;
 
         infoN.setText(n);
         infoD.setText(d);
         infoMes.setText(dif);
-        infoI.setIcon(new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(105, 100, Image.SCALE_AREA_AVERAGING)));
-                
+        infoI.setIcon(
+                new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(105, 100, Image.SCALE_AREA_AVERAGING)));
 
         infoPanel.setBounds(1007, 580, 265, 120);
         infoI.setBounds(1010, 580, 265, 120);
@@ -2483,7 +2673,7 @@ for (int i = 0; i<10; i++){
         infoD.setBounds(1120, 640, 120, 120);
         infoMes.setBounds(1220, 625, 265, 120);
 
-        if (i.equals("")){
+        if (i.equals("")) {
             infoPanel.setBounds(1007, 580, 265, 80);
             infoI.setBounds(910, 580, 565, 120);
             infoN.setBounds(1020, 540, 565, 120);
