@@ -2357,6 +2357,24 @@ public class SystemController extends GUI implements ActionListener {
             loadingValues[1] = true;
 
         }
+
+        if (e.getActionCommand().equals("Decline_Unboxed_Card")) {
+            unboxingButton[0].setVisible(false);
+            unboxingButton[1].setVisible(false);
+            unboxingButton[2].setVisible(false);
+            unboxingI.setVisible(false);
+            randomCard[0].setVisible(false);
+            randomCard[1].setVisible(false);
+            randomCard[2].setVisible(false);
+            randomCard[3].setVisible(false);
+            randomCard[4].setVisible(false);
+            randomCard[5].setVisible(false);
+            randomCard[6].setVisible(false);
+            randomCard[7].setVisible(false);
+
+            showOptions(true, 0);
+        }
+
         
 
 
