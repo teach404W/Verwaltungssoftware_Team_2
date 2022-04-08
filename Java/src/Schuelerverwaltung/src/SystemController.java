@@ -58,7 +58,7 @@ public class SystemController extends GUI implements ActionListener {
         Thread.sleep(1000);
         // loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34,
         // (byte) 4);
-        loading(false, false, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
+        loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
         l.setVisible(false);
         l2.setVisible(false);
 
