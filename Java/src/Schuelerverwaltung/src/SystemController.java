@@ -707,6 +707,7 @@ public class SystemController extends GUI implements ActionListener {
                 x = (int) (Math.random() * 100);
 
             }
+            System.out.println(s);
             return s;
         }
 
@@ -722,6 +723,8 @@ public class SystemController extends GUI implements ActionListener {
             x = (int) (Math.random() * 100); // x Wird neu generiert (0-100)
             if (x < 60)
                 s = s + x; // 60%, dass der Name eine Zufällige Zahl am Ende bekommt
+                System.out.println(s);
+
             return s;
         }
         return null;
@@ -2318,7 +2321,8 @@ public class SystemController extends GUI implements ActionListener {
 
         if (e.getSource() == eRandomButton) {
 
-            if (e.getActionCommand().equals("RandomName") && randomCard[0].isVisible() == false) {
+            if (e.getActionCommand().equals("RandomName")) {
+                System.out.println("Name");
                 texarea.setText(randomName());
             }
             
