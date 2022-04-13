@@ -1171,7 +1171,6 @@ public class SystemController extends GUI implements ActionListener {
                     }
 
                     if (karten[cardIndex].karte_Ability != null) {
-                        reset_texarea();
                         if (cardIndex >= 0 && texarea.getText().length() > 0) {
                             for (int i = 0; i < 2; i++) {
                                 if (karten[cardIndex].karte_Ability.equals(super.extra_Agility[i][i])) {
@@ -1179,6 +1178,7 @@ public class SystemController extends GUI implements ActionListener {
 
                                     if (Integer.parseInt(texarea.getText()) <= Integer
                                             .parseInt(super.extra_Agility[i][i + 1])) {
+                                                reset_texarea();
                                         dataStore.temp_KarteAgility = texarea.getText();
                                         dataStore.temp_KarteHP = texarea.getText();
                                         texarea.setText(karten[cardIndex].karte_Agility);
@@ -1199,9 +1199,9 @@ public class SystemController extends GUI implements ActionListener {
                 }
 
                 if (karten[cardIndex].karte_Ability == null) {
-                    reset_texarea();
                     if (texarea.getText().length() > 0 && Integer.parseInt(texarea.getText()) >= 0
                             && Integer.parseInt(texarea.getText()) < 1001) {
+                                reset_texarea();
                         dataStore.temp_KarteHP = texarea.getText();
                         texarea.setText(karten[cardIndex].karte_Agility);
                         eRandomButton.setActionCommand("GenerateAgility");
