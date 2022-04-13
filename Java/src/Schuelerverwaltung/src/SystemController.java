@@ -57,7 +57,7 @@ public class SystemController extends GUI implements ActionListener {
         unboxingButton[2].addActionListener(this);
         Thread.sleep(1000);
         // loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34,
-        // (byte) 4);
+        l2.setVisible(true); // (byte) 4);
         loading(true, true, (byte) 1, (byte) 12, (byte) 22, (byte) 2, (byte) 34, (byte) 4);
         l.setVisible(false);
         l2.setVisible(false);
@@ -489,7 +489,6 @@ public class SystemController extends GUI implements ActionListener {
                  * searchB3.setVisible(false);
                  * searchB4.setVisible(false);
                  */
-
             }
             Thread.sleep(1000);
 
@@ -693,8 +692,6 @@ public class SystemController extends GUI implements ActionListener {
         }
 
     }
-
-
 
     public String randomName() {
         int x = (int) (Math.random() * 100);

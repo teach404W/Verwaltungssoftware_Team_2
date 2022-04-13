@@ -44,7 +44,7 @@ Alle UI's haben fast die gleichen Eigenschaften.
 
 #
 
-##    `JPanel`
+##    `(JPanel, JLabel, JButton, JTextArea, JTextField)`
 
 > ### `setBackground(Color)` 
 
@@ -63,16 +63,5 @@ Alle UI's haben fast die gleichen Eigenschaften.
   > Wenn x-Position und y-Position 0 sind, dann wird die Position oben links sein | Je mehr der Wert von Breite ist, desto breiter wird das Objekt sein. Das gleicht gilt für die Höhe.
 #
 
-##    `JLabel`
- > ### `setBounds(x-Position, y-Position, Breite, Höhe)` 
-
-  > Wenn x-Position und y-Position 0 sind, dann wird die Position oben links sein | Je mehr der Wert von Breite ist, desto breiter wird das Objekt sein. Das gleicht gilt für die Höhe.
 
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).

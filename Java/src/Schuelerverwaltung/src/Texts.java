@@ -3,7 +3,7 @@ import java.util.Random;
 public class Texts {
 
     Random r1 = new Random();
-    int r2 = r1.nextInt(13);
+    int r2 = r1.nextInt(14);
 
     String loadingtex[] = {
             "System lädt",
@@ -101,7 +101,7 @@ public class Texts {
             "Winner",
             "Dust",
             "Nemesis",
-            "Final Fantasy" + r2,
+            "Final Fantasy" + (r2 +1),
             "Terminator",
             "User",
             "Axe",
