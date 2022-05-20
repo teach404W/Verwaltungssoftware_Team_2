@@ -30,7 +30,7 @@ Hier sind alle Aktzeptanz Kriterien, die das Projekt beinhalten muss.
 > ### Subklasse: `GUI`
 
    ### `Beziehung zwischen Klassen` 
-  > ### `Assoziation:` Kare `--` DataStore
+  > ### `Assoziation:` Karte `--` DataStore
 
   > ### `Aggregation:` Karte `o--` User
 
